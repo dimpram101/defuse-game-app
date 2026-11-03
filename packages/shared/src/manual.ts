@@ -52,16 +52,15 @@ export function manualFor(phase: Phase, module: ModuleNo): Manual {
   };
 }
 
-const ROTATION_START: Record<Phase, number> = { round1: 0, round2: 3, final: 6 };
-
 /**
  * The Defuser for modules 1–3, from the team ordered by defuser_order.
- * Round 1 starts at member 1, Round 2 at member 4, Final continues the rotation, wrapping
- * around small teams (5 players: R1 1,2,3 · R2 4,5,1; 4 players: R2 4,1,2; 1 player defuses all three).
+ * Each round continues the rotation: Round 1 starts at member 1, Round 2 at member 4, the next round
+ * (an extra round or the Final) at member 7, wrapping around small teams
+ * (5 players: R1 1,2,3 · R2 4,5,1; 4 players: R2 4,1,2; 1 player defuses all three).
  */
-export function pickDefusers(memberIds: number[], phase: Phase): number[] {
+export function pickDefusers(memberIds: number[], round: number): number[] {
   if (memberIds.length === 0) return [];
-  const start = ROTATION_START[phase];
+  const start = (round - 1) * 3;
   return [0, 1, 2].map((i) => memberIds[(start + i) % memberIds.length]!);
 }
 

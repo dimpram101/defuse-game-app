@@ -1,5 +1,5 @@
 import type { GameView, Me, PlaySnapshot } from "@defuse/shared";
-import { NICKNAME_MAX, PHASE_LABELS } from "@defuse/shared/api";
+import { NICKNAME_MAX, roundLabel } from "@defuse/shared/api";
 import { useEffect, useState, type FormEvent, type ReactNode } from "react";
 import { api, ApiError } from "../lib/api";
 import { DEVICE_TOKEN, deviceStorage, isTestMode } from "../lib/storage";
@@ -129,7 +129,7 @@ function StatusBar({ snap, receivedAt }: { snap: PlaySnapshot; receivedAt: numbe
       <div className="min-w-0 flex-1">
         <p className="truncate font-semibold">{me.team.name}</p>
         <p className="text-sm text-on-surface-muted">
-          {me.player.nickname} · {PHASE_LABELS[game.phase]} · <span className="font-mono">{team?.score ?? 0}</span> pts
+          {me.player.nickname} · {roundLabel(game.phase, game.round)} · <span className="font-mono">{team?.score ?? 0}</span> pts
         </p>
       </div>
       {showTimer && (

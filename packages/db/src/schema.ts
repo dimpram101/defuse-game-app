@@ -16,6 +16,8 @@ export const games = pgTable("games", {
   id: serial("id").primaryKey(),
   status: gameStatus("status").notNull().default("lobby"),
   phase: phase("phase").notNull().default("round1"),
+  // 1, 2, 3… The GM may add rounds after Round 2 (played at round2 difficulty) before the Final, which is the last number.
+  round: smallint("round").notNull().default(1),
   // No FK: turns references games, and the cycle isn't worth the migration ordering.
   currentTurnId: integer("current_turn_id"),
   createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
@@ -44,6 +46,7 @@ export const turns = pgTable("turns", {
   gameId: integer("game_id").notNull().references(() => games.id, { onDelete: "cascade" }),
   teamId: integer("team_id").notNull().references(() => teams.id, { onDelete: "cascade" }),
   phase: phase("phase").notNull(),
+  round: smallint("round").notNull().default(1),
   seed: integer("seed").notNull(),
   status: turnStatus("status").notNull().default("betting"),
   startedAt: timestamp("started_at", { withTimezone: true }),

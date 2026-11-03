@@ -28,7 +28,7 @@ Fase 4 dan 5.
 
 **Final (FR-37)**
 
-- [ ] Tombol "Start Final" di `/gm` dari status `leaderboard` setelah Ronde 2
+- [x] Tombol "Start Final" di `/gm` dari status `leaderboard` setelah Ronde 2 atau ronde tambahan (dikerjakan bersama ronde tambahan, lihat Fase 4)
 - [ ] Pilihan "Top 2 teams only" (rencana cadangan kalau acara molor)
 - [ ] Urutan giliran dihitung saat Final dimulai: skor terendah lebih dulu, seri diurutkan `turn_order`
 - [ ] Giliran Final memakai `phase = "final"` dan durasi 150 dtk. Isi manual Final (aturan NEW, arah baca terbalik, tabel kata baru) sudah disiapkan di Fase 3

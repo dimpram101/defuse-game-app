@@ -7,7 +7,10 @@ export const TEAM_NAME_MAX = 20;
 export type GameStatus = "lobby" | "betting" | "playing" | "paused" | "result" | "leaderboard" | "finished";
 export type Phase = "round1" | "round2" | "final";
 
+/** Difficulty names (practice bomb, manual preview). A live session shows `roundLabel` instead. */
 export const PHASE_LABELS: Record<Phase, string> = { round1: "Round 1", round2: "Round 2", final: "Final" };
+/** Round 3 onwards is played at round2 difficulty; the Final is always just "Final". */
+export const roundLabel = (phase: Phase, round: number) => (phase === "final" ? "Final" : `Round ${round}`);
 /** Bomb time per turn: 3 minutes, 2.5 in the Final. */
 export const TURN_SECONDS: Record<Phase, number> = { round1: 180, round2: 180, final: 150 };
 /** How long the "Switch Defuser" notice shows after modules 1 and 2. It never blocks the bomb; the clock keeps running. */
@@ -25,6 +28,7 @@ export type PublicGame = {
   id: number;
   status: GameStatus;
   phase: Phase;
+  round: number;
   joinUrl: string;
   teams: PublicTeam[];
 };

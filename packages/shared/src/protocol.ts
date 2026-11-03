@@ -29,6 +29,7 @@ export type TurnView = {
   number: number;
   teamId: number;
   phase: Phase;
+  round: number;
   status: TurnStatus;
   module: ModuleNo;
   strikes: number;
@@ -42,6 +43,7 @@ export type GameView = {
   id: number;
   status: GameStatus;
   phase: Phase;
+  round: number;
   joinUrl: string;
   teams: TeamView[];
   turn: TurnView | null;
@@ -57,7 +59,8 @@ export type GmNext =
   | { kind: "open_turn"; teamId: number }
   | { kind: "start_turn" }
   | { kind: "leaderboard" }
-  | { kind: "next_round"; phase: Phase }
+  /** From Round 2 on, `extraRound` is also offered: one more round at round2 difficulty instead of the Final. */
+  | { kind: "next_round"; round: number; phase: Phase; extraRound: number | null }
   | { kind: "finish" }
   | { kind: "none"; reason: string };
 
@@ -73,7 +76,8 @@ export type PlaySnapshot = { role: "play"; game: GameView | null; me: Me | null;
 
 export type Snapshot = ScreenSnapshot | GmSnapshot | PlaySnapshot;
 
-export type GmCommand = "next" | "pause" | "resume" | "end";
+/** "extra_round" is only valid when `next.extraRound` is set. */
+export type GmCommand = "next" | "extra_round" | "pause" | "resume" | "end";
 
 export type ClientMessage =
   | { type: "hello"; role: "screen" | "gm" | "play"; deviceToken?: string; gmToken?: string }

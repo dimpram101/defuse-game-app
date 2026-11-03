@@ -1,6 +1,6 @@
 import { asc, desc, eq, schema, sql, type Db } from "@defuse/db";
 import {
-  checkAnswer, expire, generateBomb, newBombState, pickDefusers, playView, remainingMs, scoreTurn,
+  checkAnswer, expire, generateBomb, newBombState, pickDefusers, playView, remainingMs, roundLabel, scoreTurn,
   solvedModules, toBombView, HANDOVER_MS, TURN_SECONDS,
   type Bomb, type BombState, type ClientMessage, type DefuserAction, type GameView, type GmCommand, type GmSnapshot,
   type Me, type ModuleNo, type Phase, type PlaySnapshot, type ScreenSnapshot, type ServerMessage, type TeamColor,
@@ -143,23 +143,27 @@ export class LiveGame {
       const { game, turn } = s;
       const now = new Date(this.now());
 
-      if (command === "next") {
-        const step = nextStep(this.flowState(s));
+      if (command === "next" || command === "extra_round") {
+        let step = nextStep(this.flowState(s));
+        if (command === "extra_round") {
+          if (step.kind !== "next_round" || step.extraRound === null) throw new CommandError("An extra round can only start from the leaderboard after Round 2.");
+          step = { ...step, phase: "round2" };
+        }
         if (step.kind === "none") throw new CommandError(step.reason);
-        if (step.kind === "open_turn") await this.openTurn(tx, game.id, step.teamId, game.phase);
+        if (step.kind === "open_turn") await this.openTurn(tx, game.id, step.teamId, game.phase, game.round);
         else if (step.kind === "start_turn") {
           const members = s.players.filter((p) => p.teamId === turn!.teamId).map((p) => p.id);
           await tx.update(turns).set({
-            status: "playing", startedAt: now, bombState: newBombState(), defuserIds: pickDefusers(members, turn!.phase),
+            status: "playing", startedAt: now, bombState: newBombState(), defuserIds: pickDefusers(members, turn!.round),
           }).where(eq(turns.id, turn!.id));
           await tx.update(games).set({ status: "playing" }).where(eq(games.id, game.id));
         } else if (step.kind === "leaderboard") {
           await tx.update(games).set({ status: "leaderboard", currentTurnId: null }).where(eq(games.id, game.id));
         } else if (step.kind === "next_round") {
-          await tx.update(games).set({ phase: step.phase }).where(eq(games.id, game.id));
-          const [first] = queueFor({ ...this.flowState(s), game: { ...game, phase: step.phase } }, step.phase);
-          if (first === undefined) throw new CommandError(`No team with players for ${step.phase}.`);
-          await this.openTurn(tx, game.id, first, step.phase);
+          const [first] = queueFor(this.flowState(s), step.round);
+          if (first === undefined) throw new CommandError(`No team with players for ${roundLabel(step.phase, step.round)}.`);
+          await tx.update(games).set({ phase: step.phase, round: step.round }).where(eq(games.id, game.id));
+          await this.openTurn(tx, game.id, first, step.phase, step.round);
         } else {
           await tx.update(games).set({ status: "finished" }).where(eq(games.id, game.id));
         }
@@ -185,9 +189,9 @@ export class LiveGame {
     await this.broadcast();
   }
 
-  private async openTurn(tx: Tx, gameId: number, teamId: number, phase: Phase) {
+  private async openTurn(tx: Tx, gameId: number, teamId: number, phase: Phase, round: number) {
     const [t] = await tx.insert(turns).values({
-      gameId, teamId, phase, seed: 1 + Math.floor(Math.random() * 2_000_000_000), status: "betting", durationSec: TURN_SECONDS[phase],
+      gameId, teamId, phase, round, seed: 1 + Math.floor(Math.random() * 2_000_000_000), status: "betting", durationSec: TURN_SECONDS[phase],
     }).returning();
     await tx.update(games).set({ status: "betting", currentTurnId: t!.id }).where(eq(games.id, gameId));
   }
@@ -305,6 +309,7 @@ export class LiveGame {
         number: s.turns.findIndex((x) => x.id === t.id) + 1,
         teamId: t.teamId,
         phase: t.phase,
+        round: t.round,
         status: t.status,
         module: state.module,
         strikes: state.strikes,
@@ -323,6 +328,7 @@ export class LiveGame {
       id: s.game.id,
       status: s.game.status,
       phase: s.game.phase,
+      round: s.game.round,
       joinUrl: this.joinUrl,
       teams: s.teams.map((t) => ({
         id: t.id,
@@ -332,7 +338,7 @@ export class LiveGame {
         players: s.players.filter((p) => p.teamId === t.id).map((p) => ({ id: p.id, nickname: p.nickname, online: online.has(p.id) })),
       })),
       turn: s.turn ? turnView(s.turn) : null,
-      queue: queueFor(this.flowState(s), s.game.phase),
+      queue: queueFor(this.flowState(s), s.game.round),
     };
   }
 
@@ -345,7 +351,7 @@ export class LiveGame {
       const team = s.teams.find((t) => t.id === turn.teamId)!;
       const members = s.players.filter((p) => p.teamId === turn.teamId).map((p) => p.id);
       const module = turn.bombState?.module ?? 1;
-      const defuser = (turn.defuserIds ?? pickDefusers(members, turn.phase))[module - 1];
+      const defuser = (turn.defuserIds ?? pickDefusers(members, turn.round))[module - 1];
       if (!members.some((id) => id !== defuser && online.has(id))) out.push(`No Expert of ${team.name} is online.`);
     }
     return out;
@@ -365,7 +371,7 @@ export class LiveGame {
             phase: t.phase,
             module: t.bombState?.module ?? 1,
             // Before Start the Defusers aren't stored yet; preview them so module 1's Defuser never sees the manual.
-            defuserIds: t.defuserIds ?? pickDefusers(s.players.filter((p) => p.teamId === t.teamId).map((p) => p.id), t.phase),
+            defuserIds: t.defuserIds ?? pickDefusers(s.players.filter((p) => p.teamId === t.teamId).map((p) => p.id), t.round),
             status: t.status,
           }
         : null,

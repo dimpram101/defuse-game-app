@@ -6,14 +6,14 @@
   "4": "Defuse! – Contoh Modul",
   "5": "Defuse! – Spesifikasi Sistem (SRS Ringkas)",
   "6": "Defuse! – Design System",
-  "7": "src/live.ts",
+  "7": "app.ts",
   "8": "package.json",
   "9": "server/package.json",
   "10": "db/package.json",
   "11": "schema.ts",
   "12": "compilerOptions",
   "13": "web/tsconfig.json",
-  "14": "shared/src/index.ts",
+  "14": "ManualView.tsx",
   "15": "shared/package.json",
   "16": "Fase 5 · Penonton",
   "17": "server/tsconfig.json",
@@ -26,7 +26,7 @@
   "24": "Fase 4 · Giliran realtime",
   "25": "content/package.json",
   "26": "content/tsconfig.json",
-  "27": "flow.ts",
+  "27": "src/live.ts",
   "28": "Fase 7 · Uji dan hari-H",
   "29": "Fase 3 · Manual di HP",
   "30": "Fase 6 · Final dan perapian",
@@ -34,5 +34,6 @@
   "32": "README.md",
   "33": "Modul bom dan isi manual",
   "34": "Defuse! · Planning",
-  "35": "LiveGame"
+  "35": "LiveGame",
+  "36": "shared/src/index.ts"
 }

@@ -134,8 +134,50 @@ describe("a full turn", () => {
     await gmDev.say({ type: "gm", command: "next" });
     expect(screen.last<ScreenSnapshot>().game!.status).toBe("leaderboard");
     await gmDev.say({ type: "gm", command: "next" });
-    expect(screen.last<ScreenSnapshot>().game).toMatchObject({ phase: "round2", status: "betting", turn: { teamId: teamIds[0], number: 3 } });
+    expect(screen.last<ScreenSnapshot>().game).toMatchObject({ phase: "round2", round: 2, status: "betting", turn: { teamId: teamIds[0], number: 3 } });
     void dewi;
+  });
+});
+
+describe("extra rounds", () => {
+  /** Plays every team of the current round by letting the bomb time out, then shows the leaderboard. */
+  async function timeOutRound(g: ReturnType<typeof device>) {
+    for (let k = g.last<GmSnapshot>().next.kind; k === "open_turn" || k === "start_turn"; k = g.last<GmSnapshot>().next.kind) {
+      if (k === "open_turn") await g.say({ type: "gm", command: "next" });
+      await g.say({ type: "gm", command: "next" });
+      clock += 200_000;
+      await live.tick();
+    }
+    await g.say({ type: "gm", command: "next" });
+    expect(g.last<GmSnapshot>().game!.status).toBe("leaderboard");
+  }
+
+  test("after Round 2 the GM picks one more round at Round 2 difficulty, or the Final", async () => {
+    await setup();
+    const g = device("gm");
+    await g.say({ type: "hello", role: "gm", gmToken: token });
+
+    await timeOutRound(g);
+    expect(g.last<GmSnapshot>().next).toEqual({ kind: "next_round", round: 2, phase: "round2", extraRound: null });
+    await g.say({ type: "gm", command: "extra_round" });
+    expect(g.errors()).toEqual(["An extra round can only start from the leaderboard after Round 2."]);
+    await g.say({ type: "gm", command: "next" });
+    await timeOutRound(g);
+
+    expect(g.last<GmSnapshot>().next).toEqual({ kind: "next_round", round: 3, phase: "final", extraRound: 3 });
+    await g.say({ type: "gm", command: "extra_round" });
+    expect(g.last<GmSnapshot>().game).toMatchObject({
+      phase: "round2", round: 3, status: "betting", turn: { phase: "round2", round: 3, timer: { durationMs: 180_000 } },
+    });
+    await timeOutRound(g);
+
+    expect(g.last<GmSnapshot>().next).toEqual({ kind: "next_round", round: 4, phase: "final", extraRound: 4 });
+    await g.say({ type: "gm", command: "next" });
+    expect(g.last<GmSnapshot>().game).toMatchObject({
+      phase: "final", round: 4, turn: { phase: "final", round: 4, timer: { durationMs: 150_000 } },
+    });
+    await timeOutRound(g);
+    expect(g.last<GmSnapshot>().next).toEqual({ kind: "finish" });
   });
 });
 

@@ -1,5 +1,5 @@
 import type { GameView, GmNext, GmSnapshot, NewTeam, TeamColor } from "@defuse/shared";
-import { PHASE_LABELS, TEAM_COLORS, TEAM_NAME_MAX } from "@defuse/shared/api";
+import { roundLabel, TEAM_COLORS, TEAM_NAME_MAX } from "@defuse/shared/api";
 import { useEffect, useState, type FormEvent, type ReactNode } from "react";
 import { api, ApiError } from "../lib/api";
 import { GM_TOKEN, storage } from "../lib/storage";
@@ -166,7 +166,7 @@ function nextLabel(next: GmNext, game: GameView | null) {
     case "open_turn": return `Call up ${team(next.teamId)}`;
     case "start_turn": return "Start the bomb";
     case "leaderboard": return "Show leaderboard";
-    case "next_round": return `Start ${PHASE_LABELS[next.phase]}`;
+    case "next_round": return `Start ${roundLabel(next.phase, next.round)}`;
     case "finish": return "Finish the game";
     default: return next.reason;
   }
@@ -229,7 +229,7 @@ function Control({ token, onLocked }: { token: string; onLocked: () => void }) {
       <header>
         <p className="text-sm text-on-surface-muted">Session #{game.id}{connected ? "" : " · reconnecting…"}</p>
         <h1 className="font-display text-[32px] leading-tight font-semibold">
-          {PHASE_LABELS[game.phase]} <span className="text-on-surface-muted">· {game.status}</span>
+          {roundLabel(game.phase, game.round)} <span className="text-on-surface-muted">· {game.status}</span>
         </h1>
       </header>
 
@@ -268,9 +268,17 @@ function Control({ token, onLocked }: { token: string; onLocked: () => void }) {
           <Button disabled={nextDisabled} onClick={() => send({ type: "gm", command: "next" })}>
             {nextLabel(snapshot.next, game)}
           </Button>
+          {snapshot.next.kind === "next_round" && snapshot.next.extraRound !== null && (
+            <Button variant="secondary" onClick={() => send({ type: "gm", command: "extra_round" })}>
+              Start Round {snapshot.next.extraRound} instead
+            </Button>
+          )}
           {turn?.status === "playing" && <Button variant="secondary" onClick={() => send({ type: "gm", command: "pause" })}>Pause timer</Button>}
           {turn?.status === "paused" && <Button variant="secondary" onClick={() => send({ type: "gm", command: "resume" })}>Resume timer</Button>}
         </div>
+        {snapshot.next.kind === "next_round" && snapshot.next.extraRound !== null && (
+          <p className="mt-3 text-on-surface-muted">Round {snapshot.next.extraRound} uses the Round 2 bomb and manual. The Final can still come after it.</p>
+        )}
         {error && error !== "Enter the GM PIN again." && <p role="alert" className="mt-3 text-error">{error}</p>}
       </Group>
 

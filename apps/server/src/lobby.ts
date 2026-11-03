@@ -24,6 +24,7 @@ export async function getPublicGame(db: Db, joinUrl: string): Promise<PublicGame
     id: game.id,
     status: game.status,
     phase: game.phase,
+    round: game.round,
     joinUrl,
     teams: teamRows.map((t) => ({
       id: t.id,

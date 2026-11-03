@@ -21,7 +21,7 @@ const clientMessage = t.Union([
     gmToken: t.Optional(t.String({ maxLength: 200 })),
   }),
   t.Object({ type: t.Literal("defuser"), turnId: t.Integer(), action: defuserAction }),
-  t.Object({ type: t.Literal("gm"), command: t.UnionEnum(["next", "pause", "resume", "end"]) }),
+  t.Object({ type: t.Literal("gm"), command: t.UnionEnum(["next", "extra_round", "pause", "resume", "end"]) }),
 ]);
 
 export function createApp({ db, gm, live, joinUrl, webDist }: Deps) {

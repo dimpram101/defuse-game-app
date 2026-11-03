@@ -2,6 +2,25 @@
 
 Entri terbaru di atas. Format ada di `CLAUDE.md` bagian "Aturan proyek".
 
+## 2026-11-03 · Ronde tambahan sebelum Final
+
+**Perubahan:**
+- `packages/db`: kolom `round` (smallint, default 1) di `games` dan `turns`; migrasi `0004_extra_rounds` mengisi data lama (round2 → 2, final → 3).
+- `packages/shared`: `roundLabel(phase, round)`; `round` di `GameView`, `TurnView`, `PublicGame`; `GmNext.next_round` berisi `round` dan `extraRound`; perintah GM baru `extra_round`; `pickDefusers(members, round)` memutar per nomor ronde (mulai anggota `3(n−1)+1`).
+- `apps/server/src/flow.ts`: antrean per nomor ronde; dari leaderboard Ronde 2+ tombol utama = Final, `extraRound` = ronde berikutnya di tingkat Ronde 2. `live.ts` menjalankan `extra_round`, menyimpan `round` di giliran baru.
+- `apps/web`: tombol "Start Round N instead" + keterangan di `/gm`; label "Round 3" di `/screen` dan `/play`.
+- Tes: `flow.test.ts`, `manual.test.ts`, `live.test.ts` (Ronde 1 → 2 → 3 tambahan → Final 150 dtk → finish).
+- Dokumen: Fase 4 (ronde tambahan), Fase 5 (batas Sabotage per ronde), Fase 6 (tombol Start Final dicentang).
+
+**Keputusan:**
+- User: setelah Ronde 2, GM boleh lanjut ke Ronde 3, 4, … dengan kesulitan Ronde 2 sebelum Final. Nomor ronde dipisah dari `phase` supaya bank soal, manual, dan durasi tetap ditentukan oleh `phase`.
+- Final tetap tombol utama karena itu alur konsep; ronde tambahan tombol kedua. Tidak ada batas jumlah ronde.
+- Bukti: `bun test` 74 lulus, typecheck dan build lulus. Tampilan tombol baru belum dicek di browser.
+
+**Berikutnya:**
+- Restart `bun run dev` supaya migrasi `0004` jalan.
+- Fase 5: Bet, Sabotage, twist.
+
 ## 2026-11-03 · Pergantian Defuser jadi toast, tanpa mengunci bom
 
 **Perubahan:**

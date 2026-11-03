@@ -30,19 +30,6 @@
       "source_location": "L7"
     },
     {
-      "id": "packages_shared_src_api_me",
-      "label": "Me",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "GmPage.tsx",
-      "file_type": "code",
-      "norm_label": "me",
-      "source_file": "packages/shared/src/api.ts",
-      "source_location": "L32"
-    },
-    {
       "id": "packages_shared_src_api_newteam",
       "label": "NewTeam",
       "_callable": true,
@@ -53,7 +40,7 @@
       "file_type": "code",
       "norm_label": "newteam",
       "source_file": "packages/shared/src/api.ts",
-      "source_location": "L37"
+      "source_location": "L41"
     },
     {
       "id": "packages_shared_src_api_publicteam",
@@ -66,7 +53,7 @@
       "file_type": "code",
       "norm_label": "publicteam",
       "source_file": "packages/shared/src/api.ts",
-      "source_location": "L16"
+      "source_location": "L19"
     },
     {
       "id": "packages_shared_src_api_teamcolor",
@@ -106,19 +93,6 @@
       "norm_label": "moduleno",
       "source_file": "packages/shared/src/play.ts",
       "source_location": "L4"
-    },
-    {
-      "id": "packages_shared_src_api_phase",
-      "label": "Phase",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 21,
-      "community_name": "bomb.ts",
-      "file_type": "code",
-      "norm_label": "phase",
-      "source_file": "packages/shared/src/api.ts",
-      "source_location": "L8"
     },
     {
       "id": "packages_shared_src_bomb_cond",
@@ -170,7 +144,7 @@
       "file_type": "code",
       "norm_label": "playview",
       "source_file": "packages/shared/src/manual.ts",
-      "source_location": "L86"
+      "source_location": "L85"
     },
     {
       "id": "packages_shared_src_manual_symbolsmanual",
@@ -196,7 +170,7 @@
       "file_type": "code",
       "norm_label": "turnforplay",
       "source_file": "packages/shared/src/manual.ts",
-      "source_location": "L68"
+      "source_location": "L67"
     },
     {
       "id": "packages_shared_src_manual_wiresmanual",
@@ -225,240 +199,6 @@
       "source_location": "L16"
     },
     {
-      "id": "apps_server_src_flow_flowstate",
-      "label": "FlowState",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "src/live.ts",
-      "file_type": "code",
-      "norm_label": "flowstate",
-      "source_file": "apps/server/src/flow.ts",
-      "source_location": "L5"
-    },
-    {
-      "id": "apps_server_src_live_conn",
-      "label": "Conn",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "src/live.ts",
-      "file_type": "code",
-      "norm_label": "conn",
-      "source_file": "apps/server/src/live.ts",
-      "source_location": "L18"
-    },
-    {
-      "id": "apps_server_src_live_turnrow",
-      "label": "TurnRow",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "src/live.ts",
-      "file_type": "code",
-      "norm_label": "turnrow",
-      "source_file": "apps/server/src/live.ts",
-      "source_location": "L14"
-    },
-    {
-      "id": "apps_server_src_live_tx",
-      "label": "Tx",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "src/live.ts",
-      "file_type": "code",
-      "norm_label": "tx",
-      "source_file": "apps/server/src/live.ts",
-      "source_location": "L13"
-    },
-    {
-      "id": "packages_shared_src_protocol_bombboard",
-      "label": "BombBoard",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "src/live.ts",
-      "file_type": "code",
-      "norm_label": "bombboard",
-      "source_file": "packages/shared/src/protocol.ts",
-      "source_location": "L52"
-    },
-    {
-      "id": "packages_shared_src_protocol_clientmessage",
-      "label": "ClientMessage",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "src/live.ts",
-      "file_type": "code",
-      "norm_label": "clientmessage",
-      "source_file": "packages/shared/src/protocol.ts",
-      "source_location": "L78"
-    },
-    {
-      "id": "packages_shared_src_protocol_gameview",
-      "label": "GameView",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "src/live.ts",
-      "file_type": "code",
-      "norm_label": "gameview",
-      "source_file": "packages/shared/src/protocol.ts",
-      "source_location": "L41"
-    },
-    {
-      "id": "packages_shared_src_protocol_gmcommand",
-      "label": "GmCommand",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "src/live.ts",
-      "file_type": "code",
-      "norm_label": "gmcommand",
-      "source_file": "packages/shared/src/protocol.ts",
-      "source_location": "L76"
-    },
-    {
-      "id": "packages_shared_src_protocol_gmnext",
-      "label": "GmNext",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "src/live.ts",
-      "file_type": "code",
-      "norm_label": "gmnext",
-      "source_file": "packages/shared/src/protocol.ts",
-      "source_location": "L56"
-    },
-    {
-      "id": "packages_shared_src_protocol_gmsnapshot",
-      "label": "GmSnapshot",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "src/live.ts",
-      "file_type": "code",
-      "norm_label": "gmsnapshot",
-      "source_file": "packages/shared/src/protocol.ts",
-      "source_location": "L64"
-    },
-    {
-      "id": "packages_shared_src_protocol_playsnapshot",
-      "label": "PlaySnapshot",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "src/live.ts",
-      "file_type": "code",
-      "norm_label": "playsnapshot",
-      "source_file": "packages/shared/src/protocol.ts",
-      "source_location": "L72"
-    },
-    {
-      "id": "packages_shared_src_protocol_screensnapshot",
-      "label": "ScreenSnapshot",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "src/live.ts",
-      "file_type": "code",
-      "norm_label": "screensnapshot",
-      "source_file": "packages/shared/src/protocol.ts",
-      "source_location": "L54"
-    },
-    {
-      "id": "packages_shared_src_protocol_servermessage",
-      "label": "ServerMessage",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "src/live.ts",
-      "file_type": "code",
-      "norm_label": "servermessage",
-      "source_file": "packages/shared/src/protocol.ts",
-      "source_location": "L83"
-    },
-    {
-      "id": "packages_shared_src_protocol_snapshot",
-      "label": "Snapshot",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "src/live.ts",
-      "file_type": "code",
-      "norm_label": "snapshot",
-      "source_file": "packages/shared/src/protocol.ts",
-      "source_location": "L74"
-    },
-    {
-      "id": "packages_shared_src_protocol_teamview",
-      "label": "TeamView",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "src/live.ts",
-      "file_type": "code",
-      "norm_label": "teamview",
-      "source_file": "packages/shared/src/protocol.ts",
-      "source_location": "L16"
-    },
-    {
-      "id": "packages_shared_src_protocol_timerview",
-      "label": "TimerView",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "src/live.ts",
-      "file_type": "code",
-      "norm_label": "timerview",
-      "source_file": "packages/shared/src/protocol.ts",
-      "source_location": "L7"
-    },
-    {
-      "id": "packages_shared_src_protocol_turnstatus",
-      "label": "TurnStatus",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "src/live.ts",
-      "file_type": "code",
-      "norm_label": "turnstatus",
-      "source_file": "packages/shared/src/protocol.ts",
-      "source_location": "L24"
-    },
-    {
-      "id": "packages_shared_src_protocol_turnview",
-      "label": "TurnView",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "src/live.ts",
-      "file_type": "code",
-      "norm_label": "turnview",
-      "source_file": "packages/shared/src/protocol.ts",
-      "source_location": "L26"
-    },
-    {
       "id": "apps_server_src_live_commanderror",
       "label": "CommandError",
       "_callable": true,
@@ -485,13 +225,26 @@
       "source_location": "L34"
     },
     {
+      "id": "packages_shared_src_protocol_gameview",
+      "label": "GameView",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 35,
+      "community_name": "LiveGame",
+      "file_type": "code",
+      "norm_label": "gameview",
+      "source_file": "packages/shared/src/protocol.ts",
+      "source_location": "L42"
+    },
+    {
       "id": "apps_web_src_bomb_bombboard_timermode",
       "label": "TimerMode",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "community": 36,
-      "community_name": "shared/src/index.ts",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "timermode",
       "source_file": "apps/web/src/bomb/BombBoard.tsx",
@@ -504,7 +257,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 36,
-      "community_name": "shared/src/index.ts",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "led",
       "source_file": "apps/web/src/bomb/Chassis.tsx",
@@ -517,7 +270,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 36,
-      "community_name": "shared/src/index.ts",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "bomb",
       "source_file": "packages/shared/src/bomb.ts",
@@ -530,7 +283,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 36,
-      "community_name": "shared/src/index.ts",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "color",
       "source_file": "packages/shared/src/bomb.ts",
@@ -543,7 +296,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 36,
-      "community_name": "shared/src/index.ts",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "bombstate",
       "source_file": "packages/shared/src/play.ts",
@@ -556,7 +309,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 36,
-      "community_name": "shared/src/index.ts",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "bombview",
       "source_file": "packages/shared/src/play.ts",
@@ -569,7 +322,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 36,
-      "community_name": "shared/src/index.ts",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "defuseraction",
       "source_file": "packages/shared/src/play.ts",
@@ -582,7 +335,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 36,
-      "community_name": "shared/src/index.ts",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "outcome",
       "source_file": "packages/shared/src/play.ts",
@@ -595,7 +348,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 36,
-      "community_name": "shared/src/index.ts",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "scoreline",
       "source_file": "packages/shared/src/scoring.ts",
@@ -608,7 +361,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 36,
-      "community_name": "shared/src/index.ts",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "turnclock",
       "source_file": "packages/shared/src/scoring.ts",
@@ -621,7 +374,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "app.ts",
+      "community_name": "src/live.ts",
       "file_type": "code",
       "norm_label": "deps",
       "source_file": "apps/server/src/app.ts",
@@ -634,10 +387,23 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "app.ts",
+      "community_name": "src/live.ts",
       "file_type": "code",
       "norm_label": "env",
       "source_file": "apps/server/src/env.ts",
+      "source_location": "L3"
+    },
+    {
+      "id": "apps_server_src_flow_flowstate",
+      "label": "FlowState",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "src/live.ts",
+      "file_type": "code",
+      "norm_label": "flowstate",
+      "source_file": "apps/server/src/flow.ts",
       "source_location": "L3"
     },
     {
@@ -647,11 +413,50 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "app.ts",
+      "community_name": "src/live.ts",
       "file_type": "code",
       "norm_label": "gmauth",
       "source_file": "apps/server/src/gm-auth.ts",
       "source_location": "L32"
+    },
+    {
+      "id": "apps_server_src_live_conn",
+      "label": "Conn",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "src/live.ts",
+      "file_type": "code",
+      "norm_label": "conn",
+      "source_file": "apps/server/src/live.ts",
+      "source_location": "L18"
+    },
+    {
+      "id": "apps_server_src_live_turnrow",
+      "label": "TurnRow",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "src/live.ts",
+      "file_type": "code",
+      "norm_label": "turnrow",
+      "source_file": "apps/server/src/live.ts",
+      "source_location": "L14"
+    },
+    {
+      "id": "apps_server_src_live_tx",
+      "label": "Tx",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "src/live.ts",
+      "file_type": "code",
+      "norm_label": "tx",
+      "source_file": "apps/server/src/live.ts",
+      "source_location": "L13"
     },
     {
       "id": "apps_server_src_lobby_lobbyerror",
@@ -660,7 +465,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "app.ts",
+      "community_name": "src/live.ts",
       "file_type": "code",
       "norm_label": "lobbyerror",
       "source_file": "apps/server/src/lobby.ts",
@@ -673,11 +478,37 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "app.ts",
+      "community_name": "src/live.ts",
       "file_type": "code",
       "norm_label": "db",
       "source_file": "packages/db/src/index.ts",
       "source_location": "L13"
+    },
+    {
+      "id": "packages_shared_src_api_me",
+      "label": "Me",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "src/live.ts",
+      "file_type": "code",
+      "norm_label": "me",
+      "source_file": "packages/shared/src/api.ts",
+      "source_location": "L36"
+    },
+    {
+      "id": "packages_shared_src_api_phase",
+      "label": "Phase",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "src/live.ts",
+      "file_type": "code",
+      "norm_label": "phase",
+      "source_file": "packages/shared/src/api.ts",
+      "source_location": "L8"
     },
     {
       "id": "packages_shared_src_api_publicgame",
@@ -686,23 +517,180 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "app.ts",
+      "community_name": "src/live.ts",
       "file_type": "code",
       "norm_label": "publicgame",
       "source_file": "packages/shared/src/api.ts",
+      "source_location": "L27"
+    },
+    {
+      "id": "packages_shared_src_protocol_bombboard",
+      "label": "BombBoard",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "src/live.ts",
+      "file_type": "code",
+      "norm_label": "bombboard",
+      "source_file": "packages/shared/src/protocol.ts",
+      "source_location": "L54"
+    },
+    {
+      "id": "packages_shared_src_protocol_clientmessage",
+      "label": "ClientMessage",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "src/live.ts",
+      "file_type": "code",
+      "norm_label": "clientmessage",
+      "source_file": "packages/shared/src/protocol.ts",
+      "source_location": "L82"
+    },
+    {
+      "id": "packages_shared_src_protocol_gmcommand",
+      "label": "GmCommand",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "src/live.ts",
+      "file_type": "code",
+      "norm_label": "gmcommand",
+      "source_file": "packages/shared/src/protocol.ts",
+      "source_location": "L80"
+    },
+    {
+      "id": "packages_shared_src_protocol_gmnext",
+      "label": "GmNext",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "src/live.ts",
+      "file_type": "code",
+      "norm_label": "gmnext",
+      "source_file": "packages/shared/src/protocol.ts",
+      "source_location": "L58"
+    },
+    {
+      "id": "packages_shared_src_protocol_gmsnapshot",
+      "label": "GmSnapshot",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "src/live.ts",
+      "file_type": "code",
+      "norm_label": "gmsnapshot",
+      "source_file": "packages/shared/src/protocol.ts",
+      "source_location": "L67"
+    },
+    {
+      "id": "packages_shared_src_protocol_playsnapshot",
+      "label": "PlaySnapshot",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "src/live.ts",
+      "file_type": "code",
+      "norm_label": "playsnapshot",
+      "source_file": "packages/shared/src/protocol.ts",
+      "source_location": "L75"
+    },
+    {
+      "id": "packages_shared_src_protocol_screensnapshot",
+      "label": "ScreenSnapshot",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "src/live.ts",
+      "file_type": "code",
+      "norm_label": "screensnapshot",
+      "source_file": "packages/shared/src/protocol.ts",
+      "source_location": "L56"
+    },
+    {
+      "id": "packages_shared_src_protocol_servermessage",
+      "label": "ServerMessage",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "src/live.ts",
+      "file_type": "code",
+      "norm_label": "servermessage",
+      "source_file": "packages/shared/src/protocol.ts",
+      "source_location": "L87"
+    },
+    {
+      "id": "packages_shared_src_protocol_snapshot",
+      "label": "Snapshot",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "src/live.ts",
+      "file_type": "code",
+      "norm_label": "snapshot",
+      "source_file": "packages/shared/src/protocol.ts",
+      "source_location": "L77"
+    },
+    {
+      "id": "packages_shared_src_protocol_teamview",
+      "label": "TeamView",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "src/live.ts",
+      "file_type": "code",
+      "norm_label": "teamview",
+      "source_file": "packages/shared/src/protocol.ts",
+      "source_location": "L16"
+    },
+    {
+      "id": "packages_shared_src_protocol_timerview",
+      "label": "TimerView",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "src/live.ts",
+      "file_type": "code",
+      "norm_label": "timerview",
+      "source_file": "packages/shared/src/protocol.ts",
+      "source_location": "L7"
+    },
+    {
+      "id": "packages_shared_src_protocol_turnstatus",
+      "label": "TurnStatus",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "src/live.ts",
+      "file_type": "code",
+      "norm_label": "turnstatus",
+      "source_file": "packages/shared/src/protocol.ts",
       "source_location": "L24"
     },
     {
-      "id": "apps_web_src_bomb_bombboard_bombboard",
-      "label": "BombBoard()",
+      "id": "packages_shared_src_protocol_turnview",
+      "label": "TurnView",
       "_callable": true,
+      "_callable_class": true,
       "_origin": "ast",
-      "community": 0,
-      "community_name": "GmPage.tsx",
+      "community": 7,
+      "community_name": "src/live.ts",
       "file_type": "code",
-      "norm_label": "bombboard()",
-      "source_file": "apps/web/src/bomb/BombBoard.tsx",
-      "source_location": "L24"
+      "norm_label": "turnview",
+      "source_file": "packages/shared/src/protocol.ts",
+      "source_location": "L26"
     },
     {
       "id": "apps_web_src_gm_gmpage_confirm",
@@ -738,7 +726,7 @@
       "file_type": "code",
       "norm_label": "gmpage()",
       "source_file": "apps/web/src/gm/GmPage.tsx",
-      "source_location": "L320"
+      "source_location": "L328"
     },
     {
       "id": "apps_web_src_gm_gmpage_group",
@@ -1209,6 +1197,18 @@
       "source_location": "L12"
     },
     {
+      "id": "packages_shared_src_api_roundlabel",
+      "label": "roundLabel()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "GmPage.tsx",
+      "file_type": "code",
+      "norm_label": "roundlabel()",
+      "source_file": "packages/shared/src/api.ts",
+      "source_location": "L13"
+    },
+    {
       "id": "apps_web_src_lib_glyphs_symbolname",
       "label": "symbolName()",
       "_callable": true,
@@ -1327,18 +1327,6 @@
       "norm_label": "expertscreen()",
       "source_file": "apps/web/src/play/RoleScreens.tsx",
       "source_location": "L7"
-    },
-    {
-      "id": "apps_server_src_live_livegame_playsnapshot",
-      "label": ".playSnapshot()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 21,
-      "community_name": "bomb.ts",
-      "file_type": "code",
-      "norm_label": ".playsnapshot()",
-      "source_file": "apps/server/src/live.ts",
-      "source_location": "L354"
     },
     {
       "id": "packages_shared_src_bomb_condtext",
@@ -1521,112 +1509,16 @@
       "source_location": "L25"
     },
     {
-      "id": "packages_shared_src_manual_pickdefusers",
-      "label": "pickDefusers()",
+      "id": "apps_server_src_flow_test_state",
+      "label": "state()",
       "_callable": true,
       "_origin": "ast",
-      "community": 21,
-      "community_name": "bomb.ts",
+      "community": 35,
+      "community_name": "LiveGame",
       "file_type": "code",
-      "norm_label": "pickdefusers()",
-      "source_file": "packages/shared/src/manual.ts",
-      "source_location": "L62"
-    },
-    {
-      "id": "apps_server_src_flow_nextstep",
-      "label": "nextStep()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "src/live.ts",
-      "file_type": "code",
-      "norm_label": "nextstep()",
-      "source_file": "apps/server/src/flow.ts",
-      "source_location": "L22"
-    },
-    {
-      "id": "apps_server_src_flow_queuefor",
-      "label": "queueFor()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "src/live.ts",
-      "file_type": "code",
-      "norm_label": "queuefor()",
-      "source_file": "apps/server/src/flow.ts",
-      "source_location": "L13"
-    },
-    {
-      "id": "apps_server_src_live_ms",
-      "label": "ms()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "src/live.ts",
-      "file_type": "code",
-      "norm_label": "ms()",
-      "source_file": "apps/server/src/live.ts",
-      "source_location": "L25"
-    },
-    {
-      "id": "apps_server_src_live_test_device",
-      "label": "device()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "src/live.ts",
-      "file_type": "code",
-      "norm_label": "device()",
-      "source_file": "apps/server/src/live.test.ts",
-      "source_location": "L16"
-    },
-    {
-      "id": "apps_server_src_live_test_playing",
-      "label": "playing()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "src/live.ts",
-      "file_type": "code",
-      "norm_label": "playing()",
-      "source_file": "apps/server/src/live.test.ts",
-      "source_location": "L202"
-    },
-    {
-      "id": "apps_server_src_live_test_setup",
-      "label": "setup()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "src/live.ts",
-      "file_type": "code",
-      "norm_label": "setup()",
-      "source_file": "apps/server/src/live.test.ts",
-      "source_location": "L35"
-    },
-    {
-      "id": "apps_server_src_live_test_startfirstturn",
-      "label": "startFirstTurn()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "src/live.ts",
-      "file_type": "code",
-      "norm_label": "startfirstturn()",
-      "source_file": "apps/server/src/live.test.ts",
-      "source_location": "L143"
-    },
-    {
-      "id": "apps_server_src_live_test_switchdefuser",
-      "label": "switchDefuser()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "src/live.ts",
-      "file_type": "code",
-      "norm_label": "switchdefuser()",
-      "source_file": "apps/server/src/live.test.ts",
-      "source_location": "L30"
+      "norm_label": "state()",
+      "source_file": "apps/server/src/flow.test.ts",
+      "source_location": "L10"
     },
     {
       "id": "apps_server_src_live_clockof",
@@ -1662,7 +1554,7 @@
       "file_type": "code",
       "norm_label": ".broadcast()",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L271"
+      "source_location": "L275"
     },
     {
       "id": "apps_server_src_live_livegame_changed",
@@ -1710,7 +1602,7 @@
       "file_type": "code",
       "norm_label": ".defuseraction()",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L195"
+      "source_location": "L199"
     },
     {
       "id": "apps_server_src_live_livegame_disconnect",
@@ -1734,7 +1626,7 @@
       "file_type": "code",
       "norm_label": ".finishturn()",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L220"
+      "source_location": "L224"
     },
     {
       "id": "apps_server_src_live_livegame_flowstate",
@@ -1758,7 +1650,7 @@
       "file_type": "code",
       "norm_label": ".gameview()",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L297"
+      "source_location": "L301"
     },
     {
       "id": "apps_server_src_live_livegame_gmcommand",
@@ -1818,7 +1710,19 @@
       "file_type": "code",
       "norm_label": ".openturn()",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L188"
+      "source_location": "L192"
+    },
+    {
+      "id": "apps_server_src_live_livegame_playsnapshot",
+      "label": ".playSnapshot()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 35,
+      "community_name": "LiveGame",
+      "file_type": "code",
+      "norm_label": ".playsnapshot()",
+      "source_file": "apps/server/src/live.ts",
+      "source_location": "L360"
     },
     {
       "id": "apps_server_src_live_livegame_reschedule",
@@ -1830,7 +1734,7 @@
       "file_type": "code",
       "norm_label": ".reschedule()",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L258"
+      "source_location": "L262"
     },
     {
       "id": "apps_server_src_live_livegame_run",
@@ -1854,7 +1758,7 @@
       "file_type": "code",
       "norm_label": ".tick()",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L234"
+      "source_location": "L238"
     },
     {
       "id": "apps_server_src_live_livegame_warnings",
@@ -1866,7 +1770,79 @@
       "file_type": "code",
       "norm_label": ".warnings()",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L339"
+      "source_location": "L345"
+    },
+    {
+      "id": "apps_web_src_screen_practicebomb_practicebomb",
+      "label": "PracticeBomb()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 35,
+      "community_name": "LiveGame",
+      "file_type": "code",
+      "norm_label": "practicebomb()",
+      "source_file": "apps/web/src/screen/PracticeBomb.tsx",
+      "source_location": "L25"
+    },
+    {
+      "id": "apps_web_src_screen_practicebomb_practicebomb_act",
+      "label": "act()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 35,
+      "community_name": "LiveGame",
+      "file_type": "code",
+      "norm_label": "act()",
+      "source_file": "apps/web/src/screen/PracticeBomb.tsx",
+      "source_location": "L79"
+    },
+    {
+      "id": "apps_web_src_screen_practicebomb_practicebomb_finish",
+      "label": "finish()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 35,
+      "community_name": "LiveGame",
+      "file_type": "code",
+      "norm_label": "finish()",
+      "source_file": "apps/web/src/screen/PracticeBomb.tsx",
+      "source_location": "L74"
+    },
+    {
+      "id": "apps_web_src_screen_practicebomb_practicebomb_reset",
+      "label": "reset()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 35,
+      "community_name": "LiveGame",
+      "file_type": "code",
+      "norm_label": "reset()",
+      "source_file": "apps/web/src/screen/PracticeBomb.tsx",
+      "source_location": "L65"
+    },
+    {
+      "id": "apps_web_src_screen_practicebomb_readparams",
+      "label": "readParams()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 35,
+      "community_name": "LiveGame",
+      "file_type": "code",
+      "norm_label": "readparams()",
+      "source_file": "apps/web/src/screen/PracticeBomb.tsx",
+      "source_location": "L14"
+    },
+    {
+      "id": "packages_shared_src_manual_pickdefusers",
+      "label": "pickDefusers()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 35,
+      "community_name": "LiveGame",
+      "file_type": "code",
+      "norm_label": "pickdefusers()",
+      "source_file": "packages/shared/src/manual.ts",
+      "source_location": "L61"
     },
     {
       "id": "packages_shared_src_play_expire",
@@ -1881,6 +1857,30 @@
       "source_location": "L81"
     },
     {
+      "id": "packages_shared_src_play_newbombstate",
+      "label": "newBombState()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 35,
+      "community_name": "LiveGame",
+      "file_type": "code",
+      "norm_label": "newbombstate()",
+      "source_file": "packages/shared/src/play.ts",
+      "source_location": "L42"
+    },
+    {
+      "id": "packages_shared_src_play_tobombview",
+      "label": "toBombView()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 35,
+      "community_name": "LiveGame",
+      "file_type": "code",
+      "norm_label": "tobombview()",
+      "source_file": "packages/shared/src/play.ts",
+      "source_location": "L13"
+    },
+    {
       "id": "packages_shared_src_scoring_remainingms",
       "label": "remainingMs()",
       "_callable": true,
@@ -1893,16 +1893,16 @@
       "source_location": "L25"
     },
     {
-      "id": "apps_server_src_flow_test_state",
-      "label": "state()",
+      "id": "apps_web_src_bomb_bombboard_bombboard",
+      "label": "BombBoard()",
       "_callable": true,
       "_origin": "ast",
       "community": 36,
-      "community_name": "shared/src/index.ts",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
-      "norm_label": "state()",
-      "source_file": "apps/server/src/flow.test.ts",
-      "source_location": "L9"
+      "norm_label": "bombboard()",
+      "source_file": "apps/web/src/bomb/BombBoard.tsx",
+      "source_location": "L24"
     },
     {
       "id": "apps_web_src_bomb_bombboard_leds",
@@ -1910,7 +1910,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 36,
-      "community_name": "shared/src/index.ts",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "leds()",
       "source_file": "apps/web/src/bomb/BombBoard.tsx",
@@ -1922,7 +1922,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 36,
-      "community_name": "shared/src/index.ts",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "chassis()",
       "source_file": "apps/web/src/bomb/Chassis.tsx",
@@ -1934,7 +1934,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 36,
-      "community_name": "shared/src/index.ts",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "symbolsmodule()",
       "source_file": "apps/web/src/bomb/Modules.tsx",
@@ -1946,7 +1946,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 36,
-      "community_name": "shared/src/index.ts",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "wiregraphic()",
       "source_file": "apps/web/src/bomb/Modules.tsx",
@@ -1958,7 +1958,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 36,
-      "community_name": "shared/src/index.ts",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "wiresmodule()",
       "source_file": "apps/web/src/bomb/Modules.tsx",
@@ -1970,71 +1970,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 36,
-      "community_name": "shared/src/index.ts",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "wordmodule()",
       "source_file": "apps/web/src/bomb/Modules.tsx",
       "source_location": "L103"
-    },
-    {
-      "id": "apps_web_src_screen_practicebomb_practicebomb",
-      "label": "PracticeBomb()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 36,
-      "community_name": "shared/src/index.ts",
-      "file_type": "code",
-      "norm_label": "practicebomb()",
-      "source_file": "apps/web/src/screen/PracticeBomb.tsx",
-      "source_location": "L25"
-    },
-    {
-      "id": "apps_web_src_screen_practicebomb_practicebomb_act",
-      "label": "act()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 36,
-      "community_name": "shared/src/index.ts",
-      "file_type": "code",
-      "norm_label": "act()",
-      "source_file": "apps/web/src/screen/PracticeBomb.tsx",
-      "source_location": "L79"
-    },
-    {
-      "id": "apps_web_src_screen_practicebomb_practicebomb_finish",
-      "label": "finish()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 36,
-      "community_name": "shared/src/index.ts",
-      "file_type": "code",
-      "norm_label": "finish()",
-      "source_file": "apps/web/src/screen/PracticeBomb.tsx",
-      "source_location": "L74"
-    },
-    {
-      "id": "apps_web_src_screen_practicebomb_practicebomb_reset",
-      "label": "reset()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 36,
-      "community_name": "shared/src/index.ts",
-      "file_type": "code",
-      "norm_label": "reset()",
-      "source_file": "apps/web/src/screen/PracticeBomb.tsx",
-      "source_location": "L65"
-    },
-    {
-      "id": "apps_web_src_screen_practicebomb_readparams",
-      "label": "readParams()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 36,
-      "community_name": "shared/src/index.ts",
-      "file_type": "code",
-      "norm_label": "readparams()",
-      "source_file": "apps/web/src/screen/PracticeBomb.tsx",
-      "source_location": "L14"
     },
     {
       "id": "packages_shared_src_play_checkanswer",
@@ -2042,23 +1982,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 36,
-      "community_name": "shared/src/index.ts",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "checkanswer()",
       "source_file": "packages/shared/src/play.ts",
       "source_location": "L49"
-    },
-    {
-      "id": "packages_shared_src_play_newbombstate",
-      "label": "newBombState()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 36,
-      "community_name": "shared/src/index.ts",
-      "file_type": "code",
-      "norm_label": "newbombstate()",
-      "source_file": "packages/shared/src/play.ts",
-      "source_location": "L42"
     },
     {
       "id": "packages_shared_src_play_solvedmodules",
@@ -2066,7 +1994,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 36,
-      "community_name": "shared/src/index.ts",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "solvedmodules()",
       "source_file": "packages/shared/src/play.ts",
@@ -2078,7 +2006,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 36,
-      "community_name": "shared/src/index.ts",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "strike()",
       "source_file": "packages/shared/src/play.ts",
@@ -2090,7 +2018,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 36,
-      "community_name": "shared/src/index.ts",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "run()",
       "source_file": "packages/shared/src/play.test.ts",
@@ -2102,7 +2030,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 36,
-      "community_name": "shared/src/index.ts",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "solvesymbols()",
       "source_file": "packages/shared/src/play.test.ts",
@@ -2114,7 +2042,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 36,
-      "community_name": "shared/src/index.ts",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "solvewires()",
       "source_file": "packages/shared/src/play.test.ts",
@@ -2126,7 +2054,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 36,
-      "community_name": "shared/src/index.ts",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "solveword()",
       "source_file": "packages/shared/src/play.test.ts",
@@ -2138,23 +2066,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 36,
-      "community_name": "shared/src/index.ts",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "wrongsymbol()",
       "source_file": "packages/shared/src/play.test.ts",
       "source_location": "L8"
-    },
-    {
-      "id": "packages_shared_src_play_tobombview",
-      "label": "toBombView()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 36,
-      "community_name": "shared/src/index.ts",
-      "file_type": "code",
-      "norm_label": "tobombview()",
-      "source_file": "packages/shared/src/play.ts",
-      "source_location": "L13"
     },
     {
       "id": "packages_shared_src_scoring_scoreturn",
@@ -2162,7 +2078,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 36,
-      "community_name": "shared/src/index.ts",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "scoreturn()",
       "source_file": "packages/shared/src/scoring.ts",
@@ -2174,7 +2090,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "app.ts",
+      "community_name": "src/live.ts",
       "file_type": "code",
       "norm_label": "createapp()",
       "source_file": "apps/server/src/app.ts",
@@ -2186,7 +2102,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "app.ts",
+      "community_name": "src/live.ts",
       "file_type": "code",
       "norm_label": "call()",
       "source_file": "apps/server/src/app.test.ts",
@@ -2198,7 +2114,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "app.ts",
+      "community_name": "src/live.ts",
       "file_type": "code",
       "norm_label": "gmtoken()",
       "source_file": "apps/server/src/app.test.ts",
@@ -2210,7 +2126,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "app.ts",
+      "community_name": "src/live.ts",
       "file_type": "code",
       "norm_label": "newgame()",
       "source_file": "apps/server/src/app.test.ts",
@@ -2222,10 +2138,34 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "app.ts",
+      "community_name": "src/live.ts",
       "file_type": "code",
       "norm_label": "readenv()",
       "source_file": "apps/server/src/env.ts",
+      "source_location": "L11"
+    },
+    {
+      "id": "apps_server_src_flow_nextstep",
+      "label": "nextStep()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "src/live.ts",
+      "file_type": "code",
+      "norm_label": "nextstep()",
+      "source_file": "apps/server/src/flow.ts",
+      "source_location": "L23"
+    },
+    {
+      "id": "apps_server_src_flow_queuefor",
+      "label": "queueFor()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "src/live.ts",
+      "file_type": "code",
+      "norm_label": "queuefor()",
+      "source_file": "apps/server/src/flow.ts",
       "source_location": "L11"
     },
     {
@@ -2234,7 +2174,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "app.ts",
+      "community_name": "src/live.ts",
       "file_type": "code",
       "norm_label": "creategmauth()",
       "source_file": "apps/server/src/gm-auth.ts",
@@ -2246,7 +2186,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "app.ts",
+      "community_name": "src/live.ts",
       "file_type": "code",
       "norm_label": "samesecret()",
       "source_file": "apps/server/src/gm-auth.ts",
@@ -2258,7 +2198,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "app.ts",
+      "community_name": "src/live.ts",
       "file_type": "code",
       "norm_label": "sha256()",
       "source_file": "apps/server/src/gm-auth.ts",
@@ -2270,11 +2210,95 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "app.ts",
+      "community_name": "src/live.ts",
       "file_type": "code",
       "norm_label": ".constructor()",
       "source_file": "apps/server/src/live.ts",
       "source_location": "L40"
+    },
+    {
+      "id": "apps_server_src_live_ms",
+      "label": "ms()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "src/live.ts",
+      "file_type": "code",
+      "norm_label": "ms()",
+      "source_file": "apps/server/src/live.ts",
+      "source_location": "L25"
+    },
+    {
+      "id": "apps_server_src_live_test_device",
+      "label": "device()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "src/live.ts",
+      "file_type": "code",
+      "norm_label": "device()",
+      "source_file": "apps/server/src/live.test.ts",
+      "source_location": "L16"
+    },
+    {
+      "id": "apps_server_src_live_test_playing",
+      "label": "playing()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "src/live.ts",
+      "file_type": "code",
+      "norm_label": "playing()",
+      "source_file": "apps/server/src/live.test.ts",
+      "source_location": "L244"
+    },
+    {
+      "id": "apps_server_src_live_test_setup",
+      "label": "setup()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "src/live.ts",
+      "file_type": "code",
+      "norm_label": "setup()",
+      "source_file": "apps/server/src/live.test.ts",
+      "source_location": "L35"
+    },
+    {
+      "id": "apps_server_src_live_test_startfirstturn",
+      "label": "startFirstTurn()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "src/live.ts",
+      "file_type": "code",
+      "norm_label": "startfirstturn()",
+      "source_file": "apps/server/src/live.test.ts",
+      "source_location": "L185"
+    },
+    {
+      "id": "apps_server_src_live_test_switchdefuser",
+      "label": "switchDefuser()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "src/live.ts",
+      "file_type": "code",
+      "norm_label": "switchdefuser()",
+      "source_file": "apps/server/src/live.test.ts",
+      "source_location": "L30"
+    },
+    {
+      "id": "apps_server_src_live_test_timeoutround",
+      "label": "timeOutRound()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "src/live.ts",
+      "file_type": "code",
+      "norm_label": "timeoutround()",
+      "source_file": "apps/server/src/live.test.ts",
+      "source_location": "L144"
     },
     {
       "id": "apps_server_src_lobby_creategame",
@@ -2282,11 +2306,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "app.ts",
+      "community_name": "src/live.ts",
       "file_type": "code",
       "norm_label": "creategame()",
       "source_file": "apps/server/src/lobby.ts",
-      "source_location": "L38"
+      "source_location": "L39"
     },
     {
       "id": "apps_server_src_lobby_findme",
@@ -2294,11 +2318,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "app.ts",
+      "community_name": "src/live.ts",
       "file_type": "code",
       "norm_label": "findme()",
       "source_file": "apps/server/src/lobby.ts",
-      "source_location": "L78"
+      "source_location": "L79"
     },
     {
       "id": "apps_server_src_lobby_getactivegame",
@@ -2306,7 +2330,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "app.ts",
+      "community_name": "src/live.ts",
       "file_type": "code",
       "norm_label": "getactivegame()",
       "source_file": "apps/server/src/lobby.ts",
@@ -2318,7 +2342,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "app.ts",
+      "community_name": "src/live.ts",
       "file_type": "code",
       "norm_label": "getpublicgame()",
       "source_file": "apps/server/src/lobby.ts",
@@ -2330,11 +2354,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "app.ts",
+      "community_name": "src/live.ts",
       "file_type": "code",
       "norm_label": "joinplayer()",
       "source_file": "apps/server/src/lobby.ts",
-      "source_location": "L55"
+      "source_location": "L56"
     },
     {
       "id": "packages_db_src_index_createdb",
@@ -2342,7 +2366,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "app.ts",
+      "community_name": "src/live.ts",
       "file_type": "code",
       "norm_label": "createdb()",
       "source_file": "packages/db/src/index.ts",
@@ -2354,7 +2378,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "app.ts",
+      "community_name": "src/live.ts",
       "file_type": "code",
       "norm_label": "migratedb()",
       "source_file": "packages/db/src/index.ts",
@@ -2677,7 +2701,7 @@
       "file_type": "code",
       "norm_label": "handover_ms",
       "source_file": "packages/shared/src/api.ts",
-      "source_location": "L14"
+      "source_location": "L17"
     },
     {
       "id": "packages_shared_src_api_nickname_max",
@@ -2699,7 +2723,7 @@
       "file_type": "code",
       "norm_label": "phase_labels",
       "source_file": "packages/shared/src/api.ts",
-      "source_location": "L10"
+      "source_location": "L11"
     },
     {
       "id": "packages_shared_src_api_team_colors",
@@ -2732,7 +2756,7 @@
       "file_type": "code",
       "norm_label": "turn_seconds",
       "source_file": "packages/shared/src/api.ts",
-      "source_location": "L12"
+      "source_location": "L15"
     },
     {
       "id": "ref_react",
@@ -3182,7 +3206,7 @@
       "file_type": "code",
       "norm_label": "bets",
       "source_file": "packages/db/src/schema.ts",
-      "source_location": "L68"
+      "source_location": "L71"
     },
     {
       "id": "packages_db_src_schema_games",
@@ -3226,7 +3250,7 @@
       "file_type": "code",
       "norm_label": "players",
       "source_file": "packages/db/src/schema.ts",
-      "source_location": "L32"
+      "source_location": "L34"
     },
     {
       "id": "packages_db_src_schema_sabotages",
@@ -3237,7 +3261,7 @@
       "file_type": "code",
       "norm_label": "sabotages",
       "source_file": "packages/db/src/schema.ts",
-      "source_location": "L77"
+      "source_location": "L80"
     },
     {
       "id": "packages_db_src_schema_sabotagestatus",
@@ -3270,7 +3294,7 @@
       "file_type": "code",
       "norm_label": "scoreevents",
       "source_file": "packages/db/src/schema.ts",
-      "source_location": "L87"
+      "source_location": "L90"
     },
     {
       "id": "packages_db_src_schema_teams",
@@ -3281,7 +3305,7 @@
       "file_type": "code",
       "norm_label": "teams",
       "source_file": "packages/db/src/schema.ts",
-      "source_location": "L24"
+      "source_location": "L26"
     },
     {
       "id": "packages_db_src_schema_turns",
@@ -3292,7 +3316,7 @@
       "file_type": "code",
       "norm_label": "turns",
       "source_file": "packages/db/src/schema.ts",
-      "source_location": "L42"
+      "source_location": "L44"
     },
     {
       "id": "packages_db_src_schema_turnstatus",
@@ -4697,17 +4721,6 @@
       "source_location": "L1"
     },
     {
-      "id": "packages_shared_src_manual_rotation_start",
-      "label": "ROTATION_START",
-      "_origin": "ast",
-      "community": 21,
-      "community_name": "bomb.ts",
-      "file_type": "code",
-      "norm_label": "rotation_start",
-      "source_file": "packages/shared/src/manual.ts",
-      "source_location": "L55"
-    },
-    {
       "id": "packages_shared_src_manual_test",
       "label": "manual.test.ts",
       "_origin": "ast",
@@ -4867,7 +4880,7 @@
       "node_kind": "heading",
       "norm_label": "kontrak pesan (`packages/shared/src/protocol.ts`)",
       "source_file": "docs/phases/04-giliran-realtime.md",
-      "source_location": "L54"
+      "source_location": "L56"
     },
     {
       "id": "docs_phases_04_giliran_realtime_risiko",
@@ -4879,7 +4892,7 @@
       "node_kind": "heading",
       "norm_label": "risiko",
       "source_file": "docs/phases/04-giliran-realtime.md",
-      "source_location": "L113"
+      "source_location": "L115"
     },
     {
       "id": "docs_phases_04_giliran_realtime_selesai_bila",
@@ -4891,7 +4904,7 @@
       "node_kind": "heading",
       "norm_label": "selesai bila",
       "source_file": "docs/phases/04-giliran-realtime.md",
-      "source_location": "L105"
+      "source_location": "L107"
     },
     {
       "id": "docs_phases_04_giliran_realtime_state_machine",
@@ -4915,7 +4928,7 @@
       "node_kind": "heading",
       "norm_label": "tanpa kuota pemain",
       "source_file": "docs/phases/04-giliran-realtime.md",
-      "source_location": "L44"
+      "source_location": "L46"
     },
     {
       "id": "docs_phases_04_giliran_realtime_tugas",
@@ -4927,7 +4940,7 @@
       "node_kind": "heading",
       "norm_label": "tugas",
       "source_file": "docs/phases/04-giliran-realtime.md",
-      "source_location": "L76"
+      "source_location": "L78"
     },
     {
       "id": "docs_phases_04_giliran_realtime_tujuan",
@@ -5060,116 +5073,6 @@
       "file_type": "concept",
       "norm_label": "../../tsconfig.base.json",
       "source_file": "packages/content/tsconfig.json",
-      "source_location": "L1"
-    },
-    {
-      "id": "apps_server_src_flow",
-      "label": "flow.ts",
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "src/live.ts",
-      "file_type": "code",
-      "norm_label": "flow.ts",
-      "source_file": "apps/server/src/flow.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "apps_server_src_flow_next_phase",
-      "label": "NEXT_PHASE",
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "src/live.ts",
-      "file_type": "code",
-      "norm_label": "next_phase",
-      "source_file": "apps/server/src/flow.ts",
-      "source_location": "L3"
-    },
-    {
-      "id": "apps_server_src_flow_test",
-      "label": "flow.test.ts",
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "src/live.ts",
-      "file_type": "code",
-      "norm_label": "flow.test.ts",
-      "source_file": "apps/server/src/flow.test.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "apps_server_src_flow_test_teams",
-      "label": "teams",
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "src/live.ts",
-      "file_type": "code",
-      "norm_label": "teams",
-      "source_file": "apps/server/src/flow.test.ts",
-      "source_location": "L4"
-    },
-    {
-      "id": "apps_server_src_live",
-      "label": "src/live.ts",
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "src/live.ts",
-      "file_type": "code",
-      "norm_label": "src/live.ts",
-      "source_file": "apps/server/src/live.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "apps_server_src_live_test",
-      "label": "live.test.ts",
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "src/live.ts",
-      "file_type": "code",
-      "norm_label": "live.test.ts",
-      "source_file": "apps/server/src/live.test.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "apps_server_src_live_test_db",
-      "label": "db",
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "src/live.ts",
-      "file_type": "code",
-      "norm_label": "db",
-      "source_file": "apps/server/src/live.test.ts",
-      "source_location": "L9"
-    },
-    {
-      "id": "apps_server_src_live_test_gm",
-      "label": "gm",
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "src/live.ts",
-      "file_type": "code",
-      "norm_label": "gm",
-      "source_file": "apps/server/src/live.test.ts",
-      "source_location": "L10"
-    },
-    {
-      "id": "apps_server_src_live_test_inbox",
-      "label": "inbox",
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "src/live.ts",
-      "file_type": "code",
-      "norm_label": "inbox",
-      "source_file": "apps/server/src/live.test.ts",
-      "source_location": "L14"
-    },
-    {
-      "id": "packages_shared_src_protocol",
-      "label": "protocol.ts",
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "src/live.ts",
-      "file_type": "code",
-      "norm_label": "protocol.ts",
-      "source_file": "packages/shared/src/protocol.ts",
       "source_location": "L1"
     },
     {
@@ -5746,7 +5649,7 @@
       "node_kind": "heading",
       "norm_label": "2026-11-03 \u00b7 bank soal masuk ke planning",
       "source_file": "hot.md",
-      "source_location": "L153"
+      "source_location": "L172"
     },
     {
       "id": "hot_2026_11_03_fase_1_dikerjakan_branch_fase_1_fondasi",
@@ -5758,7 +5661,7 @@
       "node_kind": "heading",
       "norm_label": "2026-11-03 \u00b7 fase 1 dikerjakan (branch `fase-1-fondasi`)",
       "source_file": "hot.md",
-      "source_location": "L113"
+      "source_location": "L132"
     },
     {
       "id": "hot_2026_11_03_fase_2_dikerjakan_branch_fase_2_bom_offline",
@@ -5770,7 +5673,7 @@
       "node_kind": "heading",
       "norm_label": "2026-11-03 \u00b7 fase 2 dikerjakan (branch `fase-2-bom-offline`)",
       "source_file": "hot.md",
-      "source_location": "L92"
+      "source_location": "L111"
     },
     {
       "id": "hot_2026_11_03_fase_3_dikerjakan_branch_fase_3_manual_hp",
@@ -5782,7 +5685,7 @@
       "node_kind": "heading",
       "norm_label": "2026-11-03 \u00b7 fase 3 dikerjakan (branch `fase-3-manual-hp`)",
       "source_file": "hot.md",
-      "source_location": "L71"
+      "source_location": "L90"
     },
     {
       "id": "hot_2026_11_03_fase_4_dikerjakan_branch_fase_4_giliran_realtime",
@@ -5794,7 +5697,7 @@
       "node_kind": "heading",
       "norm_label": "2026-11-03 \u00b7 fase 4 dikerjakan (branch `fase-4-giliran-realtime`)",
       "source_file": "hot.md",
-      "source_location": "L49"
+      "source_location": "L68"
     },
     {
       "id": "hot_2026_11_03_jeda_5_detik_pergantian_defuser",
@@ -5806,7 +5709,7 @@
       "node_kind": "heading",
       "norm_label": "2026-11-03 \u00b7 jeda 5 detik pergantian defuser",
       "source_file": "hot.md",
-      "source_location": "L32"
+      "source_location": "L51"
     },
     {
       "id": "hot_2026_11_03_jeda_pergantian_defuser_timer_tetap_berjalan",
@@ -5818,7 +5721,7 @@
       "node_kind": "heading",
       "norm_label": "2026-11-03 \u00b7 jeda pergantian defuser: timer tetap berjalan",
       "source_file": "hot.md",
-      "source_location": "L20"
+      "source_location": "L39"
     },
     {
       "id": "hot_2026_11_03_manual_sama_untuk_semua_expert",
@@ -5830,7 +5733,7 @@
       "node_kind": "heading",
       "norm_label": "2026-11-03 \u00b7 manual sama untuk semua expert",
       "source_file": "hot.md",
-      "source_location": "L136"
+      "source_location": "L155"
     },
     {
       "id": "hot_2026_11_03_pergantian_defuser_jadi_toast_tanpa_mengunci_bom",
@@ -5842,7 +5745,7 @@
       "node_kind": "heading",
       "norm_label": "2026-11-03 \u00b7 pergantian defuser jadi toast, tanpa mengunci bom",
       "source_file": "hot.md",
-      "source_location": "L5"
+      "source_location": "L24"
     },
     {
       "id": "hot_2026_11_03_planning_per_fase",
@@ -5854,7 +5757,19 @@
       "node_kind": "heading",
       "norm_label": "2026-11-03 \u00b7 planning per fase",
       "source_file": "hot.md",
-      "source_location": "L172"
+      "source_location": "L191"
+    },
+    {
+      "id": "hot_2026_11_03_ronde_tambahan_sebelum_final",
+      "label": "2026-11-03 \u00b7 Ronde tambahan sebelum Final",
+      "_origin": "ast",
+      "community": 31,
+      "community_name": "hot.md \u00b7 Log perubahan per sesi",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "2026-11-03 \u00b7 ronde tambahan sebelum final",
+      "source_file": "hot.md",
+      "source_location": "L5"
     },
     {
       "id": "hot_hot_md_log_perubahan_per_sesi",
@@ -5953,6 +5868,54 @@
       "source_location": "L1"
     },
     {
+      "id": "docs_readme_aturan_kerja",
+      "label": "Aturan kerja",
+      "_origin": "ast",
+      "community": 32,
+      "community_name": "README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "aturan kerja",
+      "source_file": "docs/README.md",
+      "source_location": "L32"
+    },
+    {
+      "id": "docs_readme_defuse_planning",
+      "label": "Defuse! \u00b7 Planning",
+      "_origin": "ast",
+      "community": 32,
+      "community_name": "README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "defuse! \u00b7 planning",
+      "source_file": "docs/README.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_readme_dokumen_planning",
+      "label": "Dokumen planning",
+      "_origin": "ast",
+      "community": 32,
+      "community_name": "README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "dokumen planning",
+      "source_file": "docs/README.md",
+      "source_location": "L11"
+    },
+    {
+      "id": "docs_readme_fase",
+      "label": "Fase",
+      "_origin": "ast",
+      "community": 32,
+      "community_name": "README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "fase",
+      "source_file": "docs/README.md",
+      "source_location": "L16"
+    },
+    {
       "id": "docs_modul_dan_manual_manual_di_hp_expert",
       "label": "Manual di HP Expert",
       "_origin": "ast",
@@ -6013,59 +5976,11 @@
       "source_location": "L11"
     },
     {
-      "id": "docs_readme_aturan_kerja",
-      "label": "Aturan kerja",
-      "_origin": "ast",
-      "community": 34,
-      "community_name": "Defuse! \u00b7 Planning",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "aturan kerja",
-      "source_file": "docs/README.md",
-      "source_location": "L32"
-    },
-    {
-      "id": "docs_readme_defuse_planning",
-      "label": "Defuse! \u00b7 Planning",
-      "_origin": "ast",
-      "community": 34,
-      "community_name": "Defuse! \u00b7 Planning",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "defuse! \u00b7 planning",
-      "source_file": "docs/README.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "docs_readme_dokumen_planning",
-      "label": "Dokumen planning",
-      "_origin": "ast",
-      "community": 34,
-      "community_name": "Defuse! \u00b7 Planning",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "dokumen planning",
-      "source_file": "docs/README.md",
-      "source_location": "L11"
-    },
-    {
-      "id": "docs_readme_fase",
-      "label": "Fase",
-      "_origin": "ast",
-      "community": 34,
-      "community_name": "Defuse! \u00b7 Planning",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "fase",
-      "source_file": "docs/README.md",
-      "source_location": "L16"
-    },
-    {
       "id": "apps_web_src_bomb_bombboard",
       "label": "BombBoard.tsx",
       "_origin": "ast",
       "community": 36,
-      "community_name": "shared/src/index.ts",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "bombboard.tsx",
       "source_file": "apps/web/src/bomb/BombBoard.tsx",
@@ -6076,7 +5991,7 @@
       "label": "MODULE_NAMES",
       "_origin": "ast",
       "community": 36,
-      "community_name": "shared/src/index.ts",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "module_names",
       "source_file": "apps/web/src/bomb/BombBoard.tsx",
@@ -6087,7 +6002,7 @@
       "label": "Chassis.tsx",
       "_origin": "ast",
       "community": 36,
-      "community_name": "shared/src/index.ts",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "chassis.tsx",
       "source_file": "apps/web/src/bomb/Chassis.tsx",
@@ -6098,7 +6013,7 @@
       "label": "LED_FILL",
       "_origin": "ast",
       "community": 36,
-      "community_name": "shared/src/index.ts",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "led_fill",
       "source_file": "apps/web/src/bomb/Chassis.tsx",
@@ -6109,7 +6024,7 @@
       "label": "LED_X",
       "_origin": "ast",
       "community": 36,
-      "community_name": "shared/src/index.ts",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "led_x",
       "source_file": "apps/web/src/bomb/Chassis.tsx",
@@ -6120,7 +6035,7 @@
       "label": "Modules.tsx",
       "_origin": "ast",
       "community": 36,
-      "community_name": "shared/src/index.ts",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "modules.tsx",
       "source_file": "apps/web/src/bomb/Modules.tsx",
@@ -6131,29 +6046,18 @@
       "label": "WIRE_HEX",
       "_origin": "ast",
       "community": 36,
-      "community_name": "shared/src/index.ts",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "wire_hex",
       "source_file": "apps/web/src/bomb/Modules.tsx",
       "source_location": "L4"
     },
     {
-      "id": "packages_shared_src_index",
-      "label": "shared/src/index.ts",
-      "_origin": "ast",
-      "community": 36,
-      "community_name": "shared/src/index.ts",
-      "file_type": "code",
-      "norm_label": "shared/src/index.ts",
-      "source_file": "packages/shared/src/index.ts",
-      "source_location": "L1"
-    },
-    {
       "id": "packages_shared_src_play",
       "label": "play.ts",
       "_origin": "ast",
       "community": 36,
-      "community_name": "shared/src/index.ts",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "play.ts",
       "source_file": "packages/shared/src/play.ts",
@@ -6164,7 +6068,7 @@
       "label": "MAX_STRIKES",
       "_origin": "ast",
       "community": 36,
-      "community_name": "shared/src/index.ts",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "max_strikes",
       "source_file": "packages/shared/src/play.ts",
@@ -6175,7 +6079,7 @@
       "label": "play.test.ts",
       "_origin": "ast",
       "community": 36,
-      "community_name": "shared/src/index.ts",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "play.test.ts",
       "source_file": "packages/shared/src/play.test.ts",
@@ -6186,7 +6090,7 @@
       "label": "bomb",
       "_origin": "ast",
       "community": 36,
-      "community_name": "shared/src/index.ts",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "bomb",
       "source_file": "packages/shared/src/play.test.ts",
@@ -6197,7 +6101,7 @@
       "label": "scoring.ts",
       "_origin": "ast",
       "community": 36,
-      "community_name": "shared/src/index.ts",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "scoring.ts",
       "source_file": "packages/shared/src/scoring.ts",
@@ -6645,7 +6549,7 @@
       "label": "app.ts",
       "_origin": "ast",
       "community": 7,
-      "community_name": "app.ts",
+      "community_name": "src/live.ts",
       "file_type": "code",
       "norm_label": "app.ts",
       "source_file": "apps/server/src/app.ts",
@@ -6656,7 +6560,7 @@
       "label": "clientMessage",
       "_origin": "ast",
       "community": 7,
-      "community_name": "app.ts",
+      "community_name": "src/live.ts",
       "file_type": "code",
       "norm_label": "clientmessage",
       "source_file": "apps/server/src/app.ts",
@@ -6667,7 +6571,7 @@
       "label": "defuserAction",
       "_origin": "ast",
       "community": 7,
-      "community_name": "app.ts",
+      "community_name": "src/live.ts",
       "file_type": "code",
       "norm_label": "defuseraction",
       "source_file": "apps/server/src/app.ts",
@@ -6678,7 +6582,7 @@
       "label": "app.test.ts",
       "_origin": "ast",
       "community": 7,
-      "community_name": "app.ts",
+      "community_name": "src/live.ts",
       "file_type": "code",
       "norm_label": "app.test.ts",
       "source_file": "apps/server/src/app.test.ts",
@@ -6689,7 +6593,7 @@
       "label": "app",
       "_origin": "ast",
       "community": 7,
-      "community_name": "app.ts",
+      "community_name": "src/live.ts",
       "file_type": "code",
       "norm_label": "app",
       "source_file": "apps/server/src/app.test.ts",
@@ -6700,7 +6604,7 @@
       "label": "db",
       "_origin": "ast",
       "community": 7,
-      "community_name": "app.ts",
+      "community_name": "src/live.ts",
       "file_type": "code",
       "norm_label": "db",
       "source_file": "apps/server/src/app.test.ts",
@@ -6711,7 +6615,7 @@
       "label": "dist",
       "_origin": "ast",
       "community": 7,
-      "community_name": "app.ts",
+      "community_name": "src/live.ts",
       "file_type": "code",
       "norm_label": "dist",
       "source_file": "apps/server/src/app.test.ts",
@@ -6722,7 +6626,7 @@
       "label": "gm",
       "_origin": "ast",
       "community": 7,
-      "community_name": "app.ts",
+      "community_name": "src/live.ts",
       "file_type": "code",
       "norm_label": "gm",
       "source_file": "apps/server/src/app.test.ts",
@@ -6733,7 +6637,7 @@
       "label": "teams3",
       "_origin": "ast",
       "community": 7,
-      "community_name": "app.ts",
+      "community_name": "src/live.ts",
       "file_type": "code",
       "norm_label": "teams3",
       "source_file": "apps/server/src/app.test.ts",
@@ -6744,18 +6648,51 @@
       "label": "env.ts",
       "_origin": "ast",
       "community": 7,
-      "community_name": "app.ts",
+      "community_name": "src/live.ts",
       "file_type": "code",
       "norm_label": "env.ts",
       "source_file": "apps/server/src/env.ts",
       "source_location": "L1"
     },
     {
+      "id": "apps_server_src_flow",
+      "label": "flow.ts",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "src/live.ts",
+      "file_type": "code",
+      "norm_label": "flow.ts",
+      "source_file": "apps/server/src/flow.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "apps_server_src_flow_test",
+      "label": "flow.test.ts",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "src/live.ts",
+      "file_type": "code",
+      "norm_label": "flow.test.ts",
+      "source_file": "apps/server/src/flow.test.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "apps_server_src_flow_test_teams",
+      "label": "teams",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "src/live.ts",
+      "file_type": "code",
+      "norm_label": "teams",
+      "source_file": "apps/server/src/flow.test.ts",
+      "source_location": "L5"
+    },
+    {
       "id": "apps_server_src_gm_auth",
       "label": "gm-auth.ts",
       "_origin": "ast",
       "community": 7,
-      "community_name": "app.ts",
+      "community_name": "src/live.ts",
       "file_type": "code",
       "norm_label": "gm-auth.ts",
       "source_file": "apps/server/src/gm-auth.ts",
@@ -6766,7 +6703,7 @@
       "label": "server/src/index.ts",
       "_origin": "ast",
       "community": 7,
-      "community_name": "app.ts",
+      "community_name": "src/live.ts",
       "file_type": "code",
       "norm_label": "server/src/index.ts",
       "source_file": "apps/server/src/index.ts",
@@ -6777,7 +6714,7 @@
       "label": "db",
       "_origin": "ast",
       "community": 7,
-      "community_name": "app.ts",
+      "community_name": "src/live.ts",
       "file_type": "code",
       "norm_label": "db",
       "source_file": "apps/server/src/index.ts",
@@ -6788,7 +6725,7 @@
       "label": "env",
       "_origin": "ast",
       "community": 7,
-      "community_name": "app.ts",
+      "community_name": "src/live.ts",
       "file_type": "code",
       "norm_label": "env",
       "source_file": "apps/server/src/index.ts",
@@ -6799,7 +6736,7 @@
       "label": "gm",
       "_origin": "ast",
       "community": 7,
-      "community_name": "app.ts",
+      "community_name": "src/live.ts",
       "file_type": "code",
       "norm_label": "gm",
       "source_file": "apps/server/src/index.ts",
@@ -6810,18 +6747,73 @@
       "label": "live",
       "_origin": "ast",
       "community": 7,
-      "community_name": "app.ts",
+      "community_name": "src/live.ts",
       "file_type": "code",
       "norm_label": "live",
       "source_file": "apps/server/src/index.ts",
       "source_location": "L13"
     },
     {
+      "id": "apps_server_src_live",
+      "label": "src/live.ts",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "src/live.ts",
+      "file_type": "code",
+      "norm_label": "src/live.ts",
+      "source_file": "apps/server/src/live.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "apps_server_src_live_test",
+      "label": "live.test.ts",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "src/live.ts",
+      "file_type": "code",
+      "norm_label": "live.test.ts",
+      "source_file": "apps/server/src/live.test.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "apps_server_src_live_test_db",
+      "label": "db",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "src/live.ts",
+      "file_type": "code",
+      "norm_label": "db",
+      "source_file": "apps/server/src/live.test.ts",
+      "source_location": "L9"
+    },
+    {
+      "id": "apps_server_src_live_test_gm",
+      "label": "gm",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "src/live.ts",
+      "file_type": "code",
+      "norm_label": "gm",
+      "source_file": "apps/server/src/live.test.ts",
+      "source_location": "L10"
+    },
+    {
+      "id": "apps_server_src_live_test_inbox",
+      "label": "inbox",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "src/live.ts",
+      "file_type": "code",
+      "norm_label": "inbox",
+      "source_file": "apps/server/src/live.test.ts",
+      "source_location": "L14"
+    },
+    {
       "id": "apps_server_src_lobby",
       "label": "lobby.ts",
       "_origin": "ast",
       "community": 7,
-      "community_name": "app.ts",
+      "community_name": "src/live.ts",
       "file_type": "code",
       "norm_label": "lobby.ts",
       "source_file": "apps/server/src/lobby.ts",
@@ -6832,7 +6824,7 @@
       "label": "db/src/index.ts",
       "_origin": "ast",
       "community": 7,
-      "community_name": "app.ts",
+      "community_name": "src/live.ts",
       "file_type": "code",
       "norm_label": "db/src/index.ts",
       "source_file": "packages/db/src/index.ts",
@@ -6843,11 +6835,33 @@
       "label": "schema",
       "_origin": "ast",
       "community": 7,
-      "community_name": "app.ts",
+      "community_name": "src/live.ts",
       "file_type": "code",
       "norm_label": "schema",
       "source_file": "packages/db/src/index.ts",
       "source_location": "L6"
+    },
+    {
+      "id": "packages_shared_src_index",
+      "label": "shared/src/index.ts",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "src/live.ts",
+      "file_type": "code",
+      "norm_label": "shared/src/index.ts",
+      "source_file": "packages/shared/src/index.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "packages_shared_src_protocol",
+      "label": "protocol.ts",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "src/live.ts",
+      "file_type": "code",
+      "norm_label": "protocol.ts",
+      "source_file": "packages/shared/src/protocol.ts",
+      "source_location": "L1"
     },
     {
       "id": "package",
@@ -7331,7 +7345,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/flow.ts",
-      "source_location": "L28",
+      "source_location": "L29",
       "weight": 1.0
     },
     {
@@ -7379,7 +7393,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L272",
+      "source_location": "L276",
       "weight": 1.0
     },
     {
@@ -7391,7 +7405,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L278",
+      "source_location": "L282",
       "weight": 1.0
     },
     {
@@ -7403,7 +7417,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L280",
+      "source_location": "L284",
       "weight": 1.0
     },
     {
@@ -7415,7 +7429,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L280",
+      "source_location": "L284",
       "weight": 1.0
     },
     {
@@ -7427,7 +7441,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L289",
+      "source_location": "L293",
       "weight": 1.0
     },
     {
@@ -7439,7 +7453,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L289",
+      "source_location": "L293",
       "weight": 1.0
     },
     {
@@ -7451,7 +7465,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L289",
+      "source_location": "L293",
       "weight": 1.0
     },
     {
@@ -7463,7 +7477,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L292",
+      "source_location": "L296",
       "weight": 1.0
     },
     {
@@ -7511,7 +7525,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L197",
+      "source_location": "L201",
       "weight": 1.0
     },
     {
@@ -7523,7 +7537,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L201",
+      "source_location": "L205",
       "weight": 1.0
     },
     {
@@ -7535,7 +7549,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L201",
+      "source_location": "L205",
       "weight": 1.0
     },
     {
@@ -7547,7 +7561,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L202",
+      "source_location": "L206",
       "weight": 1.0
     },
     {
@@ -7559,7 +7573,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L202",
+      "source_location": "L206",
       "weight": 1.0
     },
     {
@@ -7571,7 +7585,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L205",
+      "source_location": "L209",
       "weight": 1.0
     },
     {
@@ -7583,7 +7597,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L205",
+      "source_location": "L209",
       "weight": 1.0
     },
     {
@@ -7595,7 +7609,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L215",
+      "source_location": "L219",
       "weight": 1.0
     },
     {
@@ -7607,7 +7621,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L216",
+      "source_location": "L220",
       "weight": 1.0
     },
     {
@@ -7643,7 +7657,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L222",
+      "source_location": "L226",
       "weight": 1.0
     },
     {
@@ -7655,7 +7669,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L222",
+      "source_location": "L226",
       "weight": 1.0
     },
     {
@@ -7667,7 +7681,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L224",
+      "source_location": "L228",
       "weight": 1.0
     },
     {
@@ -7679,7 +7693,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L299",
+      "source_location": "L303",
       "weight": 1.0
     },
     {
@@ -7691,7 +7705,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L301",
+      "source_location": "L305",
       "weight": 1.0
     },
     {
@@ -7703,7 +7717,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L301",
+      "source_location": "L305",
       "weight": 1.0
     },
     {
@@ -7715,7 +7729,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L301",
+      "source_location": "L305",
       "weight": 1.0
     },
     {
@@ -7727,7 +7741,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L319",
+      "source_location": "L324",
       "weight": 1.0
     },
     {
@@ -7739,7 +7753,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L335",
+      "source_location": "L341",
       "weight": 1.0
     },
     {
@@ -7751,7 +7765,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L335",
+      "source_location": "L341",
       "weight": 1.0
     },
     {
@@ -7811,7 +7825,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L149",
+      "source_location": "L153",
       "weight": 1.0
     },
     {
@@ -7823,7 +7837,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L153",
+      "source_location": "L157",
       "weight": 1.0
     },
     {
@@ -7835,7 +7849,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L153",
+      "source_location": "L157",
       "weight": 1.0
     },
     {
@@ -7847,7 +7861,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L160",
+      "source_location": "L163",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_server_src_live_livegame_gmcommand",
+      "target": "packages_shared_src_api_roundlabel",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "apps/server/src/live.ts",
+      "source_location": "L164",
       "weight": 1.0
     },
     {
@@ -7859,7 +7885,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L184",
+      "source_location": "L188",
       "weight": 1.0
     },
     {
@@ -7871,7 +7897,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L185",
+      "source_location": "L189",
       "weight": 1.0
     },
     {
@@ -7979,7 +8005,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L360",
+      "source_location": "L366",
       "weight": 1.0
     },
     {
@@ -7991,7 +8017,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L368",
+      "source_location": "L374",
       "weight": 1.0
     },
     {
@@ -8003,7 +8029,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L261",
+      "source_location": "L265",
       "weight": 1.0
     },
     {
@@ -8015,7 +8041,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L264",
+      "source_location": "L268",
       "weight": 1.0
     },
     {
@@ -8027,7 +8053,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L264",
+      "source_location": "L268",
       "weight": 1.0
     },
     {
@@ -8039,7 +8065,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L266",
+      "source_location": "L270",
       "weight": 1.0
     },
     {
@@ -8051,7 +8077,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L266",
+      "source_location": "L270",
       "weight": 1.0
     },
     {
@@ -8063,7 +8089,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L236",
+      "source_location": "L240",
       "weight": 1.0
     },
     {
@@ -8075,7 +8101,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L241",
+      "source_location": "L245",
       "weight": 1.0
     },
     {
@@ -8087,7 +8113,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L241",
+      "source_location": "L245",
       "weight": 1.0
     },
     {
@@ -8099,7 +8125,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L242",
+      "source_location": "L246",
       "weight": 1.0
     },
     {
@@ -8111,7 +8137,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L242",
+      "source_location": "L246",
       "weight": 1.0
     },
     {
@@ -8123,7 +8149,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L253",
+      "source_location": "L257",
       "weight": 1.0
     },
     {
@@ -8135,7 +8161,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L348",
+      "source_location": "L354",
       "weight": 1.0
     },
     {
@@ -8147,7 +8173,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/live.test.ts",
-      "source_location": "L203",
+      "source_location": "L245",
       "weight": 1.0
     },
     {
@@ -8159,7 +8185,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/live.test.ts",
-      "source_location": "L204",
+      "source_location": "L246",
       "weight": 1.0
     },
     {
@@ -8171,7 +8197,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/live.test.ts",
-      "source_location": "L211",
+      "source_location": "L253",
       "weight": 1.0
     },
     {
@@ -8207,7 +8233,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/live.test.ts",
-      "source_location": "L144",
+      "source_location": "L186",
       "weight": 1.0
     },
     {
@@ -8219,7 +8245,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/live.test.ts",
-      "source_location": "L145",
+      "source_location": "L187",
       "weight": 1.0
     },
     {
@@ -8231,7 +8257,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/lobby.ts",
-      "source_location": "L40",
+      "source_location": "L41",
       "weight": 1.0
     },
     {
@@ -8243,7 +8269,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/lobby.ts",
-      "source_location": "L80",
+      "source_location": "L81",
       "weight": 1.0
     },
     {
@@ -8267,7 +8293,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/lobby.ts",
-      "source_location": "L57",
+      "source_location": "L58",
       "weight": 1.0
     },
     {
@@ -8279,7 +8305,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/lobby.ts",
-      "source_location": "L58",
+      "source_location": "L59",
       "weight": 1.0
     },
     {
@@ -8332,6 +8358,18 @@
     },
     {
       "source": "apps_web_src_gm_gmpage_control",
+      "target": "packages_shared_src_api_roundlabel",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "apps/web/src/gm/GmPage.tsx",
+      "source_location": "L232",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_web_src_gm_gmpage_control",
       "target": "apps_web_src_lib_live_clock",
       "relation": "calls",
       "_origin": "ast",
@@ -8376,6 +8414,18 @@
       "context": "call",
       "source_file": "apps/web/src/gm/GmPage.tsx",
       "source_location": "L91",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_web_src_gm_gmpage_nextlabel",
+      "target": "packages_shared_src_api_roundlabel",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "apps/web/src/gm/GmPage.tsx",
+      "source_location": "L169",
       "weight": 1.0
     },
     {
@@ -8436,6 +8486,18 @@
       "context": "call",
       "source_file": "apps/web/src/play/PlayPage.tsx",
       "source_location": "L124",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_web_src_play_playpage_statusbar",
+      "target": "packages_shared_src_api_roundlabel",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "apps/web/src/play/PlayPage.tsx",
+      "source_location": "L132",
       "weight": 1.0
     },
     {
@@ -8571,6 +8633,18 @@
       "weight": 1.0
     },
     {
+      "source": "apps_web_src_screen_screenpage_leaderboard",
+      "target": "packages_shared_src_api_roundlabel",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "apps/web/src/screen/ScreenPage.tsx",
+      "source_location": "L122",
+      "weight": 1.0
+    },
+    {
       "source": "apps_web_src_screen_screenpage_live",
       "target": "apps_web_src_lib_live_uselive",
       "relation": "calls",
@@ -8596,6 +8670,18 @@
     },
     {
       "source": "apps_web_src_screen_screenpage_livebomb",
+      "target": "packages_shared_src_api_roundlabel",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "apps/web/src/screen/ScreenPage.tsx",
+      "source_location": "L145",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_web_src_screen_screenpage_livebomb",
       "target": "apps_web_src_lib_live_clock",
       "relation": "calls",
       "_origin": "ast",
@@ -8604,6 +8690,18 @@
       "context": "call",
       "source_file": "apps/web/src/screen/ScreenPage.tsx",
       "source_location": "L165",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_web_src_screen_screenpage_upnext",
+      "target": "packages_shared_src_api_roundlabel",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "apps/web/src/screen/ScreenPage.tsx",
+      "source_location": "L100",
       "weight": 1.0
     },
     {
@@ -8831,7 +8929,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "packages/shared/src/manual.ts",
-      "source_location": "L91",
+      "source_location": "L90",
       "weight": 1.0
     },
     {
@@ -9364,7 +9462,7 @@
     },
     {
       "source": "apps_server_src_flow_test",
-      "target": "apps_server_src_flow_flowstate",
+      "target": "packages_shared_src_api_phase",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -9372,6 +9470,18 @@
       "context": "import",
       "source_file": "apps/server/src/flow.test.ts",
       "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_server_src_flow_test",
+      "target": "apps_server_src_flow_flowstate",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "apps/server/src/flow.test.ts",
+      "source_location": "L3",
       "weight": 1.0
     },
     {
@@ -9383,7 +9493,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "apps/server/src/flow.test.ts",
-      "source_location": "L2",
+      "source_location": "L3",
       "weight": 1.0
     },
     {
@@ -9395,7 +9505,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "apps/server/src/flow.test.ts",
-      "source_location": "L2",
+      "source_location": "L3",
       "weight": 1.0
     },
     {
@@ -9533,6 +9643,18 @@
     {
       "source": "apps_server_src_live",
       "target": "packages_shared_src_api_phase",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "apps/server/src/live.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_server_src_live",
+      "target": "packages_shared_src_api_roundlabel",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -10456,7 +10578,7 @@
     },
     {
       "source": "apps_web_src_gm_gmpage",
-      "target": "packages_shared_src_api_phase_labels",
+      "target": "packages_shared_src_api_roundlabel",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -10888,7 +11010,7 @@
     },
     {
       "source": "apps_web_src_play_playpage",
-      "target": "packages_shared_src_api_phase_labels",
+      "target": "packages_shared_src_api_roundlabel",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -11440,7 +11562,7 @@
     },
     {
       "source": "apps_web_src_screen_screenpage",
-      "target": "packages_shared_src_api_phase_labels",
+      "target": "packages_shared_src_api_roundlabel",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -12463,7 +12585,7 @@
     },
     {
       "source": "apps_server_src_flow_test",
-      "target": "apps_server_src_flow",
+      "target": "packages_shared_src_index",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -12471,6 +12593,19 @@
       "context": "import",
       "source_file": "apps/server/src/flow.test.ts",
       "source_location": "L2",
+      "type_only": true,
+      "weight": 1.0
+    },
+    {
+      "source": "apps_server_src_flow_test",
+      "target": "apps_server_src_flow",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "apps/server/src/flow.test.ts",
+      "source_location": "L3",
       "weight": 1.0
     },
     {
@@ -13829,7 +13964,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L195",
+      "source_location": "L199",
       "weight": 1.0
     },
     {
@@ -13841,7 +13976,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L220",
+      "source_location": "L224",
       "weight": 1.0
     },
     {
@@ -13889,7 +14024,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L188",
+      "source_location": "L192",
       "weight": 1.0
     },
     {
@@ -13901,7 +14036,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L354",
+      "source_location": "L360",
       "weight": 1.0
     },
     {
@@ -13925,7 +14060,7 @@
       "confidence_score": 1.0,
       "context": "return_type",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L297",
+      "source_location": "L301",
       "weight": 1.0
     },
     {
@@ -13937,7 +14072,7 @@
       "confidence_score": 1.0,
       "context": "return_type",
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L354",
+      "source_location": "L360",
       "weight": 1.0
     },
     {
@@ -14223,7 +14358,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "apps/server/src/flow.ts",
-      "source_location": "L13",
+      "source_location": "L11",
       "weight": 1.0
     },
     {
@@ -14234,18 +14369,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "apps/server/src/flow.ts",
-      "source_location": "L22",
-      "weight": 1.0
-    },
-    {
-      "source": "apps_server_src_flow",
-      "target": "apps_server_src_flow_next_phase",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "apps/server/src/flow.ts",
-      "source_location": "L3",
+      "source_location": "L23",
       "weight": 1.0
     },
     {
@@ -14256,18 +14380,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "apps/server/src/flow.ts",
-      "source_location": "L5",
-      "weight": 1.0
-    },
-    {
-      "source": "apps_server_src_flow_test",
-      "target": "apps_server_src_flow_test_teams",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "apps/server/src/flow.test.ts",
-      "source_location": "L4",
+      "source_location": "L3",
       "weight": 1.0
     },
     {
@@ -14278,7 +14391,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "apps/server/src/flow.test.ts",
-      "source_location": "L9",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_server_src_flow_test",
+      "target": "apps_server_src_flow_test_teams",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "apps/server/src/flow.test.ts",
+      "source_location": "L5",
       "weight": 1.0
     },
     {
@@ -14470,13 +14594,13 @@
     },
     {
       "source": "apps_server_src_live_test",
-      "target": "apps_server_src_live_test_startfirstturn",
+      "target": "apps_server_src_live_test_timeoutround",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "apps/server/src/live.test.ts",
-      "source_location": "L143",
+      "source_location": "L144",
       "weight": 1.0
     },
     {
@@ -14492,13 +14616,24 @@
     },
     {
       "source": "apps_server_src_live_test",
+      "target": "apps_server_src_live_test_startfirstturn",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "apps/server/src/live.test.ts",
+      "source_location": "L185",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_server_src_live_test",
       "target": "apps_server_src_live_test_playing",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "apps/server/src/live.test.ts",
-      "source_location": "L202",
+      "source_location": "L244",
       "weight": 1.0
     },
     {
@@ -14564,7 +14699,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "apps/server/src/lobby.ts",
-      "source_location": "L38",
+      "source_location": "L39",
       "weight": 1.0
     },
     {
@@ -14575,7 +14710,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "apps/server/src/lobby.ts",
-      "source_location": "L55",
+      "source_location": "L56",
       "weight": 1.0
     },
     {
@@ -14597,7 +14732,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "apps/server/src/lobby.ts",
-      "source_location": "L78",
+      "source_location": "L79",
       "weight": 1.0
     },
     {
@@ -15092,7 +15227,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "apps/web/src/gm/GmPage.tsx",
-      "source_location": "L320",
+      "source_location": "L328",
       "weight": 1.0
     },
     {
@@ -17039,7 +17174,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/phases/04-giliran-realtime.md",
-      "source_location": "L105",
+      "source_location": "L107",
       "weight": 1.0
     },
     {
@@ -17050,7 +17185,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/phases/04-giliran-realtime.md",
-      "source_location": "L113",
+      "source_location": "L115",
       "weight": 1.0
     },
     {
@@ -17105,7 +17240,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/phases/04-giliran-realtime.md",
-      "source_location": "L44",
+      "source_location": "L46",
       "weight": 1.0
     },
     {
@@ -17116,7 +17251,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/phases/04-giliran-realtime.md",
-      "source_location": "L54",
+      "source_location": "L56",
       "weight": 1.0
     },
     {
@@ -17138,7 +17273,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/phases/04-giliran-realtime.md",
-      "source_location": "L76",
+      "source_location": "L78",
       "weight": 1.0
     },
     {
@@ -17462,13 +17597,24 @@
     },
     {
       "source": "hot_hot_md_log_perubahan_per_sesi",
+      "target": "hot_2026_11_03_fase_2_dikerjakan_branch_fase_2_bom_offline",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "hot.md",
+      "source_location": "L111",
+      "weight": 1.0
+    },
+    {
+      "source": "hot_hot_md_log_perubahan_per_sesi",
       "target": "hot_2026_11_03_fase_1_dikerjakan_branch_fase_1_fondasi",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "hot.md",
-      "source_location": "L113",
+      "source_location": "L132",
       "weight": 1.0
     },
     {
@@ -17479,7 +17625,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "hot.md",
-      "source_location": "L136",
+      "source_location": "L155",
       "weight": 1.0
     },
     {
@@ -17490,7 +17636,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "hot.md",
-      "source_location": "L153",
+      "source_location": "L172",
       "weight": 1.0
     },
     {
@@ -17501,40 +17647,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "hot.md",
-      "source_location": "L172",
-      "weight": 1.0
-    },
-    {
-      "source": "hot_hot_md_log_perubahan_per_sesi",
-      "target": "hot_2026_11_03_jeda_pergantian_defuser_timer_tetap_berjalan",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "hot.md",
-      "source_location": "L20",
-      "weight": 1.0
-    },
-    {
-      "source": "hot_hot_md_log_perubahan_per_sesi",
-      "target": "hot_2026_11_03_jeda_5_detik_pergantian_defuser",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "hot.md",
-      "source_location": "L32",
-      "weight": 1.0
-    },
-    {
-      "source": "hot_hot_md_log_perubahan_per_sesi",
-      "target": "hot_2026_11_03_fase_4_dikerjakan_branch_fase_4_giliran_realtime",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "hot.md",
-      "source_location": "L49",
+      "source_location": "L191",
       "weight": 1.0
     },
     {
@@ -17545,7 +17658,51 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "hot.md",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "hot_hot_md_log_perubahan_per_sesi",
+      "target": "hot_2026_11_03_jeda_pergantian_defuser_timer_tetap_berjalan",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "hot.md",
+      "source_location": "L39",
+      "weight": 1.0
+    },
+    {
+      "source": "hot_hot_md_log_perubahan_per_sesi",
+      "target": "hot_2026_11_03_ronde_tambahan_sebelum_final",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "hot.md",
       "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "hot_hot_md_log_perubahan_per_sesi",
+      "target": "hot_2026_11_03_jeda_5_detik_pergantian_defuser",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "hot.md",
+      "source_location": "L51",
+      "weight": 1.0
+    },
+    {
+      "source": "hot_hot_md_log_perubahan_per_sesi",
+      "target": "hot_2026_11_03_fase_4_dikerjakan_branch_fase_4_giliran_realtime",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "hot.md",
+      "source_location": "L68",
       "weight": 1.0
     },
     {
@@ -17556,18 +17713,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "hot.md",
-      "source_location": "L71",
-      "weight": 1.0
-    },
-    {
-      "source": "hot_hot_md_log_perubahan_per_sesi",
-      "target": "hot_2026_11_03_fase_2_dikerjakan_branch_fase_2_bom_offline",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "hot.md",
-      "source_location": "L92",
+      "source_location": "L90",
       "weight": 1.0
     },
     {
@@ -18018,7 +18164,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "packages/db/src/schema.ts",
-      "source_location": "L24",
+      "source_location": "L26",
       "weight": 1.0
     },
     {
@@ -18029,7 +18175,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "packages/db/src/schema.ts",
-      "source_location": "L32",
+      "source_location": "L34",
       "weight": 1.0
     },
     {
@@ -18040,7 +18186,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "packages/db/src/schema.ts",
-      "source_location": "L42",
+      "source_location": "L44",
       "weight": 1.0
     },
     {
@@ -18062,18 +18208,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "packages/db/src/schema.ts",
-      "source_location": "L68",
-      "weight": 1.0
-    },
-    {
-      "source": "packages_db_src_schema",
-      "target": "packages_db_src_schema_sabotages",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "packages/db/src/schema.ts",
-      "source_location": "L77",
+      "source_location": "L71",
       "weight": 1.0
     },
     {
@@ -18089,13 +18224,13 @@
     },
     {
       "source": "packages_db_src_schema",
-      "target": "packages_db_src_schema_scoreevents",
+      "target": "packages_db_src_schema_sabotages",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "packages/db/src/schema.ts",
-      "source_location": "L87",
+      "source_location": "L80",
       "weight": 1.0
     },
     {
@@ -18107,6 +18242,17 @@
       "confidence_score": 1.0,
       "source_file": "packages/db/src/schema.ts",
       "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "packages_db_src_schema",
+      "target": "packages_db_src_schema_scoreevents",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "packages/db/src/schema.ts",
+      "source_location": "L90",
       "weight": 1.0
     },
     {
@@ -18315,7 +18461,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "packages/shared/src/api.ts",
-      "source_location": "L10",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "packages_shared_src_api",
+      "target": "packages_shared_src_api_roundlabel",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "packages/shared/src/api.ts",
+      "source_location": "L13",
       "weight": 1.0
     },
     {
@@ -18326,7 +18483,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "packages/shared/src/api.ts",
-      "source_location": "L12",
+      "source_location": "L15",
       "weight": 1.0
     },
     {
@@ -18337,7 +18494,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "packages/shared/src/api.ts",
-      "source_location": "L14",
+      "source_location": "L17",
       "weight": 1.0
     },
     {
@@ -18348,7 +18505,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "packages/shared/src/api.ts",
-      "source_location": "L16",
+      "source_location": "L19",
       "weight": 1.0
     },
     {
@@ -18370,7 +18527,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "packages/shared/src/api.ts",
-      "source_location": "L24",
+      "source_location": "L27",
       "weight": 1.0
     },
     {
@@ -18381,18 +18538,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "packages/shared/src/api.ts",
-      "source_location": "L32",
-      "weight": 1.0
-    },
-    {
-      "source": "packages_shared_src_api",
-      "target": "packages_shared_src_api_newteam",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "packages/shared/src/api.ts",
-      "source_location": "L37",
+      "source_location": "L36",
       "weight": 1.0
     },
     {
@@ -18404,6 +18550,17 @@
       "confidence_score": 1.0,
       "source_file": "packages/shared/src/api.ts",
       "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "packages_shared_src_api",
+      "target": "packages_shared_src_api_newteam",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "packages/shared/src/api.ts",
+      "source_location": "L41",
       "weight": 1.0
     },
     {
@@ -18727,24 +18884,13 @@
     },
     {
       "source": "packages_shared_src_manual",
-      "target": "packages_shared_src_manual_rotation_start",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "packages/shared/src/manual.ts",
-      "source_location": "L55",
-      "weight": 1.0
-    },
-    {
-      "source": "packages_shared_src_manual",
       "target": "packages_shared_src_manual_pickdefusers",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "packages/shared/src/manual.ts",
-      "source_location": "L62",
+      "source_location": "L61",
       "weight": 1.0
     },
     {
@@ -18755,7 +18901,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "packages/shared/src/manual.ts",
-      "source_location": "L68",
+      "source_location": "L67",
       "weight": 1.0
     },
     {
@@ -18766,7 +18912,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "packages/shared/src/manual.ts",
-      "source_location": "L86",
+      "source_location": "L85",
       "weight": 1.0
     },
     {
@@ -19030,7 +19176,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "packages/shared/src/protocol.ts",
-      "source_location": "L41",
+      "source_location": "L42",
       "weight": 1.0
     },
     {
@@ -19041,7 +19187,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "packages/shared/src/protocol.ts",
-      "source_location": "L52",
+      "source_location": "L54",
       "weight": 1.0
     },
     {
@@ -19052,7 +19198,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "packages/shared/src/protocol.ts",
-      "source_location": "L54",
+      "source_location": "L56",
       "weight": 1.0
     },
     {
@@ -19063,7 +19209,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "packages/shared/src/protocol.ts",
-      "source_location": "L56",
+      "source_location": "L58",
       "weight": 1.0
     },
     {
@@ -19074,7 +19220,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "packages/shared/src/protocol.ts",
-      "source_location": "L64",
+      "source_location": "L67",
       "weight": 1.0
     },
     {
@@ -19096,7 +19242,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "packages/shared/src/protocol.ts",
-      "source_location": "L72",
+      "source_location": "L75",
       "weight": 1.0
     },
     {
@@ -19107,7 +19253,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "packages/shared/src/protocol.ts",
-      "source_location": "L74",
+      "source_location": "L77",
       "weight": 1.0
     },
     {
@@ -19118,7 +19264,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "packages/shared/src/protocol.ts",
-      "source_location": "L76",
+      "source_location": "L80",
       "weight": 1.0
     },
     {
@@ -19129,7 +19275,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "packages/shared/src/protocol.ts",
-      "source_location": "L78",
+      "source_location": "L82",
       "weight": 1.0
     },
     {
@@ -19140,7 +19286,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "packages/shared/src/protocol.ts",
-      "source_location": "L83",
+      "source_location": "L87",
       "weight": 1.0
     },
     {
@@ -19404,7 +19550,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L188",
+      "source_location": "L192",
       "weight": 1.0
     },
     {
@@ -19415,7 +19561,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L195",
+      "source_location": "L199",
       "weight": 1.0
     },
     {
@@ -19426,7 +19572,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L220",
+      "source_location": "L224",
       "weight": 1.0
     },
     {
@@ -19437,7 +19583,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L234",
+      "source_location": "L238",
       "weight": 1.0
     },
     {
@@ -19448,7 +19594,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L258",
+      "source_location": "L262",
       "weight": 1.0
     },
     {
@@ -19459,7 +19605,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L271",
+      "source_location": "L275",
       "weight": 1.0
     },
     {
@@ -19470,7 +19616,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L297",
+      "source_location": "L301",
       "weight": 1.0
     },
     {
@@ -19481,7 +19627,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L339",
+      "source_location": "L345",
       "weight": 1.0
     },
     {
@@ -19492,7 +19638,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "apps/server/src/live.ts",
-      "source_location": "L354",
+      "source_location": "L360",
       "weight": 1.0
     },
     {
@@ -19635,7 +19781,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/phases/04-giliran-realtime.md",
-      "source_location": "L93",
+      "source_location": "L95",
       "weight": 1.0
     },
     {
@@ -19822,5 +19968,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "8fbec8afa05699aa91128039f44c23ab7a32c93d"
+  "built_at_commit": "1795700e23579d720a10ec344c78971d1e9627b4"
 }

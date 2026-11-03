@@ -35,9 +35,11 @@ lobby → betting → playing ⇄ paused → result → betting (tim berikutnya)
 leaderboard → betting (babak berikutnya) | finished (setelah Final)
 ```
 
+**Ronde tambahan.** Nomor ronde (`games.round`, `turns.round`) terpisah dari tingkat kesulitan (`phase`). Setelah Ronde 1 selalu Ronde 2. Dari leaderboard Ronde 2 dan seterusnya, GM memilih **Start Final** (tombol utama) atau **Start Round N instead** (perintah `extra_round`). Ronde 3, 4, … memakai bom dan manual Ronde 2 (`phase = "round2"`, 180 dtk), dengan seed baru per giliran. Final selalu bernomor terakhir. Rotasi Defuser lanjut per nomor ronde: ronde ke-n mulai dari anggota `3(n−1)+1`, jadi Final setelah Ronde 3 mulai dari anggota 10 (berputar untuk tim kecil). Layar menampilkan "Round 3"; Final tetap "Final".
+
 `turns.status`: `betting`, `playing`, `paused`, `defused`, `boom`, `voided` (`voided` dipakai di Fase 6 untuk ulang giliran).
 
-Urutan giliran Ronde 1 dan 2 mengikuti `teams.turn_order`. Urutan Final dari skor terendah dikerjakan di Fase 6.
+Urutan giliran Ronde 1, 2, dan ronde tambahan mengikuti `teams.turn_order`. Urutan Final dari skor terendah dikerjakan di Fase 6.
 
 Keputusan "apa yang dilakukan tombol Next" ada di `apps/server/src/flow.ts` (fungsi murni, dites tanpa database). Perubahan state ada di `apps/server/src/live.ts` (`LiveGame`) dan dites terhadap database `defuse_test` dengan jam palsu. Rencana awal (`game.ts` murni yang menghasilkan event) tidak dipakai: memetakan event ke penulisan database justru menambah lapisan, sedangkan tes dengan database sungguhan lebih dekat ke perilaku asli.
 

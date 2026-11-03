@@ -32,9 +32,9 @@ Fase 4 (state machine, WebSocket, `score_events`).
 | Silent Expert | Satu Expert acak melihat layar "MUTED" 45 dtk | 50 |
 | Radio Interference | Manual di semua HP Expert diacak urutannya dan labelnya disembunyikan selama 60 dtk, lalu kembali normal (lihat di bawah) | 60 |
 
-- Hanya Ronde 2 dan Final, hanya saat giliran `playing`.
+- Hanya Ronde 2, ronde tambahan (3, 4, …), dan Final, hanya saat giliran `playing`.
 - Maks 1 Sabotage per giliran: pengajuan pertama yang masuk menang. Pengajuan berikutnya ditolak dengan pesan jelas.
-- Maks 1 Sabotage per tim per ronde (Final dihitung sebagai ronde tersendiri).
+- Maks 1 Sabotage per tim per ronde, dihitung per `turns.round` (setiap ronde tambahan dan Final dihitung sebagai ronde tersendiri).
 - Skor tim harus ≥ biaya saat mengajukan.
 - Status `pending` → GM `approved` (biaya dicatat sebagai `sabotage_cost`, twist aktif) atau `rejected` (slot giliran dibuka lagi).
 - Semua cek batas dilakukan di server dalam satu transaksi database, supaya dua tim yang menekan bersamaan tidak sama-sama lolos.

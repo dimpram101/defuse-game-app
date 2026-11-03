@@ -45,19 +45,24 @@ describe("pickDefusers", () => {
   const team = (n: number) => Array.from({ length: n }, (_, i) => 101 + i); // member k has id 100 + k
 
   test("5 players follow the concept rotation", () => {
-    expect(pickDefusers(team(5), "round1")).toEqual([101, 102, 103]);
-    expect(pickDefusers(team(5), "round2")).toEqual([104, 105, 101]);
+    expect(pickDefusers(team(5), 1)).toEqual([101, 102, 103]);
+    expect(pickDefusers(team(5), 2)).toEqual([104, 105, 101]);
+  });
+
+  test("each later round (extra or Final) continues the rotation", () => {
+    expect(pickDefusers(team(5), 3)).toEqual([102, 103, 104]);
+    expect(pickDefusers(team(5), 4)).toEqual([105, 101, 102]);
   });
 
   test("4 players: Round 2 is members 4, 1, 2", () => {
-    expect(pickDefusers(team(4), "round2")).toEqual([104, 101, 102]);
+    expect(pickDefusers(team(4), 2)).toEqual([104, 101, 102]);
   });
 
   test("small teams repeat, an empty team has no Defuser", () => {
-    expect(pickDefusers(team(3), "round2")).toEqual([101, 102, 103]);
-    expect(pickDefusers(team(2), "round1")).toEqual([101, 102, 101]);
-    expect(pickDefusers(team(1), "final")).toEqual([101, 101, 101]);
-    expect(pickDefusers([], "round1")).toEqual([]);
+    expect(pickDefusers(team(3), 2)).toEqual([101, 102, 103]);
+    expect(pickDefusers(team(2), 1)).toEqual([101, 102, 101]);
+    expect(pickDefusers(team(1), 3)).toEqual([101, 101, 101]);
+    expect(pickDefusers([], 1)).toEqual([]);
   });
 });
 

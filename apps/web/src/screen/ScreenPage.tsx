@@ -1,5 +1,5 @@
 import type { GameView, ScreenSnapshot, TeamView } from "@defuse/shared";
-import { PHASE_LABELS } from "@defuse/shared/api";
+import { roundLabel } from "@defuse/shared/api";
 import { QRCodeSVG } from "qrcode.react";
 import { BombBoard } from "../bomb/BombBoard";
 import { clock, useCountdown, useLive } from "../lib/live";
@@ -97,7 +97,7 @@ function UpNext({ game }: { game: GameView }) {
     <div className="grid h-full grid-cols-[1fr_640px] gap-16">
       <section className="flex min-w-0 flex-col justify-center gap-8">
         <p className="font-display text-screen-md font-semibold text-on-surface-muted">
-          {PHASE_LABELS[game.phase]} · Turn {game.turn!.number}
+          {roundLabel(game.phase, game.round)} · Turn {game.turn!.number}
         </p>
         <h1 className="flex items-center gap-8 font-display text-screen-display leading-none font-bold">
           <TeamDot color={team.color} className="size-16" />
@@ -119,7 +119,7 @@ function Leaderboard({ game }: { game: GameView }) {
   return (
     <div className="mx-auto flex h-full max-w-[1400px] flex-col justify-center gap-10">
       <h1 className="font-display text-screen-display leading-none font-bold">
-        {finished ? "Final standings" : `Leaderboard · after ${PHASE_LABELS[game.phase]}`}
+        {finished ? "Final standings" : `Leaderboard · after ${roundLabel(game.phase, game.round)}`}
       </h1>
       {finished && winner && <p className="font-display text-screen-lg font-bold text-primary">{winner.name} wins!</p>}
       <Standings teams={game.teams} highlight />
@@ -142,7 +142,7 @@ function LiveBomb({ snap, receivedAt, send }: { snap: ScreenSnapshot; receivedAt
         <>
           <TeamDot color={team.color} className="size-7" />
           <span className="truncate">{team.name}</span>
-          <span className="shrink-0 text-on-surface-muted">· {PHASE_LABELS[turn.phase]}</span>
+          <span className="shrink-0 text-on-surface-muted">· {roundLabel(turn.phase, turn.round)}</span>
         </>
       }
       view={snap.bomb!.view}
