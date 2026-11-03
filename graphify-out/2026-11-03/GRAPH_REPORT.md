@@ -1,7 +1,7 @@
 # Graph Report - defuse-app  (2026-11-03)
 
 ## Corpus Check
-- 27 files · ~25,521 words
+- 27 files · ~25,602 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -18,8 +18,8 @@
 - Defuse! – Spesifikasi Sistem (SRS Ringkas)
 - docs/README.md
 - Defuse! Question Bank
+- hot.md · Log perubahan per sesi
 - Defuse! – Design System
-- Modul bom dan isi manual
 - Fase 4 · Giliran realtime
 - Fase 5 · Penonton
 - Fase 1 · Fondasi
@@ -74,19 +74,19 @@ Nodes (19): Alur state permainan, Arsitektur dan infrastruktur, Cara kerja inti,
 
 ### Community 6 - "docs/README.md"
 Cohesion: 0.10
-Nodes (15): Cakupan, Dependensi, Fase 3 · Manual di HP, Keputusan teknis, Risiko, Selesai bila, Tugas, Tujuan (+7 more)
+Nodes (16): Manual di HP Expert, Modul bom dan isi manual, Perilaku saat Defuser salah, Ringkasan per babak, Cakupan, Dependensi, Fase 3 · Manual di HP, Keputusan teknis (+8 more)
 
 ### Community 7 - "Defuse! Question Bank"
 Cohesion: 0.50
 Nodes (3): Commands, Defuse! Question Bank, Editing the bank
 
+### Community 8 - "hot.md · Log perubahan per sesi"
+Cohesion: 0.40
+Nodes (4): 2026-11-03 · Bank soal masuk ke planning, 2026-11-03 · Manual sama untuk semua Expert, 2026-11-03 · Planning per fase, hot.md · Log perubahan per sesi
+
 ### Community 13 - "Defuse! – Design System"
 Cohesion: 0.20
 Nodes (9): Colors, Components, Defuse! – Design System, Do's and Don'ts, Elevation & Depth, Layout, Overview, Shapes (+1 more)
-
-### Community 14 - "Modul bom dan isi manual"
-Cohesion: 0.40
-Nodes (5): Halaman manual, Modul bom dan isi manual, Pembagian halaman ke Expert, Perilaku saat Defuser salah, Ringkasan per babak
 
 ### Community 15 - "Fase 4 · Giliran realtime"
 Cohesion: 0.22

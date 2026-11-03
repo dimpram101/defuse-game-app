@@ -2,6 +2,29 @@
 
 Entri terbaru di atas. Format ada di `CLAUDE.md` bagian "Aturan proyek".
 
+## 2026-11-03 · Fase 1 dikerjakan (branch `fase-1-fondasi`)
+
+**Perubahan:**
+- Monorepo Bun: `package.json` (workspaces + script), `tsconfig.base.json`, `.env.example`, `.gitignore` (baris terakhir `.git/` yang tidak diakhiri newline dirapikan, ditambah `dist/` dan `.env`).
+- `packages/shared`: tipe API (`PublicGame`, `Me`, `NewTeam`), `TEAM_COLORS`, batas panjang nama.
+- `packages/db`: skema Drizzle 7 tabel, migrasi `0000_init`, `createDb`/`migrateDb` dengan driver bawaan Bun.
+- `apps/server`: Elysia (`env.ts`, `gm-auth.ts`, `lobby.ts`, `app.ts`, `index.ts`), 11 tes di `app.test.ts`.
+- `apps/web`: React + Vite + Tailwind v4, tema dari DESIGN.md, `/screen` (lobby + QR di kanvas 1920×1080), `/play` (join + layar tunggu), `/gm` (PIN, ringkasan sesi, sesi baru).
+- Deploy: `Dockerfile`, `.dockerignore`, `docker-compose.yml` (app + db + caddy), `Caddyfile`, `docker-compose.dev.yml` + `scripts/dev-db-init.sql`.
+- `docs/phases/01-fondasi.md` diperbarui (checklist, cara menjalankan, keputusan), `docs/README.md` status Fase 1 = jalan.
+
+**Keputusan:**
+- PIN GM hanya di env; token GM = HMAC(PIN), kolom `games.pin_hash` dari SRS tidak dibuat. Tebakan salah diantrekan dengan jeda 1 detik.
+- `turns` tanpa `difficulty` dan `result`. `packages/content` dan penyalinan aset bom ditunda ke Fase 2, saat dipakai.
+- Postgres dev di port 5434 karena 5432 (Postgres lokal) dan 5433 (container lain) sudah terpakai.
+- Lobby memakai polling 3 detik sampai WebSocket di Fase 4.
+- Bukti: `bun test` 24 lulus (11 server + 13 bank), typecheck 4 paket lulus, `vite build` lulus, image Docker jalan dan `/health` ok, `bun run dev` + proxy Vite ok, screenshot headless `/screen` (1920×1080, 1280×720), `/play` (360px), `/gm` (390px) dicek. Dua bug UI ketemu dan diperbaiki: link join di `/gm` terpotong, indikator radio tim di `/play` menyala semua.
+
+**Berikutnya:**
+- Uji scan QR dari HP sungguhan (`PUBLIC_URL` = IP LAN laptop).
+- Deploy ke VPS setelah subdomain siap, lalu centang poin terakhir Fase 1.
+- Fase 2: pindahkan `defuse-bank/` ke `packages/`, `checkAnswer`, mode latihan `/screen`.
+
 ## 2026-11-03 · Manual sama untuk semua Expert
 
 **Perubahan:**

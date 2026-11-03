@@ -1,0 +1,9 @@
+**/node_modules
+**/dist
+.env
+.git
+graphify-out
+defuse-assets
+defuse-bank
+docs
+*.md

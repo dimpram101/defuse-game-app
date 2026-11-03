@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Defuse! icon">
+  <!-- App icon / favicon source. Works down to 32px. -->
+  <rect width="512" height="512" rx="112" fill="#0E1116"/>
+  <!-- device -->
+  <rect x="88" y="128" width="336" height="256" rx="40" fill="#2A303C" stroke="#5A6578" stroke-width="10"/>
+  <!-- readout -->
+  <rect x="132" y="168" width="248" height="88" rx="16" fill="#0E1116"/>
+  <g fill="#FFB020">
+    <rect x="156" y="188" width="44" height="48" rx="6"/>
+    <rect x="212" y="188" width="44" height="48" rx="6"/>
+    <circle cx="268" cy="200" r="6"/><circle cx="268" cy="224" r="6"/>
+    <rect x="280" y="188" width="44" height="48" rx="6"/>
+    <rect x="336" y="188" width="24" height="48" rx="6"/>
+  </g>
+  <!-- wires -->
+  <g stroke-width="16" stroke-linecap="round" fill="none">
+    <path d="M140 300 C 200 300, 220 340, 290 340" stroke="#E53935"/>
+    <path d="M140 336 C 190 336, 210 300, 250 300" stroke="#1E88E5"/>
+    <path d="M300 300 L 372 300" stroke="#1E88E5"/>
+    <path d="M318 340 L 372 340" stroke="#E53935"/>
+  </g>
+  <!-- spark at the cut -->
+  <path d="M275 274 l8 18 18 8 -18 8 -8 18 -8 -18 -18 -8 18 -8z" fill="#FFB020"/>
+</svg>

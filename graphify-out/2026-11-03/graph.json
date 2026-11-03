@@ -737,66 +737,6 @@
       "source_location": "L74"
     },
     {
-      "id": "docs_modul_dan_manual_halaman_manual",
-      "label": "Halaman manual",
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "Modul bom dan isi manual",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "halaman manual",
-      "source_file": "docs/modul-dan-manual.md",
-      "source_location": "L41"
-    },
-    {
-      "id": "docs_modul_dan_manual_modul_bom_dan_isi_manual",
-      "label": "Modul bom dan isi manual",
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "Modul bom dan isi manual",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "modul bom dan isi manual",
-      "source_file": "docs/modul-dan-manual.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "docs_modul_dan_manual_pembagian_halaman_ke_expert",
-      "label": "Pembagian halaman ke Expert",
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "Modul bom dan isi manual",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "pembagian halaman ke expert",
-      "source_file": "docs/modul-dan-manual.md",
-      "source_location": "L58"
-    },
-    {
-      "id": "docs_modul_dan_manual_perilaku_saat_defuser_salah",
-      "label": "Perilaku saat Defuser salah",
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "Modul bom dan isi manual",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "perilaku saat defuser salah",
-      "source_file": "docs/modul-dan-manual.md",
-      "source_location": "L21"
-    },
-    {
-      "id": "docs_modul_dan_manual_ringkasan_per_babak",
-      "label": "Ringkasan per babak",
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "Modul bom dan isi manual",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "ringkasan per babak",
-      "source_file": "docs/modul-dan-manual.md",
-      "source_location": "L11"
-    },
-    {
       "id": "docs_phases_04_giliran_realtime_cakupan",
       "label": "Cakupan",
       "_origin": "ast",
@@ -974,7 +914,7 @@
       "node_kind": "heading",
       "norm_label": "risiko",
       "source_file": "docs/phases/05-penonton.md",
-      "source_location": "L60"
+      "source_location": "L73"
     },
     {
       "id": "docs_phases_05_penonton_selesai_bila",
@@ -986,7 +926,7 @@
       "node_kind": "heading",
       "norm_label": "selesai bila",
       "source_file": "docs/phases/05-penonton.md",
-      "source_location": "L54"
+      "source_location": "L67"
     },
     {
       "id": "docs_phases_05_penonton_tugas",
@@ -998,7 +938,7 @@
       "node_kind": "heading",
       "norm_label": "tugas",
       "source_file": "docs/phases/05-penonton.md",
-      "source_location": "L42"
+      "source_location": "L54"
     },
     {
       "id": "docs_phases_05_penonton_tujuan",
@@ -2057,6 +1997,54 @@
       "source_location": "L1"
     },
     {
+      "id": "docs_modul_dan_manual_manual_di_hp_expert",
+      "label": "Manual di HP Expert",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "docs/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "manual di hp expert",
+      "source_file": "docs/modul-dan-manual.md",
+      "source_location": "L41"
+    },
+    {
+      "id": "docs_modul_dan_manual_modul_bom_dan_isi_manual",
+      "label": "Modul bom dan isi manual",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "docs/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "modul bom dan isi manual",
+      "source_file": "docs/modul-dan-manual.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_modul_dan_manual_perilaku_saat_defuser_salah",
+      "label": "Perilaku saat Defuser salah",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "docs/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "perilaku saat defuser salah",
+      "source_file": "docs/modul-dan-manual.md",
+      "source_location": "L21"
+    },
+    {
+      "id": "docs_modul_dan_manual_ringkasan_per_babak",
+      "label": "Ringkasan per babak",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "docs/README.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "ringkasan per babak",
+      "source_file": "docs/modul-dan-manual.md",
+      "source_location": "L11"
+    },
+    {
       "id": "docs_phases_01_fondasi",
       "label": "01-fondasi.md",
       "_origin": "ast",
@@ -2138,7 +2126,7 @@
       "node_kind": "heading",
       "norm_label": "keputusan teknis",
       "source_file": "docs/phases/03-manual-hp.md",
-      "source_location": "L43"
+      "source_location": "L42"
     },
     {
       "id": "docs_phases_03_manual_hp_risiko",
@@ -2150,7 +2138,7 @@
       "node_kind": "heading",
       "norm_label": "risiko",
       "source_file": "docs/phases/03-manual-hp.md",
-      "source_location": "L55"
+      "source_location": "L54"
     },
     {
       "id": "docs_phases_03_manual_hp_selesai_bila",
@@ -2162,7 +2150,7 @@
       "node_kind": "heading",
       "norm_label": "selesai bila",
       "source_file": "docs/phases/03-manual-hp.md",
-      "source_location": "L48"
+      "source_location": "L47"
     },
     {
       "id": "docs_phases_03_manual_hp_tugas",
@@ -2261,54 +2249,6 @@
       "source_location": "L16"
     },
     {
-      "id": "hot",
-      "label": "hot.md",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "docs/README.md",
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "hot.md",
-      "source_file": "hot.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "hot_2026_11_03_bank_soal_masuk_ke_planning",
-      "label": "2026-11-03 \u00b7 Bank soal masuk ke planning",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "docs/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "2026-11-03 \u00b7 bank soal masuk ke planning",
-      "source_file": "hot.md",
-      "source_location": "L5"
-    },
-    {
-      "id": "hot_2026_11_03_planning_per_fase",
-      "label": "2026-11-03 \u00b7 Planning per fase",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "docs/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "2026-11-03 \u00b7 planning per fase",
-      "source_file": "hot.md",
-      "source_location": "L24"
-    },
-    {
-      "id": "hot_hot_md_log_perubahan_per_sesi",
-      "label": "hot.md \u00b7 Log perubahan per sesi",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "docs/README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "hot.md \u00b7 log perubahan per sesi",
-      "source_file": "hot.md",
-      "source_location": "L1"
-    },
-    {
       "id": "defuse_bank_readme",
       "label": "defuse-bank/README.md",
       "_origin": "ast",
@@ -2355,6 +2295,66 @@
       "norm_label": "editing the bank",
       "source_file": "defuse-bank/README.md",
       "source_location": "L25"
+    },
+    {
+      "id": "hot",
+      "label": "hot.md",
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "hot.md \u00b7 Log perubahan per sesi",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "hot.md",
+      "source_file": "hot.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "hot_2026_11_03_bank_soal_masuk_ke_planning",
+      "label": "2026-11-03 \u00b7 Bank soal masuk ke planning",
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "hot.md \u00b7 Log perubahan per sesi",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "2026-11-03 \u00b7 bank soal masuk ke planning",
+      "source_file": "hot.md",
+      "source_location": "L22"
+    },
+    {
+      "id": "hot_2026_11_03_manual_sama_untuk_semua_expert",
+      "label": "2026-11-03 \u00b7 Manual sama untuk semua Expert",
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "hot.md \u00b7 Log perubahan per sesi",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "2026-11-03 \u00b7 manual sama untuk semua expert",
+      "source_file": "hot.md",
+      "source_location": "L5"
+    },
+    {
+      "id": "hot_2026_11_03_planning_per_fase",
+      "label": "2026-11-03 \u00b7 Planning per fase",
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "hot.md \u00b7 Log perubahan per sesi",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "2026-11-03 \u00b7 planning per fase",
+      "source_file": "hot.md",
+      "source_location": "L41"
+    },
+    {
+      "id": "hot_hot_md_log_perubahan_per_sesi",
+      "label": "hot.md \u00b7 Log perubahan per sesi",
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "hot.md \u00b7 Log perubahan per sesi",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "hot.md \u00b7 log perubahan per sesi",
+      "source_file": "hot.md",
+      "source_location": "L1"
     }
   ],
   "links": [
@@ -3931,24 +3931,13 @@
     },
     {
       "source": "docs_modul_dan_manual_modul_bom_dan_isi_manual",
-      "target": "docs_modul_dan_manual_halaman_manual",
+      "target": "docs_modul_dan_manual_manual_di_hp_expert",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/modul-dan-manual.md",
       "source_location": "L41",
-      "weight": 1.0
-    },
-    {
-      "source": "docs_modul_dan_manual_modul_bom_dan_isi_manual",
-      "target": "docs_modul_dan_manual_pembagian_halaman_ke_expert",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/modul-dan-manual.md",
-      "source_location": "L58",
       "weight": 1.0
     },
     {
@@ -4179,7 +4168,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/phases/03-manual-hp.md",
-      "source_location": "L43",
+      "source_location": "L42",
       "weight": 1.0
     },
     {
@@ -4190,7 +4179,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/phases/03-manual-hp.md",
-      "source_location": "L48",
+      "source_location": "L47",
       "weight": 1.0
     },
     {
@@ -4201,7 +4190,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/phases/03-manual-hp.md",
-      "source_location": "L55",
+      "source_location": "L54",
       "weight": 1.0
     },
     {
@@ -4366,7 +4355,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/phases/05-penonton.md",
-      "source_location": "L42",
+      "source_location": "L54",
       "weight": 1.0
     },
     {
@@ -4377,18 +4366,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/phases/05-penonton.md",
-      "source_location": "L54",
-      "weight": 1.0
-    },
-    {
-      "source": "docs_phases_05_penonton_fase_5_penonton",
-      "target": "docs_phases_05_penonton_risiko",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/phases/05-penonton.md",
-      "source_location": "L60",
+      "source_location": "L67",
       "weight": 1.0
     },
     {
@@ -4400,6 +4378,17 @@
       "confidence_score": 1.0,
       "source_file": "docs/phases/05-penonton.md",
       "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_phases_05_penonton_fase_5_penonton",
+      "target": "docs_phases_05_penonton_risiko",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/phases/05-penonton.md",
+      "source_location": "L73",
       "weight": 1.0
     },
     {
@@ -4635,18 +4624,29 @@
     },
     {
       "source": "hot_hot_md_log_perubahan_per_sesi",
+      "target": "hot_2026_11_03_bank_soal_masuk_ke_planning",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "hot.md",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "hot_hot_md_log_perubahan_per_sesi",
       "target": "hot_2026_11_03_planning_per_fase",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "hot.md",
-      "source_location": "L24",
+      "source_location": "L41",
       "weight": 1.0
     },
     {
       "source": "hot_hot_md_log_perubahan_per_sesi",
-      "target": "hot_2026_11_03_bank_soal_masuk_ke_planning",
+      "target": "hot_2026_11_03_manual_sama_untuk_semua_expert",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4663,7 +4663,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/modul-dan-manual.md",
-      "source_location": "L79",
+      "source_location": "L63",
       "weight": 1.0
     },
     {

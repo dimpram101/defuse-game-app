@@ -17,7 +17,7 @@ Kalau planning di sini bertentangan dengan dokumen sumber, dokumen sumber yang m
 
 | # | Fase | Cakupan | Bergantung pada | Status |
 | --- | --- | --- | --- | --- |
-| 1 | [Fondasi](phases/01-fondasi.md) | FR-01, 02, 03 · NFR-06, 07, 08 | – | belum |
+| 1 | [Fondasi](phases/01-fondasi.md) | FR-01, 02, 03 · NFR-06, 07, 08 | – | jalan (tinggal deploy VPS) |
 | 2 | [Bom offline](phases/02-bom-offline.md) | FR-10, 11, 12, 13 | 1, defuse-bank | belum |
 | 3 | [Manual di HP](phases/03-manual-hp.md) | FR-20, 21 | 1, 2 | belum |
 | 4 | [Giliran realtime](phases/04-giliran-realtime.md) | FR-14, 15, 24, 30, 40, 41 · NFR-01, 02, 04, 05 | 2, 3 | belum |

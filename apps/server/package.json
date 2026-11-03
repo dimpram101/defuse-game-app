@@ -1,0 +1,15 @@
+{
+  "name": "@defuse/server",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "bun --watch --env-file=../../.env src/index.ts",
+    "start": "bun src/index.ts",
+    "typecheck": "tsc -p ."
+  },
+  "dependencies": {
+    "@defuse/db": "workspace:*",
+    "@defuse/shared": "workspace:*",
+    "elysia": "^1.4.30"
+  }
+}

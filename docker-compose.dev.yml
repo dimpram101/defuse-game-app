@@ -1,0 +1,15 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: defuse
+      POSTGRES_PASSWORD: defuse
+      POSTGRES_DB: defuse
+    ports:
+      - "5434:5432"
+    volumes:
+      - db-dev:/var/lib/postgresql/data
+      # Runs only when the volume is first created: adds the database used by `bun test`.
+      - ./scripts/dev-db-init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+volumes:
+  db-dev:

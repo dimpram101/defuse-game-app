@@ -1,0 +1,19 @@
+{
+  "name": "defuse",
+  "private": true,
+  "type": "module",
+  "workspaces": ["apps/*", "packages/*"],
+  "scripts": {
+    "dev": "bun --filter '@defuse/server' --filter '@defuse/web' dev",
+    "build": "bun --filter '@defuse/web' build",
+    "start": "bun --filter '@defuse/server' start",
+    "test": "bun test",
+    "typecheck": "bun --filter '*' typecheck",
+    "db:up": "docker compose -f docker-compose.dev.yml up -d",
+    "db:generate": "bun --filter '@defuse/db' generate"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.4.4",
+    "typescript": "^7.0.2"
+  }
+}
