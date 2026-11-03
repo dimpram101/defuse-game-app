@@ -14,42 +14,43 @@ Semua Expert tim yang bermain melihat manual lengkap untuk modul yang sedang akt
 - Fase 1 (pemain dan tim)
 - Fase 2 (isi bank di `packages/content`, `renderRule`)
 
-Fase ini dikerjakan sebelum realtime: logikanya dibuktikan lewat `bun test`, dan tampilan `/play` dicek dengan endpoint dev yang mengembalikan isi HP untuk `device_token` tertentu. Pengiriman lewat WebSocket disambungkan di Fase 4.
+Fase ini dikerjakan sebelum realtime: logikanya dibuktikan lewat `bun test`, dan tampilan `/play` dicek lewat pratinjau GM. Pengiriman ke HP saat giliran berjalan disambungkan di Fase 4.
+
+## Cara mencoba
+
+1. Buka `/gm` dan masukkan PIN di browser yang sama.
+2. Buka `/play?preview=round1`. Di atas ada pilihan Round 1 / Round 2 / Final, Wires / Symbols / Words, dan Expert / Defuser. Di bawahnya tampil persis layar HP Expert atau Defuser.
+
+Halaman ini bisa dipakai GM untuk mengecek manual sebelum acara, atau untuk sesi Demo (konsep, menit 06–10) bersama `/screen?practice=1`.
 
 ## Tugas
 
-**`packages/shared`**
+**`packages/shared` (`src/manual.ts`)**
 
-- [ ] `manualFor(phase, module)` → isi manual modul itu: halaman Wires (teks dari `renderRule`, penanda NEW), kolom simbol beserta arah baca, atau kelompok kata beserta tabelnya
-- [ ] `pickDefusers(team, phase)` → 3 pemain untuk modul 1–3, mengikuti `players.defuser_order` dan rotasi di konsep (Ronde 1: anggota 1, 2, 3; Ronde 2: 4, 5, 1; tim 4 orang: 4, 1, 2)
-- [ ] Tes: `manualFor` untuk tiap babak dan modul memuat semua halaman/kolom/kelompok dari bank; `pickDefusers` untuk tim 3, 4, dan 5 orang di tiap babak
+- [x] `manualFor(phase, module)`: halaman Wires (teks dari `renderRule`, `isNew` dari `changed`), kolom simbol + arah baca (`orderIsNew` di Final), kelompok kata + tabel (`tableIsNew` di Final)
+- [x] `pickDefusers(memberIds, phase)`: rotasi dengan titik mulai Ronde 1 = anggota 1, Ronde 2 = anggota 4, Final = melanjutkan rotasi, berputar untuk tim kecil. Tim kosong = tanpa Defuser
+- [x] `playView(player, turn)`: `waiting` / `spectator` / `defuser` / `expert` (+ manual). Manual tampil saat status `betting`, `playing`, `paused`, dan hilang setelah giliran selesai. Ditaruh di `shared` (fungsi murni) supaya server Fase 4 tinggal memakainya
+- [x] Tes (`manual.test.ts`, 17 tes): isi manual sama dengan bank untuk tiap babak dan modul, hanya Final yang bertanda NEW (4 aturan Wires), rotasi untuk tim 1–5 orang, peran tiap HP
 
 **Server**
 
-- [ ] `playView(player, turn)` → untuk anggota tim yang bermain: `{ role: "defuser" }` jika ia Defuser modul aktif, selain itu `{ role: "expert", manual: manualFor(...) }`. Untuk tim penonton: tanpa manual
-- [ ] Defuser semua modul disimpan di `turns.defuser_ids` saat Start, supaya peran setiap HP bisa dihitung ulang setelah refresh atau restart
-- [ ] Expert yang baru tersambung di tengah modul langsung mendapat manual modul aktif
+- [x] `GET /api/gm/manual?phase=&module=` (hanya dengan token GM) untuk pratinjau. Ini pengganti "endpoint dev per `device_token`" di rencana awal, karena giliran belum ada sebelum Fase 4
+- [ ] Simpan Defuser ke `turns.defuser_ids` saat Start, dan kirim manual ke Expert yang tersambung: **di Fase 4**, bersama Start dan WebSocket
 
-**`/play` mode Expert**
+**`/play`**
 
-- [ ] Tampilan `manual-page`: header teal berisi nama modul, lalu isinya: aturan Wires bernomor, kolom simbol sebagai gambar SVG, atau tabel kata
-- [ ] Penanda **NEW** di aturan Wires Final yang berubah, dan arah baca baru di Symbols Final
-- [ ] Isi panjang (2 halaman Wires, 6 kolom, 6 kelompok kata) memakai tab sederhana, bukan tabel lebar yang harus di-zoom di layar 360px
-- [ ] Mode Defuser: *"You're the Defuser. Look at the screen."* tanpa isi manual
-- [ ] Layar tidak boleh mati sendiri saat giliran (Wake Lock API, abaikan diam-diam jika tidak didukung)
-- [ ] Teks aturan 18px (`manual-rule`)
-
-## Keputusan teknis
-
-- Manual dikirim dari server hanya ke Expert tim yang bermain, bukan dibundel ke HP. Dengan begitu HP tim penonton dan Defuser tidak bisa membuka manual (DESIGN.md: "the split is the game").
-- Isi Final diambil dari data babak `final` di bank, tanpa flag terpisah.
+- [x] `play/ManualView.tsx`: kartu bergaya `manual-page` (strip header teal), aturan Wires bernomor 18px, kolom simbol sebagai gambar di tile terang, tabel kata (`<table>` dengan judul kolom)
+- [x] Penanda **NEW** (teal, bukan warna saja: ada tulisannya) untuk aturan Wires yang berubah, arah baca baru, dan tabel kata baru di Final
+- [x] Tanpa tab: dua halaman Wires ditumpuk, 6 kolom simbol muat dalam satu grid di lebar 360px (tile ±46px), 6 kelompok kata ditumpuk. Tidak ada scroll horizontal
+- [x] `play/RoleScreens.tsx`: layar Expert dan layar Defuser ("Look at the big screen.")
+- [x] Wake Lock (`lib/useWakeLock.ts`), diambil lagi saat tab kembali terlihat
+- [x] `play/ManualPreview.tsx` di `/play?preview=<babak>` untuk GM
 
 ## Selesai bila
 
-- Dengan 4 HP di satu tim, semua Expert melihat manual yang sama untuk modul aktif, Defuser modul itu melihat layar Defuser, dan saat modul berganti peran serta isi manual ikut berganti.
-- HP tim penonton tidak pernah menerima isi manual.
-- Refresh HP menampilkan peran dan manual yang sama.
-- Tes `manualFor` dan `pickDefusers` hijau.
+- [x] Tes `manualFor`, `pickDefusers`, dan `playView` hijau, termasuk: semua Expert mendapat manual yang sama, Defuser modul aktif tidak, tim penonton tidak pernah.
+- [x] Tampilan manual semua babak dan modul dicek di lebar 360px (Playwright), tanpa scroll horizontal.
+- [ ] Dengan 4 HP sungguhan di satu tim, peran dan manual berganti saat modul berganti, dan bertahan setelah refresh: **diuji di Fase 4**, karena butuh giliran yang berjalan.
 
 ## Risiko
 

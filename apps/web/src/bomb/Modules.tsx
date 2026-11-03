@@ -1,4 +1,5 @@
 import type { BombView, Color } from "@defuse/shared";
+import { glyphs } from "../lib/glyphs";
 
 const WIRE_HEX: Record<Color, string> = {
   red: "#E53935",
@@ -69,11 +70,6 @@ export function WiresModule({ wires, cut, onCut }: { wires: Color[]; cut: number
   );
 }
 
-// Symbol SVGs use currentColor; they are our own files from defuse-assets.
-const glyphs = Object.fromEntries(
-  Object.entries(import.meta.glob<string>("../assets/symbols/*.svg", { query: "?raw", import: "default", eager: true }))
-    .map(([path, svg]) => [path.split("/").pop()!.replace(".svg", ""), svg]),
-);
 
 export function SymbolsModule({ symbols, progress, onPress }: { symbols: string[]; progress: number; onPress?: (id: string) => void }) {
   return (

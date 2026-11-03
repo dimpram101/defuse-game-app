@@ -24,9 +24,9 @@
     "semantic_hash": ""
   },
   "docs/README.md": {
-    "mtime": 1793668091.4291897,
-    "seen": 1793668092.5570295,
-    "ast_hash": "96e7025d1dad45fd1de56c912c98df36",
+    "mtime": 1793668799.4820552,
+    "seen": 1793668800.2926855,
+    "ast_hash": "4b76022cbbc29d70e41d824e4e4ddf94",
     "semantic_hash": ""
   },
   "docs/modul-dan-manual.md": {
@@ -48,15 +48,15 @@
     "semantic_hash": ""
   },
   "docs/phases/03-manual-hp.md": {
-    "mtime": 1793665737.7429552,
-    "seen": 1793665812.1260307,
-    "ast_hash": "f8fe85ccbc2e780d79ddad3818e75f1c",
+    "mtime": 1793668799.4820552,
+    "seen": 1793668800.2927446,
+    "ast_hash": "d820cd9726ff8bc6dc27c2db020be9d1",
     "semantic_hash": ""
   },
   "docs/phases/04-giliran-realtime.md": {
-    "mtime": 1793668068.2802262,
-    "seen": 1793668092.5570655,
-    "ast_hash": "92254d07410c7f10523b1b3d3650f733",
+    "mtime": 1793668799.4820552,
+    "seen": 1793668800.2927458,
+    "ast_hash": "8e69d1d0837dfc0a977ce1a4ae78241a",
     "semantic_hash": ""
   },
   "docs/phases/05-penonton.md": {
@@ -78,9 +78,9 @@
     "semantic_hash": ""
   },
   "hot.md": {
-    "mtime": 1793668091.4551797,
-    "seen": 1793668092.5571516,
-    "ast_hash": "22c3eada61108b3fb84fb3d9cd28068c",
+    "mtime": 1793668799.4820552,
+    "seen": 1793668800.2928028,
+    "ast_hash": "184ddfe5d868958fdd0683c13d7b404b",
     "semantic_hash": ""
   },
   "Defuse! \u2013 Bank Soal per Ronde.md": {
@@ -102,15 +102,15 @@
     "semantic_hash": ""
   },
   "apps/server/src/app.test.ts": {
-    "mtime": 1793666802.5867195,
-    "seen": 1793666872.365786,
-    "ast_hash": "aeb80daea9fc6a03f8f526edf1d88919",
+    "mtime": 1793668631.3524497,
+    "seen": 1793668800.2915154,
+    "ast_hash": "9f8c1b78126f7101209413a54d2872b4",
     "semantic_hash": ""
   },
   "apps/server/src/app.ts": {
-    "mtime": 1793666164.6886756,
-    "seen": 1793666872.365788,
-    "ast_hash": "1696ab375b32d055b48b878b90855d39",
+    "mtime": 1793668631.3524497,
+    "seen": 1793668800.2915175,
+    "ast_hash": "e39df953b43f9a4f326d71328745e573",
     "semantic_hash": ""
   },
   "apps/server/src/env.ts": {
@@ -180,9 +180,9 @@
     "semantic_hash": ""
   },
   "apps/web/src/play/PlayPage.tsx": {
-    "mtime": 1793667800.0884311,
-    "seen": 1793668092.5563133,
-    "ast_hash": "ec40923b3b97fe4eb249bce6f6e69c87",
+    "mtime": 1793668699.486652,
+    "seen": 1793668800.291854,
+    "ast_hash": "091d239762d946f7b3112aa8809ee023",
     "semantic_hash": ""
   },
   "apps/web/src/screen/ScreenPage.tsx": {
@@ -264,9 +264,9 @@
     "semantic_hash": ""
   },
   "packages/shared/src/index.ts": {
-    "mtime": 1793667583.2525687,
-    "seen": 1793668092.5567415,
-    "ast_hash": "00ae9c70e9db8900e235c3309b112390",
+    "mtime": 1793668602.1688132,
+    "seen": 1793668800.2924464,
+    "ast_hash": "177e8a80db15631ec03bca11a34cd499",
     "semantic_hash": ""
   },
   "packages/shared/tsconfig.json": {
@@ -312,9 +312,9 @@
     "semantic_hash": ""
   },
   "apps/web/src/bomb/Modules.tsx": {
-    "mtime": 1793667727.3452876,
-    "seen": 1793668092.556166,
-    "ast_hash": "f870ef6dd949b52a7de60d23b6f8835c",
+    "mtime": 1793668655.1669297,
+    "seen": 1793668800.2917256,
+    "ast_hash": "086f39a88d576a347743c288f130ffd3",
     "semantic_hash": ""
   },
   "apps/web/src/screen/PracticeBomb.tsx": {
@@ -519,6 +519,48 @@
     "mtime": 1793667696.09705,
     "seen": 1793668092.5572042,
     "ast_hash": "a29dc104571f51f94ee2c31768af1d3a",
+    "semantic_hash": ""
+  },
+  "apps/web/src/lib/glyphs.ts": {
+    "mtime": 1793668655.1669297,
+    "seen": 1793668800.291778,
+    "ast_hash": "4c91c8224fb77a7f374a4fa084ea3c57",
+    "semantic_hash": ""
+  },
+  "apps/web/src/lib/useWakeLock.ts": {
+    "mtime": 1793668655.1669297,
+    "seen": 1793668800.2918284,
+    "ast_hash": "e935dc034fc9dab219534c325c50212e",
+    "semantic_hash": ""
+  },
+  "apps/web/src/play/ManualPreview.tsx": {
+    "mtime": 1793668699.4718025,
+    "seen": 1793668800.2918525,
+    "ast_hash": "7b7d7558a399ac1a8309a9d88a1769c5",
+    "semantic_hash": ""
+  },
+  "apps/web/src/play/ManualView.tsx": {
+    "mtime": 1793668677.0203059,
+    "seen": 1793668800.2918534,
+    "ast_hash": "c7fa9f65c05eebe8de1c196f3fc0e617",
+    "semantic_hash": ""
+  },
+  "apps/web/src/play/RoleScreens.tsx": {
+    "mtime": 1793668699.46809,
+    "seen": 1793668800.2918546,
+    "ast_hash": "7c151daf886cee0785c6afcbfa5a1e5a",
+    "semantic_hash": ""
+  },
+  "packages/shared/src/manual.test.ts": {
+    "mtime": 1793668621.543289,
+    "seen": 1793668800.2924476,
+    "ast_hash": "61b1e4d64a04453bd2115a2994d3e896",
+    "semantic_hash": ""
+  },
+  "packages/shared/src/manual.ts": {
+    "mtime": 1793668602.1616132,
+    "seen": 1793668800.2924483,
+    "ast_hash": "2d44016d33f4db8a12906d4242895ae7",
     "semantic_hash": ""
   }
 }

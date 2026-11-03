@@ -3,7 +3,7 @@ import { mkdtempSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { createDb, migrateDb, sql } from "@defuse/db";
-import type { PublicGame } from "@defuse/shared";
+import { manualFor, type PublicGame } from "@defuse/shared";
 import { createApp } from "./app";
 import { createGmAuth } from "./gm-auth";
 
@@ -85,6 +85,17 @@ describe("GM", () => {
     expect((await call("GET", "/api/game")).json.id).toBe(second.id);
     // The old device token no longer belongs to the active session.
     expect((await call("GET", "/api/players/me", undefined, { "x-device-token": joined.json.deviceToken })).status).toBe(404);
+  });
+});
+
+describe("manual preview", () => {
+  test("GM only, validated, same content as manualFor", async () => {
+    expect((await call("GET", "/api/gm/manual?phase=round1&module=1")).status).toBe(401);
+    const auth = { authorization: `Bearer ${await gmToken()}` };
+    expect((await call("GET", "/api/gm/manual?phase=round9&module=1", undefined, auth)).status).toBe(422);
+    expect((await call("GET", "/api/gm/manual?phase=final&module=4", undefined, auth)).status).toBe(422);
+    const res = await call("GET", "/api/gm/manual?phase=final&module=2", undefined, auth);
+    expect(res.json).toEqual(manualFor("final", 2));
   });
 });
 

@@ -1,7 +1,7 @@
 import { resolve, sep } from "node:path";
 import { Elysia, t } from "elysia";
 import { sql, type Db } from "@defuse/db";
-import { NICKNAME_MAX, TEAM_COLORS, TEAM_NAME_MAX } from "@defuse/shared";
+import { manualFor, NICKNAME_MAX, TEAM_COLORS, TEAM_NAME_MAX } from "@defuse/shared";
 import type { GmAuth } from "./gm-auth";
 import { createGame, findMe, getPublicGame, joinPlayer, LobbyError } from "./lobby";
 
@@ -35,6 +35,16 @@ export function createApp({ db, gm, joinUrl, webDist }: Deps) {
           name: t.String({ maxLength: TEAM_NAME_MAX }),
           color: t.UnionEnum(TEAM_COLORS),
         }), { minItems: 3, maxItems: 4 }),
+      }),
+    })
+    // Lets the GM preview exactly what Experts will see. Real turns send the manual over the WebSocket (phase 4).
+    .get("/api/gm/manual", ({ headers, query, status }) => {
+      if (!gm.verify(headers.authorization)) return status(401, { error: "Enter the GM PIN again." });
+      return manualFor(query.phase, query.module as 1 | 2 | 3);
+    }, {
+      query: t.Object({
+        phase: t.UnionEnum(["round1", "round2", "final"]),
+        module: t.Numeric({ minimum: 1, maximum: 3, multipleOf: 1 }),
       }),
     })
     .get("/api/gm/check", ({ headers, status }) =>

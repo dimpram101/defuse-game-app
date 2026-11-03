@@ -19,7 +19,7 @@ Kalau planning di sini bertentangan dengan dokumen sumber, dokumen sumber yang m
 | --- | --- | --- | --- | --- |
 | 1 | [Fondasi](phases/01-fondasi.md) | FR-01, 02, 03 · NFR-06, 07, 08 | – | jalan (tinggal deploy VPS) |
 | 2 | [Bom offline](phases/02-bom-offline.md) | FR-10, 11, 12, 13 | 1, defuse-bank | jalan (tinggal cek di proyektor) |
-| 3 | [Manual di HP](phases/03-manual-hp.md) | FR-20, 21 | 1, 2 | belum |
+| 3 | [Manual di HP](phases/03-manual-hp.md) | FR-20, 21 | 1, 2 | jalan (pengiriman saat giliran menyusul di Fase 4) |
 | 4 | [Giliran realtime](phases/04-giliran-realtime.md) | FR-14, 15, 24, 30, 40, 41 · NFR-01, 02, 04, 05 | 2, 3 | belum |
 | 5 | [Penonton](phases/05-penonton.md) | FR-22, 23, 33, 34 | 4 | belum |
 | 6 | [Final dan perapian](phases/06-final-perapian.md) | FR-04, 05, 16, 31, 32, 35, 36, 37, 42 | 4, 5 | belum |

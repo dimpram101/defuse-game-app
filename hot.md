@@ -2,6 +2,27 @@
 
 Entri terbaru di atas. Format ada di `CLAUDE.md` bagian "Aturan proyek".
 
+## 2026-11-03 · Fase 3 dikerjakan (branch `fase-3-manual-hp`)
+
+**Perubahan:**
+- `packages/shared/src/manual.ts` (+ `manual.test.ts`, 17 tes): `manualFor`, `pickDefusers`, `playView`.
+- `apps/server/src/app.ts`: `GET /api/gm/manual` (token GM) + 1 tes.
+- `apps/web`: `play/ManualView.tsx`, `play/RoleScreens.tsx` (layar Expert dan Defuser), `play/ManualPreview.tsx` (`/play?preview=round1`), `lib/glyphs.ts` (dipindah dari `bomb/Modules.tsx`), `lib/useWakeLock.ts`.
+- Dokumen: `docs/phases/03-manual-hp.md` (checklist, cara mencoba, celah bundle), `docs/phases/04-giliran-realtime.md` (tugas bawaan dari Fase 2–3), `docs/README.md` status Fase 3 = jalan.
+
+**Keputusan:**
+- Alur giliran tetap sesuai konsep: satu tim mengerjakan ketiga modul dalam satu giliran, Defuser berganti per modul (dikonfirmasi user).
+- Rotasi Defuser: titik mulai Ronde 1 = anggota 1, Ronde 2 = anggota 4, Final melanjutkan, berputar untuk tim kecil. Cocok dengan contoh di konsep (5 orang: 1,2,3 lalu 4,5,1; 4 orang: Ronde 2 = 4,1,2).
+- Manual tampil sejak tim maju (status `betting`) sampai bom selesai.
+- Pratinjau manual lewat token GM, bukan endpoint dev per `device_token`, karena giliran belum ada.
+- Tanpa tab di manual: semua isi muat di lebar 360px. Kolom simbol digambar sama tiap babak, hanya arah baca yang berubah di Final.
+- Celah yang tercatat: isi bank masuk bundle web karena bom latihan berjalan di browser. Ditugaskan ke Fase 4.
+- Bukti: `bun test` 68 lulus, typecheck 5 paket, build lulus, screenshot Playwright 360px untuk Ronde 1 (3 modul), Ronde 2 Symbols, Final (3 modul), layar Defuser, dan layar terkunci tanpa PIN; tidak ada scroll horizontal.
+
+**Berikutnya:**
+- Fase 4: giliran realtime (WebSocket, timer server, Start/Pause/Next, skor, leaderboard), tiga tugas bawaan di atas.
+- Masih menunggu user: hapus `defuse-bank/`, cek mode latihan di proyektor, commit Fase 1–3.
+
 ## 2026-11-03 · Fase 2 dikerjakan (branch `fase-2-bom-offline`)
 
 **Perubahan:**

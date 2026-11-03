@@ -30,45 +30,6 @@
       "source_location": "L5"
     },
     {
-      "id": "packages_shared_src_api_gamestatus",
-      "label": "GameStatus",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "GmPage.tsx",
-      "file_type": "code",
-      "norm_label": "gamestatus",
-      "source_file": "packages/shared/src/api.ts",
-      "source_location": "L7"
-    },
-    {
-      "id": "packages_shared_src_api_me",
-      "label": "Me",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "GmPage.tsx",
-      "file_type": "code",
-      "norm_label": "me",
-      "source_file": "packages/shared/src/api.ts",
-      "source_location": "L26"
-    },
-    {
-      "id": "packages_shared_src_api_newteam",
-      "label": "NewTeam",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "GmPage.tsx",
-      "file_type": "code",
-      "norm_label": "newteam",
-      "source_file": "packages/shared/src/api.ts",
-      "source_location": "L31"
-    },
-    {
       "id": "packages_shared_src_api_publicgame",
       "label": "PublicGame",
       "_callable": true,
@@ -82,19 +43,6 @@
       "source_location": "L18"
     },
     {
-      "id": "packages_shared_src_api_publicteam",
-      "label": "PublicTeam",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "GmPage.tsx",
-      "file_type": "code",
-      "norm_label": "publicteam",
-      "source_file": "packages/shared/src/api.ts",
-      "source_location": "L10"
-    },
-    {
       "id": "packages_shared_src_api_teamcolor",
       "label": "TeamColor",
       "_callable": true,
@@ -106,6 +54,32 @@
       "norm_label": "teamcolor",
       "source_file": "packages/shared/src/api.ts",
       "source_location": "L2"
+    },
+    {
+      "id": "packages_shared_src_manual_manual",
+      "label": "Manual",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "GmPage.tsx",
+      "file_type": "code",
+      "norm_label": "manual",
+      "source_file": "packages/shared/src/manual.ts",
+      "source_location": "L22"
+    },
+    {
+      "id": "packages_shared_src_play_moduleno",
+      "label": "ModuleNo",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "GmPage.tsx",
+      "file_type": "code",
+      "norm_label": "moduleno",
+      "source_file": "packages/shared/src/play.ts",
+      "source_location": "L4"
     },
     {
       "id": "apps_web_src_bomb_chassis_led",
@@ -186,19 +160,6 @@
       "source_location": "L31"
     },
     {
-      "id": "packages_shared_src_play_moduleno",
-      "label": "ModuleNo",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "PracticeBomb.tsx",
-      "file_type": "code",
-      "norm_label": "moduleno",
-      "source_file": "packages/shared/src/play.ts",
-      "source_location": "L4"
-    },
-    {
       "id": "packages_shared_src_play_outcome",
       "label": "Outcome",
       "_callable": true,
@@ -264,6 +225,71 @@
       "source_location": "L12"
     },
     {
+      "id": "packages_shared_src_manual_playview",
+      "label": "playView",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "bomb.ts",
+      "file_type": "code",
+      "norm_label": "playview",
+      "source_file": "packages/shared/src/manual.ts",
+      "source_location": "L86"
+    },
+    {
+      "id": "packages_shared_src_manual_symbolsmanual",
+      "label": "SymbolsManual",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "bomb.ts",
+      "file_type": "code",
+      "norm_label": "symbolsmanual",
+      "source_file": "packages/shared/src/manual.ts",
+      "source_location": "L9"
+    },
+    {
+      "id": "packages_shared_src_manual_turnforplay",
+      "label": "TurnForPlay",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "bomb.ts",
+      "file_type": "code",
+      "norm_label": "turnforplay",
+      "source_file": "packages/shared/src/manual.ts",
+      "source_location": "L68"
+    },
+    {
+      "id": "packages_shared_src_manual_wordmanual",
+      "label": "WordManual",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "bomb.ts",
+      "file_type": "code",
+      "norm_label": "wordmanual",
+      "source_file": "packages/shared/src/manual.ts",
+      "source_location": "L16"
+    },
+    {
+      "id": "packages_shared_src_manual_wiresmanual",
+      "label": "WiresManual",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 27,
+      "community_name": "ManualView.tsx",
+      "file_type": "code",
+      "norm_label": "wiresmanual",
+      "source_file": "packages/shared/src/manual.ts",
+      "source_location": "L5"
+    },
+    {
       "id": "apps_server_src_app_deps",
       "label": "Deps",
       "_callable": true,
@@ -327,6 +353,58 @@
       "norm_label": "db",
       "source_file": "packages/db/src/index.ts",
       "source_location": "L13"
+    },
+    {
+      "id": "packages_shared_src_api_gamestatus",
+      "label": "GameStatus",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "app.ts",
+      "file_type": "code",
+      "norm_label": "gamestatus",
+      "source_file": "packages/shared/src/api.ts",
+      "source_location": "L7"
+    },
+    {
+      "id": "packages_shared_src_api_me",
+      "label": "Me",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "app.ts",
+      "file_type": "code",
+      "norm_label": "me",
+      "source_file": "packages/shared/src/api.ts",
+      "source_location": "L26"
+    },
+    {
+      "id": "packages_shared_src_api_newteam",
+      "label": "NewTeam",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "app.ts",
+      "file_type": "code",
+      "norm_label": "newteam",
+      "source_file": "packages/shared/src/api.ts",
+      "source_location": "L31"
+    },
+    {
+      "id": "packages_shared_src_api_publicteam",
+      "label": "PublicTeam",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "app.ts",
+      "file_type": "code",
+      "norm_label": "publicteam",
+      "source_file": "packages/shared/src/api.ts",
+      "source_location": "L10"
     },
     {
       "id": "apps_web_src_gm_gmpage_gmpage",
@@ -473,6 +551,42 @@
       "source_location": "L15"
     },
     {
+      "id": "apps_web_src_lib_usewakelock_usewakelock",
+      "label": "useWakeLock()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "GmPage.tsx",
+      "file_type": "code",
+      "norm_label": "usewakelock()",
+      "source_file": "apps/web/src/lib/useWakeLock.ts",
+      "source_location": "L4"
+    },
+    {
+      "id": "apps_web_src_play_manualpreview_choice",
+      "label": "Choice()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "GmPage.tsx",
+      "file_type": "code",
+      "norm_label": "choice()",
+      "source_file": "apps/web/src/play/ManualPreview.tsx",
+      "source_location": "L13"
+    },
+    {
+      "id": "apps_web_src_play_manualpreview_manualpreview",
+      "label": "ManualPreview()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "GmPage.tsx",
+      "file_type": "code",
+      "norm_label": "manualpreview()",
+      "source_file": "apps/web/src/play/ManualPreview.tsx",
+      "source_location": "L40"
+    },
+    {
       "id": "apps_web_src_play_playpage_joinform",
       "label": "JoinForm()",
       "_callable": true,
@@ -482,7 +596,7 @@
       "file_type": "code",
       "norm_label": "joinform()",
       "source_file": "apps/web/src/play/PlayPage.tsx",
-      "source_location": "L32"
+      "source_location": "L33"
     },
     {
       "id": "apps_web_src_play_playpage_joinform_submit",
@@ -494,7 +608,7 @@
       "file_type": "code",
       "norm_label": "submit()",
       "source_file": "apps/web/src/play/PlayPage.tsx",
-      "source_location": "L40"
+      "source_location": "L41"
     },
     {
       "id": "apps_web_src_play_playpage_message",
@@ -506,7 +620,19 @@
       "file_type": "code",
       "norm_label": "message()",
       "source_file": "apps/web/src/play/PlayPage.tsx",
-      "source_location": "L21"
+      "source_location": "L22"
+    },
+    {
+      "id": "apps_web_src_play_playpage_playerpage",
+      "label": "PlayerPage()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "GmPage.tsx",
+      "file_type": "code",
+      "norm_label": "playerpage()",
+      "source_file": "apps/web/src/play/PlayPage.tsx",
+      "source_location": "L156"
     },
     {
       "id": "apps_web_src_play_playpage_playpage",
@@ -518,7 +644,7 @@
       "file_type": "code",
       "norm_label": "playpage()",
       "source_file": "apps/web/src/play/PlayPage.tsx",
-      "source_location": "L145"
+      "source_location": "L146"
     },
     {
       "id": "apps_web_src_play_playpage_shell",
@@ -530,7 +656,7 @@
       "file_type": "code",
       "norm_label": "shell()",
       "source_file": "apps/web/src/play/PlayPage.tsx",
-      "source_location": "L8"
+      "source_location": "L9"
     },
     {
       "id": "apps_web_src_play_playpage_waiting",
@@ -542,7 +668,31 @@
       "file_type": "code",
       "norm_label": "waiting()",
       "source_file": "apps/web/src/play/PlayPage.tsx",
-      "source_location": "L115"
+      "source_location": "L116"
+    },
+    {
+      "id": "apps_web_src_play_rolescreens_defuserscreen",
+      "label": "DefuserScreen()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "GmPage.tsx",
+      "file_type": "code",
+      "norm_label": "defuserscreen()",
+      "source_file": "apps/web/src/play/RoleScreens.tsx",
+      "source_location": "L21"
+    },
+    {
+      "id": "apps_web_src_play_rolescreens_expertscreen",
+      "label": "ExpertScreen()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "GmPage.tsx",
+      "file_type": "code",
+      "norm_label": "expertscreen()",
+      "source_file": "apps/web/src/play/RoleScreens.tsx",
+      "source_location": "L7"
     },
     {
       "id": "apps_web_src_screen_screenpage_lobby",
@@ -662,7 +812,7 @@
       "file_type": "code",
       "norm_label": "symbolsmodule()",
       "source_file": "apps/web/src/bomb/Modules.tsx",
-      "source_location": "L78"
+      "source_location": "L74"
     },
     {
       "id": "apps_web_src_bomb_modules_wiregraphic",
@@ -674,7 +824,7 @@
       "file_type": "code",
       "norm_label": "wiregraphic()",
       "source_file": "apps/web/src/bomb/Modules.tsx",
-      "source_location": "L12"
+      "source_location": "L13"
     },
     {
       "id": "apps_web_src_bomb_modules_wiresmodule",
@@ -686,7 +836,7 @@
       "file_type": "code",
       "norm_label": "wiresmodule()",
       "source_file": "apps/web/src/bomb/Modules.tsx",
-      "source_location": "L48"
+      "source_location": "L49"
     },
     {
       "id": "apps_web_src_bomb_modules_wordmodule",
@@ -698,7 +848,7 @@
       "file_type": "code",
       "norm_label": "wordmodule()",
       "source_file": "apps/web/src/bomb/Modules.tsx",
-      "source_location": "L107"
+      "source_location": "L103"
     },
     {
       "id": "apps_web_src_screen_practicebomb_clock",
@@ -1085,6 +1235,114 @@
       "source_location": "L122"
     },
     {
+      "id": "packages_shared_src_manual_manualfor",
+      "label": "manualFor()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "bomb.ts",
+      "file_type": "code",
+      "norm_label": "manualfor()",
+      "source_file": "packages/shared/src/manual.ts",
+      "source_location": "L25"
+    },
+    {
+      "id": "packages_shared_src_manual_pickdefusers",
+      "label": "pickDefusers()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "bomb.ts",
+      "file_type": "code",
+      "norm_label": "pickdefusers()",
+      "source_file": "packages/shared/src/manual.ts",
+      "source_location": "L62"
+    },
+    {
+      "id": "apps_web_src_lib_glyphs_symbolname",
+      "label": "symbolName()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 27,
+      "community_name": "ManualView.tsx",
+      "file_type": "code",
+      "norm_label": "symbolname()",
+      "source_file": "apps/web/src/lib/glyphs.ts",
+      "source_location": "L7"
+    },
+    {
+      "id": "apps_web_src_play_manualview_manualview",
+      "label": "ManualView()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 27,
+      "community_name": "ManualView.tsx",
+      "file_type": "code",
+      "norm_label": "manualview()",
+      "source_file": "apps/web/src/play/ManualView.tsx",
+      "source_location": "L114"
+    },
+    {
+      "id": "apps_web_src_play_manualview_newtag",
+      "label": "NewTag()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 27,
+      "community_name": "ManualView.tsx",
+      "file_type": "code",
+      "norm_label": "newtag()",
+      "source_file": "apps/web/src/play/ManualView.tsx",
+      "source_location": "L6"
+    },
+    {
+      "id": "apps_web_src_play_manualview_page",
+      "label": "Page()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 27,
+      "community_name": "ManualView.tsx",
+      "file_type": "code",
+      "norm_label": "page()",
+      "source_file": "apps/web/src/play/ManualView.tsx",
+      "source_location": "L15"
+    },
+    {
+      "id": "apps_web_src_play_manualview_symbols",
+      "label": "Symbols()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 27,
+      "community_name": "ManualView.tsx",
+      "file_type": "code",
+      "norm_label": "symbols()",
+      "source_file": "apps/web/src/play/ManualView.tsx",
+      "source_location": "L49"
+    },
+    {
+      "id": "apps_web_src_play_manualview_wires",
+      "label": "Wires()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 27,
+      "community_name": "ManualView.tsx",
+      "file_type": "code",
+      "norm_label": "wires()",
+      "source_file": "apps/web/src/play/ManualView.tsx",
+      "source_location": "L24"
+    },
+    {
+      "id": "apps_web_src_play_manualview_words",
+      "label": "Words()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 27,
+      "community_name": "ManualView.tsx",
+      "file_type": "code",
+      "norm_label": "words()",
+      "source_file": "apps/web/src/play/ManualView.tsx",
+      "source_location": "L83"
+    },
+    {
       "id": "apps_server_src_app_createapp",
       "label": "createApp()",
       "_callable": true,
@@ -1375,6 +1633,17 @@
       "source_location": "L1"
     },
     {
+      "id": "apps_web_src_lib_usewakelock",
+      "label": "useWakeLock.ts",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "GmPage.tsx",
+      "file_type": "code",
+      "norm_label": "usewakelock.ts",
+      "source_file": "apps/web/src/lib/useWakeLock.ts",
+      "source_location": "L1"
+    },
+    {
       "id": "apps_web_src_main",
       "label": "main.tsx",
       "_origin": "ast",
@@ -1397,6 +1666,28 @@
       "source_location": "L15"
     },
     {
+      "id": "apps_web_src_play_manualpreview",
+      "label": "ManualPreview.tsx",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "GmPage.tsx",
+      "file_type": "code",
+      "norm_label": "manualpreview.tsx",
+      "source_file": "apps/web/src/play/ManualPreview.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "apps_web_src_play_manualpreview_phases",
+      "label": "PHASES",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "GmPage.tsx",
+      "file_type": "code",
+      "norm_label": "phases",
+      "source_file": "apps/web/src/play/ManualPreview.tsx",
+      "source_location": "L7"
+    },
+    {
       "id": "apps_web_src_play_playpage",
       "label": "PlayPage.tsx",
       "_origin": "ast",
@@ -1406,6 +1697,28 @@
       "norm_label": "playpage.tsx",
       "source_file": "apps/web/src/play/PlayPage.tsx",
       "source_location": "L1"
+    },
+    {
+      "id": "apps_web_src_play_rolescreens",
+      "label": "RoleScreens.tsx",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "GmPage.tsx",
+      "file_type": "code",
+      "norm_label": "rolescreens.tsx",
+      "source_file": "apps/web/src/play/RoleScreens.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "apps_web_src_play_rolescreens_modules",
+      "label": "MODULES",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "GmPage.tsx",
+      "file_type": "code",
+      "norm_label": "modules",
+      "source_file": "apps/web/src/play/RoleScreens.tsx",
+      "source_location": "L5"
     },
     {
       "id": "apps_web_src_screen_screenpage",
@@ -1472,50 +1785,6 @@
       "norm_label": "variants",
       "source_file": "apps/web/src/ui.tsx",
       "source_location": "L16"
-    },
-    {
-      "id": "packages_shared_src_api",
-      "label": "src/api.ts",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "GmPage.tsx",
-      "file_type": "code",
-      "norm_label": "src/api.ts",
-      "source_file": "packages/shared/src/api.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "packages_shared_src_api_nickname_max",
-      "label": "NICKNAME_MAX",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "GmPage.tsx",
-      "file_type": "code",
-      "norm_label": "nickname_max",
-      "source_file": "packages/shared/src/api.ts",
-      "source_location": "L4"
-    },
-    {
-      "id": "packages_shared_src_api_team_colors",
-      "label": "TEAM_COLORS",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "GmPage.tsx",
-      "file_type": "code",
-      "norm_label": "team_colors",
-      "source_file": "packages/shared/src/api.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "packages_shared_src_api_team_name_max",
-      "label": "TEAM_NAME_MAX",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "GmPage.tsx",
-      "file_type": "code",
-      "norm_label": "team_name_max",
-      "source_file": "packages/shared/src/api.ts",
-      "source_location": "L5"
     },
     {
       "id": "packages_shared_src_index",
@@ -2386,17 +2655,6 @@
       "source_location": "L1"
     },
     {
-      "id": "apps_web_src_bomb_modules_glyphs",
-      "label": "glyphs",
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "PracticeBomb.tsx",
-      "file_type": "code",
-      "norm_label": "glyphs",
-      "source_file": "apps/web/src/bomb/Modules.tsx",
-      "source_location": "L73"
-    },
-    {
       "id": "apps_web_src_bomb_modules_wire_hex",
       "label": "WIRE_HEX",
       "_origin": "ast",
@@ -2405,7 +2663,7 @@
       "file_type": "code",
       "norm_label": "wire_hex",
       "source_file": "apps/web/src/bomb/Modules.tsx",
-      "source_location": "L3"
+      "source_location": "L4"
     },
     {
       "id": "apps_web_src_screen_practicebomb",
@@ -2863,114 +3121,6 @@
       "node_kind": "heading",
       "norm_label": "tujuan",
       "source_file": "docs/phases/01-fondasi.md",
-      "source_location": "L3"
-    },
-    {
-      "id": "docs_phases_07_uji_dan_hari_h_cadangan_hari_h",
-      "label": "Cadangan hari-H",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "Fase 1 \u00b7 Fondasi",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "cadangan hari-h",
-      "source_file": "docs/phases/07-uji-dan-hari-h.md",
-      "source_location": "L38"
-    },
-    {
-      "id": "docs_phases_07_uji_dan_hari_h_cakupan",
-      "label": "Cakupan",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "Fase 1 \u00b7 Fondasi",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "cakupan",
-      "source_file": "docs/phases/07-uji-dan-hari-h.md",
-      "source_location": "L7"
-    },
-    {
-      "id": "docs_phases_07_uji_dan_hari_h_dependensi",
-      "label": "Dependensi",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "Fase 1 \u00b7 Fondasi",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "dependensi",
-      "source_file": "docs/phases/07-uji-dan-hari-h.md",
-      "source_location": "L14"
-    },
-    {
-      "id": "docs_phases_07_uji_dan_hari_h_deploy_vps",
-      "label": "Deploy VPS",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "Fase 1 \u00b7 Fondasi",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "deploy vps",
-      "source_file": "docs/phases/07-uji-dan-hari-h.md",
-      "source_location": "L18"
-    },
-    {
-      "id": "docs_phases_07_uji_dan_hari_h_fase_7_uji_dan_hari_h",
-      "label": "Fase 7 \u00b7 Uji dan hari-H",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "Fase 1 \u00b7 Fondasi",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "fase 7 \u00b7 uji dan hari-h",
-      "source_file": "docs/phases/07-uji-dan-hari-h.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "docs_phases_07_uji_dan_hari_h_pengujian",
-      "label": "Pengujian",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "Fase 1 \u00b7 Fondasi",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "pengujian",
-      "source_file": "docs/phases/07-uji-dan-hari-h.md",
-      "source_location": "L28"
-    },
-    {
-      "id": "docs_phases_07_uji_dan_hari_h_pertanyaan_terbuka_dari_srs",
-      "label": "Pertanyaan terbuka (dari SRS)",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "Fase 1 \u00b7 Fondasi",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "pertanyaan terbuka (dari srs)",
-      "source_file": "docs/phases/07-uji-dan-hari-h.md",
-      "source_location": "L51"
-    },
-    {
-      "id": "docs_phases_07_uji_dan_hari_h_setelah_acara",
-      "label": "Setelah acara",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "Fase 1 \u00b7 Fondasi",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "setelah acara",
-      "source_file": "docs/phases/07-uji-dan-hari-h.md",
-      "source_location": "L45"
-    },
-    {
-      "id": "docs_phases_07_uji_dan_hari_h_tujuan",
-      "label": "Tujuan",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "Fase 1 \u00b7 Fondasi",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "tujuan",
-      "source_file": "docs/phases/07-uji-dan-hari-h.md",
       "source_location": "L3"
     },
     {
@@ -3632,6 +3782,50 @@
       "source_location": "L1"
     },
     {
+      "id": "packages_shared_src_manual",
+      "label": "manual.ts",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "bomb.ts",
+      "file_type": "code",
+      "norm_label": "manual.ts",
+      "source_file": "packages/shared/src/manual.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "packages_shared_src_manual_rotation_start",
+      "label": "ROTATION_START",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "bomb.ts",
+      "file_type": "code",
+      "norm_label": "rotation_start",
+      "source_file": "packages/shared/src/manual.ts",
+      "source_location": "L55"
+    },
+    {
+      "id": "packages_shared_src_manual_test",
+      "label": "manual.test.ts",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "bomb.ts",
+      "file_type": "code",
+      "norm_label": "manual.test.ts",
+      "source_file": "packages/shared/src/manual.test.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "packages_shared_src_manual_test_phases",
+      "label": "PHASES",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "bomb.ts",
+      "file_type": "code",
+      "norm_label": "phases",
+      "source_file": "packages/shared/src/manual.test.ts",
+      "source_location": "L6"
+    },
+    {
       "id": "claude",
       "label": "CLAUDE.md",
       "_origin": "ast",
@@ -3769,7 +3963,7 @@
       "node_kind": "heading",
       "norm_label": "risiko",
       "source_file": "docs/phases/04-giliran-realtime.md",
-      "source_location": "L109"
+      "source_location": "L116"
     },
     {
       "id": "docs_phases_04_giliran_realtime_selesai_bila",
@@ -3781,7 +3975,7 @@
       "node_kind": "heading",
       "norm_label": "selesai bila",
       "source_file": "docs/phases/04-giliran-realtime.md",
-      "source_location": "L101"
+      "source_location": "L108"
     },
     {
       "id": "docs_phases_04_giliran_realtime_state_machine",
@@ -3951,6 +4145,254 @@
       "norm_label": "../../tsconfig.base.json",
       "source_file": "packages/content/tsconfig.json",
       "source_location": "L1"
+    },
+    {
+      "id": "apps_web_src_lib_glyphs",
+      "label": "glyphs.ts",
+      "_origin": "ast",
+      "community": 27,
+      "community_name": "ManualView.tsx",
+      "file_type": "code",
+      "norm_label": "glyphs.ts",
+      "source_file": "apps/web/src/lib/glyphs.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "apps_web_src_lib_glyphs_glyphs",
+      "label": "glyphs",
+      "_origin": "ast",
+      "community": 27,
+      "community_name": "ManualView.tsx",
+      "file_type": "code",
+      "norm_label": "glyphs",
+      "source_file": "apps/web/src/lib/glyphs.ts",
+      "source_location": "L2"
+    },
+    {
+      "id": "apps_web_src_play_manualview",
+      "label": "ManualView.tsx",
+      "_origin": "ast",
+      "community": 27,
+      "community_name": "ManualView.tsx",
+      "file_type": "code",
+      "norm_label": "manualview.tsx",
+      "source_file": "apps/web/src/play/ManualView.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "apps_web_src_play_manualview_module_titles",
+      "label": "MODULE_TITLES",
+      "_origin": "ast",
+      "community": 27,
+      "community_name": "ManualView.tsx",
+      "file_type": "code",
+      "norm_label": "module_titles",
+      "source_file": "apps/web/src/play/ManualView.tsx",
+      "source_location": "L4"
+    },
+    {
+      "id": "docs_phases_07_uji_dan_hari_h_cadangan_hari_h",
+      "label": "Cadangan hari-H",
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "Fase 7 \u00b7 Uji dan hari-H",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "cadangan hari-h",
+      "source_file": "docs/phases/07-uji-dan-hari-h.md",
+      "source_location": "L38"
+    },
+    {
+      "id": "docs_phases_07_uji_dan_hari_h_cakupan",
+      "label": "Cakupan",
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "Fase 7 \u00b7 Uji dan hari-H",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "cakupan",
+      "source_file": "docs/phases/07-uji-dan-hari-h.md",
+      "source_location": "L7"
+    },
+    {
+      "id": "docs_phases_07_uji_dan_hari_h_dependensi",
+      "label": "Dependensi",
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "Fase 7 \u00b7 Uji dan hari-H",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "dependensi",
+      "source_file": "docs/phases/07-uji-dan-hari-h.md",
+      "source_location": "L14"
+    },
+    {
+      "id": "docs_phases_07_uji_dan_hari_h_deploy_vps",
+      "label": "Deploy VPS",
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "Fase 7 \u00b7 Uji dan hari-H",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "deploy vps",
+      "source_file": "docs/phases/07-uji-dan-hari-h.md",
+      "source_location": "L18"
+    },
+    {
+      "id": "docs_phases_07_uji_dan_hari_h_fase_7_uji_dan_hari_h",
+      "label": "Fase 7 \u00b7 Uji dan hari-H",
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "Fase 7 \u00b7 Uji dan hari-H",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "fase 7 \u00b7 uji dan hari-h",
+      "source_file": "docs/phases/07-uji-dan-hari-h.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_phases_07_uji_dan_hari_h_pengujian",
+      "label": "Pengujian",
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "Fase 7 \u00b7 Uji dan hari-H",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "pengujian",
+      "source_file": "docs/phases/07-uji-dan-hari-h.md",
+      "source_location": "L28"
+    },
+    {
+      "id": "docs_phases_07_uji_dan_hari_h_pertanyaan_terbuka_dari_srs",
+      "label": "Pertanyaan terbuka (dari SRS)",
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "Fase 7 \u00b7 Uji dan hari-H",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "pertanyaan terbuka (dari srs)",
+      "source_file": "docs/phases/07-uji-dan-hari-h.md",
+      "source_location": "L51"
+    },
+    {
+      "id": "docs_phases_07_uji_dan_hari_h_setelah_acara",
+      "label": "Setelah acara",
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "Fase 7 \u00b7 Uji dan hari-H",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "setelah acara",
+      "source_file": "docs/phases/07-uji-dan-hari-h.md",
+      "source_location": "L45"
+    },
+    {
+      "id": "docs_phases_07_uji_dan_hari_h_tujuan",
+      "label": "Tujuan",
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "Fase 7 \u00b7 Uji dan hari-H",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "tujuan",
+      "source_file": "docs/phases/07-uji-dan-hari-h.md",
+      "source_location": "L3"
+    },
+    {
+      "id": "docs_phases_03_manual_hp_cakupan",
+      "label": "Cakupan",
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "Fase 3 \u00b7 Manual di HP",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "cakupan",
+      "source_file": "docs/phases/03-manual-hp.md",
+      "source_location": "L7"
+    },
+    {
+      "id": "docs_phases_03_manual_hp_cara_mencoba",
+      "label": "Cara mencoba",
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "Fase 3 \u00b7 Manual di HP",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "cara mencoba",
+      "source_file": "docs/phases/03-manual-hp.md",
+      "source_location": "L19"
+    },
+    {
+      "id": "docs_phases_03_manual_hp_dependensi",
+      "label": "Dependensi",
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "Fase 3 \u00b7 Manual di HP",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "dependensi",
+      "source_file": "docs/phases/03-manual-hp.md",
+      "source_location": "L12"
+    },
+    {
+      "id": "docs_phases_03_manual_hp_fase_3_manual_di_hp",
+      "label": "Fase 3 \u00b7 Manual di HP",
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "Fase 3 \u00b7 Manual di HP",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "fase 3 \u00b7 manual di hp",
+      "source_file": "docs/phases/03-manual-hp.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_phases_03_manual_hp_risiko",
+      "label": "Risiko",
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "Fase 3 \u00b7 Manual di HP",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "risiko",
+      "source_file": "docs/phases/03-manual-hp.md",
+      "source_location": "L55"
+    },
+    {
+      "id": "docs_phases_03_manual_hp_selesai_bila",
+      "label": "Selesai bila",
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "Fase 3 \u00b7 Manual di HP",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "selesai bila",
+      "source_file": "docs/phases/03-manual-hp.md",
+      "source_location": "L49"
+    },
+    {
+      "id": "docs_phases_03_manual_hp_tugas",
+      "label": "Tugas",
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "Fase 3 \u00b7 Manual di HP",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "tugas",
+      "source_file": "docs/phases/03-manual-hp.md",
+      "source_location": "L26"
+    },
+    {
+      "id": "docs_phases_03_manual_hp_tujuan",
+      "label": "Tujuan",
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "Fase 3 \u00b7 Manual di HP",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "tujuan",
+      "source_file": "docs/phases/03-manual-hp.md",
+      "source_location": "L3"
     },
     {
       "id": "defuse_turn_based_edition",
@@ -4203,6 +4645,378 @@
       "norm_label": "sistem yang perlu dibuat",
       "source_file": "Defuse! \u2013 Turn-Based Edition.md",
       "source_location": "L154"
+    },
+    {
+      "id": "docs_phases_06_final_perapian",
+      "label": "06-final-perapian.md",
+      "_origin": "ast",
+      "community": 30,
+      "community_name": "Fase 6 \u00b7 Final dan perapian",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "06-final-perapian.md",
+      "source_file": "docs/phases/06-final-perapian.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_phases_06_final_perapian_cakupan",
+      "label": "Cakupan",
+      "_origin": "ast",
+      "community": 30,
+      "community_name": "Fase 6 \u00b7 Final dan perapian",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "cakupan",
+      "source_file": "docs/phases/06-final-perapian.md",
+      "source_location": "L7"
+    },
+    {
+      "id": "docs_phases_06_final_perapian_dependensi",
+      "label": "Dependensi",
+      "_origin": "ast",
+      "community": 30,
+      "community_name": "Fase 6 \u00b7 Final dan perapian",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "dependensi",
+      "source_file": "docs/phases/06-final-perapian.md",
+      "source_location": "L23"
+    },
+    {
+      "id": "docs_phases_06_final_perapian_fase_6_final_dan_perapian",
+      "label": "Fase 6 \u00b7 Final dan perapian",
+      "_origin": "ast",
+      "community": 30,
+      "community_name": "Fase 6 \u00b7 Final dan perapian",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "fase 6 \u00b7 final dan perapian",
+      "source_file": "docs/phases/06-final-perapian.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_phases_06_final_perapian_risiko",
+      "label": "Risiko",
+      "_origin": "ast",
+      "community": 30,
+      "community_name": "Fase 6 \u00b7 Final dan perapian",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "risiko",
+      "source_file": "docs/phases/06-final-perapian.md",
+      "source_location": "L67"
+    },
+    {
+      "id": "docs_phases_06_final_perapian_selesai_bila",
+      "label": "Selesai bila",
+      "_origin": "ast",
+      "community": 30,
+      "community_name": "Fase 6 \u00b7 Final dan perapian",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "selesai bila",
+      "source_file": "docs/phases/06-final-perapian.md",
+      "source_location": "L61"
+    },
+    {
+      "id": "docs_phases_06_final_perapian_tugas",
+      "label": "Tugas",
+      "_origin": "ast",
+      "community": 30,
+      "community_name": "Fase 6 \u00b7 Final dan perapian",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "tugas",
+      "source_file": "docs/phases/06-final-perapian.md",
+      "source_location": "L27"
+    },
+    {
+      "id": "docs_phases_06_final_perapian_tujuan",
+      "label": "Tujuan",
+      "_origin": "ast",
+      "community": 30,
+      "community_name": "Fase 6 \u00b7 Final dan perapian",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "tujuan",
+      "source_file": "docs/phases/06-final-perapian.md",
+      "source_location": "L3"
+    },
+    {
+      "id": "hot",
+      "label": "hot.md",
+      "_origin": "ast",
+      "community": 31,
+      "community_name": "hot.md \u00b7 Log perubahan per sesi",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "hot.md",
+      "source_file": "hot.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "hot_2026_11_03_bank_soal_masuk_ke_planning",
+      "label": "2026-11-03 \u00b7 Bank soal masuk ke planning",
+      "_origin": "ast",
+      "community": 31,
+      "community_name": "hot.md \u00b7 Log perubahan per sesi",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "2026-11-03 \u00b7 bank soal masuk ke planning",
+      "source_file": "hot.md",
+      "source_location": "L87"
+    },
+    {
+      "id": "hot_2026_11_03_fase_1_dikerjakan_branch_fase_1_fondasi",
+      "label": "2026-11-03 \u00b7 Fase 1 dikerjakan (branch `fase-1-fondasi`)",
+      "_origin": "ast",
+      "community": 31,
+      "community_name": "hot.md \u00b7 Log perubahan per sesi",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "2026-11-03 \u00b7 fase 1 dikerjakan (branch `fase-1-fondasi`)",
+      "source_file": "hot.md",
+      "source_location": "L47"
+    },
+    {
+      "id": "hot_2026_11_03_fase_2_dikerjakan_branch_fase_2_bom_offline",
+      "label": "2026-11-03 \u00b7 Fase 2 dikerjakan (branch `fase-2-bom-offline`)",
+      "_origin": "ast",
+      "community": 31,
+      "community_name": "hot.md \u00b7 Log perubahan per sesi",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "2026-11-03 \u00b7 fase 2 dikerjakan (branch `fase-2-bom-offline`)",
+      "source_file": "hot.md",
+      "source_location": "L26"
+    },
+    {
+      "id": "hot_2026_11_03_fase_3_dikerjakan_branch_fase_3_manual_hp",
+      "label": "2026-11-03 \u00b7 Fase 3 dikerjakan (branch `fase-3-manual-hp`)",
+      "_origin": "ast",
+      "community": 31,
+      "community_name": "hot.md \u00b7 Log perubahan per sesi",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "2026-11-03 \u00b7 fase 3 dikerjakan (branch `fase-3-manual-hp`)",
+      "source_file": "hot.md",
+      "source_location": "L5"
+    },
+    {
+      "id": "hot_2026_11_03_manual_sama_untuk_semua_expert",
+      "label": "2026-11-03 \u00b7 Manual sama untuk semua Expert",
+      "_origin": "ast",
+      "community": 31,
+      "community_name": "hot.md \u00b7 Log perubahan per sesi",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "2026-11-03 \u00b7 manual sama untuk semua expert",
+      "source_file": "hot.md",
+      "source_location": "L70"
+    },
+    {
+      "id": "hot_2026_11_03_planning_per_fase",
+      "label": "2026-11-03 \u00b7 Planning per fase",
+      "_origin": "ast",
+      "community": 31,
+      "community_name": "hot.md \u00b7 Log perubahan per sesi",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "2026-11-03 \u00b7 planning per fase",
+      "source_file": "hot.md",
+      "source_location": "L106"
+    },
+    {
+      "id": "hot_hot_md_log_perubahan_per_sesi",
+      "label": "hot.md \u00b7 Log perubahan per sesi",
+      "_origin": "ast",
+      "community": 31,
+      "community_name": "hot.md \u00b7 Log perubahan per sesi",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "hot.md \u00b7 log perubahan per sesi",
+      "source_file": "hot.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_modul_dan_manual",
+      "label": "modul-dan-manual.md",
+      "_origin": "ast",
+      "community": 32,
+      "community_name": "README.md",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "modul-dan-manual.md",
+      "source_file": "docs/modul-dan-manual.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_phases_01_fondasi",
+      "label": "01-fondasi.md",
+      "_origin": "ast",
+      "community": 32,
+      "community_name": "README.md",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "01-fondasi.md",
+      "source_file": "docs/phases/01-fondasi.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_phases_02_bom_offline",
+      "label": "02-bom-offline.md",
+      "_origin": "ast",
+      "community": 32,
+      "community_name": "README.md",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "02-bom-offline.md",
+      "source_file": "docs/phases/02-bom-offline.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_phases_03_manual_hp",
+      "label": "03-manual-hp.md",
+      "_origin": "ast",
+      "community": 32,
+      "community_name": "README.md",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "03-manual-hp.md",
+      "source_file": "docs/phases/03-manual-hp.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_phases_04_giliran_realtime",
+      "label": "04-giliran-realtime.md",
+      "_origin": "ast",
+      "community": 32,
+      "community_name": "README.md",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "04-giliran-realtime.md",
+      "source_file": "docs/phases/04-giliran-realtime.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_phases_07_uji_dan_hari_h",
+      "label": "07-uji-dan-hari-h.md",
+      "_origin": "ast",
+      "community": 32,
+      "community_name": "README.md",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "07-uji-dan-hari-h.md",
+      "source_file": "docs/phases/07-uji-dan-hari-h.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_readme",
+      "label": "README.md",
+      "_origin": "ast",
+      "community": 32,
+      "community_name": "README.md",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "readme.md",
+      "source_file": "docs/README.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_modul_dan_manual_manual_di_hp_expert",
+      "label": "Manual di HP Expert",
+      "_origin": "ast",
+      "community": 33,
+      "community_name": "Modul bom dan isi manual",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "manual di hp expert",
+      "source_file": "docs/modul-dan-manual.md",
+      "source_location": "L41"
+    },
+    {
+      "id": "docs_modul_dan_manual_modul_bom_dan_isi_manual",
+      "label": "Modul bom dan isi manual",
+      "_origin": "ast",
+      "community": 33,
+      "community_name": "Modul bom dan isi manual",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "modul bom dan isi manual",
+      "source_file": "docs/modul-dan-manual.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_modul_dan_manual_perilaku_saat_defuser_salah",
+      "label": "Perilaku saat Defuser salah",
+      "_origin": "ast",
+      "community": 33,
+      "community_name": "Modul bom dan isi manual",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "perilaku saat defuser salah",
+      "source_file": "docs/modul-dan-manual.md",
+      "source_location": "L21"
+    },
+    {
+      "id": "docs_modul_dan_manual_ringkasan_per_babak",
+      "label": "Ringkasan per babak",
+      "_origin": "ast",
+      "community": 33,
+      "community_name": "Modul bom dan isi manual",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "ringkasan per babak",
+      "source_file": "docs/modul-dan-manual.md",
+      "source_location": "L11"
+    },
+    {
+      "id": "docs_readme_aturan_kerja",
+      "label": "Aturan kerja",
+      "_origin": "ast",
+      "community": 34,
+      "community_name": "Defuse! \u00b7 Planning",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "aturan kerja",
+      "source_file": "docs/README.md",
+      "source_location": "L32"
+    },
+    {
+      "id": "docs_readme_defuse_planning",
+      "label": "Defuse! \u00b7 Planning",
+      "_origin": "ast",
+      "community": 34,
+      "community_name": "Defuse! \u00b7 Planning",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "defuse! \u00b7 planning",
+      "source_file": "docs/README.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_readme_dokumen_planning",
+      "label": "Dokumen planning",
+      "_origin": "ast",
+      "community": 34,
+      "community_name": "Defuse! \u00b7 Planning",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "dokumen planning",
+      "source_file": "docs/README.md",
+      "source_location": "L11"
+    },
+    {
+      "id": "docs_readme_fase",
+      "label": "Fase",
+      "_origin": "ast",
+      "community": 34,
+      "community_name": "Defuse! \u00b7 Planning",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "fase",
+      "source_file": "docs/README.md",
+      "source_location": "L16"
     },
     {
       "id": "defuse_contoh_modul",
@@ -4521,7 +5335,7 @@
       "label": "DESIGN.md",
       "_origin": "ast",
       "community": 6,
-      "community_name": "README.md",
+      "community_name": "Defuse! \u2013 Design System",
       "file_type": "document",
       "frontmatter": {
         "version": "alpha",
@@ -4538,7 +5352,7 @@
       "label": "Colors",
       "_origin": "ast",
       "community": 6,
-      "community_name": "README.md",
+      "community_name": "Defuse! \u2013 Design System",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "colors",
@@ -4550,7 +5364,7 @@
       "label": "Components",
       "_origin": "ast",
       "community": 6,
-      "community_name": "README.md",
+      "community_name": "Defuse! \u2013 Design System",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "components",
@@ -4562,7 +5376,7 @@
       "label": "Defuse! \u2013 Design System",
       "_origin": "ast",
       "community": 6,
-      "community_name": "README.md",
+      "community_name": "Defuse! \u2013 Design System",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "defuse! \u2013 design system",
@@ -4574,7 +5388,7 @@
       "label": "Do's and Don'ts",
       "_origin": "ast",
       "community": 6,
-      "community_name": "README.md",
+      "community_name": "Defuse! \u2013 Design System",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "do's and don'ts",
@@ -4586,7 +5400,7 @@
       "label": "Elevation & Depth",
       "_origin": "ast",
       "community": 6,
-      "community_name": "README.md",
+      "community_name": "Defuse! \u2013 Design System",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "elevation & depth",
@@ -4598,7 +5412,7 @@
       "label": "Layout",
       "_origin": "ast",
       "community": 6,
-      "community_name": "README.md",
+      "community_name": "Defuse! \u2013 Design System",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "layout",
@@ -4610,7 +5424,7 @@
       "label": "Overview",
       "_origin": "ast",
       "community": 6,
-      "community_name": "README.md",
+      "community_name": "Defuse! \u2013 Design System",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "overview",
@@ -4622,7 +5436,7 @@
       "label": "Shapes",
       "_origin": "ast",
       "community": 6,
-      "community_name": "README.md",
+      "community_name": "Defuse! \u2013 Design System",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "shapes",
@@ -4634,468 +5448,12 @@
       "label": "Typography",
       "_origin": "ast",
       "community": 6,
-      "community_name": "README.md",
+      "community_name": "Defuse! \u2013 Design System",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "typography",
       "source_file": "DESIGN.md",
       "source_location": "L74"
-    },
-    {
-      "id": "docs_modul_dan_manual",
-      "label": "modul-dan-manual.md",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "README.md",
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "modul-dan-manual.md",
-      "source_file": "docs/modul-dan-manual.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "docs_modul_dan_manual_manual_di_hp_expert",
-      "label": "Manual di HP Expert",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "manual di hp expert",
-      "source_file": "docs/modul-dan-manual.md",
-      "source_location": "L41"
-    },
-    {
-      "id": "docs_modul_dan_manual_modul_bom_dan_isi_manual",
-      "label": "Modul bom dan isi manual",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "modul bom dan isi manual",
-      "source_file": "docs/modul-dan-manual.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "docs_modul_dan_manual_perilaku_saat_defuser_salah",
-      "label": "Perilaku saat Defuser salah",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "perilaku saat defuser salah",
-      "source_file": "docs/modul-dan-manual.md",
-      "source_location": "L21"
-    },
-    {
-      "id": "docs_modul_dan_manual_ringkasan_per_babak",
-      "label": "Ringkasan per babak",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "ringkasan per babak",
-      "source_file": "docs/modul-dan-manual.md",
-      "source_location": "L11"
-    },
-    {
-      "id": "docs_phases_01_fondasi",
-      "label": "01-fondasi.md",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "README.md",
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "01-fondasi.md",
-      "source_file": "docs/phases/01-fondasi.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "docs_phases_02_bom_offline",
-      "label": "02-bom-offline.md",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "README.md",
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "02-bom-offline.md",
-      "source_file": "docs/phases/02-bom-offline.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "docs_phases_03_manual_hp",
-      "label": "03-manual-hp.md",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "README.md",
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "03-manual-hp.md",
-      "source_file": "docs/phases/03-manual-hp.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "docs_phases_03_manual_hp_cakupan",
-      "label": "Cakupan",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "cakupan",
-      "source_file": "docs/phases/03-manual-hp.md",
-      "source_location": "L7"
-    },
-    {
-      "id": "docs_phases_03_manual_hp_dependensi",
-      "label": "Dependensi",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "dependensi",
-      "source_file": "docs/phases/03-manual-hp.md",
-      "source_location": "L12"
-    },
-    {
-      "id": "docs_phases_03_manual_hp_fase_3_manual_di_hp",
-      "label": "Fase 3 \u00b7 Manual di HP",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "fase 3 \u00b7 manual di hp",
-      "source_file": "docs/phases/03-manual-hp.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "docs_phases_03_manual_hp_keputusan_teknis",
-      "label": "Keputusan teknis",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "keputusan teknis",
-      "source_file": "docs/phases/03-manual-hp.md",
-      "source_location": "L42"
-    },
-    {
-      "id": "docs_phases_03_manual_hp_risiko",
-      "label": "Risiko",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "risiko",
-      "source_file": "docs/phases/03-manual-hp.md",
-      "source_location": "L54"
-    },
-    {
-      "id": "docs_phases_03_manual_hp_selesai_bila",
-      "label": "Selesai bila",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "selesai bila",
-      "source_file": "docs/phases/03-manual-hp.md",
-      "source_location": "L47"
-    },
-    {
-      "id": "docs_phases_03_manual_hp_tugas",
-      "label": "Tugas",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "tugas",
-      "source_file": "docs/phases/03-manual-hp.md",
-      "source_location": "L19"
-    },
-    {
-      "id": "docs_phases_03_manual_hp_tujuan",
-      "label": "Tujuan",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "tujuan",
-      "source_file": "docs/phases/03-manual-hp.md",
-      "source_location": "L3"
-    },
-    {
-      "id": "docs_phases_04_giliran_realtime",
-      "label": "04-giliran-realtime.md",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "README.md",
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "04-giliran-realtime.md",
-      "source_file": "docs/phases/04-giliran-realtime.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "docs_phases_06_final_perapian",
-      "label": "06-final-perapian.md",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "README.md",
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "06-final-perapian.md",
-      "source_file": "docs/phases/06-final-perapian.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "docs_phases_06_final_perapian_cakupan",
-      "label": "Cakupan",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "cakupan",
-      "source_file": "docs/phases/06-final-perapian.md",
-      "source_location": "L7"
-    },
-    {
-      "id": "docs_phases_06_final_perapian_dependensi",
-      "label": "Dependensi",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "dependensi",
-      "source_file": "docs/phases/06-final-perapian.md",
-      "source_location": "L23"
-    },
-    {
-      "id": "docs_phases_06_final_perapian_fase_6_final_dan_perapian",
-      "label": "Fase 6 \u00b7 Final dan perapian",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "fase 6 \u00b7 final dan perapian",
-      "source_file": "docs/phases/06-final-perapian.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "docs_phases_06_final_perapian_risiko",
-      "label": "Risiko",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "risiko",
-      "source_file": "docs/phases/06-final-perapian.md",
-      "source_location": "L67"
-    },
-    {
-      "id": "docs_phases_06_final_perapian_selesai_bila",
-      "label": "Selesai bila",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "selesai bila",
-      "source_file": "docs/phases/06-final-perapian.md",
-      "source_location": "L61"
-    },
-    {
-      "id": "docs_phases_06_final_perapian_tugas",
-      "label": "Tugas",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "tugas",
-      "source_file": "docs/phases/06-final-perapian.md",
-      "source_location": "L27"
-    },
-    {
-      "id": "docs_phases_06_final_perapian_tujuan",
-      "label": "Tujuan",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "tujuan",
-      "source_file": "docs/phases/06-final-perapian.md",
-      "source_location": "L3"
-    },
-    {
-      "id": "docs_phases_07_uji_dan_hari_h",
-      "label": "07-uji-dan-hari-h.md",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "README.md",
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "07-uji-dan-hari-h.md",
-      "source_file": "docs/phases/07-uji-dan-hari-h.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "docs_readme",
-      "label": "README.md",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "README.md",
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "readme.md",
-      "source_file": "docs/README.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "docs_readme_aturan_kerja",
-      "label": "Aturan kerja",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "aturan kerja",
-      "source_file": "docs/README.md",
-      "source_location": "L32"
-    },
-    {
-      "id": "docs_readme_defuse_planning",
-      "label": "Defuse! \u00b7 Planning",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "defuse! \u00b7 planning",
-      "source_file": "docs/README.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "docs_readme_dokumen_planning",
-      "label": "Dokumen planning",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "dokumen planning",
-      "source_file": "docs/README.md",
-      "source_location": "L11"
-    },
-    {
-      "id": "docs_readme_fase",
-      "label": "Fase",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "fase",
-      "source_file": "docs/README.md",
-      "source_location": "L16"
-    },
-    {
-      "id": "hot",
-      "label": "hot.md",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "README.md",
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "hot.md",
-      "source_file": "hot.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "hot_2026_11_03_bank_soal_masuk_ke_planning",
-      "label": "2026-11-03 \u00b7 Bank soal masuk ke planning",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "2026-11-03 \u00b7 bank soal masuk ke planning",
-      "source_file": "hot.md",
-      "source_location": "L66"
-    },
-    {
-      "id": "hot_2026_11_03_fase_1_dikerjakan_branch_fase_1_fondasi",
-      "label": "2026-11-03 \u00b7 Fase 1 dikerjakan (branch `fase-1-fondasi`)",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "2026-11-03 \u00b7 fase 1 dikerjakan (branch `fase-1-fondasi`)",
-      "source_file": "hot.md",
-      "source_location": "L26"
-    },
-    {
-      "id": "hot_2026_11_03_fase_2_dikerjakan_branch_fase_2_bom_offline",
-      "label": "2026-11-03 \u00b7 Fase 2 dikerjakan (branch `fase-2-bom-offline`)",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "2026-11-03 \u00b7 fase 2 dikerjakan (branch `fase-2-bom-offline`)",
-      "source_file": "hot.md",
-      "source_location": "L5"
-    },
-    {
-      "id": "hot_2026_11_03_manual_sama_untuk_semua_expert",
-      "label": "2026-11-03 \u00b7 Manual sama untuk semua Expert",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "2026-11-03 \u00b7 manual sama untuk semua expert",
-      "source_file": "hot.md",
-      "source_location": "L49"
-    },
-    {
-      "id": "hot_2026_11_03_planning_per_fase",
-      "label": "2026-11-03 \u00b7 Planning per fase",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "2026-11-03 \u00b7 planning per fase",
-      "source_file": "hot.md",
-      "source_location": "L85"
-    },
-    {
-      "id": "hot_hot_md_log_perubahan_per_sesi",
-      "label": "hot.md \u00b7 Log perubahan per sesi",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "README.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "hot.md \u00b7 log perubahan per sesi",
-      "source_file": "hot.md",
-      "source_location": "L1"
     },
     {
       "id": "apps_server_src_app",
@@ -5250,6 +5608,50 @@
       "norm_label": "schema",
       "source_file": "packages/db/src/index.ts",
       "source_location": "L6"
+    },
+    {
+      "id": "packages_shared_src_api",
+      "label": "src/api.ts",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "app.ts",
+      "file_type": "code",
+      "norm_label": "src/api.ts",
+      "source_file": "packages/shared/src/api.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "packages_shared_src_api_nickname_max",
+      "label": "NICKNAME_MAX",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "app.ts",
+      "file_type": "code",
+      "norm_label": "nickname_max",
+      "source_file": "packages/shared/src/api.ts",
+      "source_location": "L4"
+    },
+    {
+      "id": "packages_shared_src_api_team_colors",
+      "label": "TEAM_COLORS",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "app.ts",
+      "file_type": "code",
+      "norm_label": "team_colors",
+      "source_file": "packages/shared/src/api.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "packages_shared_src_api_team_name_max",
+      "label": "TEAM_NAME_MAX",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "app.ts",
+      "file_type": "code",
+      "norm_label": "team_name_max",
+      "source_file": "packages/shared/src/api.ts",
+      "source_location": "L5"
     },
     {
       "id": "package",
@@ -5642,6 +6044,18 @@
     },
     {
       "source": "apps_server_src_app_createapp",
+      "target": "packages_shared_src_manual_manualfor",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "apps/server/src/app.ts",
+      "source_location": "L43",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_server_src_app_createapp",
       "target": "apps_server_src_lobby_joinplayer",
       "relation": "calls",
       "_origin": "ast",
@@ -5649,7 +6063,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/app.ts",
-      "source_location": "L44",
+      "source_location": "L54",
       "weight": 1.0
     },
     {
@@ -5661,7 +6075,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/server/src/app.ts",
-      "source_location": "L51",
+      "source_location": "L61",
       "weight": 1.0
     },
     {
@@ -5833,7 +6247,31 @@
       "weight": 1.0
     },
     {
-      "source": "apps_web_src_play_playpage_playpage",
+      "source": "apps_web_src_play_manualpreview_manualpreview",
+      "target": "apps_web_src_lib_api_api",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "apps/web/src/play/ManualPreview.tsx",
+      "source_location": "L54",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_web_src_play_manualview_symbols",
+      "target": "apps_web_src_lib_glyphs_symbolname",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "apps/web/src/play/ManualView.tsx",
+      "source_location": "L68",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_web_src_play_playpage_playerpage",
       "target": "apps_web_src_lib_useactivegame_useactivegame",
       "relation": "calls",
       "_origin": "ast",
@@ -5841,11 +6279,11 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/web/src/play/PlayPage.tsx",
-      "source_location": "L146",
+      "source_location": "L157",
       "weight": 1.0
     },
     {
-      "source": "apps_web_src_play_playpage_playpage",
+      "source": "apps_web_src_play_playpage_playerpage",
       "target": "apps_web_src_lib_api_api",
       "relation": "calls",
       "_origin": "ast",
@@ -5853,7 +6291,31 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "apps/web/src/play/PlayPage.tsx",
-      "source_location": "L155",
+      "source_location": "L166",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_web_src_play_rolescreens_defuserscreen",
+      "target": "apps_web_src_lib_usewakelock_usewakelock",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "apps/web/src/play/RoleScreens.tsx",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_web_src_play_rolescreens_expertscreen",
+      "target": "apps_web_src_lib_usewakelock_usewakelock",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "apps/web/src/play/RoleScreens.tsx",
+      "source_location": "L8",
       "weight": 1.0
     },
     {
@@ -6145,6 +6607,66 @@
       "weight": 1.0
     },
     {
+      "source": "packages_shared_src_manual_manualfor",
+      "target": "packages_shared_src_bomb_wirepages",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "packages/shared/src/manual.ts",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "packages_shared_src_manual_manualfor",
+      "target": "packages_shared_src_bomb_renderrule",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "packages/shared/src/manual.ts",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "packages_shared_src_manual_manualfor",
+      "target": "packages_shared_src_bomb_symbolcolumns",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "packages/shared/src/manual.ts",
+      "source_location": "L37",
+      "weight": 1.0
+    },
+    {
+      "source": "packages_shared_src_manual_manualfor",
+      "target": "packages_shared_src_bomb_wordgroups",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "packages/shared/src/manual.ts",
+      "source_location": "L48",
+      "weight": 1.0
+    },
+    {
+      "source": "packages_shared_src_manual_playview",
+      "target": "packages_shared_src_manual_manualfor",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "packages/shared/src/manual.ts",
+      "source_location": "L91",
+      "weight": 1.0
+    },
+    {
       "source": "packages_shared_src_play_checkanswer",
       "target": "packages_shared_src_play_strike",
       "relation": "calls",
@@ -6262,6 +6784,18 @@
       "context": "export",
       "source_file": "packages/shared/src/index.ts",
       "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "packages_shared_src_index",
+      "target": "packages_shared_src_manual",
+      "relation": "re_exports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "export",
+      "source_file": "packages/shared/src/index.ts",
+      "source_location": "L4",
       "weight": 1.0
     },
     {
@@ -6410,6 +6944,18 @@
     },
     {
       "source": "apps_server_src_app",
+      "target": "packages_shared_src_manual_manualfor",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "apps/server/src/app.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_server_src_app",
       "target": "apps_server_src_gm_auth_gmauth",
       "relation": "imports",
       "_origin": "ast",
@@ -6507,6 +7053,18 @@
     {
       "source": "apps_server_src_app_test",
       "target": "packages_shared_src_api_publicgame",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "apps/server/src/app.test.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_server_src_app_test",
+      "target": "packages_shared_src_manual_manualfor",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -6853,6 +7411,18 @@
       "weight": 1.0
     },
     {
+      "source": "apps_web_src_bomb_modules",
+      "target": "apps_web_src_lib_glyphs_glyphs",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "apps/web/src/bomb/Modules.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
       "source": "apps_web_src_gm_gmpage",
       "target": "packages_shared_src_api_newteam",
       "relation": "imports",
@@ -7057,6 +7627,186 @@
       "weight": 1.0
     },
     {
+      "source": "apps_web_src_play_manualpreview",
+      "target": "packages_shared_src_api_phase",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "apps/web/src/play/ManualPreview.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_web_src_play_manualpreview",
+      "target": "packages_shared_src_manual_manual",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "apps/web/src/play/ManualPreview.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_web_src_play_manualpreview",
+      "target": "packages_shared_src_play_moduleno",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "apps/web/src/play/ManualPreview.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_web_src_play_manualpreview",
+      "target": "apps_web_src_lib_api_api",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "apps/web/src/play/ManualPreview.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_web_src_play_manualpreview",
+      "target": "apps_web_src_lib_api_apierror",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "apps/web/src/play/ManualPreview.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_web_src_play_manualpreview",
+      "target": "apps_web_src_lib_storage_gm_token",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "apps/web/src/play/ManualPreview.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_web_src_play_manualpreview",
+      "target": "apps_web_src_lib_storage_storage",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "apps/web/src/play/ManualPreview.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_web_src_play_manualpreview",
+      "target": "apps_web_src_play_rolescreens_defuserscreen",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "apps/web/src/play/ManualPreview.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_web_src_play_manualpreview",
+      "target": "apps_web_src_play_rolescreens_expertscreen",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "apps/web/src/play/ManualPreview.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_web_src_play_manualview",
+      "target": "packages_shared_src_manual_manual",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "apps/web/src/play/ManualView.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_web_src_play_manualview",
+      "target": "packages_shared_src_manual_symbolsmanual",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "apps/web/src/play/ManualView.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_web_src_play_manualview",
+      "target": "packages_shared_src_manual_wiresmanual",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "apps/web/src/play/ManualView.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_web_src_play_manualview",
+      "target": "packages_shared_src_manual_wordmanual",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "apps/web/src/play/ManualView.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_web_src_play_manualview",
+      "target": "apps_web_src_lib_glyphs_glyphs",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "apps/web/src/play/ManualView.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_web_src_play_manualview",
+      "target": "apps_web_src_lib_glyphs_symbolname",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "apps/web/src/play/ManualView.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
       "source": "apps_web_src_play_playpage",
       "target": "packages_shared_src_api_me",
       "relation": "imports",
@@ -7198,6 +7948,78 @@
       "context": "import",
       "source_file": "apps/web/src/play/PlayPage.tsx",
       "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_web_src_play_playpage",
+      "target": "apps_web_src_play_manualpreview_manualpreview",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "apps/web/src/play/PlayPage.tsx",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_web_src_play_rolescreens",
+      "target": "packages_shared_src_manual_manual",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "apps/web/src/play/RoleScreens.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_web_src_play_rolescreens",
+      "target": "packages_shared_src_play_moduleno",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "apps/web/src/play/RoleScreens.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_web_src_play_rolescreens",
+      "target": "apps_web_src_lib_usewakelock_usewakelock",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "apps/web/src/play/RoleScreens.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_web_src_play_rolescreens",
+      "target": "apps_web_src_play_manualview_manualview",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "apps/web/src/play/RoleScreens.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_web_src_play_rolescreens",
+      "target": "apps_web_src_play_manualview_module_titles",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "apps/web/src/play/RoleScreens.tsx",
+      "source_location": "L3",
       "weight": 1.0
     },
     {
@@ -7705,6 +8527,222 @@
       "weight": 1.0
     },
     {
+      "source": "packages_shared_src_manual",
+      "target": "packages_shared_src_bomb_renderrule",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "packages/shared/src/manual.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "packages_shared_src_manual",
+      "target": "packages_shared_src_bomb_symbolcolumns",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "packages/shared/src/manual.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "packages_shared_src_manual",
+      "target": "packages_shared_src_bomb_wirepages",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "packages/shared/src/manual.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "packages_shared_src_manual",
+      "target": "packages_shared_src_bomb_wordgroups",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "packages/shared/src/manual.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "packages_shared_src_manual",
+      "target": "packages_shared_src_api_phase",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "packages/shared/src/manual.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "packages_shared_src_manual",
+      "target": "packages_shared_src_play_moduleno",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "packages/shared/src/manual.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "packages_shared_src_manual_test",
+      "target": "packages_shared_src_api_phase",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "packages/shared/src/manual.test.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "packages_shared_src_manual_test",
+      "target": "packages_shared_src_bomb_renderrule",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "packages/shared/src/manual.test.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "packages_shared_src_manual_test",
+      "target": "packages_shared_src_bomb_symbolcolumns",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "packages/shared/src/manual.test.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "packages_shared_src_manual_test",
+      "target": "packages_shared_src_bomb_wirepages",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "packages/shared/src/manual.test.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "packages_shared_src_manual_test",
+      "target": "packages_shared_src_bomb_wordgroups",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "packages/shared/src/manual.test.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "packages_shared_src_manual_test",
+      "target": "packages_shared_src_manual_manualfor",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "packages/shared/src/manual.test.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "packages_shared_src_manual_test",
+      "target": "packages_shared_src_manual_pickdefusers",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "packages/shared/src/manual.test.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "packages_shared_src_manual_test",
+      "target": "packages_shared_src_manual_playview",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "packages/shared/src/manual.test.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "packages_shared_src_manual_test",
+      "target": "packages_shared_src_manual_symbolsmanual",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "packages/shared/src/manual.test.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "packages_shared_src_manual_test",
+      "target": "packages_shared_src_manual_turnforplay",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "packages/shared/src/manual.test.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "packages_shared_src_manual_test",
+      "target": "packages_shared_src_manual_wiresmanual",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "packages/shared/src/manual.test.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "packages_shared_src_manual_test",
+      "target": "packages_shared_src_manual_wordmanual",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "packages/shared/src/manual.test.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
       "source": "packages_shared_src_play",
       "target": "packages_shared_src_bomb_bomb",
       "relation": "imports",
@@ -7919,7 +8957,6 @@
       "context": "import",
       "source_file": "apps/server/src/app.test.ts",
       "source_location": "L6",
-      "type_only": true,
       "weight": 1.0
     },
     {
@@ -8046,6 +9083,18 @@
       "weight": 1.0
     },
     {
+      "source": "apps_web_src_bomb_modules",
+      "target": "apps_web_src_lib_glyphs",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "apps/web/src/bomb/Modules.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
       "source": "apps_web_src_gm_gmpage",
       "target": "packages_shared_src_index",
       "relation": "imports_from",
@@ -8155,6 +9204,18 @@
       "weight": 1.0
     },
     {
+      "source": "apps_web_src_lib_usewakelock",
+      "target": "ref_react",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "apps/web/src/lib/useWakeLock.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
       "source": "apps_web_src_main",
       "target": "apps_web_src_gm_gmpage",
       "relation": "imports_from",
@@ -8200,6 +9261,92 @@
       "context": "import",
       "source_file": "apps/web/src/main.tsx",
       "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_web_src_play_manualpreview",
+      "target": "packages_shared_src_index",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "apps/web/src/play/ManualPreview.tsx",
+      "source_location": "L1",
+      "type_only": true,
+      "weight": 1.0
+    },
+    {
+      "source": "apps_web_src_play_manualpreview",
+      "target": "ref_react",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "apps/web/src/play/ManualPreview.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_web_src_play_manualpreview",
+      "target": "apps_web_src_lib_api",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "apps/web/src/play/ManualPreview.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_web_src_play_manualpreview",
+      "target": "apps_web_src_lib_storage",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "apps/web/src/play/ManualPreview.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_web_src_play_manualpreview",
+      "target": "apps_web_src_play_rolescreens",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "apps/web/src/play/ManualPreview.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_web_src_play_manualview",
+      "target": "packages_shared_src_index",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "apps/web/src/play/ManualView.tsx",
+      "source_location": "L1",
+      "type_only": true,
+      "weight": 1.0
+    },
+    {
+      "source": "apps_web_src_play_manualview",
+      "target": "apps_web_src_lib_glyphs",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "apps/web/src/play/ManualView.tsx",
+      "source_location": "L2",
       "weight": 1.0
     },
     {
@@ -8272,6 +9419,55 @@
       "context": "import",
       "source_file": "apps/web/src/play/PlayPage.tsx",
       "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_web_src_play_playpage",
+      "target": "apps_web_src_play_manualpreview",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "apps/web/src/play/PlayPage.tsx",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_web_src_play_rolescreens",
+      "target": "packages_shared_src_index",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "apps/web/src/play/RoleScreens.tsx",
+      "source_location": "L1",
+      "type_only": true,
+      "weight": 1.0
+    },
+    {
+      "source": "apps_web_src_play_rolescreens",
+      "target": "apps_web_src_lib_usewakelock",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "apps/web/src/play/RoleScreens.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_web_src_play_rolescreens",
+      "target": "apps_web_src_play_manualview",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "apps/web/src/play/RoleScreens.tsx",
+      "source_location": "L3",
       "weight": 1.0
     },
     {
@@ -8541,6 +9737,81 @@
       "source_file": "packages/shared/src/bomb.test.ts",
       "source_location": "L6",
       "type_only": true,
+      "weight": 1.0
+    },
+    {
+      "source": "packages_shared_src_manual",
+      "target": "packages_shared_src_bomb",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "packages/shared/src/manual.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "packages_shared_src_manual",
+      "target": "packages_shared_src_api",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "packages/shared/src/manual.ts",
+      "source_location": "L2",
+      "type_only": true,
+      "weight": 1.0
+    },
+    {
+      "source": "packages_shared_src_manual",
+      "target": "packages_shared_src_play",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "packages/shared/src/manual.ts",
+      "source_location": "L3",
+      "type_only": true,
+      "weight": 1.0
+    },
+    {
+      "source": "packages_shared_src_manual_test",
+      "target": "packages_shared_src_api",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "packages/shared/src/manual.test.ts",
+      "source_location": "L2",
+      "type_only": true,
+      "weight": 1.0
+    },
+    {
+      "source": "packages_shared_src_manual_test",
+      "target": "packages_shared_src_bomb",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "packages/shared/src/manual.test.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "packages_shared_src_manual_test",
+      "target": "packages_shared_src_manual",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "packages/shared/src/manual.test.ts",
+      "source_location": "L4",
       "weight": 1.0
     },
     {
@@ -9294,7 +10565,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "apps/web/src/bomb/Modules.tsx",
-      "source_location": "L107",
+      "source_location": "L103",
       "weight": 1.0
     },
     {
@@ -9305,7 +10576,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "apps/web/src/bomb/Modules.tsx",
-      "source_location": "L12",
+      "source_location": "L13",
       "weight": 1.0
     },
     {
@@ -9316,7 +10587,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "apps/web/src/bomb/Modules.tsx",
-      "source_location": "L3",
+      "source_location": "L4",
       "weight": 1.0
     },
     {
@@ -9327,18 +10598,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "apps/web/src/bomb/Modules.tsx",
-      "source_location": "L48",
-      "weight": 1.0
-    },
-    {
-      "source": "apps_web_src_bomb_modules",
-      "target": "apps_web_src_bomb_modules_glyphs",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "apps/web/src/bomb/Modules.tsx",
-      "source_location": "L73",
+      "source_location": "L49",
       "weight": 1.0
     },
     {
@@ -9349,7 +10609,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "apps/web/src/bomb/Modules.tsx",
-      "source_location": "L78",
+      "source_location": "L74",
       "weight": 1.0
     },
     {
@@ -9463,6 +10723,28 @@
       "weight": 1.0
     },
     {
+      "source": "apps_web_src_lib_glyphs",
+      "target": "apps_web_src_lib_glyphs_glyphs",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "apps/web/src/lib/glyphs.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_web_src_lib_glyphs",
+      "target": "apps_web_src_lib_glyphs_symbolname",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "apps/web/src/lib/glyphs.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
       "source": "apps_web_src_lib_storage",
       "target": "apps_web_src_lib_storage_storage",
       "relation": "contains",
@@ -9551,6 +10833,17 @@
       "weight": 1.0
     },
     {
+      "source": "apps_web_src_lib_usewakelock",
+      "target": "apps_web_src_lib_usewakelock_usewakelock",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "apps/web/src/lib/useWakeLock.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
       "source": "apps_web_src_main",
       "target": "apps_web_src_main_pages",
       "relation": "contains",
@@ -9562,6 +10855,116 @@
       "weight": 1.0
     },
     {
+      "source": "apps_web_src_play_manualpreview",
+      "target": "apps_web_src_play_manualpreview_choice",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "apps/web/src/play/ManualPreview.tsx",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_web_src_play_manualpreview",
+      "target": "apps_web_src_play_manualpreview_manualpreview",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "apps/web/src/play/ManualPreview.tsx",
+      "source_location": "L40",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_web_src_play_manualpreview",
+      "target": "apps_web_src_play_manualpreview_phases",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "apps/web/src/play/ManualPreview.tsx",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_web_src_play_manualview",
+      "target": "apps_web_src_play_manualview_manualview",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "apps/web/src/play/ManualView.tsx",
+      "source_location": "L114",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_web_src_play_manualview",
+      "target": "apps_web_src_play_manualview_page",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "apps/web/src/play/ManualView.tsx",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_web_src_play_manualview",
+      "target": "apps_web_src_play_manualview_wires",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "apps/web/src/play/ManualView.tsx",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_web_src_play_manualview",
+      "target": "apps_web_src_play_manualview_module_titles",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "apps/web/src/play/ManualView.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_web_src_play_manualview",
+      "target": "apps_web_src_play_manualview_symbols",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "apps/web/src/play/ManualView.tsx",
+      "source_location": "L49",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_web_src_play_manualview",
+      "target": "apps_web_src_play_manualview_newtag",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "apps/web/src/play/ManualView.tsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_web_src_play_manualview",
+      "target": "apps_web_src_play_manualview_words",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "apps/web/src/play/ManualView.tsx",
+      "source_location": "L83",
+      "weight": 1.0
+    },
+    {
       "source": "apps_web_src_play_playpage",
       "target": "apps_web_src_play_playpage_waiting",
       "relation": "contains",
@@ -9569,7 +10972,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "apps/web/src/play/PlayPage.tsx",
-      "source_location": "L115",
+      "source_location": "L116",
       "weight": 1.0
     },
     {
@@ -9580,7 +10983,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "apps/web/src/play/PlayPage.tsx",
-      "source_location": "L145",
+      "source_location": "L146",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_web_src_play_playpage",
+      "target": "apps_web_src_play_playpage_playerpage",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "apps/web/src/play/PlayPage.tsx",
+      "source_location": "L156",
       "weight": 1.0
     },
     {
@@ -9591,7 +11005,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "apps/web/src/play/PlayPage.tsx",
-      "source_location": "L21",
+      "source_location": "L22",
       "weight": 1.0
     },
     {
@@ -9602,7 +11016,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "apps/web/src/play/PlayPage.tsx",
-      "source_location": "L32",
+      "source_location": "L33",
       "weight": 1.0
     },
     {
@@ -9613,7 +11027,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "apps/web/src/play/PlayPage.tsx",
-      "source_location": "L8",
+      "source_location": "L9",
       "weight": 1.0
     },
     {
@@ -9624,7 +11038,40 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "apps/web/src/play/PlayPage.tsx",
-      "source_location": "L40",
+      "source_location": "L41",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_web_src_play_rolescreens",
+      "target": "apps_web_src_play_rolescreens_defuserscreen",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "apps/web/src/play/RoleScreens.tsx",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_web_src_play_rolescreens",
+      "target": "apps_web_src_play_rolescreens_modules",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "apps/web/src/play/RoleScreens.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "apps_web_src_play_rolescreens",
+      "target": "apps_web_src_play_rolescreens_expertscreen",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "apps/web/src/play/RoleScreens.tsx",
+      "source_location": "L7",
       "weight": 1.0
     },
     {
@@ -10971,13 +12418,24 @@
     },
     {
       "source": "docs_phases_03_manual_hp_fase_3_manual_di_hp",
-      "target": "docs_phases_03_manual_hp_tugas",
+      "target": "docs_phases_03_manual_hp_cara_mencoba",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/phases/03-manual-hp.md",
       "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_phases_03_manual_hp_fase_3_manual_di_hp",
+      "target": "docs_phases_03_manual_hp_tugas",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/phases/03-manual-hp.md",
+      "source_location": "L26",
       "weight": 1.0
     },
     {
@@ -10993,24 +12451,13 @@
     },
     {
       "source": "docs_phases_03_manual_hp_fase_3_manual_di_hp",
-      "target": "docs_phases_03_manual_hp_keputusan_teknis",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/phases/03-manual-hp.md",
-      "source_location": "L42",
-      "weight": 1.0
-    },
-    {
-      "source": "docs_phases_03_manual_hp_fase_3_manual_di_hp",
       "target": "docs_phases_03_manual_hp_selesai_bila",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/phases/03-manual-hp.md",
-      "source_location": "L47",
+      "source_location": "L49",
       "weight": 1.0
     },
     {
@@ -11021,7 +12468,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/phases/03-manual-hp.md",
-      "source_location": "L54",
+      "source_location": "L55",
       "weight": 1.0
     },
     {
@@ -11054,7 +12501,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/phases/04-giliran-realtime.md",
-      "source_location": "L101",
+      "source_location": "L108",
       "weight": 1.0
     },
     {
@@ -11065,7 +12512,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/phases/04-giliran-realtime.md",
-      "source_location": "L109",
+      "source_location": "L116",
       "weight": 1.0
     },
     {
@@ -11466,24 +12913,13 @@
     },
     {
       "source": "hot_hot_md_log_perubahan_per_sesi",
-      "target": "hot_2026_11_03_fase_1_dikerjakan_branch_fase_1_fondasi",
+      "target": "hot_2026_11_03_planning_per_fase",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "hot.md",
-      "source_location": "L26",
-      "weight": 1.0
-    },
-    {
-      "source": "hot_hot_md_log_perubahan_per_sesi",
-      "target": "hot_2026_11_03_manual_sama_untuk_semua_expert",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "hot.md",
-      "source_location": "L49",
+      "source_location": "L106",
       "weight": 1.0
     },
     {
@@ -11494,7 +12930,40 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "hot.md",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "hot_hot_md_log_perubahan_per_sesi",
+      "target": "hot_2026_11_03_fase_1_dikerjakan_branch_fase_1_fondasi",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "hot.md",
+      "source_location": "L47",
+      "weight": 1.0
+    },
+    {
+      "source": "hot_hot_md_log_perubahan_per_sesi",
+      "target": "hot_2026_11_03_fase_3_dikerjakan_branch_fase_3_manual_hp",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "hot.md",
       "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "hot_hot_md_log_perubahan_per_sesi",
+      "target": "hot_2026_11_03_manual_sama_untuk_semua_expert",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "hot.md",
+      "source_location": "L70",
       "weight": 1.0
     },
     {
@@ -11505,18 +12974,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "hot.md",
-      "source_location": "L66",
-      "weight": 1.0
-    },
-    {
-      "source": "hot_hot_md_log_perubahan_per_sesi",
-      "target": "hot_2026_11_03_planning_per_fase",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "hot.md",
-      "source_location": "L85",
+      "source_location": "L87",
       "weight": 1.0
     },
     {
@@ -12576,6 +14034,116 @@
       "weight": 1.0
     },
     {
+      "source": "packages_shared_src_manual",
+      "target": "packages_shared_src_manual_wordmanual",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "packages/shared/src/manual.ts",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "packages_shared_src_manual",
+      "target": "packages_shared_src_manual_manual",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "packages/shared/src/manual.ts",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "packages_shared_src_manual",
+      "target": "packages_shared_src_manual_manualfor",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "packages/shared/src/manual.ts",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "packages_shared_src_manual",
+      "target": "packages_shared_src_manual_wiresmanual",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "packages/shared/src/manual.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "packages_shared_src_manual",
+      "target": "packages_shared_src_manual_rotation_start",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "packages/shared/src/manual.ts",
+      "source_location": "L55",
+      "weight": 1.0
+    },
+    {
+      "source": "packages_shared_src_manual",
+      "target": "packages_shared_src_manual_pickdefusers",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "packages/shared/src/manual.ts",
+      "source_location": "L62",
+      "weight": 1.0
+    },
+    {
+      "source": "packages_shared_src_manual",
+      "target": "packages_shared_src_manual_turnforplay",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "packages/shared/src/manual.ts",
+      "source_location": "L68",
+      "weight": 1.0
+    },
+    {
+      "source": "packages_shared_src_manual",
+      "target": "packages_shared_src_manual_playview",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "packages/shared/src/manual.ts",
+      "source_location": "L86",
+      "weight": 1.0
+    },
+    {
+      "source": "packages_shared_src_manual",
+      "target": "packages_shared_src_manual_symbolsmanual",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "packages/shared/src/manual.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "packages_shared_src_manual_test",
+      "target": "packages_shared_src_manual_test_phases",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "packages/shared/src/manual.test.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
       "source": "packages_shared_src_play",
       "target": "packages_shared_src_play_tobombview",
       "relation": "contains",
@@ -13154,5 +14722,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "ca46648afa2f0b665ce1bc0ab45e442162f4f9bb"
+  "built_at_commit": "9eedddb27459a4db56a4567b9183eca560e9e360"
 }

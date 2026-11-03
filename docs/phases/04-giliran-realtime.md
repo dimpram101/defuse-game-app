@@ -69,6 +69,13 @@ Topic: `screen`, `gm`, `team:<id>`, `player:<id>`. Tambahan `player:<id>` diperl
 
 ## Tugas
 
+**Dari fase sebelumnya**
+
+- [ ] Saat Start: hitung `pickDefusers`, simpan ke `turns.defuser_ids`, kirim `playView` ke tiap HP (Fase 3)
+- [ ] Nomor seri chassis memakai nomor giliran, bukan seed (Fase 2)
+- [ ] Keluarkan isi bank dari bundle web: bom latihan dibuat server (`/api/gm/practice-bomb`, token GM) atau mode latihan dikunci PIN GM (Fase 3, celah keamanan)
+
+
 **Server**
 
 - [ ] WebSocket Elysia, `hello` → subscribe topic sesuai peran → kirim `snapshot`

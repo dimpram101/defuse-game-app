@@ -4,6 +4,7 @@ import { api, ApiError } from "../lib/api";
 import { DEVICE_TOKEN, deviceStorage, isTestMode } from "../lib/storage";
 import { useActiveGame } from "../lib/useActiveGame";
 import { Button, inputClass, TeamDot } from "../ui";
+import { ManualPreview } from "./ManualPreview";
 
 function Shell({ children }: { children: ReactNode }) {
   return (
@@ -143,6 +144,16 @@ function Waiting({ me, game }: { me: Me; game: PublicGame | null }) {
 }
 
 export function PlayPage() {
+  if (new URLSearchParams(location.search).has("preview"))
+    return (
+      <Shell>
+        <ManualPreview />
+      </Shell>
+    );
+  return <PlayerPage />;
+}
+
+function PlayerPage() {
   const [active, refresh] = useActiveGame();
   const [me, setMe] = useState<Me | null>(null);
   const [checking, setChecking] = useState(() => deviceStorage.get(DEVICE_TOKEN) !== null);
