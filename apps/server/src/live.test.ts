@@ -1,6 +1,6 @@
 import { afterAll, beforeAll, beforeEach, describe, expect, test } from "bun:test";
-import { createDb, migrateDb, sql } from "@defuse/db";
-import { generateBomb, type ClientMessage, type GmSnapshot, type PlaySnapshot, type ScreenSnapshot, type ServerMessage } from "@defuse/shared";
+import { createDb, desc, migrateDb, schema, sql } from "@defuse/db";
+import { generateBomb, manualFor, scrambleManual, type ClientMessage, type GmSnapshot, type PlaySnapshot, type ScreenSnapshot, type ServerMessage } from "@defuse/shared";
 import { createGmAuth } from "./gm-auth";
 import { LiveGame } from "./live";
 import { createGame, joinPlayer } from "./lobby";
@@ -62,6 +62,18 @@ afterAll(() => {
   return db.close();
 });
 
+/** Plays every team of the current round by letting the bomb time out, then shows the leaderboard. */
+async function timeOutRound(g: ReturnType<typeof device>) {
+  for (let k = g.last<GmSnapshot>().next.kind; k === "open_turn" || k === "start_turn"; k = g.last<GmSnapshot>().next.kind) {
+    if (k === "open_turn") await g.say({ type: "gm", command: "next" });
+    await g.say({ type: "gm", command: "next" });
+    clock += 200_000;
+    await live.tick();
+  }
+  await g.say({ type: "gm", command: "next" });
+  expect(g.last<GmSnapshot>().game!.status).toBe("leaderboard");
+}
+
 describe("a full turn", () => {
   test("open, start, defuse, score, skip the empty team, time out, leaderboard, next round", async () => {
     const { teamIds, red } = await setup();
@@ -113,6 +125,7 @@ describe("a full turn", () => {
       ],
       total: 210,
       solvedModules: 3,
+      bets: [],
     });
     expect(result.teams[0]!.score).toBe(210);
     expect(ayu!.last<PlaySnapshot>().view).toEqual({ role: "waiting" });
@@ -140,18 +153,6 @@ describe("a full turn", () => {
 });
 
 describe("extra rounds", () => {
-  /** Plays every team of the current round by letting the bomb time out, then shows the leaderboard. */
-  async function timeOutRound(g: ReturnType<typeof device>) {
-    for (let k = g.last<GmSnapshot>().next.kind; k === "open_turn" || k === "start_turn"; k = g.last<GmSnapshot>().next.kind) {
-      if (k === "open_turn") await g.say({ type: "gm", command: "next" });
-      await g.say({ type: "gm", command: "next" });
-      clock += 200_000;
-      await live.tick();
-    }
-    await g.say({ type: "gm", command: "next" });
-    expect(g.last<GmSnapshot>().game!.status).toBe("leaderboard");
-  }
-
   test("after Round 2 the GM picks one more round at Round 2 difficulty, or the Final", async () => {
     await setup();
     const g = device("gm");
@@ -346,3 +347,161 @@ describe("permissions", () => {
     expect((await db.execute(sql`select * from score_events`)).length).toBe(0);
   });
 });
+
+describe("spectators", () => {
+  /** Four teams: Red plays (Ayu, Bima, Citra), Blue, Green and Gold watch with one phone each. */
+  async function setup4() {
+    await createGame(db, [
+      { name: "Red", color: "team-1" },
+      { name: "Blue", color: "team-2" },
+      { name: "Green", color: "team-3" },
+      { name: "Gold", color: "team-4" },
+    ]);
+    const ids = (await db.execute<{ id: number }>(sql`select id from teams order by turn_order`)).map((r) => r.id);
+    const join = (nickname: string, teamId: number) => joinPlayer(db, { nickname, teamId });
+    const red = [await join("Ayu", ids[0]!), await join("Bima", ids[0]!), await join("Citra", ids[0]!)];
+    const others = [await join("Dewi", ids[1]!), await join("Eka", ids[2]!), await join("Fajar", ids[3]!)];
+    await live.changed();
+    const g = device("gm");
+    const screen = device("screen");
+    await g.say({ type: "hello", role: "gm", gmToken: token });
+    await screen.say({ type: "hello", role: "screen", gmToken: token });
+    const phone = async (id: string, deviceToken: string) => {
+      const d = device(id);
+      await d.say({ type: "hello", role: "play", deviceToken });
+      return d;
+    };
+    const [ayu, bima, citra] = [await phone("ayu", red[0]!.deviceToken), await phone("bima", red[1]!.deviceToken), await phone("citra", red[2]!.deviceToken)];
+    const [blue, green, gold] = [await phone("blue", others[0]!.deviceToken), await phone("green", others[1]!.deviceToken), await phone("gold", others[2]!.deviceToken)];
+    return { ids, g, screen, ayu: ayu!, bima: bima!, citra: citra!, blue: blue!, green: green!, gold: gold! };
+  }
+
+  async function givePoints(gameTeamIds: number[], points: number) {
+    const [game] = await db.select({ id: schema.games.id }).from(schema.games).orderBy(desc(schema.games.id)).limit(1);
+    const gameId = game!.id;
+    for (const teamId of gameTeamIds)
+      await db.execute(sql`insert into score_events (game_id, team_id, kind, points) values (${gameId}, ${teamId}, 'test', ${points})`);
+    await live.changed();
+  }
+
+  test("Bets: saved per team while betting, locked at Start, scored at the result", async () => {
+    const { ids, g, ayu, blue, green, gold } = await setup4();
+    await g.say({ type: "gm", command: "next" });
+    expect(blue.last<PlaySnapshot>().spectator).toMatchObject({ betOpen: true, bet: { willDefuse: null, strikes: null }, sabotage: null });
+    expect(ayu.last<PlaySnapshot>().spectator).toBeNull();
+
+    await blue.say({ type: "bet", willDefuse: true });
+    await blue.say({ type: "bet", strikes: 1 });
+    await blue.say({ type: "bet", willDefuse: false });
+    await green.say({ type: "bet", willDefuse: false, strikes: 0 });
+    await gold.say({ type: "bet", strikes: 2 });
+    expect(blue.last<PlaySnapshot>().spectator!.bet).toEqual({ willDefuse: false, strikes: 1 });
+    expect(g.last<GmSnapshot>().game!.turn!.betTeamIds.sort()).toEqual([ids[1], ids[2]].sort());
+    await ayu.say({ type: "bet", willDefuse: true });
+    expect(ayu.errors()).toEqual(["Your team is playing this turn."]);
+
+    await g.say({ type: "gm", command: "next" });
+    await blue.say({ type: "bet", willDefuse: true });
+    expect(blue.errors()).toEqual(["Bets are closed. The bomb has started."]);
+
+    clock += 200_000;
+    await live.tick();
+    const game = g.last<GmSnapshot>().game!;
+    // BOOM with 0 strikes: Blue right on the outcome only, Green right on both, Gold wrong.
+    expect(game.turn!.result!.bets).toEqual([{ teamId: ids[1], points: 20 }, { teamId: ids[2], points: 30 }]);
+    expect(game.teams.map((t) => t.score)).toEqual([0, 20, 30, 0]);
+  });
+
+  test("Sabotage: closed in Round 1, first request wins, GM approves, cost and limits apply", async () => {
+    const { ids, g, screen, blue, green, gold } = await setup4();
+    await g.say({ type: "gm", command: "next" });
+    await g.say({ type: "gm", command: "next" });
+    await blue.say({ type: "sabotage", twist: "speed_up" });
+    expect(blue.errors()).toEqual(["Sabotage opens in Round 2."]);
+    clock += 200_000;
+    await live.tick();
+    await timeOutRound(g);
+    await g.say({ type: "gm", command: "next" });
+    await givePoints([ids[1]!, ids[2]!], 100);
+
+    // Round 2, Red steps up: Sabotage waits for the bomb.
+    expect(blue.last<PlaySnapshot>().spectator!.sabotage!.options[0]).toEqual({ type: "speed_up", cost: 40, reason: "Opens when the bomb starts." });
+    await g.say({ type: "gm", command: "next" });
+    expect(gold.last<PlaySnapshot>().spectator!.sabotage!.options[0]!.reason).toBe("Needs 40 points. You have 0.");
+
+    // Two teams at the same moment: only one request goes in.
+    await Promise.all([blue.say({ type: "sabotage", twist: "speed_up" }), green.say({ type: "sabotage", twist: "radio_interference" })]);
+    expect(green.errors()).toEqual(["Another team already sabotaged this turn."]);
+    const [pending] = g.last<GmSnapshot>().sabotages;
+    expect(pending).toMatchObject({ byTeamId: ids[1], type: "speed_up", cost: 40 });
+    expect(blue.last<PlaySnapshot>().spectator!.sabotage!.mine).toEqual({ type: "speed_up", status: "pending" });
+
+    // Rejected: the slot opens again.
+    await g.say({ type: "gm_sabotage", sabotageId: pending!.id, approve: false });
+    expect(green.last<PlaySnapshot>().spectator!.sabotage!.options[2]!.reason).toBeNull();
+    await green.say({ type: "sabotage", twist: "speed_up" });
+    const before = screen.last<ScreenSnapshot>().game!.turn!.timer.remainingMs;
+    await g.say({ type: "gm_sabotage", sabotageId: g.last<GmSnapshot>().sabotages[0]!.id, approve: true });
+
+    const turn = screen.last<ScreenSnapshot>().game!.turn!;
+    expect(before - turn.timer.remainingMs).toBe(30_000);
+    expect(turn.twists).toEqual([{ type: "speed_up", byTeamId: ids[2], target: null, msLeft: 5_000, durationMs: 5_000, running: true }]);
+    expect(screen.last<ScreenSnapshot>().game!.teams[2]!.score).toBe(60);
+    expect(blue.last<PlaySnapshot>().spectator!.sabotage!.options[0]!.reason).toBe("Another team already sabotaged this turn.");
+
+    // The announcement ends on the bomb clock.
+    clock += 5_000;
+    expect(await live.tick()).toBe(true);
+    expect(screen.last<ScreenSnapshot>().game!.turn!.twists).toEqual([]);
+
+    // Next team's turn in the same round: Green has used its Sabotage for Round 2.
+    clock += 200_000;
+    await live.tick();
+    await g.say({ type: "gm", command: "next" });
+    await g.say({ type: "gm", command: "next" });
+    expect(green.last<PlaySnapshot>().view.role).toBe("spectator");
+    expect(green.last<PlaySnapshot>().spectator!.sabotage!.options[0]!.reason).toBe("Your team already used its Sabotage in Round 2.");
+  });
+
+  test("GM twists: Speed Up keeps 5 s, Silent Expert mutes one Expert, Radio Interference shuffles the manual", async () => {
+    const { g, screen, ayu, bima, citra } = await setup4();
+    await g.say({ type: "gm", command: "next" });
+    await g.say({ type: "gm_twist", twist: "speed_up" });
+    expect(g.errors()).toEqual(["Twists only work while the bomb is running."]);
+    await g.say({ type: "gm", command: "next" });
+
+    clock += 160_000;
+    await g.say({ type: "gm_twist", twist: "speed_up" });
+    expect(screen.last<ScreenSnapshot>().game!.turn!.timer.remainingMs).toBe(5_000);
+
+    await g.say({ type: "gm_twist", twist: "silent_expert" });
+    const muted = [bima, citra].filter((p) => p.last<PlaySnapshot>().muted !== null);
+    expect(muted.length).toBe(1);
+    expect(muted[0]!.last<PlaySnapshot>().muted).toEqual({ msLeft: 45_000, running: true });
+    expect(ayu.last<PlaySnapshot>().muted).toBeNull(); // Ayu is the Defuser of module 1
+
+    // Paused: twists stop with the bomb clock.
+    await g.say({ type: "gm", command: "pause" });
+    clock += 60_000;
+    await live.tick();
+    expect(muted[0]!.last<PlaySnapshot>().muted).toEqual({ msLeft: 45_000, running: false });
+    await g.say({ type: "gm", command: "resume" });
+
+    await g.say({ type: "gm_twist", twist: "radio_interference" });
+    const view = bima.last<PlaySnapshot>().view;
+    expect(view.role).toBe("expert");
+    expect(view.role === "expert" && view.manual.scrambled).toBe(true);
+    expect(view.role === "expert" && view.manual).toEqual(scrambleManual(manualFor("round1", 1), await radioSeed()));
+
+    // The shuffle lasts 60 s on the bomb clock, but this bomb has 5 s left: it ends with the turn.
+    clock += 5_000;
+    await live.tick();
+    expect(bima.last<PlaySnapshot>().view.role).toBe("waiting");
+    expect(screen.last<ScreenSnapshot>().game!.turn!.twists).toEqual([]);
+  });
+});
+
+async function radioSeed() {
+  const [row] = await db.select({ twists: schema.turns.twists }).from(schema.turns).orderBy(desc(schema.turns.id)).limit(1);
+  return row!.twists.find((t) => t.type === "radio_interference")!.seed;
+}

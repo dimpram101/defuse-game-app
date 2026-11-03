@@ -1,17 +1,21 @@
-import { asc, desc, eq, schema, sql, type Db } from "@defuse/db";
+import { and, asc, desc, eq, schema, sql, type Db } from "@defuse/db";
 import {
-  checkAnswer, expire, generateBomb, newBombState, pickDefusers, playView, remainingMs, roundLabel, scoreTurn,
-  solvedModules, toBombView, HANDOVER_MS, TURN_SECONDS,
+  checkAnswer, elapsedMs, expire, generateBomb, newBombState, pickDefusers, playView, remainingMs, roundLabel, scoreBets,
+  scoreTurn, solvedModules, toBombView, HANDOVER_MS, SPEED_UP_CUT_MS, SPEED_UP_FLOOR_MS, TURN_SECONDS, TWIST_TYPES, TWISTS,
   type Bomb, type BombState, type ClientMessage, type DefuserAction, type GameView, type GmCommand, type GmSnapshot,
-  type Me, type ModuleNo, type Phase, type PlaySnapshot, type ScreenSnapshot, type ServerMessage, type TeamColor,
-  type TurnStatus, type TurnView,
+  type Me, type ModuleNo, type Phase, type PlaySnapshot, type ScreenSnapshot, type ServerMessage, type SpectatorPanel,
+  type StrikesGuess, type TeamColor, type TurnStatus, type TurnView, type TwistType,
 } from "@defuse/shared";
 import { nextStep, queueFor } from "./flow";
 import type { GmAuth } from "./gm-auth";
 
-const { games, teams, players, turns, scoreEvents } = schema;
+const { games, teams, players, turns, bets, sabotages, scoreEvents } = schema;
 type Tx = Parameters<Parameters<Db["transaction"]>[0]>[0];
 type TurnRow = typeof turns.$inferSelect;
+type Twist = TurnRow["twists"][number];
+type State = NonNullable<Awaited<ReturnType<LiveGame["load"]>>>;
+
+const LIVE: TurnStatus[] = ["betting", "playing", "paused"];
 
 export class CommandError extends Error {}
 
@@ -25,7 +29,12 @@ type Conn = {
 const ms = (d: Date | null) => (d ? d.getTime() : null);
 const clockOf = (t: TurnRow) => ({
   startedAt: ms(t.startedAt), durationSec: t.durationSec, pausedMs: t.pausedMs, pausedAt: ms(t.pausedAt), endedAt: ms(t.endedAt),
+  cutMs: t.cutMs,
 });
+
+/** A twist is on while its turn is live and the bomb clock hasn't reached its end. */
+const twistOn = (turn: TurnRow, tw: Twist, now: number) =>
+  !tw.over && LIVE.includes(turn.status) && elapsedMs(clockOf(turn), now) < tw.untilMs;
 
 /**
  * The live session. Every change runs through one queue: read the database, write it, then send each
@@ -87,9 +96,16 @@ export class LiveGame {
       } else if (msg.type === "defuser") {
         if (conn.role !== "screen" || !conn.gm) throw new CommandError("Only the unlocked /screen can play the bomb.");
         await this.run(() => this.defuserAction(msg.turnId, msg.action));
+      } else if (msg.type === "bet" || msg.type === "sabotage") {
+        if (conn.role !== "play" || !conn.deviceToken) throw new CommandError("Join a team first.");
+        const token = conn.deviceToken;
+        if (msg.type === "bet") await this.run(() => this.placeBet(token, msg.willDefuse, msg.strikes));
+        else await this.run(() => this.requestSabotage(token, msg.twist));
       } else {
         if (!conn.gm) throw new CommandError("Enter the GM PIN again.");
-        await this.run(() => this.gmCommand(msg.command));
+        if (msg.type === "gm") await this.run(() => this.gmCommand(msg.command));
+        else if (msg.type === "gm_twist") await this.run(() => this.gmTwist(msg.twist));
+        else await this.run(() => this.decideSabotage(msg.sabotageId, msg.approve));
       }
     } catch (e) {
       if (e instanceof CommandError) conn.send({ type: "error", message: e.message });
@@ -115,9 +131,15 @@ export class LiveGame {
     const scoreRows = await db.select({ teamId: scoreEvents.teamId, total: sql<number>`coalesce(sum(${scoreEvents.points}), 0)::int` })
       .from(scoreEvents).where(eq(scoreEvents.gameId, game.id)).groupBy(scoreEvents.teamId);
     const turn = turnRows.find((t) => t.id === game.currentTurnId) ?? null;
-    return { game, teams: teamRows, players: playerRows, turns: turnRows, scores: new Map(scoreRows.map((r) => [r.teamId, r.total])), turn };
+    const betRows = turn ? await db.select().from(bets).where(eq(bets.turnId, turn.id)) : [];
+    const turnIds = new Set(turnRows.map((t) => t.id));
+    const sabotageRows = (await db.select().from(sabotages).orderBy(asc(sabotages.id))).filter((x) => turnIds.has(x.turnId));
+    return {
+      game, teams: teamRows, players: playerRows, turns: turnRows, scores: new Map(scoreRows.map((r) => [r.teamId, r.total])), turn,
+      bets: betRows, sabotages: sabotageRows,
+    };
   }
-  private flowState(s: NonNullable<Awaited<ReturnType<LiveGame["load"]>>>) {
+  private flowState(s: State) {
     return {
       game: s.game,
       teams: s.teams.map((t) => ({ id: t.id, turnOrder: t.turnOrder, playerCount: s.players.filter((p) => p.teamId === t.id).length })),
@@ -225,10 +247,141 @@ export class LiveGame {
     const endedAt = new Date(now);
     const left = remainingMs({ ...clockOf(turn), endedAt: now }, now);
     await tx.update(turns).set({ status: state.status as TurnStatus, bombState: state, endedAt, handoverUntil: null }).where(eq(turns.id, turn.id));
-    const lines = scoreTurn(state, left);
-    if (lines.length)
-      await tx.insert(scoreEvents).values(lines.map((l) => ({ gameId, teamId: turn.teamId, turnId: turn.id, kind: l.kind, points: l.points, note: l.note })));
+    const betRows = await tx.select().from(bets).where(eq(bets.turnId, turn.id));
+    const events = [
+      ...scoreTurn(state, left).map((l) => ({ ...l, teamId: turn.teamId })),
+      ...scoreBets(betRows, state).flatMap((b) => b.lines.map((l) => ({ ...l, teamId: b.teamId }))),
+    ];
+    if (events.length)
+      await tx.insert(scoreEvents).values(events.map((l) => ({ gameId, teamId: l.teamId, turnId: turn.id, kind: l.kind, points: l.points, note: l.note })));
+    // A Sabotage the GM never decided on doesn't cost anything.
+    await tx.update(sabotages).set({ status: "rejected" }).where(and(eq(sabotages.turnId, turn.id), eq(sabotages.status, "pending")));
     await tx.update(games).set({ status: "result" }).where(eq(games.id, gameId));
+  }
+
+  // ---------- spectators and twists ----------
+
+  /** Saves one or both Bet answers for the phone's team. Only while the playing team is stepping up. */
+  private async placeBet(token: string, willDefuse: boolean | undefined, strikes: StrikesGuess | undefined) {
+    if (willDefuse === undefined && strikes === undefined) return;
+    await this.db.transaction(async (tx) => {
+      const s = await this.load(tx);
+      const player = s?.players.find((p) => p.deviceToken === token);
+      const turn = s?.turn;
+      if (!s || !player) throw new CommandError("Join a team first.");
+      if (!turn || turn.status !== "betting") throw new CommandError("Bets are closed. The bomb has started.");
+      if (player.teamId === turn.teamId) throw new CommandError("Your team is playing this turn.");
+      const set = { ...(willDefuse !== undefined && { willDefuse }), ...(strikes !== undefined && { strikesGuess: strikes }) };
+      await tx.insert(bets).values({ turnId: turn.id, teamId: player.teamId, willDefuse: willDefuse ?? null, strikesGuess: strikes ?? null })
+        .onConflictDoUpdate({ target: [bets.turnId, bets.teamId], set });
+    });
+    await this.broadcast();
+  }
+
+  /** Why a spectator team can't buy each twist right now (null = it can). Shared by the phone panel and the request. */
+  private sabotageOptions(s: State, teamId: number): SpectatorPanel["sabotage"] {
+    const turn = s.turn;
+    if (!turn || turn.phase === "round1" || !LIVE.includes(turn.status)) return null;
+    const active = s.sabotages.filter((x) => x.status !== "rejected");
+    const thisTurn = active.find((x) => x.turnId === turn.id);
+    const roundOf = new Map(s.turns.map((t) => [t.id, t.round]));
+    const usedThisRound = active.some((x) => x.byTeamId === teamId && x.turnId !== turn.id && roundOf.get(x.turnId) === turn.round);
+    const score = s.scores.get(teamId) ?? 0;
+    const experts = this.expertIds(s, turn).length;
+    const mine = s.sabotages.filter((x) => x.turnId === turn.id && x.byTeamId === teamId).at(-1);
+
+    const general =
+      turn.status === "betting" ? "Opens when the bomb starts."
+      : turn.status === "paused" ? "The bomb is paused."
+      : thisTurn ? (thisTurn.byTeamId === teamId ? "Your Sabotage is in for this turn." : "Another team already sabotaged this turn.")
+      : usedThisRound ? `Your team already used its Sabotage in ${roundLabel(turn.phase, turn.round)}.`
+      : null;
+    return {
+      options: TWIST_TYPES.map((type) => {
+        const { cost } = TWISTS[type];
+        const reason = general
+          ?? (score < cost ? `Needs ${cost} points. You have ${score}.` : null)
+          ?? (type === "silent_expert" && experts < 2 ? "They have only one Expert." : null);
+        return { type, cost, reason };
+      }),
+      mine: mine ? { type: mine.type, status: mine.status } : null,
+    };
+  }
+
+  private async requestSabotage(token: string, type: TwistType) {
+    await this.db.transaction(async (tx) => {
+      const s = await this.load(tx);
+      const player = s?.players.find((p) => p.deviceToken === token);
+      if (!s || !player) throw new CommandError("Join a team first.");
+      if (!s.turn || player.teamId === s.turn.teamId) throw new CommandError("Sabotage is for teams that are watching.");
+      const panel = this.sabotageOptions(s, player.teamId);
+      if (!panel) throw new CommandError("Sabotage opens in Round 2.");
+      const option = panel.options.find((o) => o.type === type)!;
+      if (option.reason) throw new CommandError(option.reason);
+      await tx.insert(sabotages).values({ turnId: s.turn.id, byTeamId: player.teamId, type, cost: option.cost });
+    });
+    await this.broadcast();
+  }
+
+  private async decideSabotage(id: number, approve: boolean) {
+    await this.db.transaction(async (tx) => {
+      const s = await this.load(tx);
+      const sab = s?.sabotages.find((x) => x.id === id);
+      if (!s || !sab || sab.status !== "pending") throw new CommandError("That Sabotage was already decided.");
+      if (!approve) {
+        await tx.update(sabotages).set({ status: "rejected" }).where(eq(sabotages.id, id));
+        return;
+      }
+      const turn = s.turn;
+      if (!turn || turn.id !== sab.turnId || (turn.status !== "playing" && turn.status !== "paused"))
+        throw new CommandError("That turn is over.");
+      await this.startTwist(tx, s, turn, sab.type, sab.byTeamId);
+      await tx.update(sabotages).set({ status: "approved" }).where(eq(sabotages.id, id));
+      await tx.insert(scoreEvents).values({
+        gameId: s.game.id, teamId: sab.byTeamId, turnId: turn.id, kind: "sabotage_cost", points: -sab.cost, note: `Sabotage: ${TWISTS[sab.type].name}`,
+      });
+    });
+    await this.reschedule();
+    await this.broadcast();
+  }
+
+  /** The GM sets off a twist for free (FR-34). */
+  private async gmTwist(type: TwistType) {
+    await this.db.transaction(async (tx) => {
+      const s = await this.load(tx);
+      const turn = s?.turn;
+      if (!s || !turn || turn.status !== "playing") throw new CommandError("Twists only work while the bomb is running.");
+      await this.startTwist(tx, s, turn, type, null);
+    });
+    await this.reschedule();
+    await this.broadcast();
+  }
+
+  /** Experts of the playing team for the current module: everyone but its Defuser. */
+  private expertIds(s: State, turn: TurnRow) {
+    const members = s.players.filter((p) => p.teamId === turn.teamId).map((p) => p.id);
+    const defuser = (turn.defuserIds ?? pickDefusers(members, turn.round))[(turn.bombState?.module ?? 1) - 1];
+    return members.filter((id) => id !== defuser);
+  }
+
+  private async startTwist(tx: Tx, s: State, turn: TurnRow, type: TwistType, byTeamId: number | null) {
+    const now = this.now();
+    const from = elapsedMs(clockOf(turn), now);
+    let playerId: number | null = null;
+    let cutMs = turn.cutMs;
+    if (type === "silent_expert") {
+      const experts = this.expertIds(s, turn);
+      const online = this.onlinePlayers(s);
+      const pool = experts.some((id) => online.has(id)) ? experts.filter((id) => online.has(id)) : experts;
+      if (pool.length === 0) throw new CommandError("There is no Expert to mute.");
+      playerId = pool[Math.floor(Math.random() * pool.length)]!;
+    } else if (type === "speed_up") {
+      cutMs += Math.max(0, Math.min(SPEED_UP_CUT_MS, remainingMs(clockOf(turn), now) - SPEED_UP_FLOOR_MS));
+    }
+    const twist: Twist = {
+      type, byTeamId, fromMs: from, untilMs: from + TWISTS[type].ms, playerId, seed: 1 + Math.floor(Math.random() * 2_000_000_000), over: false,
+    };
+    await tx.update(turns).set({ cutMs, twists: [...turn.twists, twist] }).where(eq(turns.id, turn.id));
   }
 
   /**
@@ -246,11 +399,15 @@ export class LiveGame {
         await this.finishTurn(tx, s.game.id, turn, expire(turn.bombState), now);
         return true;
       }
-      if (turn.handoverUntil && turn.handoverUntil.getTime() <= now) {
-        await tx.update(turns).set({ handoverUntil: null }).where(eq(turns.id, turn.id));
-        return true;
-      }
-      return false;
+      const elapsed = elapsedMs(clockOf(turn), now);
+      const twistEnded = turn.twists.some((tw) => !tw.over && tw.untilMs <= elapsed);
+      const handoverEnded = turn.handoverUntil !== null && turn.handoverUntil.getTime() <= now;
+      if (!twistEnded && !handoverEnded) return false;
+      await tx.update(turns).set({
+        ...(handoverEnded && { handoverUntil: null }),
+        ...(twistEnded && { twists: turn.twists.map((tw) => (tw.untilMs <= elapsed ? { ...tw, over: true } : tw)) }),
+      }).where(eq(turns.id, turn.id));
+      return true;
     });
     if (changed) {
       await this.reschedule();
@@ -266,18 +423,27 @@ export class LiveGame {
     if (s?.turn?.status !== "playing") return;
     const now = this.now();
     const left = remainingMs(clockOf(s.turn), now);
-    const due = s.turn.handoverUntil ? Math.min(left, s.turn.handoverUntil.getTime() - now) : left;
+    const elapsed = elapsedMs(clockOf(s.turn), now);
+    const due = Math.min(
+      left,
+      s.turn.handoverUntil ? s.turn.handoverUntil.getTime() - now : Infinity,
+      ...s.turn.twists.filter((tw) => !tw.over).map((tw) => tw.untilMs - elapsed),
+    );
     this.timeout = setTimeout(() => void this.run(() => this.tick()), Math.max(0, due) + 20);
   }
 
   // ---------- snapshots ----------
 
+  /** Players with a /play connection open right now. */
+  private onlinePlayers(s: State) {
+    const tokens = new Set([...this.conns.values()].filter((c) => c.role === "play" && c.deviceToken).map((c) => c.deviceToken!));
+    return new Set(s.players.filter((p) => tokens.has(p.deviceToken)).map((p) => p.id));
+  }
+
   private async broadcast() {
     const s = await this.load();
     const conns = [...this.conns.values()].filter((c) => c.role);
-    const onlineTokens = new Set(conns.filter((c) => c.role === "play" && c.deviceToken).map((c) => c.deviceToken!));
-    const playerByToken = new Map(s?.players.map((p) => [p.deviceToken, p]) ?? []);
-    const online = new Set([...onlineTokens].map((t) => playerByToken.get(t)?.id).filter((id): id is number => id !== undefined));
+    const online = s ? this.onlinePlayers(s) : new Set<number>();
 
     const game = s ? this.gameView(s, online) : null;
     const bomb = s?.turn?.bombState && s.turn.status !== "betting" && s.turn.status !== "voided"
@@ -290,7 +456,10 @@ export class LiveGame {
         const snap: ScreenSnapshot = { role: "screen", game, bomb, canAct: c.gm };
         c.send({ type: "snapshot", snapshot: snap });
       } else if (c.role === "gm" && c.gm) {
-        gmSnap ??= { role: "gm", game, bomb, next: s ? nextStep(this.flowState(s)) : nextStep({ game: null, teams: [], turns: [] }), warnings: s ? this.warnings(s, online) : [] };
+        gmSnap ??= { role: "gm", game, bomb, next: s ? nextStep(this.flowState(s)) : nextStep({ game: null, teams: [], turns: [] }), warnings: s ? this.warnings(s, online) : [],
+          sabotages: (s?.sabotages ?? []).filter((x) => x.status === "pending" && x.turnId === s?.turn?.id)
+            .map((x) => ({ id: x.id, byTeamId: x.byTeamId, type: x.type, cost: x.cost })),
+        };
         c.send({ type: "snapshot", snapshot: gmSnap });
       } else if (c.role === "play") {
         c.send({ type: "snapshot", snapshot: this.playSnapshot(s, game, c.deviceToken) });
@@ -298,12 +467,16 @@ export class LiveGame {
     }
   }
 
-  private gameView(s: NonNullable<Awaited<ReturnType<LiveGame["load"]>>>, online: Set<number>): GameView {
+  private gameView(s: State, online: Set<number>): GameView {
     const turnView = (t: TurnRow): TurnView => {
       const state = t.bombState ?? newBombState();
       const ended = t.status === "defused" || t.status === "boom";
       const lines = ended ? scoreTurn(state, remainingMs(clockOf(t), this.now())) : [];
       const nick = new Map(s.players.map((p) => [p.id, p.nickname]));
+      const now = this.now();
+      const elapsed = elapsedMs(clockOf(t), now);
+      // s.bets belongs to the current turn, the only one ever shown.
+      const betPoints = ended ? scoreBets(s.bets, state).map((b) => ({ teamId: b.teamId, points: b.lines.reduce((n, l) => n + l.points, 0) })) : [];
       return {
         id: t.id,
         number: s.turns.findIndex((x) => x.id === t.id) + 1,
@@ -321,7 +494,18 @@ export class LiveGame {
           handoverMs: t.handoverUntil ? Math.max(0, t.handoverUntil.getTime() - this.now()) : null,
         },
         defusers: (t.defuserIds ?? []).map((playerId, i) => ({ module: (i + 1) as ModuleNo, playerId, nickname: nick.get(playerId) ?? "?" })),
-        result: ended ? { lines, total: lines.reduce((n, l) => n + l.points, 0), solvedModules: solvedModules(state) } : null,
+        twists: t.twists.filter((tw) => twistOn(t, tw, now)).map((tw) => ({
+          type: tw.type,
+          byTeamId: tw.byTeamId,
+          target: tw.playerId === null ? null : (nick.get(tw.playerId) ?? null),
+          msLeft: tw.untilMs - elapsed,
+          durationMs: tw.untilMs - tw.fromMs,
+          running: t.status === "playing",
+        })),
+        betTeamIds: s.bets.filter((b) => b.willDefuse !== null && b.strikesGuess !== null).map((b) => b.teamId),
+        result: ended
+          ? { lines, total: lines.reduce((n, l) => n + l.points, 0), solvedModules: solvedModules(state), bets: betPoints.filter((b) => b.points > 0) }
+          : null,
       };
     };
     return {
@@ -342,7 +526,7 @@ export class LiveGame {
     };
   }
 
-  private warnings(s: NonNullable<Awaited<ReturnType<LiveGame["load"]>>>, online: Set<number>) {
+  private warnings(s: State, online: Set<number>) {
     const out: string[] = [];
     for (const t of s.teams)
       if (!s.players.some((p) => p.teamId === t.id)) out.push(`${t.name} has no players and will be skipped.`);
@@ -357,12 +541,16 @@ export class LiveGame {
     return out;
   }
 
-  private playSnapshot(s: Awaited<ReturnType<LiveGame["load"]>>, game: GameView | null, token: string | null): PlaySnapshot {
+  private playSnapshot(s: State | null, game: GameView | null, token: string | null): PlaySnapshot {
     const player = s && token ? s.players.find((p) => p.deviceToken === token) : undefined;
-    if (!s || !player) return { role: "play", game, me: null, view: { role: "waiting" } };
+    if (!s || !player) return { role: "play", game, me: null, view: { role: "waiting" }, spectator: null, muted: null };
     const team = s.teams.find((t) => t.id === player.teamId)!;
     const me: Me = { player: { id: player.id, nickname: player.nickname }, team: { id: team.id, name: team.name, color: team.color as TeamColor } };
     const t = s.turn;
+    const now = this.now();
+    const on = t ? t.twists.filter((tw) => twistOn(t, tw, now)) : [];
+    const radio = on.filter((tw) => tw.type === "radio_interference").at(-1);
+    const mute = on.filter((tw) => tw.type === "silent_expert" && tw.playerId === player.id).at(-1);
     const view = playView(
       { id: player.id, teamId: player.teamId },
       t
@@ -373,9 +561,19 @@ export class LiveGame {
             // Before Start the Defusers aren't stored yet; preview them so module 1's Defuser never sees the manual.
             defuserIds: t.defuserIds ?? pickDefusers(s.players.filter((p) => p.teamId === t.teamId).map((p) => p.id), t.round),
             status: t.status,
+            scrambleSeed: radio?.seed ?? null,
           }
         : null,
     );
-    return { role: "play", game, me, view };
+    const bet = s.bets.find((b) => b.teamId === player.teamId);
+    const spectator: SpectatorPanel | null = view.role === "spectator"
+      ? {
+          bet: { willDefuse: bet?.willDefuse ?? null, strikes: (bet?.strikesGuess ?? null) as StrikesGuess | null },
+          betOpen: t?.status === "betting",
+          sabotage: this.sabotageOptions(s, player.teamId),
+        }
+      : null;
+    const muted = mute && t ? { msLeft: mute.untilMs - elapsedMs(clockOf(t), now), running: t.status === "playing" } : null;
+    return { role: "play", game, me, view, spectator, muted };
   }
 }

@@ -13,6 +13,7 @@ const defuserAction = t.Union([
   t.Object({ type: t.Literal("press"), symbol: t.String({ maxLength: 40 }) }),
   t.Object({ type: t.Literal("word"), word: t.String({ maxLength: 40 }) }),
 ]);
+const twistType = t.UnionEnum(["speed_up", "silent_expert", "radio_interference"]);
 const clientMessage = t.Union([
   t.Object({
     type: t.Literal("hello"),
@@ -22,6 +23,14 @@ const clientMessage = t.Union([
   }),
   t.Object({ type: t.Literal("defuser"), turnId: t.Integer(), action: defuserAction }),
   t.Object({ type: t.Literal("gm"), command: t.UnionEnum(["next", "extra_round", "pause", "resume", "end"]) }),
+  t.Object({ type: t.Literal("gm_twist"), twist: twistType }),
+  t.Object({ type: t.Literal("gm_sabotage"), sabotageId: t.Integer(), approve: t.Boolean() }),
+  t.Object({
+    type: t.Literal("bet"),
+    willDefuse: t.Optional(t.Boolean()),
+    strikes: t.Optional(t.Union([t.Literal(0), t.Literal(1), t.Literal(2)])),
+  }),
+  t.Object({ type: t.Literal("sabotage"), twist: twistType }),
 ]);
 
 export function createApp({ db, gm, live, joinUrl, webDist }: Deps) {

@@ -1,5 +1,6 @@
+import { sql } from "drizzle-orm";
 import {
-  boolean, integer, jsonb, pgEnum, pgTable, serial, smallint, text, timestamp, unique, uuid,
+  boolean, integer, jsonb, pgEnum, pgTable, serial, smallint, text, timestamp, unique, uniqueIndex, uuid,
 } from "drizzle-orm/pg-core";
 
 export const gameStatus = pgEnum("game_status", [
@@ -66,15 +67,28 @@ export const turns = pgTable("turns", {
     status: "playing" | "defused" | "boom";
   }>(),
   defuserIds: jsonb("defuser_ids").$type<number[]>(),
+  // Taken off the timer by Speed Up.
+  cutMs: integer("cut_ms").notNull().default(0),
+  // Twists set off this turn, timed on the bomb clock (ms since start, pauses excluded). `over` once it has ended.
+  twists: jsonb("twists").$type<{
+    type: "speed_up" | "silent_expert" | "radio_interference";
+    byTeamId: number | null;
+    fromMs: number;
+    untilMs: number;
+    playerId: number | null;
+    seed: number;
+    over: boolean;
+  }[]>().notNull().default([]),
 });
 
 export const bets = pgTable("bets", {
   id: serial("id").primaryKey(),
   turnId: integer("turn_id").notNull().references(() => turns.id, { onDelete: "cascade" }),
   teamId: integer("team_id").notNull().references(() => teams.id, { onDelete: "cascade" }),
-  willDefuse: boolean("will_defuse").notNull(),
+  // Each question is saved as soon as it's tapped, so either may still be empty.
+  willDefuse: boolean("will_defuse"),
   // 0, 1, or 2 meaning "2 or more"
-  strikesGuess: smallint("strikes_guess").notNull(),
+  strikesGuess: smallint("strikes_guess"),
 }, (t) => [unique().on(t.turnId, t.teamId)]);
 
 export const sabotages = pgTable("sabotages", {
@@ -85,7 +99,10 @@ export const sabotages = pgTable("sabotages", {
   cost: smallint("cost").notNull(),
   status: sabotageStatus("status").notNull().default("pending"),
   createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
-});
+}, (t) => [
+  // One Sabotage per turn: the first request wins, and a rejected one frees the slot again.
+  uniqueIndex("sabotages_one_per_turn").on(t.turnId).where(sql`${t.status} <> 'rejected'`),
+]);
 
 export const scoreEvents = pgTable("score_events", {
   id: serial("id").primaryKey(),

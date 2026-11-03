@@ -2,6 +2,31 @@
 
 Entri terbaru di atas. Format ada di `CLAUDE.md` bagian "Aturan proyek".
 
+## 2026-11-03 · Instruksi graphify di CLAUDE.md
+
+**Perubahan:** `CLAUDE.md` bagian "Aturan proyek": tambah aturan untuk selalu memakai graphify lebih dulu saat membaca codebase.
+**Keputusan:** Read/Grep mentah hanya setelah graph menunjuk lokasi, atau kalau `graphify-out/` belum ada.
+**Berikutnya:** Tidak ada.
+
+## 2026-11-03 · Fase 5: Bet, Sabotage, twist
+
+**Perubahan:**
+- `packages/db`: migrasi `0005_spectators` (`bets` nullable per pertanyaan, `turns.cut_ms`, `turns.twists` jsonb, unique index parsial `sabotages_one_per_turn`).
+- `packages/shared`: `TWISTS`, `TWIST_TYPES`, `BET_POINTS`, `StrikesGuess`; `elapsedMs`, `cutMs` di `remainingMs`; `scoreBets`; `scrambleManual` + `scrambleSeed` di `playView`; protokol: `TwistView`, `betTeamIds`, `result.bets`, `GmSnapshot.sabotages`, `PlaySnapshot.spectator` / `muted`, pesan `bet`, `sabotage`, `gm_twist`, `gm_sabotage`. Tes baru `spectators.test.ts`.
+- `apps/server`: `live.ts` (placeBet, sabotageOptions, requestSabotage, decideSabotage, gmTwist, startTwist, twist berakhir lewat `tick`, poin Bet di `finishTurn`), validasi pesan baru di `app.ts`. Tes `live.test.ts` blok "spectators".
+- `apps/web`: `play/Spectator.tsx` (panel Bet, panel Sabotage, overlay MUTED), `PlayPage` menampilkan error server dan hasil Bet, `ManualView` mode acak, `/gm` grup Approvals dan Twists, `/screen` kartu twist, status Bet di "Up next", poin Bet di hasil.
+- Dokumen: `docs/phases/05-penonton.md` (checklist, keputusan), `docs/README.md` (Fase 5 jalan).
+
+**Keputusan:**
+- Kartu twist di bawah kolom kanan, bukan strip bawah: chassis 800px tidak menyisakan ruang tanpa menutupi bom.
+- Twist diukur dengan jam bom (berhenti saat pause, bertahan saat restart). Sabotage pending saat giliran berakhir otomatis ditolak tanpa biaya.
+- Bukti: `bun test` 83 lulus, typecheck dan build lulus. Playwright (server tes port 3200, db `defuse_test`): Bet, Sabotage → Approve → MUTED, Radio Interference, Speed Up, hasil BOOM; skor database cocok (Night Owls 100 − 50 = 50, Comets +20), tanpa error console.
+
+**Berikutnya:**
+- Restart `bun run dev` supaya migrasi `0005` jalan.
+- Uji Bet/Sabotage dengan HP sungguhan.
+- Fase 6: Final (urutan skor terendah, Top 2), penalti, talk bonus, koreksi, replay, suara.
+
 ## 2026-11-03 · Ronde tambahan sebelum Final
 
 **Perubahan:**

@@ -1,5 +1,5 @@
-import type { GameView, ScreenSnapshot, TeamView } from "@defuse/shared";
-import { roundLabel } from "@defuse/shared/api";
+import type { GameView, ScreenSnapshot, TeamView, TwistView } from "@defuse/shared";
+import { roundLabel, TWISTS } from "@defuse/shared/api";
 import { QRCodeSVG } from "qrcode.react";
 import { BombBoard } from "../bomb/BombBoard";
 import { clock, useCountdown, useLive } from "../lib/live";
@@ -93,6 +93,8 @@ function Standings({ teams, highlight }: { teams: TeamView[]; highlight?: boolea
 
 function UpNext({ game }: { game: GameView }) {
   const team = game.teams.find((t) => t.id === game.turn?.teamId)!;
+  const watchers = game.teams.filter((t) => t.id !== team.id && t.players.length > 0);
+  const betIn = new Set(game.turn!.betTeamIds);
   return (
     <div className="grid h-full grid-cols-[1fr_640px] gap-16">
       <section className="flex min-w-0 flex-col justify-center gap-8">
@@ -104,6 +106,20 @@ function UpNext({ game }: { game: GameView }) {
           <span className="truncate">{team.name}</span>
         </h1>
         <p className="text-screen-body">Step up! The first Defuser goes to the laptop. Experts sit with their backs to the screen.</p>
+        {watchers.length > 0 && (
+          <div>
+            <p className="font-display text-screen-md font-semibold text-on-surface-muted">Bets on your phones</p>
+            <ul className="mt-4 flex flex-wrap gap-4">
+              {watchers.map((t) => (
+                <li key={t.id} className="flex items-center gap-3 rounded-md bg-surface px-5 py-3 text-[32px] font-semibold">
+                  <TeamDot color={t.color} className="size-6" />
+                  {t.name}
+                  <span className={betIn.has(t.id) ? "text-success" : "text-on-surface-muted"}>{betIn.has(t.id) ? "✓ in" : "…"}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </section>
       <section className="flex flex-col justify-center">
         <h2 className="mb-6 font-display text-screen-md font-semibold text-on-surface-muted">Scores</h2>
@@ -124,6 +140,32 @@ function Leaderboard({ game }: { game: GameView }) {
       {finished && winner && <p className="font-display text-screen-lg font-bold text-primary">{winner.name} wins!</p>}
       <Standings teams={game.teams} highlight />
     </div>
+  );
+}
+
+function TwistCard({ twist, teams, receivedAt }: { twist: TwistView; teams: TeamView[]; receivedAt: number }) {
+  const ms = useCountdown({ running: twist.running, remainingMs: twist.msLeft }, receivedAt);
+  const by = teams.find((t) => t.id === twist.byTeamId);
+  const detail =
+    twist.type === "speed_up" ? "30 seconds gone!"
+    : twist.type === "silent_expert" ? `${twist.target ?? "One Expert"} can't talk · ${clock(ms)}`
+    : `Manual shuffled · ${clock(ms)}`;
+  return (
+    <section role="status" className="rounded-lg bg-tertiary px-6 py-3 text-on-tertiary">
+      <p className="flex items-baseline justify-between gap-4">
+        <span className="truncate font-display text-[34px] leading-tight font-bold">{TWISTS[twist.type].name}</span>
+        <span className="shrink-0 text-lg font-semibold tracking-[0.04em]">{by ? "SABOTAGE" : "GM TWIST"}</span>
+      </p>
+      <p className="flex items-center gap-2 text-xl font-semibold tabular-nums">
+        {by && (
+          <>
+            <TeamDot color={by.color} className="size-4 ring-2 ring-on-tertiary" />
+            <span className="truncate">{by.name} ·</span>
+          </>
+        )}
+        <span className="shrink-0">{detail}</span>
+      </p>
+    </section>
   );
 }
 
@@ -171,10 +213,24 @@ function LiveBomb({ snap, receivedAt, send }: { snap: ScreenSnapshot; receivedAt
             <p className="px-12 text-center text-2xl text-on-surface-muted">
               {turn.result.lines.map((l) => `${l.note} ${l.points > 0 ? "+" : ""}${l.points}`).join(" · ")}
             </p>
+            {turn.result.bets.length > 0 && (
+              <p className="px-12 text-center text-2xl">
+                Bets: {turn.result.bets.map((b) => `${game.teams.find((t) => t.id === b.teamId)?.name} +${b.points}`).join(" · ")}
+              </p>
+            )}
           </ResultBanner>
         )
       }
-      aside={!snap.canAct && <p className="mt-auto text-xl text-on-surface-muted">View only. Unlock /gm in this browser to play the bomb from here.</p>}
+      aside={
+        <>
+          {turn.twists.length > 0 && (
+            <div className="mt-auto flex flex-col gap-3">
+              {turn.twists.map((tw, i) => <TwistCard key={`${tw.type}-${i}`} twist={tw} teams={game.teams} receivedAt={receivedAt} />)}
+            </div>
+          )}
+          {!snap.canAct && <p className={`${turn.twists.length ? "" : "mt-auto "}text-xl text-on-surface-muted`}>View only. Unlock /gm in this browser to play the bomb from here.</p>}
+        </>
+      }
     />
   );
 }

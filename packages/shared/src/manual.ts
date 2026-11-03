@@ -1,4 +1,4 @@
-import { renderRule, symbolColumns, wirePages, wordGroups } from "./bomb";
+import { renderRule, rng, symbolColumns, wirePages, wordGroups } from "./bomb";
 import type { Phase } from "./api";
 import type { ModuleNo } from "./play";
 
@@ -19,7 +19,25 @@ export type WordManual = {
   tableIsNew: boolean;
   groups: { id: string; rows: { display: string; press: string }[] }[];
 };
-export type Manual = WiresManual | SymbolsManual | WordManual;
+/** `scrambled`: Radio Interference is on. The UI hides page numbers, column letters and group numbers. */
+export type Manual = (WiresManual | SymbolsManual | WordManual) & { scrambled?: boolean };
+
+/**
+ * Radio Interference: shuffles only what doesn't change an answer. Wires keep the rule order inside a page
+ * (the first match decides), symbol columns keep their order (it's the press order), word rows keep their pairs.
+ * Seeded, so every Expert phone shows the same shuffle and they can still point each other to "the third column".
+ */
+export function scrambleManual(manual: Manual, seed: number): Manual {
+  const r = rng(seed);
+  switch (manual.module) {
+    case "wires":
+      return { ...manual, scrambled: true, pages: r.shuffle(manual.pages) };
+    case "symbols":
+      return { ...manual, scrambled: true, columns: r.shuffle(manual.columns) };
+    case "word":
+      return { ...manual, scrambled: true, groups: r.shuffle(manual.groups).map((g) => ({ ...g, rows: r.shuffle(g.rows) })) };
+  }
+}
 
 /** Everything an Expert sees for one module. All Experts of the playing team get the same manual. */
 export function manualFor(phase: Phase, module: ModuleNo): Manual {
@@ -70,6 +88,8 @@ export type TurnForPlay = {
   module: ModuleNo;
   defuserIds: number[];
   status: "betting" | "playing" | "paused" | "defused" | "boom" | "voided";
+  /** Set while Radio Interference is on: the seed of the shuffle. */
+  scrambleSeed?: number | null;
 };
 
 export type PlayView =
@@ -87,5 +107,6 @@ export function playView(player: { id: number; teamId: number }, turn: TurnForPl
   if (!turn || !live) return { role: "waiting" };
   if (player.teamId !== turn.teamId) return { role: "spectator", playingTeamId: turn.teamId };
   if (turn.defuserIds[turn.module - 1] === player.id) return { role: "defuser", module: turn.module };
-  return { role: "expert", module: turn.module, manual: manualFor(turn.phase, turn.module) };
+  const manual = manualFor(turn.phase, turn.module);
+  return { role: "expert", module: turn.module, manual: turn.scrambleSeed == null ? manual : scrambleManual(manual, turn.scrambleSeed) };
 }

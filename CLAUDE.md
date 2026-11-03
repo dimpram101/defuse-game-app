@@ -21,4 +21,5 @@ To update antislop later: `npx antislop-ai --update`, or run `npx antislop-ai` a
   **Keputusan:** keputusan yang diambil dan alasannya
   **Berikutnya:** langkah untuk sesi berikutnya
   ```
+- Untuk membaca atau memahami codebase (arsitektur, hubungan antar file, mencari di mana sesuatu berada), selalu gunakan graphify lebih dulu: baca `graphify-out/GRAPH_REPORT.md` atau jalankan `/graphify query "<pertanyaan>"`. Baru buka file mentah dengan Read/Grep setelah graph menunjuk lokasinya atau kalau `graphify-out/` belum ada.
 - Setiap kali perubahan selesai, jalankan `graphify update .` di root repo. Perintah ini hanya mengekstrak ulang file kode; kalau perubahan sesi menyentuh dokumen (`docs/`, `*.md`) dan graph dokumen dibutuhkan, jalankan juga `/graphify . --update`.

@@ -53,22 +53,31 @@ Acakan memakai seed giliran, jadi semua HP Expert melihat versi acak yang sama d
 
 ## Tugas
 
-- [ ] `bets`: aksi `bet.set` dari `/play` saat `betting`; Start mengunci; hasil giliran → `score_events` untuk Bet yang benar
-- [ ] `sabotages`: aksi `sabotage.request`, cek batas, status `pending`, publish ke `gm` dan `screen`
-- [ ] `/gm` grup Approvals: kartu Sabotage pending dengan nama tim, twist, tombol Approve / Reject
-- [ ] `/gm` grup Twists: Speed Up, Silent Expert, Radio Interference tanpa biaya (GM)
-- [ ] Twist berjalan di server dengan waktu berakhir tersimpan di `turns` (mis. `twists` jsonb), jadi bertahan saat restart
-- [ ] `/screen`: pengumuman Sabotage di bottom strip warna violet + chip tim pembeli; efek Speed Up
-- [ ] `/play` penonton: panel Bet (`bet-option`), panel Sabotage (`sabotage-card`, biaya, alasan tidak bisa dibeli), status pending/approved/rejected
-- [ ] `/play` Expert: overlay MUTED + hitung mundur; Radio Interference mengirim ulang `turn.manual` versi acak, lalu versi normal saat berakhir
-- [ ] `scrambleManual(manual, seed)` di `packages/shared` + tes: jawaban yang dihitung dari manual acak sama dengan jawaban dari manual normal untuk semua bom di `samples.json`
-- [ ] Tes: Bet dikunci saat Start, batas Sabotage (per giliran, per ronde, poin cukup), dua pengajuan bersamaan
+- [x] `bets`: pesan `bet` dari `/play` saat `betting` (tiap ketukan langsung tersimpan, kolom nullable); Start mengunci; hasil giliran → `score_events` (`bet_defuse`, `bet_strikes`) lewat `scoreBets`
+- [x] `sabotages`: pesan `sabotage`, cek batas di `sabotageOptions` (dipakai juga untuk alasan di HP), status `pending`, tampil di `/gm`. Unique index parsial `sabotages_one_per_turn` (status ≠ rejected) sebagai pengaman di database. Sabotage yang masih `pending` saat giliran selesai otomatis `rejected` (tanpa biaya)
+- [x] `/gm` grup Approvals: kartu Sabotage pending dengan nama tim, twist, biaya, tombol Approve / Reject (`gm_sabotage`). Approve mencatat `sabotage_cost` dan menyalakan twist
+- [x] `/gm` grup Twists: Speed Up, Silent Expert, Radio Interference tanpa biaya (`gm_twist`), hanya saat bom berjalan
+- [x] Twist tersimpan di `turns.twists` (jsonb) dengan waktu mulai/akhir pada jam bom (`elapsedMs`, tanpa waktu pause), jadi berhenti saat pause dan bertahan saat restart. Speed Up menambah `turns.cut_ms`
+- [x] `/screen`: kartu twist violet di bawah kolom kanan (nama twist, SABOTAGE / GM TWIST, chip tim pembeli, target dan hitung mundur); status Bet per tim di layar "Up next"; poin Bet di banner hasil
+- [x] `/play` penonton: panel Bet (`bet-option`), panel Sabotage (`sabotage-card`, biaya, alasan tidak bisa dibeli, tombol konfirmasi di zona jempol), status pending (instruksi mengumumkan dalam bahasa Inggris) / approved / rejected; hasil Bet setelah giliran
+- [x] `/play` Expert: overlay MUTED + hitung mundur; Radio Interference mengirim manual versi acak (`scrambleManual`), label disembunyikan, lalu versi normal saat berakhir
+- [x] `scrambleManual(manual, seed)` di `packages/shared` + tes: jawaban yang dibaca dari manual acak sama dengan jawaban semua bom di `samples.json` (5 seed acak per bom)
+- [x] Tes: Bet dikunci saat Start, batas Sabotage (Ronde 1 ditutup, per giliran, per ronde, poin cukup), dua pengajuan bersamaan, reject membuka slot, twist berhenti saat pause, Speed Up menyisakan 5 dtk
+
+## Keputusan saat implementasi
+
+- **Posisi pengumuman di `/screen`.** Chassis setinggi 800px, jadi strip bawah tidak muat tanpa menutupi bom. Kartu twist diletakkan di bawah kolom kanan (di bawah strike), tetap tidak menutupi bom. Tiga twist sekaligus masih muat.
+- **Speed Up** tetap disederhanakan menjadi potong 30 dtk sekaligus (minimal sisa 5 dtk), sesuai rencana. Kartunya tampil 5 dtk.
+- **Silent Expert** memilih acak dari Expert modul yang sedang berjalan, utamakan yang HP-nya online. Tidak bisa dibeli kalau tim hanya punya satu Expert.
+- **Bet** satu per tim: tiap pertanyaan tersimpan begitu diketuk. Di layar "Up next", tim dihitung "in" setelah kedua pertanyaan terjawab.
+- **Twist GM** bisa dipakai di ronde mana pun, termasuk Ronde 1. Sabotage dari penonton baru dibuka mulai Ronde 2.
 
 ## Selesai bila
 
-- Dalam satu giliran uji, 3 tim penonton mengisi Bet dari HP, Bet tidak bisa diubah setelah Start, dan poin Bet masuk setelah hasil.
-- Di Ronde 2, dua tim mengajukan Sabotage bersamaan: hanya satu yang `pending`.
-- Setiap twist terlihat di `/screen` dan HP terkait, lalu berakhir sendiri tepat waktu.
+- [x] Dalam satu giliran uji, tim penonton mengisi Bet dari HP, Bet tidak bisa diubah setelah Start, dan poin Bet masuk setelah hasil (tes server + Playwright).
+- [x] Di Ronde 2, dua tim mengajukan Sabotage bersamaan: hanya satu yang `pending` (tes server).
+- [x] Setiap twist terlihat di `/screen` dan HP terkait, lalu berakhir sendiri tepat waktu (tes server; Playwright untuk tampilan).
+- [ ] Dicoba dengan HP sungguhan saat dry run.
 
 ## Risiko
 

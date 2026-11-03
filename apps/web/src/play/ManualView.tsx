@@ -21,7 +21,7 @@ function Page({ title, children }: { title: string; children: React.ReactNode })
   );
 }
 
-function Wires({ manual }: { manual: WiresManual }) {
+function Wires({ manual }: { manual: WiresManual & { scrambled?: boolean } }) {
   return (
     <>
       <p className="text-base text-on-surface-muted">
@@ -32,7 +32,7 @@ function Wires({ manual }: { manual: WiresManual }) {
           <ol className="flex flex-col gap-3">
             {page.rules.map((rule, i) => (
               <li key={i} className="flex gap-3 text-lg leading-normal font-medium">
-                <span className="w-6 shrink-0 font-mono text-on-surface-muted">{i + 1}.</span>
+                <span className="w-6 shrink-0 font-mono text-on-surface-muted">{manual.scrambled ? "·" : `${i + 1}.`}</span>
                 <span>
                   {rule.text}
                   {rule.isNew && <NewTag />}
@@ -46,7 +46,7 @@ function Wires({ manual }: { manual: WiresManual }) {
   );
 }
 
-function Symbols({ manual }: { manual: SymbolsManual }) {
+function Symbols({ manual }: { manual: SymbolsManual & { scrambled?: boolean } }) {
   const upward = manual.order === "bottomToTop";
   return (
     <>
@@ -58,8 +58,8 @@ function Symbols({ manual }: { manual: SymbolsManual }) {
       <Page title="COLUMNS">
         <div className="grid gap-1.5" style={{ gridTemplateColumns: `repeat(${manual.columns.length}, minmax(0, 1fr))` }}>
           {manual.columns.map((col) => (
-            <section key={col.id} aria-label={`Column ${col.id}`} className="flex min-w-0 flex-col items-center gap-1.5">
-              <h4 className="font-display text-lg font-semibold text-secondary">{col.id}</h4>
+            <section key={col.id} aria-label={manual.scrambled ? "Column" : `Column ${col.id}`} className="flex min-w-0 flex-col items-center gap-1.5">
+              <h4 className="font-display text-lg font-semibold text-secondary">{manual.scrambled ? "?" : col.id}</h4>
               {/* Columns are drawn the same way every round; only the reading direction changes in the Final. */}
               <ol className="flex w-full flex-col gap-1.5">
                 {col.symbols.map((id) => (
@@ -80,7 +80,7 @@ function Symbols({ manual }: { manual: SymbolsManual }) {
   );
 }
 
-function Words({ manual }: { manual: WordManual }) {
+function Words({ manual }: { manual: WordManual & { scrambled?: boolean } }) {
   return (
     <>
       <p className="text-lg leading-normal font-medium">
@@ -88,7 +88,7 @@ function Words({ manual }: { manual: WordManual }) {
         {manual.tableIsNew && <NewTag />}
       </p>
       {manual.groups.map((group, i) => (
-        <Page key={group.id} title={`GROUP ${i + 1}`}>
+        <Page key={group.id} title={manual.scrambled ? "GROUP ?" : `GROUP ${i + 1}`}>
           <table className="w-full text-left">
             <thead>
               <tr className="text-xs tracking-[0.08em] text-on-surface-muted">
@@ -114,6 +114,11 @@ function Words({ manual }: { manual: WordManual }) {
 export function ManualView({ manual }: { manual: Manual }) {
   return (
     <div className="flex flex-col gap-4">
+      {manual.scrambled && (
+        <p role="status" className="rounded-lg bg-tertiary px-4 py-3 text-base font-semibold text-on-tertiary">
+          Radio Interference: the pages are shuffled and the labels are gone. Everything inside a page still reads the same way.
+        </p>
+      )}
       {manual.module === "wires" && <Wires manual={manual} />}
       {manual.module === "symbols" && <Symbols manual={manual} />}
       {manual.module === "word" && <Words manual={manual} />}

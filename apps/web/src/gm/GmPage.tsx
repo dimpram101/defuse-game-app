@@ -1,5 +1,5 @@
 import type { GameView, GmNext, GmSnapshot, NewTeam, TeamColor } from "@defuse/shared";
-import { roundLabel, TEAM_COLORS, TEAM_NAME_MAX } from "@defuse/shared/api";
+import { roundLabel, TEAM_COLORS, TEAM_NAME_MAX, TWIST_TYPES, TWISTS } from "@defuse/shared/api";
 import { useEffect, useState, type FormEvent, type ReactNode } from "react";
 import { api, ApiError } from "../lib/api";
 import { GM_TOKEN, storage } from "../lib/storage";
@@ -281,6 +281,48 @@ function Control({ token, onLocked }: { token: string; onLocked: () => void }) {
         )}
         {error && error !== "Enter the GM PIN again." && <p role="alert" className="mt-3 text-error">{error}</p>}
       </Group>
+
+      {snapshot.sabotages.length > 0 && (
+        <Group title="APPROVALS">
+          <ul className="flex flex-col gap-3">
+            {snapshot.sabotages.map((sab) => {
+              const by = game.teams.find((t) => t.id === sab.byTeamId);
+              return (
+                <li key={sab.id} className="rounded-lg border-2 border-tertiary p-4">
+                  <p className="flex items-center gap-2 font-display text-[20px] font-semibold">
+                    {by && <TeamDot color={by.color} />} {by?.name ?? "A team"} wants {TWISTS[sab.type].name}
+                  </p>
+                  <p className="mt-1 text-on-surface-muted">
+                    {TWISTS[sab.type].effect}. Costs them {sab.cost} points. Approve after one of them announces it in English.
+                  </p>
+                  <div className="mt-3 grid gap-3 sm:grid-cols-2">
+                    <Button onClick={() => send({ type: "gm_sabotage", sabotageId: sab.id, approve: true })}>Approve</Button>
+                    <Button variant="secondary" onClick={() => send({ type: "gm_sabotage", sabotageId: sab.id, approve: false })}>Reject</Button>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+        </Group>
+      )}
+
+      {turn && live && (
+        <Group title="TWISTS">
+          <p className="mb-3 text-on-surface-muted">
+            Free, from you. {turn.status === "playing" ? "Starts right away." : "Works while the bomb is running."}
+          </p>
+          <div className="grid gap-3 sm:grid-cols-3">
+            {TWIST_TYPES.map((type) => (
+              <Button key={type} variant="secondary" disabled={turn.status !== "playing"} onClick={() => send({ type: "gm_twist", twist: type })}>
+                {TWISTS[type].name}
+              </Button>
+            ))}
+          </div>
+          {turn.twists.length > 0 && (
+            <p className="mt-3">On now: {turn.twists.map((t) => TWISTS[t.type].name + (t.target ? ` (${t.target})` : "")).join(", ")}</p>
+          )}
+        </Group>
+      )}
 
       <Group title="TEAMS">
         <ul className="flex flex-col gap-4">

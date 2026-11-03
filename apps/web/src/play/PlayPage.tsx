@@ -1,4 +1,4 @@
-import type { GameView, Me, PlaySnapshot } from "@defuse/shared";
+import type { ClientMessage, GameView, Me, PlaySnapshot } from "@defuse/shared";
 import { NICKNAME_MAX, roundLabel } from "@defuse/shared/api";
 import { useEffect, useState, type FormEvent, type ReactNode } from "react";
 import { api, ApiError } from "../lib/api";
@@ -7,6 +7,7 @@ import { clock, useCountdown, useLive } from "../lib/live";
 import { Button, inputClass, TeamDot } from "../ui";
 import { ManualPreview } from "./ManualPreview";
 import { DefuserScreen, ExpertScreen } from "./RoleScreens";
+import { MutedOverlay, SpectatorScreen } from "./Spectator";
 
 function Shell({ children }: { children: ReactNode }) {
   return (
@@ -156,33 +157,29 @@ function Standings({ game }: { game: GameView }) {
   );
 }
 
-function Idle({ snap }: { snap: PlaySnapshot }) {
+function Idle({ snap, send }: { snap: PlaySnapshot; send: (msg: ClientMessage) => void }) {
   const game = snap.game!;
   const me = snap.me!;
   const turn = game.turn;
   const playing = turn ? game.teams.find((t) => t.id === turn.teamId) : undefined;
   const teammates = game.teams.find((t) => t.id === me.team.id)?.players ?? [];
 
-  if (snap.view.role === "spectator" && playing)
-    return (
-      <div className="flex flex-col gap-4">
-        <p className="text-sm font-semibold tracking-[0.08em] text-on-surface-muted">WATCHING</p>
-        <h1 className="flex items-center gap-3 font-display text-[32px] leading-tight font-semibold">
-          <TeamDot color={playing.color} className="size-6" /> <span className="min-w-0 truncate">{playing.name}</span>
-        </h1>
-        <p className="text-lg">Watch the big screen and stay quiet. Giving hints costs your team 20 points.</p>
-      </div>
-    );
+  if (snap.view.role === "spectator" && playing) return <SpectatorScreen snap={snap} playing={playing} send={send} />;
 
-  if (game.status === "result" && turn?.result && playing)
+  if (game.status === "result" && turn?.result && playing) {
+    const betWin = turn.result.bets.find((b) => b.teamId === me.team.id)?.points;
     return (
       <div className="flex flex-col gap-4">
         <p className="text-sm font-semibold tracking-[0.08em] text-on-surface-muted">{playing.name.toUpperCase()}</p>
         <h1 className="font-display text-[40px] leading-tight font-bold">{turn.status === "defused" ? "DEFUSED" : "BOOM"}</h1>
         <p className="font-mono text-2xl">{turn.result.total >= 0 ? "+" : ""}{turn.result.total} points</p>
+        {me.team.id !== playing.id && (
+          <p className="text-lg">{betWin ? `Your Bet won ${betWin} points.` : "Your Bet didn't score this time."}</p>
+        )}
         <Standings game={game} />
       </div>
     );
+  }
 
   if (game.status === "leaderboard" || game.status === "finished")
     return (
@@ -215,7 +212,11 @@ function Idle({ snap }: { snap: PlaySnapshot }) {
 
 function PlayerPage() {
   const [token, setToken] = useState(() => deviceStorage.get(DEVICE_TOKEN));
-  const { snapshot, receivedAt, connected } = useLive<PlaySnapshot>({ type: "hello", role: "play", deviceToken: token ?? undefined });
+  const { snapshot, receivedAt, connected, error, clearError, send } = useLive<PlaySnapshot>({ type: "hello", role: "play", deviceToken: token ?? undefined });
+  const act = (msg: ClientMessage) => {
+    clearError();
+    send(msg);
+  };
 
   // A token from an older session: forget it and show the join form.
   useEffect(() => {
@@ -244,12 +245,16 @@ function PlayerPage() {
     <Shell>
       {offline}
       <StatusBar snap={snapshot} receivedAt={receivedAt} />
+      {error && (
+        <p role="alert" className="mb-4 rounded-md border border-error px-3 py-2 text-base">{error}</p>
+      )}
+      {snapshot.muted && <MutedOverlay muted={snapshot.muted} receivedAt={receivedAt} />}
       {view.role === "expert" ? (
         <ExpertScreen module={view.module} manual={view.manual} />
       ) : view.role === "defuser" ? (
         <DefuserScreen module={view.module} />
       ) : (
-        <Idle snap={snapshot} />
+        <Idle snap={snapshot} send={act} />
       )}
     </Shell>
   );
