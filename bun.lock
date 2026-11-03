@@ -37,6 +37,9 @@
         "vite": "^8.3.5",
       },
     },
+    "packages/content": {
+      "name": "@defuse/content",
+    },
     "packages/db": {
       "name": "@defuse/db",
       "dependencies": {
@@ -48,10 +51,15 @@
     },
     "packages/shared": {
       "name": "@defuse/shared",
+      "dependencies": {
+        "@defuse/content": "workspace:*",
+      },
     },
   },
   "packages": {
     "@borewit/text-codec": ["@borewit/text-codec@0.2.3", "", {}, "sha512-49CycTz1aAZmvFcwkeFyhud1HUmRIB5Tabf7ALV+VA4Iu85MTfz2cUwzPagMFAdVBvrWdkCxG67I30tUwwpKsw=="],
+
+    "@defuse/content": ["@defuse/content@workspace:packages/content"],
 
     "@defuse/db": ["@defuse/db@workspace:packages/db"],
 

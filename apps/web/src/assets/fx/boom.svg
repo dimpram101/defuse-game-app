@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" width="800" height="520" role="img" aria-label="BOOM">
+  <!-- Flat comic burst for the BOOM result. Pair with a short shake of the bomb and a sound. -->
+  <polygon fill="#FF4D4F" points="400,18 452,128 566,58 548,184 744,150 622,262 772,352 596,370 650,500 492,418 400,512 318,416 160,500 206,370 28,352 178,262 56,150 252,184 234,58 348,128"/>
+  <polygon fill="#FFB020" points="400,92 438,170 520,124 506,212 640,196 556,268 664,336 534,344 570,430 462,380 400,444 340,380 230,430 266,344 136,336 244,268 160,196 294,212 280,124 362,170"/>
+  <text x="400" y="304" text-anchor="middle" font-family="'Space Grotesk', 'Inter', sans-serif" font-size="96" font-weight="700" letter-spacing="-1" fill="#1A1200">BOOM!</text>
+</svg>

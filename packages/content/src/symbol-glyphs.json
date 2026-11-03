@@ -1,0 +1,130 @@
+[
+  {
+    "id": "star-filled",
+    "file": "symbols/star-filled.svg",
+    "hint": "A filled star, solid inside",
+    "confusableWith": [
+      "star-hollow"
+    ]
+  },
+  {
+    "id": "star-hollow",
+    "file": "symbols/star-hollow.svg",
+    "hint": "An empty star, only the outline",
+    "confusableWith": [
+      "star-filled"
+    ]
+  },
+  {
+    "id": "horseshoe",
+    "file": "symbols/horseshoe.svg",
+    "hint": "Looks like a horseshoe, open at the bottom, with two little feet",
+    "confusableWith": [
+      "hook"
+    ]
+  },
+  {
+    "id": "question-upside",
+    "file": "symbols/question-upside.svg",
+    "hint": "An upside-down question mark, dot on top",
+    "confusableWith": [
+      "hook"
+    ]
+  },
+  {
+    "id": "lightning",
+    "file": "symbols/lightning.svg",
+    "hint": "A lightning bolt pointing down",
+    "confusableWith": [
+      "triangle-bar"
+    ]
+  },
+  {
+    "id": "trident",
+    "file": "symbols/trident.svg",
+    "hint": "A fork or trident with three teeth pointing up",
+    "confusableWith": [
+      "crown"
+    ]
+  },
+  {
+    "id": "snowflake",
+    "file": "symbols/snowflake.svg",
+    "hint": "Three lines crossing in the middle, like a snowflake",
+    "confusableWith": [
+      "hourglass"
+    ]
+  },
+  {
+    "id": "sun-dot",
+    "file": "symbols/sun-dot.svg",
+    "hint": "A circle with a dot in the middle",
+    "confusableWith": [
+      "ring"
+    ]
+  },
+  {
+    "id": "ring",
+    "file": "symbols/ring.svg",
+    "hint": "An empty circle, nothing inside",
+    "confusableWith": [
+      "sun-dot"
+    ]
+  },
+  {
+    "id": "backwards-c",
+    "file": "symbols/backwards-c.svg",
+    "hint": "A backwards letter C with a dot inside",
+    "confusableWith": [
+      "horseshoe"
+    ]
+  },
+  {
+    "id": "eye",
+    "file": "symbols/eye.svg",
+    "hint": "An eye, pointed at both ends, with a round pupil",
+    "confusableWith": [
+      "sun-dot"
+    ]
+  },
+  {
+    "id": "spiral",
+    "file": "symbols/spiral.svg",
+    "hint": "A spiral, like a snail shell",
+    "confusableWith": [
+      "backwards-c"
+    ]
+  },
+  {
+    "id": "crown",
+    "file": "symbols/crown.svg",
+    "hint": "A crown with three points on top",
+    "confusableWith": [
+      "trident"
+    ]
+  },
+  {
+    "id": "hook",
+    "file": "symbols/hook.svg",
+    "hint": "A fishing hook, like a letter J with a sharp tip",
+    "confusableWith": [
+      "question-upside"
+    ]
+  },
+  {
+    "id": "triangle-bar",
+    "file": "symbols/triangle-bar.svg",
+    "hint": "A triangle pointing up with a line under it",
+    "confusableWith": [
+      "lightning"
+    ]
+  },
+  {
+    "id": "hourglass",
+    "file": "symbols/hourglass.svg",
+    "hint": "An hourglass, two triangles touching at the tips",
+    "confusableWith": [
+      "snowflake"
+    ]
+  }
+]

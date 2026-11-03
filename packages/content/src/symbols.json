@@ -1,0 +1,30 @@
+{
+  "note": "Exactly one column contains all 4 symbols shown on the bomb. Press them in that column's order. Round 1 uses only easy-to-tell-apart symbols; Round 2 and Final mix in look-alike pairs (see symbol-glyphs.json confusableWith). Final keeps Round 2's columns but reverses the reading order.",
+  "showCount": 4,
+  "phases": {
+    "round1": {
+      "order": "topToBottom",
+      "columns": {
+        "A": ["star-filled", "horseshoe", "lightning", "ring", "spiral", "trident"],
+        "B": ["eye", "star-filled", "snowflake", "horseshoe", "hourglass", "question-upside"],
+        "C": ["lightning", "question-upside", "ring", "eye", "trident", "hourglass"],
+        "D": ["spiral", "snowflake", "trident", "star-filled", "eye", "lightning"]
+      }
+    },
+    "round2": {
+      "order": "topToBottom",
+      "columns": {
+        "A": ["star-hollow", "sun-dot", "hook", "crown", "spiral", "lightning"],
+        "B": ["star-filled", "ring", "question-upside", "trident", "backwards-c", "hourglass"],
+        "C": ["horseshoe", "eye", "star-hollow", "triangle-bar", "ring", "snowflake"],
+        "D": ["crown", "backwards-c", "sun-dot", "star-filled", "triangle-bar", "hook"],
+        "E": ["snowflake", "hourglass", "lightning", "eye", "question-upside", "horseshoe"],
+        "F": ["trident", "spiral", "star-hollow", "ring", "hook", "eye"]
+      }
+    },
+    "final": {
+      "order": "bottomToTop",
+      "sameColumnsAs": "round2"
+    }
+  }
+}

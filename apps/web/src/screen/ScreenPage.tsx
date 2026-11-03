@@ -1,33 +1,9 @@
 import type { PublicGame } from "@defuse/shared";
 import { QRCodeSVG } from "qrcode.react";
-import { useEffect, useState, type ReactNode } from "react";
 import { useActiveGame } from "../lib/useActiveGame";
 import { TeamDot } from "../ui";
-
-const W = 1920;
-const H = 1080;
-
-/** Fixed 1920×1080 canvas scaled to the display and letterboxed, never reflowed (DESIGN.md › Layout). */
-function Stage({ children }: { children: ReactNode }) {
-  const fit = () => Math.min(innerWidth / W, innerHeight / H);
-  const [scale, setScale] = useState(fit);
-  useEffect(() => {
-    const onResize = () => setScale(fit());
-    addEventListener("resize", onResize);
-    return () => removeEventListener("resize", onResize);
-  }, []);
-
-  return (
-    <div className="fixed inset-0 overflow-hidden bg-black">
-      <div
-        className="absolute top-1/2 left-1/2 bg-neutral p-12"
-        style={{ width: W, height: H, transform: `translate(-50%, -50%) scale(${scale})` }}
-      >
-        {children}
-      </div>
-    </div>
-  );
-}
+import { PracticeBomb } from "./PracticeBomb";
+import { Stage } from "./Stage";
 
 function Wordmark() {
   return (
@@ -48,7 +24,7 @@ function Notice({ title, detail }: { title: string; detail: string }) {
   );
 }
 
-function Lobby({ game }: { game: PublicGame }) {
+function LobbyBoard({ game }: { game: PublicGame }) {
   const joinedCount = game.teams.reduce((n, t) => n + t.players.length, 0);
   const display = game.joinUrl.replace(/^https?:\/\//, "");
 
@@ -97,6 +73,16 @@ function Lobby({ game }: { game: PublicGame }) {
 }
 
 export function ScreenPage() {
+  if (new URLSearchParams(location.search).has("practice"))
+    return (
+      <Stage>
+        <PracticeBomb />
+      </Stage>
+    );
+  return <Lobby />;
+}
+
+function Lobby() {
   const [active] = useActiveGame();
 
   return (
@@ -108,7 +94,7 @@ export function ScreenPage() {
       {active.state === "none" && (
         <Notice title="Waiting for the Game Master" detail="The QR code appears here once the teams are set up in /gm." />
       )}
-      {active.state === "ready" && <Lobby game={active.game} />}
+      {active.state === "ready" && <LobbyBoard game={active.game} />}
     </Stage>
   );
 }

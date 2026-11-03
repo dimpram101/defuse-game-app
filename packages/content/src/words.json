@@ -1,0 +1,321 @@
+{
+  "note": "The screen shows one word and six buttons (all words of the group, shuffled). Find the shown word in the table and press the button it points to. Final keeps Round 2's groups with a new table.",
+  "phases": {
+    "round1": {
+      "groups": [
+        {
+          "id": "r1-g1",
+          "words": [
+            "THERE",
+            "THEIR",
+            "THEY'RE",
+            "HERE",
+            "HEAR",
+            "HAIR"
+          ],
+          "table": {
+            "THERE": "HERE",
+            "THEIR": "HAIR",
+            "THEY'RE": "THERE",
+            "HERE": "THEIR",
+            "HEAR": "THEY'RE",
+            "HAIR": "HEAR"
+          }
+        },
+        {
+          "id": "r1-g2",
+          "words": [
+            "TO",
+            "TOO",
+            "TWO",
+            "TOE",
+            "TOW",
+            "TEE"
+          ],
+          "table": {
+            "TO": "TOE",
+            "TOO": "TEE",
+            "TWO": "TO",
+            "TOE": "TOO",
+            "TOW": "TWO",
+            "TEE": "TOW"
+          }
+        },
+        {
+          "id": "r1-g3",
+          "words": [
+            "RIGHT",
+            "WRITE",
+            "RITE",
+            "LIGHT",
+            "NIGHT",
+            "KNIGHT"
+          ],
+          "table": {
+            "RIGHT": "LIGHT",
+            "WRITE": "KNIGHT",
+            "RITE": "RIGHT",
+            "LIGHT": "WRITE",
+            "NIGHT": "RITE",
+            "KNIGHT": "NIGHT"
+          }
+        },
+        {
+          "id": "r1-g4",
+          "words": [
+            "WEAR",
+            "WHERE",
+            "WERE",
+            "WE'RE",
+            "WARE",
+            "WORE"
+          ],
+          "table": {
+            "WEAR": "WE'RE",
+            "WHERE": "WORE",
+            "WERE": "WEAR",
+            "WE'RE": "WHERE",
+            "WARE": "WERE",
+            "WORE": "WARE"
+          }
+        }
+      ]
+    },
+    "round2": {
+      "groups": [
+        {
+          "id": "r2-g1",
+          "words": [
+            "SEE",
+            "SEA",
+            "C",
+            "BE",
+            "BEE",
+            "B"
+          ],
+          "table": {
+            "SEE": "BE",
+            "SEA": "B",
+            "C": "SEE",
+            "BE": "SEA",
+            "BEE": "C",
+            "B": "BEE"
+          }
+        },
+        {
+          "id": "r2-g2",
+          "words": [
+            "YOU",
+            "U",
+            "YEW",
+            "EWE",
+            "YOUR",
+            "YOU'RE"
+          ],
+          "table": {
+            "YOU": "EWE",
+            "U": "YOU'RE",
+            "YEW": "YOU",
+            "EWE": "U",
+            "YOUR": "YEW",
+            "YOU'RE": "YOUR"
+          }
+        },
+        {
+          "id": "r2-g3",
+          "words": [
+            "NO",
+            "KNOW",
+            "NOW",
+            "NEW",
+            "KNEW",
+            "GNU"
+          ],
+          "table": {
+            "NO": "NEW",
+            "KNOW": "GNU",
+            "NOW": "NO",
+            "NEW": "KNOW",
+            "KNEW": "NOW",
+            "GNU": "KNEW"
+          }
+        },
+        {
+          "id": "r2-g4",
+          "words": [
+            "PAIR",
+            "PEAR",
+            "PARE",
+            "BEAR",
+            "BARE",
+            "BEER"
+          ],
+          "table": {
+            "PAIR": "BEAR",
+            "PEAR": "BEER",
+            "PARE": "PAIR",
+            "BEAR": "PEAR",
+            "BARE": "PARE",
+            "BEER": "BARE"
+          }
+        },
+        {
+          "id": "r2-g5",
+          "words": [
+            "FOUR",
+            "FOR",
+            "FORE",
+            "FLOUR",
+            "FLOWER",
+            "FLOOR"
+          ],
+          "table": {
+            "FOUR": "FLOUR",
+            "FOR": "FLOOR",
+            "FORE": "FOUR",
+            "FLOUR": "FOR",
+            "FLOWER": "FORE",
+            "FLOOR": "FLOWER"
+          }
+        },
+        {
+          "id": "r2-g6",
+          "words": [
+            "WAIT",
+            "WEIGHT",
+            "WEIGH",
+            "WAY",
+            "WHEY",
+            "WHY"
+          ],
+          "table": {
+            "WAIT": "WAY",
+            "WEIGHT": "WHY",
+            "WEIGH": "WAIT",
+            "WAY": "WEIGHT",
+            "WHEY": "WEIGH",
+            "WHY": "WHEY"
+          }
+        }
+      ]
+    },
+    "final": {
+      "groups": [
+        {
+          "id": "f-g1",
+          "words": [
+            "SEE",
+            "SEA",
+            "C",
+            "BE",
+            "BEE",
+            "B"
+          ],
+          "table": {
+            "SEE": "BEE",
+            "SEA": "C",
+            "C": "B",
+            "BE": "SEE",
+            "BEE": "SEA",
+            "B": "BE"
+          }
+        },
+        {
+          "id": "f-g2",
+          "words": [
+            "YOU",
+            "U",
+            "YEW",
+            "EWE",
+            "YOUR",
+            "YOU'RE"
+          ],
+          "table": {
+            "YOU": "YOUR",
+            "U": "YEW",
+            "YEW": "YOU'RE",
+            "EWE": "YOU",
+            "YOUR": "U",
+            "YOU'RE": "EWE"
+          }
+        },
+        {
+          "id": "f-g3",
+          "words": [
+            "NO",
+            "KNOW",
+            "NOW",
+            "NEW",
+            "KNEW",
+            "GNU"
+          ],
+          "table": {
+            "NO": "KNEW",
+            "KNOW": "NOW",
+            "NOW": "GNU",
+            "NEW": "NO",
+            "KNEW": "KNOW",
+            "GNU": "NEW"
+          }
+        },
+        {
+          "id": "f-g4",
+          "words": [
+            "PAIR",
+            "PEAR",
+            "PARE",
+            "BEAR",
+            "BARE",
+            "BEER"
+          ],
+          "table": {
+            "PAIR": "BARE",
+            "PEAR": "PARE",
+            "PARE": "BEER",
+            "BEAR": "PAIR",
+            "BARE": "PEAR",
+            "BEER": "BEAR"
+          }
+        },
+        {
+          "id": "f-g5",
+          "words": [
+            "FOUR",
+            "FOR",
+            "FORE",
+            "FLOUR",
+            "FLOWER",
+            "FLOOR"
+          ],
+          "table": {
+            "FOUR": "FLOWER",
+            "FOR": "FORE",
+            "FORE": "FLOOR",
+            "FLOUR": "FOUR",
+            "FLOWER": "FOR",
+            "FLOOR": "FLOUR"
+          }
+        },
+        {
+          "id": "f-g6",
+          "words": [
+            "WAIT",
+            "WEIGHT",
+            "WEIGH",
+            "WAY",
+            "WHEY",
+            "WHY"
+          ],
+          "table": {
+            "WAIT": "WHEY",
+            "WEIGHT": "WEIGH",
+            "WEIGH": "WHY",
+            "WAY": "WAIT",
+            "WHEY": "WEIGHT",
+            "WHY": "WAY"
+          }
+        }
+      ]
+    }
+  }
+}

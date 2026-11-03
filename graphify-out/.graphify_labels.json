@@ -13,14 +13,17 @@
   "11": "schema.ts",
   "12": "compilerOptions",
   "13": "web/tsconfig.json",
-  "14": "Fase 3 · Manual di HP",
+  "14": "PracticeBomb.tsx",
   "15": "shared/package.json",
   "16": "Fase 5 · Penonton",
   "17": "server/tsconfig.json",
   "18": "Fase 1 · Fondasi",
   "19": "Fase 2 · Bom offline",
   "20": "db/tsconfig.json",
-  "21": "Fase 7 · Uji dan hari-H",
+  "21": "bomb.ts",
   "22": "CLAUDE.md",
-  "23": "shared/tsconfig.json"
+  "23": "shared/tsconfig.json",
+  "24": "Fase 4 · Giliran realtime",
+  "25": "content/package.json",
+  "26": "content/tsconfig.json"
 }

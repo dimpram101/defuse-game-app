@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" width="800" height="520" role="img" aria-label="DEFUSED">
+  <!-- Badge for the DEFUSED result. -->
+  <circle cx="400" cy="200" r="150" fill="#3DDC84" opacity="0.15"/>
+  <path d="M400 64 L530 112 V210 C530 290 476 344 400 372 C324 344 270 290 270 210 V112 Z" fill="#3DDC84"/>
+  <path d="M332 214 L382 264 L474 168" stroke="#06210F" stroke-width="30" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <rect x="190" y="400" width="420" height="96" rx="16" fill="#3DDC84"/>
+  <text x="400" y="472" text-anchor="middle" font-family="'Space Grotesk', 'Inter', sans-serif" font-size="68" font-weight="700" letter-spacing="2" fill="#06210F">DEFUSED</text>
+</svg>

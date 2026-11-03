@@ -2,6 +2,14 @@
   "name": "@defuse/shared",
   "private": true,
   "type": "module",
-  "exports": { ".": "./src/index.ts" },
-  "scripts": { "typecheck": "tsc -p ." }
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc -p .",
+    "report": "bun scripts/report.ts"
+  },
+  "dependencies": {
+    "@defuse/content": "workspace:*"
+  }
 }

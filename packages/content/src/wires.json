@@ -1,0 +1,61 @@
+{
+  "colors": ["red", "blue", "yellow", "white", "black"],
+  "note": "Rules are checked top to bottom; the first rule that matches decides. Rule text is generated from 'if' and 'cut' by renderRule() so text and logic never disagree. 'changed: true' marks rules that differ from Round 2 (shown as NEW in the Final manual).",
+  "phases": {
+    "round1": {
+      "wireCounts": [3, 4],
+      "pages": {
+        "3": [
+          { "if": { "count": "blue", "op": "gt", "n": 1 }, "cut": { "lastOf": "blue" } },
+          { "if": { "count": "red", "op": "eq", "n": 0 }, "cut": { "pos": 2 } },
+          { "if": { "last": "white" }, "cut": { "pos": -1 } },
+          { "if": null, "cut": { "pos": 1 } }
+        ],
+        "4": [
+          { "if": { "count": "blue", "op": "gt", "n": 1 }, "cut": { "lastOf": "blue" } },
+          { "if": { "all": [{ "last": "yellow" }, { "count": "red", "op": "eq", "n": 0 }] }, "cut": { "pos": 1 } },
+          { "if": { "count": "red", "op": "eq", "n": 1 }, "cut": { "pos": -1 } },
+          { "if": null, "cut": { "pos": 2 } }
+        ]
+      }
+    },
+    "round2": {
+      "wireCounts": [5, 6],
+      "pages": {
+        "5": [
+          { "if": { "all": [{ "last": "black" }, { "count": "yellow", "op": "eq", "n": 1 }] }, "cut": { "pos": 4 } },
+          { "if": { "all": [{ "count": "red", "op": "eq", "n": 1 }, { "count": "yellow", "op": "gt", "n": 1 }] }, "cut": { "pos": 1 } },
+          { "if": { "count": "black", "op": "eq", "n": 0 }, "cut": { "pos": 2 } },
+          { "if": { "first": "white" }, "cut": { "lastOf": "white" } },
+          { "if": null, "cut": { "pos": 3 } }
+        ],
+        "6": [
+          { "if": { "count": "yellow", "op": "eq", "n": 0 }, "cut": { "pos": 3 } },
+          { "if": { "all": [{ "count": "yellow", "op": "eq", "n": 1 }, { "count": "white", "op": "gt", "n": 1 }] }, "cut": { "pos": 4 } },
+          { "if": { "count": "red", "op": "eq", "n": 0 }, "cut": { "pos": -1 } },
+          { "if": { "count": "blue", "op": "gt", "n": 1 }, "cut": { "firstOf": "blue" } },
+          { "if": null, "cut": { "pos": 4 } }
+        ]
+      }
+    },
+    "final": {
+      "wireCounts": [5, 6],
+      "pages": {
+        "5": [
+          { "if": { "all": [{ "last": "black" }, { "count": "yellow", "op": "eq", "n": 1 }] }, "cut": { "pos": 2 }, "changed": true },
+          { "if": { "all": [{ "count": "red", "op": "eq", "n": 1 }, { "count": "yellow", "op": "gt", "n": 1 }] }, "cut": { "pos": 1 } },
+          { "if": { "count": "black", "op": "eq", "n": 0 }, "cut": { "pos": -1 }, "changed": true },
+          { "if": { "first": "white" }, "cut": { "lastOf": "white" } },
+          { "if": null, "cut": { "pos": 3 } }
+        ],
+        "6": [
+          { "if": { "count": "yellow", "op": "eq", "n": 0 }, "cut": { "pos": 3 } },
+          { "if": { "all": [{ "count": "yellow", "op": "eq", "n": 1 }, { "count": "white", "op": "gt", "n": 1 }] }, "cut": { "firstOf": "white" }, "changed": true },
+          { "if": { "count": "red", "op": "eq", "n": 0 }, "cut": { "pos": -1 } },
+          { "if": { "count": "blue", "op": "gt", "n": 1 }, "cut": { "lastOf": "blue" }, "changed": true },
+          { "if": null, "cut": { "pos": 4 } }
+        ]
+      }
+    }
+  }
+}

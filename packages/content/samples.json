@@ -1,0 +1,1503 @@
+{
+  "practice": [
+    {
+      "seed": 1,
+      "phase": "round1",
+      "wires": {
+        "colors": [
+          "yellow",
+          "blue",
+          "white",
+          "blue"
+        ],
+        "answer": 4,
+        "rule": 1
+      },
+      "symbols": {
+        "shown": [
+          "trident",
+          "lightning",
+          "star-filled",
+          "eye"
+        ],
+        "column": "D",
+        "answer": [
+          "trident",
+          "star-filled",
+          "eye",
+          "lightning"
+        ]
+      },
+      "word": {
+        "group": "r1-g2",
+        "display": "TOE",
+        "buttons": [
+          "TOW",
+          "TOE",
+          "TOO",
+          "TO",
+          "TEE",
+          "TWO"
+        ],
+        "answer": "TOO"
+      }
+    },
+    {
+      "seed": 2,
+      "phase": "round1",
+      "wires": {
+        "colors": [
+          "black",
+          "yellow",
+          "yellow",
+          "yellow"
+        ],
+        "answer": 1,
+        "rule": 2
+      },
+      "symbols": {
+        "shown": [
+          "hourglass",
+          "question-upside",
+          "trident",
+          "eye"
+        ],
+        "column": "C",
+        "answer": [
+          "question-upside",
+          "eye",
+          "trident",
+          "hourglass"
+        ]
+      },
+      "word": {
+        "group": "r1-g3",
+        "display": "RITE",
+        "buttons": [
+          "RIGHT",
+          "LIGHT",
+          "RITE",
+          "KNIGHT",
+          "WRITE",
+          "NIGHT"
+        ],
+        "answer": "RIGHT"
+      }
+    },
+    {
+      "seed": 3,
+      "phase": "round1",
+      "wires": {
+        "colors": [
+          "white",
+          "blue",
+          "yellow",
+          "blue"
+        ],
+        "answer": 4,
+        "rule": 1
+      },
+      "symbols": {
+        "shown": [
+          "ring",
+          "lightning",
+          "trident",
+          "horseshoe"
+        ],
+        "column": "A",
+        "answer": [
+          "horseshoe",
+          "lightning",
+          "ring",
+          "trident"
+        ]
+      },
+      "word": {
+        "group": "r1-g2",
+        "display": "TWO",
+        "buttons": [
+          "TOW",
+          "TOE",
+          "TEE",
+          "TWO",
+          "TO",
+          "TOO"
+        ],
+        "answer": "TO"
+      }
+    }
+  ],
+  "round1": [
+    {
+      "seed": 101,
+      "phase": "round1",
+      "wires": {
+        "colors": [
+          "white",
+          "red",
+          "blue"
+        ],
+        "answer": 1,
+        "rule": 4
+      },
+      "symbols": {
+        "shown": [
+          "question-upside",
+          "trident",
+          "lightning",
+          "hourglass"
+        ],
+        "column": "C",
+        "answer": [
+          "lightning",
+          "question-upside",
+          "trident",
+          "hourglass"
+        ]
+      },
+      "word": {
+        "group": "r1-g3",
+        "display": "LIGHT",
+        "buttons": [
+          "NIGHT",
+          "RIGHT",
+          "KNIGHT",
+          "WRITE",
+          "LIGHT",
+          "RITE"
+        ],
+        "answer": "WRITE"
+      }
+    },
+    {
+      "seed": 102,
+      "phase": "round1",
+      "wires": {
+        "colors": [
+          "blue",
+          "red",
+          "black",
+          "white"
+        ],
+        "answer": 4,
+        "rule": 3
+      },
+      "symbols": {
+        "shown": [
+          "eye",
+          "snowflake",
+          "star-filled",
+          "lightning"
+        ],
+        "column": "D",
+        "answer": [
+          "snowflake",
+          "star-filled",
+          "eye",
+          "lightning"
+        ]
+      },
+      "word": {
+        "group": "r1-g3",
+        "display": "NIGHT",
+        "buttons": [
+          "RIGHT",
+          "WRITE",
+          "RITE",
+          "KNIGHT",
+          "NIGHT",
+          "LIGHT"
+        ],
+        "answer": "RITE"
+      }
+    },
+    {
+      "seed": 103,
+      "phase": "round1",
+      "wires": {
+        "colors": [
+          "yellow",
+          "blue",
+          "red"
+        ],
+        "answer": 1,
+        "rule": 4
+      },
+      "symbols": {
+        "shown": [
+          "snowflake",
+          "lightning",
+          "star-filled",
+          "spiral"
+        ],
+        "column": "D",
+        "answer": [
+          "spiral",
+          "snowflake",
+          "star-filled",
+          "lightning"
+        ]
+      },
+      "word": {
+        "group": "r1-g1",
+        "display": "THEY'RE",
+        "buttons": [
+          "THEY'RE",
+          "HERE",
+          "THEIR",
+          "HEAR",
+          "HAIR",
+          "THERE"
+        ],
+        "answer": "THERE"
+      }
+    },
+    {
+      "seed": 104,
+      "phase": "round1",
+      "wires": {
+        "colors": [
+          "yellow",
+          "red",
+          "red",
+          "black"
+        ],
+        "answer": 2,
+        "rule": 4
+      },
+      "symbols": {
+        "shown": [
+          "lightning",
+          "spiral",
+          "star-filled",
+          "ring"
+        ],
+        "column": "A",
+        "answer": [
+          "star-filled",
+          "lightning",
+          "ring",
+          "spiral"
+        ]
+      },
+      "word": {
+        "group": "r1-g1",
+        "display": "HAIR",
+        "buttons": [
+          "THERE",
+          "THEY'RE",
+          "THEIR",
+          "HEAR",
+          "HERE",
+          "HAIR"
+        ],
+        "answer": "HEAR"
+      }
+    },
+    {
+      "seed": 105,
+      "phase": "round1",
+      "wires": {
+        "colors": [
+          "blue",
+          "black",
+          "black"
+        ],
+        "answer": 2,
+        "rule": 2
+      },
+      "symbols": {
+        "shown": [
+          "eye",
+          "spiral",
+          "star-filled",
+          "lightning"
+        ],
+        "column": "D",
+        "answer": [
+          "spiral",
+          "star-filled",
+          "eye",
+          "lightning"
+        ]
+      },
+      "word": {
+        "group": "r1-g2",
+        "display": "TEE",
+        "buttons": [
+          "TOW",
+          "TOE",
+          "TO",
+          "TOO",
+          "TWO",
+          "TEE"
+        ],
+        "answer": "TOW"
+      }
+    },
+    {
+      "seed": 106,
+      "phase": "round1",
+      "wires": {
+        "colors": [
+          "blue",
+          "red",
+          "white"
+        ],
+        "answer": 3,
+        "rule": 3
+      },
+      "symbols": {
+        "shown": [
+          "snowflake",
+          "star-filled",
+          "spiral",
+          "eye"
+        ],
+        "column": "D",
+        "answer": [
+          "spiral",
+          "snowflake",
+          "star-filled",
+          "eye"
+        ]
+      },
+      "word": {
+        "group": "r1-g3",
+        "display": "NIGHT",
+        "buttons": [
+          "RITE",
+          "KNIGHT",
+          "WRITE",
+          "RIGHT",
+          "NIGHT",
+          "LIGHT"
+        ],
+        "answer": "RITE"
+      }
+    },
+    {
+      "seed": 107,
+      "phase": "round1",
+      "wires": {
+        "colors": [
+          "white",
+          "black",
+          "white",
+          "yellow"
+        ],
+        "answer": 1,
+        "rule": 2
+      },
+      "symbols": {
+        "shown": [
+          "eye",
+          "trident",
+          "ring",
+          "hourglass"
+        ],
+        "column": "C",
+        "answer": [
+          "ring",
+          "eye",
+          "trident",
+          "hourglass"
+        ]
+      },
+      "word": {
+        "group": "r1-g2",
+        "display": "TO",
+        "buttons": [
+          "TOW",
+          "TEE",
+          "TOO",
+          "TOE",
+          "TWO",
+          "TO"
+        ],
+        "answer": "TOE"
+      }
+    },
+    {
+      "seed": 108,
+      "phase": "round1",
+      "wires": {
+        "colors": [
+          "white",
+          "blue",
+          "black"
+        ],
+        "answer": 2,
+        "rule": 2
+      },
+      "symbols": {
+        "shown": [
+          "eye",
+          "lightning",
+          "spiral",
+          "trident"
+        ],
+        "column": "D",
+        "answer": [
+          "spiral",
+          "trident",
+          "eye",
+          "lightning"
+        ]
+      },
+      "word": {
+        "group": "r1-g2",
+        "display": "TWO",
+        "buttons": [
+          "TEE",
+          "TWO",
+          "TO",
+          "TOO",
+          "TOW",
+          "TOE"
+        ],
+        "answer": "TO"
+      }
+    },
+    {
+      "seed": 109,
+      "phase": "round1",
+      "wires": {
+        "colors": [
+          "black",
+          "blue",
+          "white",
+          "white"
+        ],
+        "answer": 2,
+        "rule": 4
+      },
+      "symbols": {
+        "shown": [
+          "trident",
+          "ring",
+          "horseshoe",
+          "star-filled"
+        ],
+        "column": "A",
+        "answer": [
+          "star-filled",
+          "horseshoe",
+          "ring",
+          "trident"
+        ]
+      },
+      "word": {
+        "group": "r1-g3",
+        "display": "LIGHT",
+        "buttons": [
+          "KNIGHT",
+          "LIGHT",
+          "WRITE",
+          "NIGHT",
+          "RIGHT",
+          "RITE"
+        ],
+        "answer": "WRITE"
+      }
+    },
+    {
+      "seed": 110,
+      "phase": "round1",
+      "wires": {
+        "colors": [
+          "red",
+          "red",
+          "black"
+        ],
+        "answer": 1,
+        "rule": 4
+      },
+      "symbols": {
+        "shown": [
+          "eye",
+          "snowflake",
+          "star-filled",
+          "spiral"
+        ],
+        "column": "D",
+        "answer": [
+          "spiral",
+          "snowflake",
+          "star-filled",
+          "eye"
+        ]
+      },
+      "word": {
+        "group": "r1-g2",
+        "display": "TOW",
+        "buttons": [
+          "TEE",
+          "TOE",
+          "TWO",
+          "TOO",
+          "TOW",
+          "TO"
+        ],
+        "answer": "TWO"
+      }
+    },
+    {
+      "seed": 111,
+      "phase": "round1",
+      "wires": {
+        "colors": [
+          "red",
+          "red",
+          "blue",
+          "red"
+        ],
+        "answer": 2,
+        "rule": 4
+      },
+      "symbols": {
+        "shown": [
+          "hourglass",
+          "question-upside",
+          "snowflake",
+          "horseshoe"
+        ],
+        "column": "B",
+        "answer": [
+          "snowflake",
+          "horseshoe",
+          "hourglass",
+          "question-upside"
+        ]
+      },
+      "word": {
+        "group": "r1-g4",
+        "display": "WERE",
+        "buttons": [
+          "WORE",
+          "WEAR",
+          "WE'RE",
+          "WERE",
+          "WHERE",
+          "WARE"
+        ],
+        "answer": "WEAR"
+      }
+    },
+    {
+      "seed": 112,
+      "phase": "round1",
+      "wires": {
+        "colors": [
+          "yellow",
+          "red",
+          "black",
+          "yellow"
+        ],
+        "answer": 4,
+        "rule": 3
+      },
+      "symbols": {
+        "shown": [
+          "eye",
+          "star-filled",
+          "snowflake",
+          "question-upside"
+        ],
+        "column": "B",
+        "answer": [
+          "eye",
+          "star-filled",
+          "snowflake",
+          "question-upside"
+        ]
+      },
+      "word": {
+        "group": "r1-g3",
+        "display": "RITE",
+        "buttons": [
+          "LIGHT",
+          "RITE",
+          "KNIGHT",
+          "NIGHT",
+          "WRITE",
+          "RIGHT"
+        ],
+        "answer": "RIGHT"
+      }
+    }
+  ],
+  "round2": [
+    {
+      "seed": 201,
+      "phase": "round2",
+      "wires": {
+        "colors": [
+          "yellow",
+          "white",
+          "yellow",
+          "blue",
+          "blue"
+        ],
+        "answer": 2,
+        "rule": 3
+      },
+      "symbols": {
+        "shown": [
+          "trident",
+          "star-hollow",
+          "ring",
+          "spiral"
+        ],
+        "column": "F",
+        "answer": [
+          "trident",
+          "spiral",
+          "star-hollow",
+          "ring"
+        ]
+      },
+      "word": {
+        "group": "r2-g1",
+        "display": "C",
+        "buttons": [
+          "SEA",
+          "C",
+          "SEE",
+          "BE",
+          "BEE",
+          "B"
+        ],
+        "answer": "SEE"
+      }
+    },
+    {
+      "seed": 202,
+      "phase": "round2",
+      "wires": {
+        "colors": [
+          "black",
+          "black",
+          "yellow",
+          "red",
+          "blue"
+        ],
+        "answer": 3,
+        "rule": 5
+      },
+      "symbols": {
+        "shown": [
+          "snowflake",
+          "ring",
+          "horseshoe",
+          "eye"
+        ],
+        "column": "C",
+        "answer": [
+          "horseshoe",
+          "eye",
+          "ring",
+          "snowflake"
+        ]
+      },
+      "word": {
+        "group": "r2-g2",
+        "display": "YEW",
+        "buttons": [
+          "YOU'RE",
+          "YOU",
+          "YOUR",
+          "YEW",
+          "EWE",
+          "U"
+        ],
+        "answer": "YOU"
+      }
+    },
+    {
+      "seed": 203,
+      "phase": "round2",
+      "wires": {
+        "colors": [
+          "white",
+          "white",
+          "white",
+          "black",
+          "blue",
+          "yellow"
+        ],
+        "answer": 4,
+        "rule": 2
+      },
+      "symbols": {
+        "shown": [
+          "sun-dot",
+          "hook",
+          "crown",
+          "spiral"
+        ],
+        "column": "A",
+        "answer": [
+          "sun-dot",
+          "hook",
+          "crown",
+          "spiral"
+        ]
+      },
+      "word": {
+        "group": "r2-g6",
+        "display": "WHEY",
+        "buttons": [
+          "WEIGH",
+          "WAY",
+          "WAIT",
+          "WEIGHT",
+          "WHEY",
+          "WHY"
+        ],
+        "answer": "WEIGH"
+      }
+    },
+    {
+      "seed": 204,
+      "phase": "round2",
+      "wires": {
+        "colors": [
+          "yellow",
+          "yellow",
+          "white",
+          "white",
+          "blue",
+          "yellow"
+        ],
+        "answer": 6,
+        "rule": 3
+      },
+      "symbols": {
+        "shown": [
+          "trident",
+          "star-filled",
+          "ring",
+          "hourglass"
+        ],
+        "column": "B",
+        "answer": [
+          "star-filled",
+          "ring",
+          "trident",
+          "hourglass"
+        ]
+      },
+      "word": {
+        "group": "r2-g5",
+        "display": "FORE",
+        "buttons": [
+          "FOUR",
+          "FLOWER",
+          "FLOUR",
+          "FOR",
+          "FLOOR",
+          "FORE"
+        ],
+        "answer": "FOUR"
+      }
+    },
+    {
+      "seed": 205,
+      "phase": "round2",
+      "wires": {
+        "colors": [
+          "black",
+          "white",
+          "black",
+          "yellow",
+          "yellow"
+        ],
+        "answer": 3,
+        "rule": 5
+      },
+      "symbols": {
+        "shown": [
+          "star-filled",
+          "crown",
+          "sun-dot",
+          "triangle-bar"
+        ],
+        "column": "D",
+        "answer": [
+          "crown",
+          "sun-dot",
+          "star-filled",
+          "triangle-bar"
+        ]
+      },
+      "word": {
+        "group": "r2-g3",
+        "display": "KNEW",
+        "buttons": [
+          "NEW",
+          "KNEW",
+          "KNOW",
+          "NO",
+          "NOW",
+          "GNU"
+        ],
+        "answer": "NOW"
+      }
+    },
+    {
+      "seed": 206,
+      "phase": "round2",
+      "wires": {
+        "colors": [
+          "white",
+          "yellow",
+          "black",
+          "red",
+          "yellow",
+          "black"
+        ],
+        "answer": 4,
+        "rule": 5
+      },
+      "symbols": {
+        "shown": [
+          "star-filled",
+          "backwards-c",
+          "trident",
+          "hourglass"
+        ],
+        "column": "B",
+        "answer": [
+          "star-filled",
+          "trident",
+          "backwards-c",
+          "hourglass"
+        ]
+      },
+      "word": {
+        "group": "r2-g6",
+        "display": "WEIGH",
+        "buttons": [
+          "WEIGHT",
+          "WHEY",
+          "WHY",
+          "WAY",
+          "WAIT",
+          "WEIGH"
+        ],
+        "answer": "WAIT"
+      }
+    },
+    {
+      "seed": 207,
+      "phase": "round2",
+      "wires": {
+        "colors": [
+          "red",
+          "red",
+          "white",
+          "red",
+          "black"
+        ],
+        "answer": 3,
+        "rule": 5
+      },
+      "symbols": {
+        "shown": [
+          "snowflake",
+          "lightning",
+          "horseshoe",
+          "hourglass"
+        ],
+        "column": "E",
+        "answer": [
+          "snowflake",
+          "hourglass",
+          "lightning",
+          "horseshoe"
+        ]
+      },
+      "word": {
+        "group": "r2-g6",
+        "display": "WEIGH",
+        "buttons": [
+          "WHY",
+          "WEIGH",
+          "WAIT",
+          "WHEY",
+          "WAY",
+          "WEIGHT"
+        ],
+        "answer": "WAIT"
+      }
+    },
+    {
+      "seed": 208,
+      "phase": "round2",
+      "wires": {
+        "colors": [
+          "white",
+          "red",
+          "black",
+          "white",
+          "white"
+        ],
+        "answer": 5,
+        "rule": 4
+      },
+      "symbols": {
+        "shown": [
+          "question-upside",
+          "horseshoe",
+          "lightning",
+          "eye"
+        ],
+        "column": "E",
+        "answer": [
+          "lightning",
+          "eye",
+          "question-upside",
+          "horseshoe"
+        ]
+      },
+      "word": {
+        "group": "r2-g1",
+        "display": "BE",
+        "buttons": [
+          "SEE",
+          "C",
+          "BE",
+          "B",
+          "SEA",
+          "BEE"
+        ],
+        "answer": "SEA"
+      }
+    },
+    {
+      "seed": 209,
+      "phase": "round2",
+      "wires": {
+        "colors": [
+          "black",
+          "black",
+          "white",
+          "red",
+          "black"
+        ],
+        "answer": 3,
+        "rule": 5
+      },
+      "symbols": {
+        "shown": [
+          "lightning",
+          "star-hollow",
+          "spiral",
+          "sun-dot"
+        ],
+        "column": "A",
+        "answer": [
+          "star-hollow",
+          "sun-dot",
+          "spiral",
+          "lightning"
+        ]
+      },
+      "word": {
+        "group": "r2-g1",
+        "display": "SEA",
+        "buttons": [
+          "SEA",
+          "BEE",
+          "SEE",
+          "C",
+          "BE",
+          "B"
+        ],
+        "answer": "B"
+      }
+    },
+    {
+      "seed": 210,
+      "phase": "round2",
+      "wires": {
+        "colors": [
+          "white",
+          "yellow",
+          "red",
+          "white",
+          "red",
+          "red"
+        ],
+        "answer": 4,
+        "rule": 2
+      },
+      "symbols": {
+        "shown": [
+          "ring",
+          "triangle-bar",
+          "star-hollow",
+          "eye"
+        ],
+        "column": "C",
+        "answer": [
+          "eye",
+          "star-hollow",
+          "triangle-bar",
+          "ring"
+        ]
+      },
+      "word": {
+        "group": "r2-g1",
+        "display": "SEA",
+        "buttons": [
+          "BEE",
+          "C",
+          "BE",
+          "SEE",
+          "SEA",
+          "B"
+        ],
+        "answer": "B"
+      }
+    },
+    {
+      "seed": 211,
+      "phase": "round2",
+      "wires": {
+        "colors": [
+          "red",
+          "yellow",
+          "white",
+          "blue",
+          "yellow"
+        ],
+        "answer": 1,
+        "rule": 2
+      },
+      "symbols": {
+        "shown": [
+          "star-filled",
+          "question-upside",
+          "hourglass",
+          "backwards-c"
+        ],
+        "column": "B",
+        "answer": [
+          "star-filled",
+          "question-upside",
+          "backwards-c",
+          "hourglass"
+        ]
+      },
+      "word": {
+        "group": "r2-g2",
+        "display": "YOU'RE",
+        "buttons": [
+          "YOUR",
+          "U",
+          "EWE",
+          "YOU",
+          "YOU'RE",
+          "YEW"
+        ],
+        "answer": "YOUR"
+      }
+    },
+    {
+      "seed": 212,
+      "phase": "round2",
+      "wires": {
+        "colors": [
+          "black",
+          "black",
+          "blue",
+          "yellow",
+          "yellow"
+        ],
+        "answer": 3,
+        "rule": 5
+      },
+      "symbols": {
+        "shown": [
+          "star-filled",
+          "triangle-bar",
+          "hook",
+          "crown"
+        ],
+        "column": "D",
+        "answer": [
+          "crown",
+          "star-filled",
+          "triangle-bar",
+          "hook"
+        ]
+      },
+      "word": {
+        "group": "r2-g1",
+        "display": "B",
+        "buttons": [
+          "C",
+          "BE",
+          "BEE",
+          "SEE",
+          "B",
+          "SEA"
+        ],
+        "answer": "BEE"
+      }
+    }
+  ],
+  "final": [
+    {
+      "seed": 301,
+      "phase": "final",
+      "wires": {
+        "colors": [
+          "yellow",
+          "yellow",
+          "red",
+          "blue",
+          "white"
+        ],
+        "answer": 1,
+        "rule": 2
+      },
+      "symbols": {
+        "shown": [
+          "ring",
+          "hook",
+          "trident",
+          "eye"
+        ],
+        "column": "F",
+        "answer": [
+          "eye",
+          "hook",
+          "ring",
+          "trident"
+        ]
+      },
+      "word": {
+        "group": "f-g6",
+        "display": "WAIT",
+        "buttons": [
+          "WEIGHT",
+          "WHY",
+          "WHEY",
+          "WAIT",
+          "WAY",
+          "WEIGH"
+        ],
+        "answer": "WHEY"
+      }
+    },
+    {
+      "seed": 302,
+      "phase": "final",
+      "wires": {
+        "colors": [
+          "yellow",
+          "black",
+          "blue",
+          "yellow",
+          "white",
+          "red"
+        ],
+        "answer": 4,
+        "rule": 5
+      },
+      "symbols": {
+        "shown": [
+          "star-hollow",
+          "sun-dot",
+          "hook",
+          "crown"
+        ],
+        "column": "A",
+        "answer": [
+          "crown",
+          "hook",
+          "sun-dot",
+          "star-hollow"
+        ]
+      },
+      "word": {
+        "group": "f-g5",
+        "display": "FORE",
+        "buttons": [
+          "FLOWER",
+          "FOR",
+          "FOUR",
+          "FLOUR",
+          "FLOOR",
+          "FORE"
+        ],
+        "answer": "FLOOR"
+      }
+    },
+    {
+      "seed": 303,
+      "phase": "final",
+      "wires": {
+        "colors": [
+          "red",
+          "yellow",
+          "red",
+          "yellow",
+          "white",
+          "blue"
+        ],
+        "answer": 4,
+        "rule": 5
+      },
+      "symbols": {
+        "shown": [
+          "hook",
+          "triangle-bar",
+          "crown",
+          "backwards-c"
+        ],
+        "column": "D",
+        "answer": [
+          "hook",
+          "triangle-bar",
+          "backwards-c",
+          "crown"
+        ]
+      },
+      "word": {
+        "group": "f-g4",
+        "display": "PEAR",
+        "buttons": [
+          "BEER",
+          "PAIR",
+          "PEAR",
+          "BARE",
+          "PARE",
+          "BEAR"
+        ],
+        "answer": "PARE"
+      }
+    },
+    {
+      "seed": 304,
+      "phase": "final",
+      "wires": {
+        "colors": [
+          "blue",
+          "red",
+          "yellow",
+          "black",
+          "yellow"
+        ],
+        "answer": 1,
+        "rule": 2
+      },
+      "symbols": {
+        "shown": [
+          "sun-dot",
+          "hook",
+          "crown",
+          "triangle-bar"
+        ],
+        "column": "D",
+        "answer": [
+          "hook",
+          "triangle-bar",
+          "sun-dot",
+          "crown"
+        ]
+      },
+      "word": {
+        "group": "f-g4",
+        "display": "PEAR",
+        "buttons": [
+          "BARE",
+          "PAIR",
+          "BEAR",
+          "PEAR",
+          "BEER",
+          "PARE"
+        ],
+        "answer": "PARE"
+      }
+    },
+    {
+      "seed": 305,
+      "phase": "final",
+      "wires": {
+        "colors": [
+          "blue",
+          "black",
+          "yellow",
+          "white",
+          "blue",
+          "yellow"
+        ],
+        "answer": 6,
+        "rule": 3
+      },
+      "symbols": {
+        "shown": [
+          "triangle-bar",
+          "hook",
+          "crown",
+          "backwards-c"
+        ],
+        "column": "D",
+        "answer": [
+          "hook",
+          "triangle-bar",
+          "backwards-c",
+          "crown"
+        ]
+      },
+      "word": {
+        "group": "f-g1",
+        "display": "SEE",
+        "buttons": [
+          "BEE",
+          "SEA",
+          "B",
+          "C",
+          "BE",
+          "SEE"
+        ],
+        "answer": "BEE"
+      }
+    },
+    {
+      "seed": 306,
+      "phase": "final",
+      "wires": {
+        "colors": [
+          "blue",
+          "blue",
+          "red",
+          "black",
+          "black",
+          "red"
+        ],
+        "answer": 3,
+        "rule": 1
+      },
+      "symbols": {
+        "shown": [
+          "star-filled",
+          "backwards-c",
+          "ring",
+          "hourglass"
+        ],
+        "column": "B",
+        "answer": [
+          "hourglass",
+          "backwards-c",
+          "ring",
+          "star-filled"
+        ]
+      },
+      "word": {
+        "group": "f-g1",
+        "display": "BEE",
+        "buttons": [
+          "BE",
+          "SEA",
+          "C",
+          "B",
+          "BEE",
+          "SEE"
+        ],
+        "answer": "SEA"
+      }
+    },
+    {
+      "seed": 307,
+      "phase": "final",
+      "wires": {
+        "colors": [
+          "red",
+          "blue",
+          "black",
+          "blue",
+          "yellow"
+        ],
+        "answer": 3,
+        "rule": 5
+      },
+      "symbols": {
+        "shown": [
+          "sun-dot",
+          "triangle-bar",
+          "backwards-c",
+          "hook"
+        ],
+        "column": "D",
+        "answer": [
+          "hook",
+          "triangle-bar",
+          "sun-dot",
+          "backwards-c"
+        ]
+      },
+      "word": {
+        "group": "f-g5",
+        "display": "FLOOR",
+        "buttons": [
+          "FLOOR",
+          "FORE",
+          "FLOUR",
+          "FOUR",
+          "FOR",
+          "FLOWER"
+        ],
+        "answer": "FLOUR"
+      }
+    },
+    {
+      "seed": 308,
+      "phase": "final",
+      "wires": {
+        "colors": [
+          "yellow",
+          "blue",
+          "blue",
+          "yellow",
+          "red",
+          "red"
+        ],
+        "answer": 3,
+        "rule": 4
+      },
+      "symbols": {
+        "shown": [
+          "question-upside",
+          "hourglass",
+          "eye",
+          "snowflake"
+        ],
+        "column": "E",
+        "answer": [
+          "question-upside",
+          "eye",
+          "hourglass",
+          "snowflake"
+        ]
+      },
+      "word": {
+        "group": "f-g4",
+        "display": "BEAR",
+        "buttons": [
+          "PARE",
+          "BEAR",
+          "BEER",
+          "PAIR",
+          "PEAR",
+          "BARE"
+        ],
+        "answer": "PAIR"
+      }
+    }
+  ]
+}

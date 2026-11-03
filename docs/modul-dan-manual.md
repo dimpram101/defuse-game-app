@@ -3,10 +3,10 @@
 Isi soal ada di dua tempat. Dokumen ini hanya mencatat aturan main yang **tidak** tercakup di sana: perilaku tiap modul saat Defuser salah, dan cara halaman manual dibagi ke Expert.
 
 - **[Bank Soal per Ronde](<../Defuse! – Bank Soal per Ronde.md>)**: aturan Wires, kolom simbol, dan tabel kata untuk Ronde 1, Ronde 2, dan Final, plus contoh bom.
-- **[defuse-bank/](../defuse-bank/)**: versi kode dari bank yang sama (`wires.json`, `symbols.json`, `words.json`, `bomb.ts`, `bomb.test.ts`, `samples.json`). Ini yang dipakai aplikasi.
+- **Versi kode bank** (dipakai aplikasi): `packages/content/src/` (`wires.json`, `symbols.json`, `words.json`, `symbol-glyphs.json`), `packages/content/samples.json`, dan `packages/shared/src/bomb.ts` + `bomb.test.ts`. Asalnya dari folder `defuse-bank/`.
 - **[Contoh Modul](<../Defuse! – Contoh Modul.md>)**: satu bom Ronde 1 lengkap dengan contoh percakapan.
 
-Kalau isi soal berubah, ubah `defuse-bank/` lalu jalankan `bun test` dan `bun scripts/report.ts` (keduanya di folder itu). Jangan menulis teks aturan Wires dengan tangan, karena teksnya dibuat `renderRule()` dari data.
+Kalau isi soal berubah, ubah JSON di `packages/content/src/`, jalankan `bun test`, lalu `bun run report` di `packages/shared` untuk membuat ulang `samples.json`. Jangan menulis teks aturan Wires dengan tangan, karena teksnya dibuat `renderRule()` dari data.
 
 ## Ringkasan per babak
 

@@ -58,3 +58,28 @@
     outline-offset: 2px;
   }
 }
+
+/* Only two things glow (DESIGN.md › Elevation): the active module and the timer in its last 30 seconds. */
+.module-active {
+  box-shadow: 0 0 0 3px var(--color-primary), 0 0 36px rgb(255 176 32 / 0.35);
+}
+.timer-critical {
+  animation: timer-critical 2s ease-in-out infinite;
+}
+@keyframes timer-critical {
+  50% { text-shadow: 0 0 28px rgb(255 77 79 / 0.7); }
+}
+/* One spark when a wire is cut (wire-cut.svg › #spark). */
+.wire-spark {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: wire-spark 400ms ease-out forwards;
+}
+@keyframes wire-spark {
+  from { opacity: 1; transform: scale(0.6); }
+  to { opacity: 0; transform: scale(1.8); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .timer-critical, .wire-spark { animation: none; }
+  .wire-spark { opacity: 0; }
+}

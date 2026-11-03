@@ -2,6 +2,27 @@
 
 Entri terbaru di atas. Format ada di `CLAUDE.md` bagian "Aturan proyek".
 
+## 2026-11-03 · Fase 2 dikerjakan (branch `fase-2-bom-offline`)
+
+**Perubahan:**
+- `packages/content` (baru): JSON bank soal + `samples.json`, disalin dari `defuse-bank/`.
+- `packages/shared`: `bomb.ts` + `bomb.test.ts` dari bank (impor lewat `@defuse/content`, penegasan non-null untuk `noUncheckedIndexedAccess`), `play.ts` (`toBombView`, `BombState`, `checkAnswer`, `expire`, `solvedModules`) + `play.test.ts`, `scripts/report.ts` (`bun run report`). Tipe API dipindah ke `api.ts`.
+- `apps/web`: `bomb/Chassis.tsx`, `bomb/Modules.tsx`, `screen/Stage.tsx` (dipisah dari ScreenPage), `screen/PracticeBomb.tsx`, aset simbol dan fx di `src/assets/`, CSS glow modul aktif / timer kritis / percikan kabel. `/play?test=1` menyimpan pemain per tab (`lib/storage.ts`).
+- Dokumen: `docs/phases/02-bom-offline.md` (checklist, cara mencoba, keputusan), aturan "tanpa kuota pemain" di `docs/phases/04-giliran-realtime.md`, rujukan `defuse-bank/` diganti `packages/content` di `docs/README.md`, `01-fondasi.md`, `modul-dan-manual.md`. Status Fase 2 = jalan.
+
+**Keputusan:**
+- User minta game bisa dites tanpa semua orang masuk: tidak ada kuota pemain (aturan di Fase 4) dan mode tes `/play?test=1`.
+- `checkAnswer` mengembalikan `ignored` untuk klik yang tidak dihitung, tanpa strike.
+- Chassis dan kabel ditulis ulang sebagai JSX, tanpa `vite-plugin-svgr`.
+- Ukuran teks tombol Say the Word 32px (DESIGN.md 22px) demi keterbacaan dari jauh.
+- Nomor seri di chassis: `DF-<seed>` hanya di mode latihan; giliran sungguhan memakai nomor giliran supaya seed tidak bocor.
+- Penanda NEW di manual Final dipindah ke Fase 3.
+- Bukti: `bun test` 50 lulus, typecheck 5 paket, `vite build` lulus, `samples.json` hasil `bun run report` identik dengan versi bank, Playwright memainkan seed 102 sampai DEFUSED, seed 101 sampai BOOM, Ronde 2 (6 kabel), dan dua tab `/play?test=1` jadi dua pemain (di server terpisah dengan database `defuse_test`, supaya sesi user "Test 1–4" tidak terganggu). Teks DEFUSED/BOOM sempat dobel (SVG banner sudah memuat teks), sudah diperbaiki.
+
+**Berikutnya:**
+- User: setujui penghapusan `defuse-bank/`, cek mode latihan di proyektor/monitor besar.
+- Fase 3: `manualFor`, `pickDefusers`, `playView`, tampilan manual di `/play`.
+
 ## 2026-11-03 · Fase 1 dikerjakan (branch `fase-1-fondasi`)
 
 **Perubahan:**

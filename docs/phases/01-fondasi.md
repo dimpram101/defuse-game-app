@@ -22,7 +22,7 @@ bun install
 cp .env.example .env      # isi GM_PIN (min. 6 karakter) dan PUBLIC_URL
 bun run db:up             # Postgres dev di port 5434, sekaligus membuat database defuse_test
 bun run dev               # server :3000 + Vite :5173 (proxy /api ke server)
-bun test                  # tes server (butuh db:up) + tes defuse-bank
+bun test                  # semua tes (tes server butuh db:up)
 bun run typecheck
 ```
 

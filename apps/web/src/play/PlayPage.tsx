@@ -1,12 +1,21 @@
 import { NICKNAME_MAX, type Me, type PublicGame } from "@defuse/shared";
 import { useEffect, useState, type FormEvent, type ReactNode } from "react";
 import { api, ApiError } from "../lib/api";
-import { DEVICE_TOKEN, storage } from "../lib/storage";
+import { DEVICE_TOKEN, deviceStorage, isTestMode } from "../lib/storage";
 import { useActiveGame } from "../lib/useActiveGame";
 import { Button, inputClass, TeamDot } from "../ui";
 
 function Shell({ children }: { children: ReactNode }) {
-  return <main className="mx-auto flex min-h-dvh w-full max-w-[480px] flex-col px-4 py-6">{children}</main>;
+  return (
+    <main className="mx-auto flex min-h-dvh w-full max-w-[480px] flex-col px-4 py-6">
+      {isTestMode && (
+        <p className="mb-4 rounded-md border border-outline-strong px-3 py-2 text-sm text-on-surface-muted">
+          Test mode: this tab is its own player.
+        </p>
+      )}
+      {children}
+    </main>
+  );
 }
 
 function Message({ title, detail }: { title: string; detail: string }) {
@@ -35,7 +44,7 @@ function JoinForm({ game, onJoined }: { game: PublicGame; onJoined: (me: Me) => 
     setError("");
     try {
       const res = await api<{ deviceToken: string; me: Me }>("/api/players", { body: { nickname, teamId } });
-      storage.set(DEVICE_TOKEN, res.deviceToken);
+      deviceStorage.set(DEVICE_TOKEN, res.deviceToken);
       onJoined(res.me);
     } catch (err) {
       setError(err instanceof ApiError ? err.message : "Couldn't join. Try again.");
@@ -136,10 +145,10 @@ function Waiting({ me, game }: { me: Me; game: PublicGame | null }) {
 export function PlayPage() {
   const [active, refresh] = useActiveGame();
   const [me, setMe] = useState<Me | null>(null);
-  const [checking, setChecking] = useState(() => storage.get(DEVICE_TOKEN) !== null);
+  const [checking, setChecking] = useState(() => deviceStorage.get(DEVICE_TOKEN) !== null);
 
   useEffect(() => {
-    const token = storage.get(DEVICE_TOKEN);
+    const token = deviceStorage.get(DEVICE_TOKEN);
     if (!token) return;
     let retry: ReturnType<typeof setTimeout>;
     const check = () =>
@@ -148,7 +157,7 @@ export function PlayPage() {
         .catch((e) => {
           if (e instanceof ApiError && e.status === 404) {
             // The token belongs to an older session: join again.
-            storage.remove(DEVICE_TOKEN);
+            deviceStorage.remove(DEVICE_TOKEN);
             setChecking(false);
           } else {
             // Offline: keep the token and retry, so a refresh never creates a second player.

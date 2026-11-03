@@ -32,6 +32,16 @@ Urutan giliran Ronde 1 dan 2 mengikuti `teams.turn_order`. Urutan Final dari sko
 
 Semua transisi ada di satu modul server (`game.ts`) sebagai fungsi `(state, command) → { state, events }`. Fungsi ini dites tanpa WebSocket dan tanpa database.
 
+## Tanpa kuota pemain
+
+GM bisa menekan Start berapa pun jumlah pemain yang sudah masuk, supaya sistem bisa dites dengan sedikit orang.
+
+- Tim tanpa pemain: gilirannya dilewati otomatis, dengan catatan di `/gm`.
+- Tim dengan 1–2 pemain: rotasi Defuser diulang (1 orang = Defuser di ketiga modul).
+- Tidak ada Expert yang online: `/gm` menampilkan peringatan "No Expert online", tapi Start tetap bisa ditekan.
+- Bet tidak wajib: giliran tetap bisa dimulai walau tidak ada tim penonton yang mengisi.
+- Untuk tes dari satu laptop, pakai `/play?test=1` di beberapa tab (sudah ada sejak Fase 2).
+
 ## Kontrak pesan (`packages/shared/protocol.ts`)
 
 Ditulis sekali sebagai tipe union + skema validasi Elysia (`t.Union`), dipakai server dan web.
