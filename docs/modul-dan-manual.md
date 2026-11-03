@@ -18,6 +18,16 @@ Kalau isi soal berubah, ubah JSON di `packages/content/src/`, jalankan `bun test
 
 Bom ditentukan oleh `generateBomb(seed, phase)`. Yang perlu disimpan di `turns` hanya `phase` dan `seed`, jadi kolom `difficulty` dari SRS tidak dipakai.
 
+## Pergantian Defuser antar modul
+
+Setelah modul 1 dan modul 2 selesai, `/screen` menampilkan **toast "Switch Defuser: <nama>, you're up!" selama 5 detik** (permintaan user, 2026-11-03):
+
+- Toast hanya pemberitahuan. Bom tetap bisa diklik selama toast tampil, dan modul berikutnya langsung terlihat.
+- Toast menempel di strip atas chassis (pelat DEVICE dan LED), tidak menutupi area modul, dan tidak menangkap klik.
+- Timer bom tetap berjalan, sesuai konsep ("Pergantian Defuser memakan waktu dari jatah 3 menit").
+- HP langsung berganti peran: Defuser baru melihat layar Defuser, Defuser sebelumnya mulai melihat manual.
+- Mode latihan memakai toast yang sama.
+
 ## Perilaku saat Defuser salah
 
 Setiap kesalahan menambah 1 strike. Strike ke-3 di modul mana pun berarti BOOM, dan waktu habis juga berarti BOOM.

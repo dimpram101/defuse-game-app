@@ -1,13 +1,30 @@
 import { resolve, sep } from "node:path";
 import { Elysia, t } from "elysia";
 import { sql, type Db } from "@defuse/db";
-import { manualFor, NICKNAME_MAX, TEAM_COLORS, TEAM_NAME_MAX } from "@defuse/shared";
+import { generateBomb, manualFor, NICKNAME_MAX, TEAM_COLORS, TEAM_NAME_MAX } from "@defuse/shared";
 import type { GmAuth } from "./gm-auth";
+import type { LiveGame } from "./live";
 import { createGame, findMe, getPublicGame, joinPlayer, LobbyError } from "./lobby";
 
-type Deps = { db: Db; gm: GmAuth; joinUrl: string; webDist?: string };
+type Deps = { db: Db; gm: GmAuth; live: LiveGame; joinUrl: string; webDist?: string };
 
-export function createApp({ db, gm, joinUrl, webDist }: Deps) {
+const defuserAction = t.Union([
+  t.Object({ type: t.Literal("cut"), wire: t.Integer() }),
+  t.Object({ type: t.Literal("press"), symbol: t.String({ maxLength: 40 }) }),
+  t.Object({ type: t.Literal("word"), word: t.String({ maxLength: 40 }) }),
+]);
+const clientMessage = t.Union([
+  t.Object({
+    type: t.Literal("hello"),
+    role: t.UnionEnum(["screen", "gm", "play"]),
+    deviceToken: t.Optional(t.String({ maxLength: 100 })),
+    gmToken: t.Optional(t.String({ maxLength: 200 })),
+  }),
+  t.Object({ type: t.Literal("defuser"), turnId: t.Integer(), action: defuserAction }),
+  t.Object({ type: t.Literal("gm"), command: t.UnionEnum(["next", "pause", "resume", "end"]) }),
+]);
+
+export function createApp({ db, gm, live, joinUrl, webDist }: Deps) {
   const app = new Elysia()
     .error({ LobbyError })
     .onError(({ code, error, status }) => {
@@ -28,6 +45,7 @@ export function createApp({ db, gm, joinUrl, webDist }: Deps) {
     .post("/api/gm/games", async ({ body, headers, status }) => {
       if (!gm.verify(headers.authorization)) return status(401, { error: "Enter the GM PIN again." });
       await createGame(db, body.teams);
+      await live.changed();
       return (await getPublicGame(db, joinUrl))!;
     }, {
       body: t.Object({
@@ -47,18 +65,46 @@ export function createApp({ db, gm, joinUrl, webDist }: Deps) {
         module: t.Numeric({ minimum: 1, maximum: 3, multipleOf: 1 }),
       }),
     })
+    // Practice bomb with its answers: /screen?practice checks clicks in the browser. GM only, so the
+    // question bank never ships in the public web bundle.
+    .get("/api/gm/practice-bomb", ({ headers, query, status }) => {
+      if (!gm.verify(headers.authorization)) return status(401, { error: "Enter the GM PIN again." });
+      return generateBomb(query.seed, query.phase);
+    }, {
+      query: t.Object({
+        phase: t.UnionEnum(["round1", "round2", "final"]),
+        seed: t.Numeric({ minimum: 1, maximum: 2_147_483_647, multipleOf: 1 }),
+      }),
+    })
     .get("/api/gm/check", ({ headers, status }) =>
       gm.verify(headers.authorization) ? { ok: true } : status(401, { error: "Enter the GM PIN again." }))
     .get("/api/game", async ({ status }) =>
       (await getPublicGame(db, joinUrl)) ?? status(404, { error: "No active session." }))
-    .post("/api/players", ({ body }) => joinPlayer(db, body), {
+    .post("/api/players", async ({ body }) => {
+      const joined = await joinPlayer(db, body);
+      await live.changed();
+      return joined;
+    }, {
       body: t.Object({
         nickname: t.String({ maxLength: NICKNAME_MAX }),
         teamId: t.Integer({ minimum: 1 }),
       }),
     })
     .get("/api/players/me", async ({ headers, status }) =>
-      (await findMe(db, headers["x-device-token"])) ?? status(404, { error: "Not in the current session." }));
+      (await findMe(db, headers["x-device-token"])) ?? status(404, { error: "Not in the current session." }))
+    // Live game: every device sends `hello`, then receives a snapshot after every change.
+    .ws("/ws", {
+      body: clientMessage,
+      open(ws) {
+        live.connect(ws.id, (msg) => ws.send(msg));
+      },
+      async message(ws, msg) {
+        await live.handle(ws.id, msg);
+      },
+      close(ws) {
+        live.disconnect(ws.id);
+      },
+    });
 
   if (!webDist) return app;
 

@@ -35,7 +35,7 @@ Halaman ini bisa dipakai GM untuk mengecek manual sebelum acara, atau untuk sesi
 **Server**
 
 - [x] `GET /api/gm/manual?phase=&module=` (hanya dengan token GM) untuk pratinjau. Ini pengganti "endpoint dev per `device_token`" di rencana awal, karena giliran belum ada sebelum Fase 4
-- [ ] Simpan Defuser ke `turns.defuser_ids` saat Start, dan kirim manual ke Expert yang tersambung: **di Fase 4**, bersama Start dan WebSocket
+- [x] Simpan Defuser ke `turns.defuser_ids` saat Start, dan kirim manual ke Expert yang tersambung (dikerjakan di Fase 4)
 
 **`/play`**
 
@@ -50,7 +50,7 @@ Halaman ini bisa dipakai GM untuk mengecek manual sebelum acara, atau untuk sesi
 
 - [x] Tes `manualFor`, `pickDefusers`, dan `playView` hijau, termasuk: semua Expert mendapat manual yang sama, Defuser modul aktif tidak, tim penonton tidak pernah.
 - [x] Tampilan manual semua babak dan modul dicek di lebar 360px (Playwright), tanpa scroll horizontal.
-- [ ] Dengan 4 HP sungguhan di satu tim, peran dan manual berganti saat modul berganti, dan bertahan setelah refresh: **diuji di Fase 4**, karena butuh giliran yang berjalan.
+- [x] Peran dan manual berganti saat modul berganti, dan bertahan setelah reload (uji browser Fase 4 dengan 3 HP mode tes).
 
 ## Risiko
 

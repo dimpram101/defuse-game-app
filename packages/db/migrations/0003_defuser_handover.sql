@@ -1,0 +1,1 @@
+ALTER TABLE "turns" ADD COLUMN "handover_until" timestamp with time zone;

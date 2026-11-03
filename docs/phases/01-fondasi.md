@@ -75,7 +75,7 @@ Untuk mencoba dari HP di jaringan yang sama, isi `PUBLIC_URL` dengan IP LAN lapt
 - `device_token` dibuat server (UUID), bukan klien, supaya tidak bisa ditebak.
 - QR mengarah ke URL absolut dari env `PUBLIC_URL`, bukan `location.origin`, karena laptop proyektor bisa membuka lewat localhost.
 - **PIN GM tidak disimpan di database.** SRS menyebut `games.pin_hash`, tapi PIN-nya sendiri sudah ada di env, jadi hash di database tidak menambah keamanan. Token GM = HMAC(PIN), sehingga tetap berlaku setelah server restart dan otomatis batal kalau PIN diganti. Tebakan PIN yang salah diantrekan dengan jeda 1 detik, jadi request paralel tidak bisa mempercepat brute force.
-- Lobby di `/screen`, `/play`, dan `/gm` memperbarui data dengan polling tiap 3 detik (`useActiveGame`). Ini sementara: Fase 4 menggantinya dengan snapshot WebSocket.
+- Lobby sempat memakai polling tiap 3 detik; sejak Fase 4 diganti snapshot WebSocket.
 
 ## Selesai bila
 

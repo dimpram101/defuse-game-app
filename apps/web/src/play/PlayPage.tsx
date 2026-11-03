@@ -1,10 +1,12 @@
-import { NICKNAME_MAX, type Me, type PublicGame } from "@defuse/shared";
+import type { GameView, Me, PlaySnapshot } from "@defuse/shared";
+import { NICKNAME_MAX, PHASE_LABELS } from "@defuse/shared/api";
 import { useEffect, useState, type FormEvent, type ReactNode } from "react";
 import { api, ApiError } from "../lib/api";
 import { DEVICE_TOKEN, deviceStorage, isTestMode } from "../lib/storage";
-import { useActiveGame } from "../lib/useActiveGame";
+import { clock, useCountdown, useLive } from "../lib/live";
 import { Button, inputClass, TeamDot } from "../ui";
 import { ManualPreview } from "./ManualPreview";
+import { DefuserScreen, ExpertScreen } from "./RoleScreens";
 
 function Shell({ children }: { children: ReactNode }) {
   return (
@@ -30,7 +32,7 @@ function Message({ title, detail }: { title: string; detail: string }) {
   );
 }
 
-function JoinForm({ game, onJoined }: { game: PublicGame; onJoined: (me: Me) => void }) {
+function JoinForm({ game, onJoined }: { game: GameView; onJoined: (deviceToken: string) => void }) {
   const [nickname, setNickname] = useState("");
   const [teamId, setTeamId] = useState<number | null>(null);
   const [error, setError] = useState("");
@@ -46,7 +48,7 @@ function JoinForm({ game, onJoined }: { game: PublicGame; onJoined: (me: Me) => 
     try {
       const res = await api<{ deviceToken: string; me: Me }>("/api/players", { body: { nickname, teamId } });
       deviceStorage.set(DEVICE_TOKEN, res.deviceToken);
-      onJoined(res.me);
+      onJoined(res.deviceToken);
     } catch (err) {
       setError(err instanceof ApiError ? err.message : "Couldn't join. Try again.");
       setBusy(false);
@@ -113,21 +115,89 @@ function JoinForm({ game, onJoined }: { game: PublicGame; onJoined: (me: Me) => 
   );
 }
 
-function Waiting({ me, game }: { me: Me; game: PublicGame | null }) {
-  const teammates = game?.teams.find((t) => t.id === me.team.id)?.players ?? [];
+/** Team, score and the bomb timer, always at the top while someone plays (FR-24). */
+function StatusBar({ snap, receivedAt }: { snap: PlaySnapshot; receivedAt: number }) {
+  const me = snap.me!;
+  const game = snap.game!;
+  const team = game.teams.find((t) => t.id === me.team.id);
+  const turn = game.turn;
+  const ms = useCountdown(turn?.timer, receivedAt);
+  const showTimer = turn && (turn.status === "playing" || turn.status === "paused");
+  return (
+    <header className="mb-6 flex items-center gap-3 rounded-lg border border-outline bg-surface px-4 py-3">
+      <TeamDot color={me.team.color} />
+      <div className="min-w-0 flex-1">
+        <p className="truncate font-semibold">{me.team.name}</p>
+        <p className="text-sm text-on-surface-muted">
+          {me.player.nickname} · {PHASE_LABELS[game.phase]} · <span className="font-mono">{team?.score ?? 0}</span> pts
+        </p>
+      </div>
+      {showTimer && (
+        <p className={`font-mono text-2xl font-bold tabular-nums ${turn.timer.running ? "text-primary" : "text-on-surface-muted"}`} aria-label="Time left">
+          {turn.timer.paused ? "PAUSED" : clock(ms)}
+        </p>
+      )}
+    </header>
+  );
+}
+
+function Standings({ game }: { game: GameView }) {
+  return (
+    <ol className="flex flex-col gap-2">
+      {[...game.teams].sort((a, b) => b.score - a.score).map((t, i) => (
+        <li key={t.id} className="flex items-center gap-3 rounded-md bg-surface px-4 py-3">
+          <span className="w-5 font-mono text-on-surface-muted">{i + 1}</span>
+          <TeamDot color={t.color} />
+          <span className="min-w-0 flex-1 truncate font-semibold">{t.name}</span>
+          <span className="font-mono">{t.score}</span>
+        </li>
+      ))}
+    </ol>
+  );
+}
+
+function Idle({ snap }: { snap: PlaySnapshot }) {
+  const game = snap.game!;
+  const me = snap.me!;
+  const turn = game.turn;
+  const playing = turn ? game.teams.find((t) => t.id === turn.teamId) : undefined;
+  const teammates = game.teams.find((t) => t.id === me.team.id)?.players ?? [];
+
+  if (snap.view.role === "spectator" && playing)
+    return (
+      <div className="flex flex-col gap-4">
+        <p className="text-sm font-semibold tracking-[0.08em] text-on-surface-muted">WATCHING</p>
+        <h1 className="flex items-center gap-3 font-display text-[32px] leading-tight font-semibold">
+          <TeamDot color={playing.color} className="size-6" /> <span className="min-w-0 truncate">{playing.name}</span>
+        </h1>
+        <p className="text-lg">Watch the big screen and stay quiet. Giving hints costs your team 20 points.</p>
+      </div>
+    );
+
+  if (game.status === "result" && turn?.result && playing)
+    return (
+      <div className="flex flex-col gap-4">
+        <p className="text-sm font-semibold tracking-[0.08em] text-on-surface-muted">{playing.name.toUpperCase()}</p>
+        <h1 className="font-display text-[40px] leading-tight font-bold">{turn.status === "defused" ? "DEFUSED" : "BOOM"}</h1>
+        <p className="font-mono text-2xl">{turn.result.total >= 0 ? "+" : ""}{turn.result.total} points</p>
+        <Standings game={game} />
+      </div>
+    );
+
+  if (game.status === "leaderboard" || game.status === "finished")
+    return (
+      <div className="flex flex-col gap-4">
+        <h1 className="font-display text-[32px] leading-tight font-semibold">{game.status === "finished" ? "Final standings" : "Leaderboard"}</h1>
+        <Standings game={game} />
+      </div>
+    );
 
   return (
-    <Shell>
-      <p className="text-base text-on-surface-muted">Hi {me.player.nickname}, you're in</p>
-      <h1 className="mt-2 flex items-center gap-3 font-display text-[32px] leading-tight font-semibold">
-        <TeamDot color={me.team.color} className="size-6" />
-        <span className="min-w-0 truncate">{me.team.name}</span>
-      </h1>
-      <p className="mt-4 text-lg">Keep this page open. When your team plays, your role and manual show up here.</p>
-      <p className="mt-2 text-sm text-on-surface-muted">Jangan tutup halaman ini. Kalau tidak sengaja tertutup, buka lagi lewat QR di HP yang sama dan kamu tetap di tim ini.</p>
-
+    <div className="flex flex-col gap-4">
+      <p className="text-lg">Keep this page open. When your team plays, your role and manual show up here.</p>
+      <p className="text-sm text-on-surface-muted">Jangan tutup halaman ini. Kalau tidak sengaja tertutup, buka lagi lewat QR di HP yang sama dan kamu tetap di tim ini.</p>
       {teammates.length > 0 && (
-        <section className="mt-8 rounded-lg border border-outline bg-surface p-4">
+        <section className="rounded-lg border border-outline bg-surface p-4">
           <h2 className="text-sm font-semibold tracking-[0.04em] text-on-surface-muted">YOUR TEAM · {teammates.length}</h2>
           <ul className="mt-3 flex flex-col gap-2 text-lg">
             {teammates.map((p) => (
@@ -138,6 +208,48 @@ function Waiting({ me, game }: { me: Me; game: PublicGame | null }) {
             ))}
           </ul>
         </section>
+      )}
+    </div>
+  );
+}
+
+function PlayerPage() {
+  const [token, setToken] = useState(() => deviceStorage.get(DEVICE_TOKEN));
+  const { snapshot, receivedAt, connected } = useLive<PlaySnapshot>({ type: "hello", role: "play", deviceToken: token ?? undefined });
+
+  // A token from an older session: forget it and show the join form.
+  useEffect(() => {
+    if (snapshot && token && !snapshot.me) {
+      deviceStorage.remove(DEVICE_TOKEN);
+      setToken(null);
+    }
+  }, [snapshot, token]);
+
+  const offline = !connected && (
+    <p role="status" className="mb-4 rounded-md bg-error-container px-3 py-2 text-sm font-semibold text-on-error-container">
+      Reconnecting… your place in the game is kept.
+    </p>
+  );
+
+  if (!snapshot) return <Message title="Loading…" detail="Connecting to the game." />;
+  const game = snapshot.game;
+  if (!snapshot.me) {
+    if (!game || game.status === "finished")
+      return <Message title="Not open yet" detail="The Game Master hasn't set up the teams. This page updates on its own." />;
+    return <JoinForm game={game} onJoined={setToken} />;
+  }
+
+  const view = snapshot.view;
+  return (
+    <Shell>
+      {offline}
+      <StatusBar snap={snapshot} receivedAt={receivedAt} />
+      {view.role === "expert" ? (
+        <ExpertScreen module={view.module} manual={view.manual} />
+      ) : view.role === "defuser" ? (
+        <DefuserScreen module={view.module} />
+      ) : (
+        <Idle snap={snapshot} />
       )}
     </Shell>
   );
@@ -151,41 +263,4 @@ export function PlayPage() {
       </Shell>
     );
   return <PlayerPage />;
-}
-
-function PlayerPage() {
-  const [active, refresh] = useActiveGame();
-  const [me, setMe] = useState<Me | null>(null);
-  const [checking, setChecking] = useState(() => deviceStorage.get(DEVICE_TOKEN) !== null);
-
-  useEffect(() => {
-    const token = deviceStorage.get(DEVICE_TOKEN);
-    if (!token) return;
-    let retry: ReturnType<typeof setTimeout>;
-    const check = () =>
-      api<Me>("/api/players/me", { headers: { "x-device-token": token } })
-        .then((m) => { setMe(m); setChecking(false); })
-        .catch((e) => {
-          if (e instanceof ApiError && e.status === 404) {
-            // The token belongs to an older session: join again.
-            deviceStorage.remove(DEVICE_TOKEN);
-            setChecking(false);
-          } else {
-            // Offline: keep the token and retry, so a refresh never creates a second player.
-            retry = setTimeout(check, 3000);
-          }
-        });
-    check();
-    return () => clearTimeout(retry);
-  }, []);
-
-  const game = active.state === "ready" ? active.game : null;
-
-  if (me) return <Waiting me={me} game={game} />;
-  if (active.state === "offline")
-    return <Message title="Can't reach the game" detail="Check your Wi-Fi or mobile data. This page retries on its own." />;
-  if (checking || active.state === "loading") return <Message title="Loading…" detail="Checking the session." />;
-  if (active.state === "none")
-    return <Message title="Not open yet" detail="The Game Master hasn't set up the teams. This page updates on its own." />;
-  return <JoinForm game={active.game} onJoined={(m) => { setMe(m); refresh(); }} />;
 }

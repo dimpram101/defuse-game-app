@@ -16,6 +16,15 @@ Satu sesi bisa dijalankan dari lobby sampai leaderboard: GM memulai giliran, tim
 
 Fase 2 (`generateBomb`, `checkAnswer`) dan Fase 3 (`manualFor`, `pickDefusers`).
 
+## Cara mencoba (satu laptop)
+
+1. `bun run dev`, buka `/gm` dan masukkan PIN, buat sesi.
+2. Di browser yang sama buka `/screen` (proyektor). Karena GM sudah terbuka di browser ini, `/screen` boleh memainkan bom.
+3. Buka `/play?test=1` di 2–3 tab lain dan bergabung ke tim.
+4. Di `/gm` tekan tombol utama: **Call up <tim>** → **Start the bomb** → (main di `/screen`) → **Call up <tim berikutnya>** … → **Show leaderboard** → **Start Round 2**.
+
+Kunci jawaban bom yang sedang berjalan bisa dicek lewat `/screen?practice=<seed>&phase=<babak>` (seed ada di tabel `turns`), karena seed dan babak yang sama selalu menghasilkan bom yang sama.
+
 ## State machine
 
 `games.status` (7 status):
@@ -30,7 +39,7 @@ leaderboard → betting (babak berikutnya) | finished (setelah Final)
 
 Urutan giliran Ronde 1 dan 2 mengikuti `teams.turn_order`. Urutan Final dari skor terendah dikerjakan di Fase 6.
 
-Semua transisi ada di satu modul server (`game.ts`) sebagai fungsi `(state, command) → { state, events }`. Fungsi ini dites tanpa WebSocket dan tanpa database.
+Keputusan "apa yang dilakukan tombol Next" ada di `apps/server/src/flow.ts` (fungsi murni, dites tanpa database). Perubahan state ada di `apps/server/src/live.ts` (`LiveGame`) dan dites terhadap database `defuse_test` dengan jam palsu. Rencana awal (`game.ts` murni yang menghasilkan event) tidak dipakai: memetakan event ke penulisan database justru menambah lapisan, sedangkan tes dengan database sungguhan lebih dekat ke perilaku asli.
 
 ## Tanpa kuota pemain
 
@@ -42,78 +51,66 @@ GM bisa menekan Start berapa pun jumlah pemain yang sudah masuk, supaya sistem b
 - Bet tidak wajib: giliran tetap bisa dimulai walau tidak ada tim penonton yang mengisi.
 - Untuk tes dari satu laptop, pakai `/play?test=1` di beberapa tab (sudah ada sejak Fase 2).
 
-## Kontrak pesan (`packages/shared/protocol.ts`)
+## Kontrak pesan (`packages/shared/src/protocol.ts`)
 
-Ditulis sekali sebagai tipe union + skema validasi Elysia (`t.Union`), dipakai server dan web.
+**Diubah dari rencana awal:** server hanya mengirim satu jenis pesan, `snapshot`, berisi keadaan lengkap yang boleh dilihat perangkat itu. Snapshot dikirim ulang ke semua koneksi setelah setiap perubahan. Tidak ada pesan parsial (`game.state`, `turn.timer`, dan seterusnya) dan tidak ada topic pub/sub, jadi tidak ada pesan yang bisa terlewat, dan reconnect atau refresh cukup dengan `hello` lagi. Dengan ±25 koneksi, biayanya kecil.
 
 **Klien → server**
 
 | Pesan | Dari | Isi |
 | --- | --- | --- |
-| `hello` | semua | `{ role: "screen" \| "play" \| "gm", deviceToken?, gmToken? }` |
-| `defuser.action` | screen | `{ turnId, action: { cut: wireIndex } \| { press: symbolId } \| { word: string } }` |
-| `gm.command` | gm | `start`, `pause`, `resume`, `next`, `end` |
+| `hello` | semua | `{ role: "screen" \| "gm" \| "play", deviceToken?, gmToken? }` |
+| `defuser` | `/screen` dengan token GM | `{ turnId, action: { type: "cut", wire } \| { type: "press", symbol } \| { type: "word", word } }` |
+| `gm` | `/gm` dengan token GM | `{ command: "next" \| "pause" \| "resume" \| "end" }` |
 
-**Server → klien**
+**Server → klien:** `{ type: "snapshot", snapshot }` atau `{ type: "error", message }`.
 
-| Pesan | Ke topic | Isi |
-| --- | --- | --- |
-| `snapshot` | pengirim `hello` | seluruh status yang boleh dilihat peran itu + `serverNow` |
-| `game.state` | semua | status game, giliran aktif, tim, skor ringkas |
-| `turn.timer` | semua | `{ endsAt, pausedAt?, serverNow }` |
-| `turn.bomb` | `screen` | `view` bom + `BombState` (tanpa `solution`) |
-| `turn.manual` | per Expert (`player:<id>`) | manual modul aktif (sama untuk semua Expert); Defuser modul aktif menerima `{ role: "defuser" }` |
-| `turn.result` | semua | DEFUSED/BOOM, sisa waktu, strike, rincian skor giliran |
+| Snapshot | Isi |
+| --- | --- |
+| `screen` | `game` (tim, skor, pemain, giliran, timer, hasil), `bomb` (tampilan + `BombState`, tanpa jawaban), `canAct` |
+| `gm` | sama dengan `screen` + `next` (aksi tombol utama) + `warnings` |
+| `play` | `game` tanpa bom, `me`, `view` dari `playView` (manual hanya untuk Expert tim yang bermain) |
 
-Topic: `screen`, `gm`, `team:<id>`, `player:<id>`. Tambahan `player:<id>` diperlukan karena Defuser modul aktif satu tim dengan Expert tapi tidak boleh menerima isi manual, dan topic `team:<id>` tidak bisa mengecualikan satu orang.
+Timer dikirim sebagai sisa waktu (`remainingMs`) saat snapshot dibuat. HP menghitung mundur dari situ dengan jam lokal, jadi selisih jam antar perangkat tidak berpengaruh.
 
 ## Tugas
 
 **Dari fase sebelumnya**
 
-- [ ] Saat Start: hitung `pickDefusers`, simpan ke `turns.defuser_ids`, kirim `playView` ke tiap HP (Fase 3)
-- [ ] Nomor seri chassis memakai nomor giliran, bukan seed (Fase 2)
-- [ ] Keluarkan isi bank dari bundle web: bom latihan dibuat server (`/api/gm/practice-bomb`, token GM) atau mode latihan dikunci PIN GM (Fase 3, celah keamanan)
-
+- [x] Saat Start: `pickDefusers` disimpan ke `turns.defuser_ids`; sebelum Start, Defuser modul 1 dihitung sementara supaya tidak melihat manual
+- [x] Nomor seri chassis: `TURN 01`, `TURN 02`… (bukan seed)
+- [x] Bank soal keluar dari bundle web: bom latihan diambil dari `GET /api/gm/practice-bomb` (token GM), web hanya mengimpor `@defuse/shared/api` dan `@defuse/shared/play`. Dicek: kata-kata Say the Word tidak ada lagi di `dist/assets/*.js`
 
 **Server**
 
-- [ ] WebSocket Elysia, `hello` → subscribe topic sesuai peran → kirim `snapshot`
-- [ ] Penulisan ke database dulu, baru publish (SRS "Pemulihan"). Saat server start, baca game aktif dan jadwalkan ulang timer
-- [ ] Timer: simpan `started_at`, `duration_sec`, `paused_ms`. `endsAt = started_at + duration_sec*1000 + paused_ms`. Satu `setTimeout` ke `endsAt`; saat jalan, giliran jadi BOOM jika belum selesai
-- [ ] Start: kunci Bet (Fase 5), buat seed, `generateBomb`, pilih Defuser, kirim manual modul 1 ke Expert
-- [ ] `defuser.action` hanya diterima dari `screen` dan hanya saat `playing`. Validasi dengan `checkAnswer`; modul selesai → kirim manual modul berikutnya (Defuser berganti)
-- [ ] Akhir giliran → tulis `score_events` → publish `turn.result`
-- [ ] Skor tim = `SUM(points)` dari `score_events`, dihitung di query, tidak disimpan
+- [x] WebSocket Elysia di `/ws`, pesan divalidasi skema. Lobby, GM, dan HP tidak lagi polling `/api/game`
+- [x] Satu antrean untuk semua perubahan; tulis database dulu, baru kirim snapshot. Saat boot, `LiveGame.init()` memeriksa timer yang habis selama server mati lalu menjadwalkan ulang
+- [x] Timer: `started_at`, `duration_sec`, `paused_ms`, `paused_at` (baru), `ended_at` (baru). Satu `setTimeout` ke sisa waktu; saat jalan, BOOM jika belum selesai
+- [x] Migrasi `0001` (hapus `current_module`, `strikes`) dan `0002` (`paused_at`, `ended_at`, `bomb_state` jsonb)
+- [x] Aksi Defuser hanya dari `/screen` yang membuka GM di browser yang sama, hanya saat `playing`, dan hanya untuk giliran yang aktif
+- [x] Akhir giliran → `score_events` → snapshot. Skor tim = `SUM(points)` per query
+- [x] Tim tanpa pemain dilewati, peringatan "No Expert of <tim> is online"
+- [x] Toast 5 detik "Switch Defuser" setelah modul 1 dan 2 (permintaan user): kolom `turns.handover_until` (migrasi `0003`), hanya pemberitahuan (bom tetap bisa dimainkan, timer berjalan), server menghapusnya sendiri (`LiveGame.tick()`), bertahan saat restart. Aturan lengkap di [modul-dan-manual.md](../modul-dan-manual.md#pergantian-defuser-antar-modul)
+- [ ] Kunci Bet saat Start: Fase 5
 
-**Skor per giliran (`packages/shared/scoring.ts`)**
-
-| Kejadian | `kind` | Poin |
-| --- | --- | --- |
-| DEFUSED | `defused` | +100 |
-| Sisa waktu saat DEFUSED | `time_bonus` | +1 per detik (dibulatkan ke bawah) |
-| Modul selesai saat BOOM | `module` | +30 per modul |
-| Tiap strike | `strike` | −20 |
-
-Kejadian lain (talk bonus, Bet, Sabotage, penalti, koreksi) memakai tabel yang sama dan ditambahkan di Fase 5–6. Fungsi `scoreTurn(result)` → daftar event, dites dengan `bun test`.
+**Skor (`packages/shared/src/scoring.ts`)**: `scoreTurn` sesuai tabel di atas, satu baris per jenis (`strike` = −20 × jumlah strike).
 
 **Klien**
 
-- [ ] Wrapper WebSocket kecil: reconnect dengan jeda bertambah (1, 2, 4, maks 8 dtk), kirim `hello` ulang setiap tersambung, tampilkan indikator "Reconnecting…"
-- [ ] Offset jam: `offset = serverNow - Date.now()` dari tiap pesan timer; tampilan sisa waktu = `endsAt - (Date.now() + offset)`
-- [ ] `/screen`: top bar (tim, babak, modul), bom, timer (amber, merah + pulse < 30 dtk, abu-abu "PAUSED"), 3 strike, layar hasil, leaderboard, antrean giliran
-- [ ] `/play`: status ("Your team is up", "Watching Team X"), timer kecil, skor tim; mode Expert/Defuser dari Fase 3
-- [ ] `/gm`: grup Flow (Start, Pause/Resume, Next, End) dengan jarak 24px dari grup lain, End game pakai konfirmasi
+- [x] `lib/live.ts`: `useLive` (reconnect 1, 2, 4, 8 dtk; `hello` ulang tiap tersambung; indikator "Reconnecting…"), `useCountdown`
+- [x] `/screen`: lobby, "Up next" + skor, bom (`bomb/BombBoard.tsx`, dipakai juga mode latihan), timer amber / merah < 30 dtk / abu-abu "PAUSED", hasil dengan rincian skor, leaderboard, "Final standings"
+- [x] `/play`: bilah status (tim, skor, babak, timer), layar Expert / Defuser / penonton, hasil giliran, leaderboard
+- [x] `/gm`: tombol utama yang berganti sesuai langkah, Pause/Resume, rotasi Defuser, skor dan status online pemain, End game dan New session terpisah di bawah dengan konfirmasi
 
 ## Selesai bila
 
-- Tes `game.ts` dan `scoring.ts` hijau, termasuk: waktu habis → BOOM, pause tidak memotong waktu, strike ke-3 → BOOM.
-- Satu sesi 3 tim × 1 ronde bisa dimainkan dari lobby sampai leaderboard dengan 1 laptop + 3 HP.
-- Timer di laptop dan HP selisih < 1 detik (dicek dengan video atau stopwatch).
-- Matikan server di tengah giliran, nyalakan lagi: giliran lanjut dengan sisa waktu yang benar.
-- Matikan Wi-Fi HP 10 detik lalu nyalakan: HP kembali ke status terkini tanpa refresh.
+- [x] Tes `flow.ts` dan `live.ts` hijau, termasuk: waktu habis → BOOM, pause tidak memotong waktu (juga setelah restart), strike ke-3 → BOOM, izin (`/screen` tanpa PIN tidak bisa main, HP tidak bisa menjalankan perintah GM, HP tidak pernah menerima data bom).
+- [x] Satu sesi 3 tim × 1 ronde dimainkan dari lobby sampai leaderboard dan masuk Ronde 2 di browser sungguhan lewat WebSocket (Playwright: 1 layar, 1 GM, 3 HP mode tes): peran Defuser/Expert bertukar per modul, reload HP mempertahankan peran, timer berhenti saat pause, tim kosong dilewati, skor di database cocok.
+- [x] Server dimatikan di tengah giliran lalu dinyalakan: giliran lanjut dengan sisa waktu yang benar (tes `live.test.ts`).
+- [ ] Timer di laptop dan HP sungguhan selisih < 1 detik (cek dengan stopwatch).
+- [ ] Matikan Wi-Fi HP sungguhan 10 detik lalu nyalakan: HP kembali ke status terkini tanpa refresh.
 
 ## Risiko
 
-- Fase ini paling besar. Kalau waktu sempit, potong `/play` FR-24 (Should) dan rapikan tampilan belakangan; alur GM dan `/screen` lebih penting.
+- Bug yang ditemukan saat uji browser dan sudah diperbaiki: setelah bergabung, HP sempat membaca snapshot milik identitas lama dan menghapus token barunya. Sekarang setiap snapshot ditandai dengan `hello` yang memintanya.
 - Restart server saat `paused`: pastikan `paused_ms` ikut tersimpan saat pause, bukan hanya saat resume.

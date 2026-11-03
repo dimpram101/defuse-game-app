@@ -3,9 +3,10 @@ import { mkdtempSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { createDb, migrateDb, sql } from "@defuse/db";
-import { manualFor, type PublicGame } from "@defuse/shared";
+import { generateBomb, manualFor, type PublicGame } from "@defuse/shared";
 import { createApp } from "./app";
 import { createGmAuth } from "./gm-auth";
+import { LiveGame } from "./live";
 
 // Needs the dev database from `bun run db:up` (it creates `defuse_test` on first start).
 const db = createDb(process.env.TEST_DATABASE_URL ?? "postgres://defuse:defuse@localhost:5434/defuse_test");
@@ -16,7 +17,8 @@ const dist = mkdtempSync(join(tmpdir(), "defuse-dist-"));
 writeFileSync(join(dist, "index.html"), "<!doctype html><title>Defuse!</title>");
 writeFileSync(join(dist, "app.js"), "console.log(1)");
 
-const app = createApp({ db, gm: createGmAuth(PIN, 0), joinUrl: JOIN_URL, webDist: dist });
+const gm = createGmAuth(PIN, 0);
+const app = createApp({ db, gm, live: new LiveGame(db, gm, JOIN_URL), joinUrl: JOIN_URL, webDist: dist });
 
 async function call(method: string, path: string, body?: unknown, headers: Record<string, string> = {}) {
   const res = await app.handle(new Request(`http://localhost${path}`, {
@@ -97,6 +99,13 @@ describe("manual preview", () => {
     const res = await call("GET", "/api/gm/manual?phase=final&module=2", undefined, auth);
     expect(res.json).toEqual(manualFor("final", 2));
   });
+});
+
+test("practice bomb is GM only and matches generateBomb", async () => {
+  expect((await call("GET", "/api/gm/practice-bomb?phase=round1&seed=102")).status).toBe(401);
+  const auth = { authorization: `Bearer ${await gmToken()}` };
+  expect((await call("GET", "/api/gm/practice-bomb?phase=round1&seed=0", undefined, auth)).status).toBe(422);
+  expect((await call("GET", "/api/gm/practice-bomb?phase=round1&seed=102", undefined, auth)).json).toEqual(generateBomb(102, "round1"));
 });
 
 describe("players", () => {

@@ -8,6 +8,27 @@
       "when": 1793666114611,
       "tag": "0000_init",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1793669555765,
+      "tag": "0001_drop_turn_counters",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1793669556104,
+      "tag": "0002_turn_timer_and_bomb_state",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1793671104192,
+      "tag": "0003_defuser_handover",
+      "breakpoints": true
     }
   ]
 }

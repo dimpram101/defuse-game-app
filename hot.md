@@ -2,6 +2,72 @@
 
 Entri terbaru di atas. Format ada di `CLAUDE.md` bagian "Aturan proyek".
 
+## 2026-11-03 · Pergantian Defuser jadi toast, tanpa mengunci bom
+
+**Perubahan:**
+- `apps/web/src/screen/HandoverOverlay.tsx` → `HandoverToast.tsx`: toast di strip atas chassis (tidak menutupi modul, `pointer-events-none`), tanpa hitung mundur kunci.
+- `apps/server/src/live.ts`: klik selama toast dihitung seperti biasa (penguncian dihapus). `handover_until` sekarang hanya menentukan berapa lama toast tampil.
+- `apps/web`: prop `locked` di `BombBoard` dihapus lagi; `PracticeBomb` tidak mengabaikan klik selama toast.
+- `apps/server/src/live.test.ts`: tes toast diperbarui (klik saat toast dihitung). Komentar di `packages/shared`, `packages/db`, dan `docs/modul-dan-manual.md`, `docs/phases/04-giliran-realtime.md` disesuaikan.
+
+**Keputusan:**
+- User: bom tidak boleh ditutup dan toast tidak boleh menghalangi. Toast murni pemberitahuan 5 detik; timer tetap berjalan sesuai konsep.
+- Bukti: `bun test` 70 lulus, typecheck dan build lulus, Playwright: simbol ditekan saat toast tampil langsung dihitung (1 of 4), timer terus turun, tanpa error console.
+
+**Berikutnya:**
+- Fase 5: Bet, Sabotage, twist.
+
+## 2026-11-03 · Jeda pergantian Defuser: timer tetap berjalan
+
+**Perubahan:**
+- `apps/server/src/live.ts`: jeda 5 detik hanya mengunci bom (`handover_until`), tidak lagi membekukan timer. `tick()` memeriksa waktu habis dulu (bom bisa meledak di tengah jeda), lalu membuka kunci jeda. Pause di tengah jeda mengakhiri jeda. `finishTurn` mengosongkan `handover_until`.
+- `apps/server/src/live.test.ts`: tes jeda ditulis ulang (timer berjalan, restart di tengah jeda, BOOM di tengah jeda, pause di tengah jeda); skor tes giliran penuh jadi 210 (jeda ikut memakan waktu).
+- `apps/web`: label "STOPPED FOR THE SWITCH" dan "SWITCH" dihapus; `PracticeBomb` tidak lagi membekukan timer.
+- Komentar di `packages/shared` dan `packages/db/src/schema.ts`, `docs/modul-dan-manual.md`, `docs/phases/04-giliran-realtime.md` disesuaikan.
+
+**Keputusan:**
+- User membatalkan bagian yang menyimpang dari konsep: jeda dan overlay tetap ada, tapi pergantian Defuser kembali memakan jatah 3 menit. Dokumen konsep tidak perlu diubah.
+- Bukti: `bun test` 70 lulus, typecheck dan build lulus, Playwright: timer turun 2:54 → 2:52 selama overlay jeda, klik saat jeda tidak dihitung, tanpa error console.
+
+## 2026-11-03 · Jeda 5 detik pergantian Defuser
+
+**Perubahan:**
+- `packages/db`: migrasi `0003_defuser_handover` (`turns.handover_until`).
+- `packages/shared`: `HANDOVER_MS` di `api.ts`, `TimerView.handoverMs` di `protocol.ts`.
+- `apps/server/src/live.ts`: modul selesai → timer dibekukan 5 detik, klik diabaikan; `expireIfDue` diganti `tick()` (mengakhiri jeda atau BOOM); Pause di tengah jeda menyerap jeda. `live.test.ts`: 2 tes baru (jeda, restart di tengah jeda, server terlambat, pause di tengah jeda).
+- `apps/web`: `screen/HandoverOverlay.tsx`, label timer "STOPPED FOR THE SWITCH" di `/screen`, "SWITCH" di HP, "switching Defuser" di `/gm`, jeda lokal yang sama di `PracticeBomb`.
+- Dokumen: bagian baru di `docs/modul-dan-manual.md`, checklist di `docs/phases/04-giliran-realtime.md`.
+
+**Keputusan:**
+- User memilih timer **berhenti** selama jeda (menyimpang dari konsep: pergantian Defuser tidak memakan jatah 3 menit) dan overlay di atas bom. Overlay dibuat tidak tembus pandang supaya modul berikutnya tidak terlihat sebelum jeda selesai.
+- Yang dihitung sebagai jeda tepat 5 detik, walau server melanjutkan sedikit terlambat.
+- Bukti: `bun test` 69 lulus, typecheck dan build lulus, Playwright: timer tetap 2:58 selama jeda, klik saat jeda tidak menambah strike, HP Bima langsung jadi Defuser dengan label "SWITCH", skor akhir sesuai, mode latihan tidak menghitung jeda.
+
+**Berikutnya:**
+- (Dibatalkan sebagian di entri berikutnya: timer tidak lagi berhenti.)
+
+## 2026-11-03 · Fase 4 dikerjakan (branch `fase-4-giliran-realtime`)
+
+**Perubahan:**
+- `packages/db`: migrasi `0001_drop_turn_counters` dan `0002_turn_timer_and_bomb_state` (`paused_at`, `ended_at`, `bomb_state`; `current_module` dan `strikes` dihapus).
+- `packages/shared`: `scoring.ts` (`scoreTurn`, `remainingMs`), `protocol.ts` (snapshot dan pesan WebSocket), `PHASE_LABELS` dan `TURN_SECONDS` di `api.ts`, subpath `@defuse/shared/api` dan `@defuse/shared/play` untuk web.
+- `apps/server`: `flow.ts` (+ tes), `live.ts` (`LiveGame`, + tes integrasi), `/ws` dan `GET /api/gm/practice-bomb` di `app.ts`, `index.ts` menjalankan `LiveGame.init()`.
+- `apps/web`: `lib/live.ts` (`useLive`, `useCountdown`), `bomb/BombBoard.tsx`, `screen/ResultBanner.tsx`, `/screen` / `/play` / `/gm` ditulis ulang di atas snapshot, `PracticeBomb` mengambil bom dari server, `lib/useActiveGame.ts` dihapus, proxy `/ws` di Vite.
+- Dokumen: `docs/phases/04-giliran-realtime.md` (cara mencoba, kontrak pesan baru, checklist), Fase 1 dan 3 diperbarui, status di `docs/README.md` (Fase 3 selesai, Fase 4 jalan).
+
+**Keputusan:**
+- Protokol hanya snapshot lengkap per perangkat, dikirim ulang setelah setiap perubahan, tanpa pesan parsial dan tanpa topic. Satu antrean di server untuk semua perubahan.
+- `flow.ts` murni + `LiveGame` dites dengan database, sebagai pengganti `game.ts` murni di rencana awal.
+- Bom hanya bisa dimainkan dari `/screen` di browser yang sudah membuka GM. `/screen` di perangkat lain hanya melihat.
+- Sisa waktu yang terpakai selama server mati tetap dihitung (timer dari `started_at`); GM bisa pause kalau perlu.
+- End game membatalkan giliran yang sedang berjalan (`voided`, tanpa skor). Sesi yang selesai tetap tampil di layar sampai sesi baru dibuat.
+- Bug ditemukan dan diperbaiki saat uji browser: HP yang baru bergabung kembali ke form karena membaca snapshot identitas lama. Snapshot sekarang ditandai dengan `hello` yang memintanya.
+- Bukti: `bun test` 67 lulus (6 file; folder `defuse-bank/` sudah dihapus user), typecheck 5 paket, build lulus, bundle web tanpa data bank, uji Playwright satu sesi penuh (lobby → DEFUSED +255 → tim kosong dilewati → BOOM −30 → leaderboard → Ronde 2) tanpa error console.
+
+**Berikutnya:**
+- User: uji dengan HP sungguhan (selisih timer, matikan Wi-Fi 10 detik), restart `bun run dev` karena ada migrasi baru.
+- Fase 5: Bet (kunci saat Start), Sabotage, twist.
+
 ## 2026-11-03 · Fase 3 dikerjakan (branch `fase-3-manual-hp`)
 
 **Perubahan:**

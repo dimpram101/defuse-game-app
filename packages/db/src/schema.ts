@@ -49,8 +49,19 @@ export const turns = pgTable("turns", {
   startedAt: timestamp("started_at", { withTimezone: true }),
   durationSec: smallint("duration_sec").notNull(),
   pausedMs: integer("paused_ms").notNull().default(0),
-  currentModule: smallint("current_module").notNull().default(1),
-  strikes: smallint("strikes").notNull().default(0),
+  // Set while paused, so a restart during a pause keeps the remaining time.
+  pausedAt: timestamp("paused_at", { withTimezone: true }),
+  endedAt: timestamp("ended_at", { withTimezone: true }),
+  // "Switch Defuser" notice after a module is shown until this moment (informational only).
+  handoverUntil: timestamp("handover_until", { withTimezone: true }),
+  // Module, strikes, cut wires and symbol progress (BombState from @defuse/shared).
+  bombState: jsonb("bomb_state").$type<{
+    module: 1 | 2 | 3;
+    strikes: number;
+    cut: number[];
+    symbolProgress: number;
+    status: "playing" | "defused" | "boom";
+  }>(),
   defuserIds: jsonb("defuser_ids").$type<number[]>(),
 });
 

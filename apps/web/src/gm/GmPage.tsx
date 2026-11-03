@@ -1,8 +1,9 @@
-import { TEAM_COLORS, TEAM_NAME_MAX, type NewTeam, type PublicGame, type TeamColor } from "@defuse/shared";
+import type { GameView, GmNext, GmSnapshot, NewTeam, TeamColor } from "@defuse/shared";
+import { PHASE_LABELS, TEAM_COLORS, TEAM_NAME_MAX } from "@defuse/shared/api";
 import { useEffect, useState, type FormEvent, type ReactNode } from "react";
 import { api, ApiError } from "../lib/api";
 import { GM_TOKEN, storage } from "../lib/storage";
-import { useActiveGame } from "../lib/useActiveGame";
+import { clock, useCountdown, useLive } from "../lib/live";
 import { Button, inputClass, teamBg, TeamDot } from "../ui";
 
 const COLOR_NAMES: Record<TeamColor, string> = {
@@ -157,93 +158,175 @@ function NewSessionForm({ token, onCreated, onCancel, onLocked }: {
   );
 }
 
-function SessionSummary({ game, onNew }: { game: PublicGame; onNew: () => void }) {
-  const [confirming, setConfirming] = useState(false);
-  const total = game.teams.reduce((n, t) => n + t.players.length, 0);
+const MODULE_NAMES = ["Wires", "Strange Symbols", "Say the Word"];
+
+function nextLabel(next: GmNext, game: GameView | null) {
+  const team = (id: number) => game?.teams.find((t) => t.id === id)?.name ?? "next team";
+  switch (next.kind) {
+    case "open_turn": return `Call up ${team(next.teamId)}`;
+    case "start_turn": return "Start the bomb";
+    case "leaderboard": return "Show leaderboard";
+    case "next_round": return `Start ${PHASE_LABELS[next.phase]}`;
+    case "finish": return "Finish the game";
+    default: return next.reason;
+  }
+}
+
+function Group({ title, children }: { title: string; children: ReactNode }) {
+  return (
+    <section className="rounded-lg border border-outline bg-surface p-4">
+      <h2 className="text-xs font-semibold tracking-[0.08em] text-on-surface-muted">{title}</h2>
+      <div className="mt-3">{children}</div>
+    </section>
+  );
+}
+
+function Confirm({ label, question, detail, confirmLabel, onConfirm }: {
+  label: string; question: string; detail: string; confirmLabel: string; onConfirm: () => void;
+}) {
+  const [open, setOpen] = useState(false);
+  if (!open) return <Button variant="secondary" className="w-full" onClick={() => setOpen(true)}>{label}</Button>;
+  return (
+    <div role="alertdialog" aria-label={question} className="rounded-lg border border-error-container p-4">
+      <p className="font-semibold">{question}</p>
+      <p className="mt-1 text-on-surface-muted">{detail}</p>
+      <div className="mt-4 grid gap-3 sm:grid-cols-2">
+        <Button variant="danger" onClick={() => { setOpen(false); onConfirm(); }}>{confirmLabel}</Button>
+        <Button variant="secondary" onClick={() => setOpen(false)}>Cancel</Button>
+      </div>
+    </div>
+  );
+}
+
+function Control({ token, onLocked }: { token: string; onLocked: () => void }) {
+  const { snapshot, receivedAt, connected, error, send } = useLive<GmSnapshot>({ type: "hello", role: "gm", gmToken: token });
+  const [creating, setCreating] = useState(false);
+  const game = snapshot?.game ?? null;
+  const turn = game?.turn ?? null;
+  const ms = useCountdown(turn?.timer, receivedAt);
+
+  useEffect(() => {
+    if (error === "Enter the GM PIN again.") onLocked();
+  }, [error]);
+
+  if (!snapshot) return <p className="text-on-surface-muted">Connecting to the game server…</p>;
+  if (creating || !game)
+    return (
+      <NewSessionForm
+        token={token}
+        onLocked={onLocked}
+        onCancel={game ? () => setCreating(false) : undefined}
+        onCreated={() => setCreating(false)}
+      />
+    );
+
+  const team = turn ? game.teams.find((t) => t.id === turn.teamId) : undefined;
+  const live = turn && ["betting", "playing", "paused"].includes(turn.status);
+  const nextDisabled = snapshot.next.kind === "none";
 
   return (
-    <section>
-      <h1 className="font-display text-[32px] font-semibold">Session #{game.id}</h1>
-      <p className="mt-2 text-on-surface-muted">
-        Status <span className="font-mono text-on-surface">{game.status}</span> · {total} joined
-      </p>
-      <p className="mt-1 text-on-surface-muted">
-        Join link <span className="font-mono [overflow-wrap:anywhere] text-on-surface">{game.joinUrl}</span>
-      </p>
+    <div className="flex flex-col gap-6">
+      <header>
+        <p className="text-sm text-on-surface-muted">Session #{game.id}{connected ? "" : " · reconnecting…"}</p>
+        <h1 className="font-display text-[32px] leading-tight font-semibold">
+          {PHASE_LABELS[game.phase]} <span className="text-on-surface-muted">· {game.status}</span>
+        </h1>
+      </header>
 
-      <ul className="mt-6 grid gap-4 sm:grid-cols-2">
-        {game.teams.map((t) => (
-          <li key={t.id} className="rounded-lg border border-outline bg-surface p-4">
-            <h2 className="flex items-center gap-3 font-display text-[22px] font-semibold">
-              <TeamDot color={t.color} />
-              <span className="min-w-0 truncate">{t.name}</span>
-              <span className="ml-auto font-mono text-base text-on-surface-muted">{t.players.length}</span>
-            </h2>
-            <ol className="mt-3 flex flex-col gap-1 text-base">
-              {t.players.length === 0 && <li className="text-on-surface-muted">No one has joined yet.</li>}
-              {t.players.map((p) => <li key={p.id} className="truncate">{p.nickname}</li>)}
-            </ol>
-          </li>
-        ))}
-      </ul>
+      {snapshot.warnings.length > 0 && (
+        <ul role="status" className="flex flex-col gap-2">
+          {snapshot.warnings.map((w) => (
+            <li key={w} className="rounded-md border border-outline-strong bg-surface-raised px-4 py-3">{w}</li>
+          ))}
+        </ul>
+      )}
 
-      <div className="mt-10 border-t border-outline pt-6">
-        {!confirming ? (
-          <Button variant="secondary" onClick={() => setConfirming(true)}>Start a new session…</Button>
-        ) : (
-          <div role="alertdialog" aria-labelledby="end-title" className="rounded-lg border border-error-container bg-surface p-4">
-            <p id="end-title" className="font-semibold">End session #{game.id}?</p>
-            <p className="mt-1 text-on-surface-muted">Everyone who joined has to scan the QR code and join again.</p>
-            <div className="mt-4 flex flex-col gap-3 sm:flex-row">
-              <Button variant="danger" onClick={onNew}>Yes, set up a new one</Button>
-              <Button variant="secondary" onClick={() => setConfirming(false)}>Cancel</Button>
-            </div>
+      <Group title="FLOW">
+        {live && team && turn && (
+          <div className="mb-4 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
+            <p className="flex items-center gap-2 font-display text-[22px] font-semibold">
+              <TeamDot color={team.color} /> {team.name} <span className="text-on-surface-muted">· turn {turn.number}</span>
+            </p>
+            {turn.status !== "betting" && (
+              <p className="font-mono text-lg tabular-nums">
+                {clock(ms)} · module {turn.module} · {turn.strikes}/3 strikes
+                {turn.timer.paused ? " · PAUSED" : turn.timer.handoverMs !== null ? " · switching Defuser" : ""}
+              </p>
+            )}
           </div>
         )}
-      </div>
-    </section>
+        {turn && turn.defusers.length > 0 && live && (
+          <ol className="mb-4 grid gap-1 text-on-surface-muted sm:grid-cols-3">
+            {turn.defusers.map((d) => (
+              <li key={d.module} className={d.module === turn.module ? "text-on-surface" : ""}>
+                {MODULE_NAMES[d.module - 1]}: <span className="font-semibold">{d.nickname}</span>
+              </li>
+            ))}
+          </ol>
+        )}
+        <div className="grid gap-3 sm:grid-cols-2">
+          <Button disabled={nextDisabled} onClick={() => send({ type: "gm", command: "next" })}>
+            {nextLabel(snapshot.next, game)}
+          </Button>
+          {turn?.status === "playing" && <Button variant="secondary" onClick={() => send({ type: "gm", command: "pause" })}>Pause timer</Button>}
+          {turn?.status === "paused" && <Button variant="secondary" onClick={() => send({ type: "gm", command: "resume" })}>Resume timer</Button>}
+        </div>
+        {error && error !== "Enter the GM PIN again." && <p role="alert" className="mt-3 text-error">{error}</p>}
+      </Group>
+
+      <Group title="TEAMS">
+        <ul className="flex flex-col gap-4">
+          {[...game.teams].sort((a, b) => b.score - a.score).map((t) => (
+            <li key={t.id}>
+              <p className="flex items-center gap-3 font-display text-[20px] font-semibold">
+                <TeamDot color={t.color} />
+                <span className="min-w-0 flex-1 truncate">{t.name}</span>
+                <span className="font-mono">{t.score}</span>
+              </p>
+              <p className="mt-1 text-sm text-on-surface-muted">
+                {t.players.length === 0
+                  ? "No players yet."
+                  : t.players.map((p) => `${p.nickname}${p.online ? "" : " (offline)"}`).join(", ")}
+              </p>
+            </li>
+          ))}
+        </ul>
+        <p className="mt-4 text-sm text-on-surface-muted">Join link <span className="font-mono [overflow-wrap:anywhere] text-on-surface">{game.joinUrl}</span></p>
+      </Group>
+
+      {/* Destructive actions sit apart from the flow buttons (DESIGN.md › gm-group-gap) and always ask first. */}
+      <section aria-label="Session" className="mt-6 flex flex-col gap-3 border-t border-outline pt-6">
+        {game.status !== "finished" && (
+          <Confirm
+            label="End game…"
+            question="End the game now?"
+            detail="A turn that is still running won't score. The final standings stay on the screen."
+            confirmLabel="Yes, end the game"
+            onConfirm={() => send({ type: "gm", command: "end" })}
+          />
+        )}
+        <Confirm
+          label="New session…"
+          question={`Replace session #${game.id}?`}
+          detail="Everyone who joined has to scan the QR code and join again. Scores of this session are kept in the database but no longer shown."
+          confirmLabel="Yes, set up a new one"
+          onConfirm={() => setCreating(true)}
+        />
+      </section>
+    </div>
   );
 }
 
 export function GmPage() {
   const [token, setToken] = useState<string | null>(() => storage.get(GM_TOKEN));
-  const [verified, setVerified] = useState(false);
-  const [creating, setCreating] = useState(false);
-  const [active, refresh] = useActiveGame();
-
   const lock = () => {
     storage.remove(GM_TOKEN);
     setToken(null);
-    setVerified(false);
   };
-
-  useEffect(() => {
-    if (!token) return;
-    api("/api/gm/check", { headers: { authorization: `Bearer ${token}` } })
-      .then(() => setVerified(true))
-      .catch((e) => { if (e instanceof ApiError && e.status === 401) lock(); });
-  }, [token]);
-
-  if (!token) return <PinForm onUnlocked={(t) => { setToken(t); setVerified(true); }} />;
-  if (!verified || active.state === "loading") return <Shell><p className="text-on-surface-muted">Loading…</p></Shell>;
-
+  if (!token) return <PinForm onUnlocked={setToken} />;
   return (
     <Shell>
-      {active.state === "offline" && (
-        <p role="alert" className="mb-6 rounded-md border border-error-container bg-surface p-4">
-          Can't reach the server. Retrying every few seconds.
-        </p>
-      )}
-      {active.state === "ready" && !creating ? (
-        <SessionSummary game={active.game} onNew={() => setCreating(true)} />
-      ) : active.state !== "offline" || creating ? (
-        <NewSessionForm
-          token={token}
-          onLocked={lock}
-          onCancel={active.state === "ready" ? () => setCreating(false) : undefined}
-          onCreated={() => { setCreating(false); refresh(); }}
-        />
-      ) : null}
+      <Control token={token} onLocked={lock} />
     </Shell>
   );
 }

@@ -3,7 +3,9 @@
   "private": true,
   "type": "module",
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./src/index.ts",
+    "./api": "./src/api.ts",
+    "./play": "./src/play.ts"
   },
   "scripts": {
     "typecheck": "tsc -p .",
