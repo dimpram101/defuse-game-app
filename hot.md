@@ -2,6 +2,12 @@
 
 Entri terbaru di atas. Format ada di `CLAUDE.md` bagian "Aturan proyek".
 
+## 2026-11-05 · Dev server pindah ke port 3001
+
+**Perubahan:** `apps/web/vite.config.ts` (proxy `/api`, `/health`, `/ws` ke 3001), `.env` dan `.env.example` (`PORT=3001`), `docs/phases/01-fondasi.md` (catatan port).
+**Keputusan:** Halaman stuck di "Connecting" karena port 3000 dipakai `nuxt dev` dari proyek lain (erp-web-frontend), jadi proxy Vite menembak server yang salah dan WebSocket tidak pernah tersambung. Default dev dipindah ke 3001; produksi (Docker/Caddy) tetap 3000.
+**Berikutnya:** Restart `bun run dev` agar proxy Vite memakai port baru.
+
 ## 2026-11-04 · Fase 6: Final dan alat GM
 
 **Perubahan:**
