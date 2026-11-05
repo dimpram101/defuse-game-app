@@ -5,6 +5,7 @@ import { api, ApiError } from "../lib/api";
 import { GM_TOKEN, storage } from "../lib/storage";
 import { clock, useCountdown, useLive } from "../lib/live";
 import { Button, inputClass, teamBg, TeamDot } from "../ui";
+import { Awards, Confirm, Group, Penalties, Players, Scores, ScreenTools, TalkBonus } from "./GmTools";
 
 const COLOR_NAMES: Record<TeamColor, string> = {
   "team-1": "Orange",
@@ -166,36 +167,10 @@ function nextLabel(next: GmNext, game: GameView | null) {
     case "open_turn": return `Call up ${team(next.teamId)}`;
     case "start_turn": return "Start the bomb";
     case "leaderboard": return "Show leaderboard";
-    case "next_round": return `Start ${roundLabel(next.phase, next.round)}`;
+    case "next_round": return next.phase === "final" ? "Start the Final" : `Start ${roundLabel(next.phase, next.round)}`;
     case "finish": return "Finish the game";
     default: return next.reason;
   }
-}
-
-function Group({ title, children }: { title: string; children: ReactNode }) {
-  return (
-    <section className="rounded-lg border border-outline bg-surface p-4">
-      <h2 className="text-xs font-semibold tracking-[0.08em] text-on-surface-muted">{title}</h2>
-      <div className="mt-3">{children}</div>
-    </section>
-  );
-}
-
-function Confirm({ label, question, detail, confirmLabel, onConfirm }: {
-  label: string; question: string; detail: string; confirmLabel: string; onConfirm: () => void;
-}) {
-  const [open, setOpen] = useState(false);
-  if (!open) return <Button variant="secondary" className="w-full" onClick={() => setOpen(true)}>{label}</Button>;
-  return (
-    <div role="alertdialog" aria-label={question} className="rounded-lg border border-error-container p-4">
-      <p className="font-semibold">{question}</p>
-      <p className="mt-1 text-on-surface-muted">{detail}</p>
-      <div className="mt-4 grid gap-3 sm:grid-cols-2">
-        <Button variant="danger" onClick={() => { setOpen(false); onConfirm(); }}>{confirmLabel}</Button>
-        <Button variant="secondary" onClick={() => setOpen(false)}>Cancel</Button>
-      </div>
-    </div>
-  );
 }
 
 function Control({ token, onLocked }: { token: string; onLocked: () => void }) {
@@ -268,14 +243,26 @@ function Control({ token, onLocked }: { token: string; onLocked: () => void }) {
           <Button disabled={nextDisabled} onClick={() => send({ type: "gm", command: "next" })}>
             {nextLabel(snapshot.next, game)}
           </Button>
+          {snapshot.next.kind === "next_round" && snapshot.next.finalOrder && (
+            <Button variant="secondary" onClick={() => send({ type: "gm", command: "final_top2" })}>
+              Final with the top 2 only
+            </Button>
+          )}
           {snapshot.next.kind === "next_round" && snapshot.next.extraRound !== null && (
             <Button variant="secondary" onClick={() => send({ type: "gm", command: "extra_round" })}>
               Start Round {snapshot.next.extraRound} instead
             </Button>
           )}
+          <TalkBonus snapshot={snapshot} send={send} />
           {turn?.status === "playing" && <Button variant="secondary" onClick={() => send({ type: "gm", command: "pause" })}>Pause timer</Button>}
           {turn?.status === "paused" && <Button variant="secondary" onClick={() => send({ type: "gm", command: "resume" })}>Resume timer</Button>}
         </div>
+        {snapshot.next.kind === "next_round" && snapshot.next.finalOrder && (
+          <p className="mt-3 text-on-surface-muted">
+            Final order, lowest score first: {snapshot.next.finalOrder.all.map((id) => game.teams.find((t) => t.id === id)?.name).join(", ")}.
+            {" "}Top 2 only: {snapshot.next.finalOrder.top2.map((id) => game.teams.find((t) => t.id === id)?.name).join(", ")}. Use it when the event runs late.
+          </p>
+        )}
         {snapshot.next.kind === "next_round" && snapshot.next.extraRound !== null && (
           <p className="mt-3 text-on-surface-muted">Round {snapshot.next.extraRound} uses the Round 2 bomb and manual. The Final can still come after it.</p>
         )}
@@ -324,28 +311,23 @@ function Control({ token, onLocked }: { token: string; onLocked: () => void }) {
         </Group>
       )}
 
-      <Group title="TEAMS">
-        <ul className="flex flex-col gap-4">
-          {[...game.teams].sort((a, b) => b.score - a.score).map((t) => (
-            <li key={t.id}>
-              <p className="flex items-center gap-3 font-display text-[20px] font-semibold">
-                <TeamDot color={t.color} />
-                <span className="min-w-0 flex-1 truncate">{t.name}</span>
-                <span className="font-mono">{t.score}</span>
-              </p>
-              <p className="mt-1 text-sm text-on-surface-muted">
-                {t.players.length === 0
-                  ? "No players yet."
-                  : t.players.map((p) => `${p.nickname}${p.online ? "" : " (offline)"}`).join(", ")}
-              </p>
-            </li>
-          ))}
-        </ul>
-        <p className="mt-4 text-sm text-on-surface-muted">Join link <span className="font-mono [overflow-wrap:anywhere] text-on-surface">{game.joinUrl}</span></p>
-      </Group>
+      <Penalties game={game} send={send} />
+      <Scores snapshot={snapshot} send={send} />
+      <Players game={game} send={send} />
+      <ScreenTools snapshot={snapshot} send={send} />
+      {(game.phase === "final" || game.status === "finished") && <Awards game={game} send={send} />}
 
       {/* Destructive actions sit apart from the flow buttons (DESIGN.md › gm-group-gap) and always ask first. */}
       <section aria-label="Session" className="mt-6 flex flex-col gap-3 border-t border-outline pt-6">
+        {turn && team && game.status !== "finished" && turn.status !== "voided" && (
+          <Confirm
+            label={`Replay turn ${turn.number}…`}
+            question={`Void turn ${turn.number} and give ${team.name} a new bomb?`}
+            detail="For a system error. Points from this turn are removed (hint penalties and corrections stay), and spectators bet again."
+            confirmLabel="Yes, replay with a new bomb"
+            onConfirm={() => send({ type: "gm_replay" })}
+          />
+        )}
         {game.status !== "finished" && (
           <Confirm
             label="End game…"

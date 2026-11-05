@@ -1,4 +1,4 @@
-import type { GameView, ScreenSnapshot, TeamView, TwistView } from "@defuse/shared";
+import type { BombReview, GameView, ScreenSnapshot, TeamView, TwistView } from "@defuse/shared";
 import { roundLabel, TWISTS } from "@defuse/shared/api";
 import { QRCodeSVG } from "qrcode.react";
 import { BombBoard } from "../bomb/BombBoard";
@@ -9,6 +9,7 @@ import { PracticeBomb } from "./PracticeBomb";
 import { HandoverToast } from "./HandoverToast";
 import { ResultBanner } from "./ResultBanner";
 import { Stage } from "./Stage";
+import { useSound } from "./sound";
 
 function Wordmark() {
   return (
@@ -29,7 +30,7 @@ function Notice({ title, detail }: { title: string; detail: string }) {
   );
 }
 
-function Lobby({ game }: { game: GameView }) {
+function Lobby({ game, sound }: { game: GameView; sound: ReturnType<typeof useSound> }) {
   const joinedCount = game.teams.reduce((n, t) => n + t.players.length, 0);
   const display = game.joinUrl.replace(/^https?:\/\//, "");
 
@@ -66,6 +67,15 @@ function Lobby({ game }: { game: GameView }) {
         </div>
         <p className="mt-6 font-mono text-2xl break-all text-on-surface">{display}</p>
         <p className="mt-6 text-2xl leading-snug text-on-surface-muted">Enter your nickname, then pick your team.</p>
+        {game.soundOn && (
+          sound.enabled
+            ? <p className="mt-8 text-xl text-on-surface-muted">Sound is on.</p>
+            : (
+              <button onClick={sound.enable} className="mt-8 h-16 rounded-md border border-outline-strong bg-surface px-6 text-2xl font-semibold active:bg-surface-raised">
+                Enable sound
+              </button>
+            )
+        )}
       </aside>
     </div>
   );
@@ -105,6 +115,12 @@ function UpNext({ game }: { game: GameView }) {
           <TeamDot color={team.color} className="size-16" />
           <span className="truncate">{team.name}</span>
         </h1>
+        {game.turn!.phase === "final" && game.turn!.firstInRound && (
+          <section role="status" className="rounded-lg border-2 border-primary bg-surface px-8 py-6">
+            <p className="font-display text-screen-lg leading-none font-bold text-primary">New intel from HQ!</p>
+            <p className="mt-4 text-screen-body">Some rules in the manual have changed. Experts, look for the NEW tags on your phones and read again.</p>
+          </section>
+        )}
         <p className="text-screen-body">Step up! The first Defuser goes to the laptop. Experts sit with their backs to the screen.</p>
         {watchers.length > 0 && (
           <div>
@@ -139,6 +155,16 @@ function Leaderboard({ game }: { game: GameView }) {
       </h1>
       {finished && winner && <p className="font-display text-screen-lg font-bold text-primary">{winner.name} wins!</p>}
       <Standings teams={game.teams} highlight />
+      {finished && (game.awards.bestDefuser || game.awards.bestExpert) && (
+        <dl className="grid grid-cols-2 gap-6">
+          {([["Best Defuser", game.awards.bestDefuser], ["Best Expert", game.awards.bestExpert]] as const).map(([title, name]) => name && (
+            <div key={title} className="rounded-lg bg-surface px-8 py-6">
+              <dt className="font-display text-screen-md font-semibold text-on-surface-muted">{title}</dt>
+              <dd className="mt-2 truncate font-display text-screen-lg font-bold">{name}</dd>
+            </div>
+          ))}
+        </dl>
+      )}
     </div>
   );
 }
@@ -235,15 +261,45 @@ function LiveBomb({ snap, receivedAt, send }: { snap: ScreenSnapshot; receivedAt
   );
 }
 
+/** A finished bomb shown again from its seed, read-only, to settle a dispute (FR-35). */
+function Review({ review, teams }: { review: BombReview; teams: TeamView[] }) {
+  const team = teams.find((t) => t.id === review.turn.teamId);
+  return (
+    <BombBoard
+      title={
+        <>
+          {team && <TeamDot color={team.color} className="size-7" />}
+          <span className="truncate">{team?.name}</span>
+          <span className="shrink-0 text-on-surface-muted">· {roundLabel(review.turn.phase, review.turn.round)} · replay</span>
+        </>
+      }
+      view={review.bomb.view}
+      state={review.bomb.state}
+      serial={`TURN ${String(review.turn.number).padStart(2, "0")}`}
+      timerMs={review.turn.remainingMs}
+      timerMode="stopped"
+      aside={
+        <p className="mt-auto text-2xl text-on-surface-muted">
+          The bomb of turn {review.turn.number} as it ended: {review.turn.status === "defused" ? "DEFUSED" : "BOOM"}, {review.bomb.state.strikes} {review.bomb.state.strikes === 1 ? "strike" : "strikes"}. Same seed, same wires, symbols and words.
+        </p>
+      }
+    />
+  );
+}
+
 function Live() {
   const gmToken = storage.get(GM_TOKEN) ?? undefined;
   const { snapshot, receivedAt, connected, error, send } = useLive<ScreenSnapshot>({ type: "hello", role: "screen", gmToken });
   const game = snapshot?.game;
+  const ms = useCountdown(game?.turn?.timer, receivedAt);
+  const sound = useSound(game, game?.turn ? ms : null);
+  const bombOn = game?.status === "playing" || game?.status === "paused";
 
   let body;
   if (!snapshot) body = <Notice title="Connecting…" detail="Opening a live connection to the game server." />;
   else if (!game) body = <Notice title="Waiting for the Game Master" detail="The QR code appears here once the teams are set up in /gm." />;
-  else if (game.status === "lobby") body = <Lobby game={game} />;
+  else if (snapshot.review && !bombOn) body = <Review review={snapshot.review} teams={game.teams} />;
+  else if (game.status === "lobby") body = <Lobby game={game} sound={sound} />;
   else if (game.status === "betting") body = <UpNext game={game} />;
   else if (snapshot.bomb && game.turn && ["playing", "paused", "result"].includes(game.status))
     body = <LiveBomb snap={snapshot} receivedAt={receivedAt} send={send} />;
@@ -256,6 +312,11 @@ function Live() {
         <p role="status" className="absolute top-4 right-12 rounded-md bg-error-container px-4 py-2 text-xl font-semibold text-on-error-container">
           Reconnecting…
         </p>
+      )}
+      {game && game.status !== "lobby" && game.soundOn && !sound.enabled && (
+        <button onClick={sound.enable} className="absolute right-12 bottom-4 h-12 rounded-md border border-outline-strong bg-surface px-4 text-xl font-semibold active:bg-surface-raised">
+          Enable sound
+        </button>
       )}
       {error && (
         <p role="alert" className="absolute bottom-4 left-12 rounded-md bg-surface-raised px-4 py-2 text-xl">

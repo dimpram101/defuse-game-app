@@ -41,7 +41,8 @@ export type Outcome = "correct" | "wrong" | "ignored";
 
 export const newBombState = (): BombState => ({ module: 1, strikes: 0, cut: [], symbolProgress: 0, status: "playing" });
 
-const strike = (s: BombState): BombState => {
+/** One more strike; the third one is BOOM. */
+export const strike = (s: BombState): BombState => {
   const strikes = s.strikes + 1;
   return { ...s, strikes, status: strikes >= MAX_STRIKES ? "boom" : "playing" };
 };

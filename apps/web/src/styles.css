@@ -57,6 +57,9 @@
     outline: 3px solid var(--color-primary);
     outline-offset: 2px;
   }
+  button:not(:disabled), select:not(:disabled), label:has(> input:not(:disabled)) {
+    cursor: pointer;
+  }
 }
 
 /* Only two things glow (DESIGN.md › Elevation): the active module and the timer in its last 30 seconds. */

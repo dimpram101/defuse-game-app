@@ -159,20 +159,20 @@ describe("extra rounds", () => {
     await g.say({ type: "hello", role: "gm", gmToken: token });
 
     await timeOutRound(g);
-    expect(g.last<GmSnapshot>().next).toEqual({ kind: "next_round", round: 2, phase: "round2", extraRound: null });
+    expect(g.last<GmSnapshot>().next).toEqual({ kind: "next_round", round: 2, phase: "round2", extraRound: null, finalOrder: null });
     await g.say({ type: "gm", command: "extra_round" });
     expect(g.errors()).toEqual(["An extra round can only start from the leaderboard after Round 2."]);
     await g.say({ type: "gm", command: "next" });
     await timeOutRound(g);
 
-    expect(g.last<GmSnapshot>().next).toEqual({ kind: "next_round", round: 3, phase: "final", extraRound: 3 });
+    expect(g.last<GmSnapshot>().next).toMatchObject({ kind: "next_round", round: 3, phase: "final", extraRound: 3 });
     await g.say({ type: "gm", command: "extra_round" });
     expect(g.last<GmSnapshot>().game).toMatchObject({
       phase: "round2", round: 3, status: "betting", turn: { phase: "round2", round: 3, timer: { durationMs: 180_000 } },
     });
     await timeOutRound(g);
 
-    expect(g.last<GmSnapshot>().next).toEqual({ kind: "next_round", round: 4, phase: "final", extraRound: 4 });
+    expect(g.last<GmSnapshot>().next).toMatchObject({ kind: "next_round", round: 4, phase: "final", extraRound: 4 });
     await g.say({ type: "gm", command: "next" });
     expect(g.last<GmSnapshot>().game).toMatchObject({
       phase: "final", round: 4, turn: { phase: "final", round: 4, timer: { durationMs: 150_000 } },
@@ -505,3 +505,171 @@ async function radioSeed() {
   const [row] = await db.select({ twists: schema.turns.twists }).from(schema.turns).orderBy(desc(schema.turns.id)).limit(1);
   return row!.twists.find((t) => t.type === "radio_interference")!.seed;
 }
+
+describe("GM tools", () => {
+  async function gmDevice() {
+    const g = device("gm");
+    await g.say({ type: "hello", role: "gm", gmToken: token });
+    return g;
+  }
+  const score = (g: ReturnType<typeof device>, teamId: number) => g.last<GmSnapshot>().game!.teams.find((t) => t.id === teamId)!.score;
+  const turnOf = (g: ReturnType<typeof device>) => g.last<GmSnapshot>().game!.turn!;
+
+  test("Final: order from the lowest score, fixed at the start; top 2 only plays the two best", async () => {
+    const { teamIds } = await setup();
+    await joinPlayer(db, { nickname: "Eka", teamId: teamIds[1]! });
+    await live.changed();
+    const [red, empty, comets] = teamIds as [number, number, number];
+    const g = await gmDevice();
+    await g.say({ type: "gm_correction", teamId: red, points: 100, note: "test" });
+    await g.say({ type: "gm_correction", teamId: comets, points: 10, note: "test" });
+    await timeOutRound(g);
+    await g.say({ type: "gm", command: "next" });
+    await timeOutRound(g);
+
+    expect(g.last<GmSnapshot>().next).toMatchObject({ phase: "final", finalOrder: { all: [empty, comets, red], top2: [comets, red] } });
+    await g.say({ type: "gm", command: "final_top2" });
+    expect(turnOf(g)).toMatchObject({ teamId: comets, phase: "final", firstInRound: true });
+    // Scores changing during the Final don't reorder it.
+    await g.say({ type: "gm_correction", teamId: comets, points: 500, note: "test" });
+    await g.say({ type: "gm", command: "next" });
+    clock += 200_000;
+    await live.tick();
+    await g.say({ type: "gm", command: "next" });
+    expect(turnOf(g)).toMatchObject({ teamId: red, firstInRound: false });
+    await g.say({ type: "gm", command: "next" });
+    clock += 200_000;
+    await live.tick();
+    await g.say({ type: "gm", command: "next" });
+    expect(g.last<GmSnapshot>().game!.status).toBe("leaderboard");
+    expect(g.last<GmSnapshot>().next).toEqual({ kind: "finish" });
+  });
+
+  test("penalties: 10 s off, +1 strike (the third one BOOMs, even while paused), −20 to a watching team", async () => {
+    const { teamIds } = await setup();
+    const [red, , comets] = teamIds as [number, number, number];
+    const g = await gmDevice();
+    await g.say({ type: "gm_penalty", penalty: "english" });
+    expect(g.errors()).toEqual(["This penalty needs a bomb that has started."]);
+    await g.say({ type: "gm", command: "next" });
+    await g.say({ type: "gm", command: "next" });
+
+    clock += 20_000;
+    await g.say({ type: "gm_penalty", penalty: "english" });
+    expect(turnOf(g).timer.remainingMs).toBe(150_000);
+    await g.say({ type: "gm_penalty", penalty: "hint", teamId: red });
+    expect(g.errors().at(-1)).toBe("Red Panda is playing. This penalty is for watching teams.");
+    await g.say({ type: "gm_penalty", penalty: "hint", teamId: comets });
+    expect(score(g, comets)).toBe(-20);
+
+    await g.say({ type: "gm_penalty", penalty: "peeking" });
+    await g.say({ type: "gm_penalty", penalty: "peeking" });
+    expect(turnOf(g)).toMatchObject({ strikes: 2, status: "playing" });
+    await g.say({ type: "gm", command: "pause" });
+    clock += 60_000;
+    await g.say({ type: "gm_penalty", penalty: "peeking" });
+    expect(turnOf(g)).toMatchObject({ status: "boom", strikes: 3, timer: { remainingMs: 150_000 } });
+    expect(score(g, red)).toBe(-60);
+    expect(g.last<GmSnapshot>().history.map((e) => [e.kind, e.points])).toEqual([
+      ["strike", -60], ["penalty_strike", 0], ["penalty_strike", 0], ["penalty_strike", 0], ["penalty_hint", -20], ["penalty_time", 0],
+    ]);
+  });
+
+  test("talk bonus once per turn at the result; corrections need points and a note", async () => {
+    const { teamIds } = await setup();
+    const red = teamIds[0]!;
+    const g = await gmDevice();
+    await g.say({ type: "gm", command: "next" });
+    await g.say({ type: "gm_talk_bonus" });
+    expect(g.errors()).toEqual(["The talk bonus is given at the result of a turn."]);
+    await g.say({ type: "gm", command: "next" });
+    clock += 200_000;
+    await live.tick();
+    await g.say({ type: "gm_talk_bonus" });
+    expect(g.last<GmSnapshot>().talkBonusGiven).toBe(true);
+    await g.say({ type: "gm_talk_bonus" });
+    expect(g.errors().at(-1)).toBe("This turn already got its talk bonus.");
+    expect(score(g, red)).toBe(30);
+
+    await g.say({ type: "gm_correction", teamId: red, points: 0, note: "x" });
+    await g.say({ type: "gm_correction", teamId: red, points: 5, note: "   " });
+    expect(g.errors().slice(-2)).toEqual(["Points must be a whole number from -1000 to 1000, not 0.", "Write why the score changes."]);
+    await g.say({ type: "gm_correction", teamId: red, points: -15, note: "Miscounted strike" });
+    expect(score(g, red)).toBe(15);
+    expect(g.last<GmSnapshot>().history[0]).toMatchObject({ kind: "correction", points: -15, note: "Miscounted strike", turnNumber: null });
+  });
+
+  test("replay voids the turn and leaves none of its points, except hint penalties and corrections", async () => {
+    const { teamIds } = await setup();
+    const [red, , comets] = teamIds as [number, number, number];
+    const g = await gmDevice();
+    await g.say({ type: "gm", command: "next" });
+    await g.say({ type: "gm", command: "next" });
+    await g.say({ type: "gm_penalty", penalty: "hint", teamId: comets });
+    for (let i = 0; i < 3; i++) await g.say({ type: "gm_penalty", penalty: "peeking" });
+    await g.say({ type: "gm_talk_bonus" });
+    expect(score(g, red)).toBe(-30);
+    const old = turnOf(g).id;
+
+    await g.say({ type: "gm_replay" });
+    expect(turnOf(g)).toMatchObject({ teamId: red, status: "betting", number: 2, firstInRound: true });
+    expect(turnOf(g).id).not.toBe(old);
+    expect(score(g, red)).toBe(0);
+    expect(score(g, comets)).toBe(-20);
+    const [row] = await db.execute<{ status: string }>(sql`select status from turns where id = ${old}`);
+    expect(row!.status).toBe("voided");
+  });
+
+  test("show a finished bomb again on /screen; moving on hides it", async () => {
+    await setup();
+    const g = await gmDevice();
+    const screen = device("screen");
+    await screen.say({ type: "hello", role: "screen" });
+    await g.say({ type: "gm", command: "next" });
+    await g.say({ type: "gm", command: "next" });
+    const first = turnOf(g).id;
+    await g.say({ type: "gm_review", turnId: first });
+    expect(g.errors()).toEqual(["Only a finished bomb can be shown again."]);
+    clock += 200_000;
+    await live.tick();
+
+    expect(g.last<GmSnapshot>().reviewable.map((t) => t.id)).toEqual([first]);
+    await g.say({ type: "gm_review", turnId: first });
+    expect(screen.last<ScreenSnapshot>().review).toMatchObject({ turn: { number: 1, status: "boom", remainingMs: 0 }, bomb: { state: { status: "boom" } } });
+    await g.say({ type: "gm", command: "next" });
+    expect(screen.last<ScreenSnapshot>().review).toBeNull();
+  });
+
+  test("players: reorder, move, delete; not while their team's bomb runs", async () => {
+    const { teamIds, red } = await setup();
+    const comets = teamIds[2]!;
+    const [ayu, bima, citra] = red.map((r) => r.me.player.id) as [number, number, number];
+    const g = await gmDevice();
+    const names = (teamId: number) => g.last<GmSnapshot>().game!.teams.find((t) => t.id === teamId)!.players.map((p) => p.nickname);
+
+    await g.say({ type: "gm_player", playerId: ayu, action: "down" });
+    expect(names(teamIds[0]!)).toEqual(["Bima", "Ayu", "Citra"]);
+    await g.say({ type: "gm_player", playerId: bima, action: "up" });
+    expect(names(teamIds[0]!)).toEqual(["Bima", "Ayu", "Citra"]);
+    await g.say({ type: "gm_player", playerId: citra, action: "move", teamId: comets });
+    expect(names(comets)).toEqual(["Dewi", "Citra"]);
+    await g.say({ type: "gm_player", playerId: bima, action: "delete" });
+    expect(names(teamIds[0]!)).toEqual(["Ayu"]);
+
+    await g.say({ type: "gm", command: "next" });
+    await g.say({ type: "gm", command: "next" });
+    await g.say({ type: "gm_player", playerId: ayu, action: "delete" });
+    await g.say({ type: "gm_player", playerId: citra, action: "move", teamId: teamIds[0]! });
+    expect(g.errors()).toEqual(["Wait until this team's bomb is finished.", "Wait until this team's bomb is finished."]);
+  });
+
+  test("awards and sound reach every screen", async () => {
+    await setup();
+    const g = await gmDevice();
+    const screen = device("screen");
+    await screen.say({ type: "hello", role: "screen" });
+    await g.say({ type: "gm_awards", bestDefuser: "  Ayu ", bestExpert: "" });
+    await g.say({ type: "gm_sound", on: false });
+    expect(screen.last<ScreenSnapshot>().game).toMatchObject({ awards: { bestDefuser: "Ayu", bestExpert: null }, soundOn: false });
+  });
+});

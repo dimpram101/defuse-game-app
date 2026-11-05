@@ -58,3 +58,16 @@ export type Me = {
 };
 
 export type NewTeam = { name: string; color: TeamColor };
+
+/** GM tools (concept › rules and score table). */
+export const ENGLISH_PENALTY_MS = 10_000;
+export const HINT_PENALTY = 20;
+export const TALK_BONUS = 30;
+export const CORRECTION_MAX = 1000;
+export const NOTE_MAX = 100;
+export const AWARD_MAX = 40;
+/**
+ * Score events that a replayed turn keeps: they are about what people did, not about that bomb.
+ * Everything else tied to the turn (bomb score, Bets, Sabotage cost, talk bonus, time and strike penalties) is removed.
+ */
+export const KEPT_ON_REPLAY = ["penalty_hint", "correction"];

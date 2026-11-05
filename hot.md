@@ -2,6 +2,25 @@
 
 Entri terbaru di atas. Format ada di `CLAUDE.md` bagian "Aturan proyek".
 
+## 2026-11-04 · Fase 6: Final dan alat GM
+
+**Perubahan:**
+- `packages/db`: migrasi `0006_final_and_gm_tools` (`games.final_team_ids`, `review_turn_id`, `best_defuser`, `best_expert`, `sound_on`).
+- `packages/shared`: konstanta alat GM dan `KEPT_ON_REPLAY` di `api.ts`; `strike` diekspor; protokol: `firstInRound`, `awards`, `soundOn`, `BombReview`, `GmNext.next_round.finalOrder`, `GmSnapshot.history/reviewable/reviewTurnId/talkBonusGiven`, perintah `final_top2`, pesan `gm_penalty`, `gm_talk_bonus`, `gm_correction`, `gm_replay`, `gm_review`, `gm_player`, `gm_awards`, `gm_sound`.
+- `apps/server`: `flow.ts` (`finalOrder`, antrean Final dari urutan tersimpan), `live.ts` (penalti, talk bonus, koreksi, replay, review bom, kelola pemain, juara, suara; riwayat skor dari `score_events`), validasi di `app.ts`. Tes baru di `flow.test.ts` dan `live.test.ts` ("GM tools").
+- `apps/web`: `gm/GmTools.tsx` (Penalties, Corrections + riwayat, Teams dengan edit pemain, Screen, Awards), `GmPage` (Final top 2, urutan Final, talk bonus, Replay turn), `screen/sound.ts` (WebAudio), `ScreenPage` (New intel, tampilan ulang bom, Best Defuser/Expert, Enable sound), `cursor: pointer` global di `styles.css`.
+- Dokumen: `docs/phases/06-final-perapian.md` (checklist, keputusan), `docs/README.md` (Fase 6 jalan).
+
+**Keputusan:**
+- Urutan Final dikunci saat Final dimulai. Penalti waktu/strike dicatat 0 poin supaya terlihat di riwayat. Replay menghapus poin giliran kecuali hint dan koreksi, dan mengembalikan biaya Sabotage. Suara disintesis, tanpa file aset.
+- Bukti: `bun test` 93 lulus, typecheck dan build lulus, Playwright alur penuh sampai layar juara tanpa error console.
+- `package.json` root sempat berisi "75" nyasar di baris pertama (bukan dari edit sesi ini); dikembalikan dengan `git checkout`.
+
+**Berikutnya:**
+- Restart `bun run dev` supaya migrasi `0006` jalan.
+- Dengarkan suara di proyektor/speaker; uji alat GM dengan HP sungguhan saat dry run.
+- Fase 7: uji dan hari-H.
+
 ## 2026-11-03 · Instruksi graphify di CLAUDE.md
 
 **Perubahan:** `CLAUDE.md` bagian "Aturan proyek": tambah aturan untuk selalu memakai graphify lebih dulu saat membaca codebase.

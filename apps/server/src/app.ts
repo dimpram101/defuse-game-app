@@ -1,7 +1,7 @@
 import { resolve, sep } from "node:path";
 import { Elysia, t } from "elysia";
 import { sql, type Db } from "@defuse/db";
-import { generateBomb, manualFor, NICKNAME_MAX, TEAM_COLORS, TEAM_NAME_MAX } from "@defuse/shared";
+import { generateBomb, manualFor, AWARD_MAX, CORRECTION_MAX, NICKNAME_MAX, NOTE_MAX, TEAM_COLORS, TEAM_NAME_MAX } from "@defuse/shared";
 import type { GmAuth } from "./gm-auth";
 import type { LiveGame } from "./live";
 import { createGame, findMe, getPublicGame, joinPlayer, LobbyError } from "./lobby";
@@ -22,7 +22,7 @@ const clientMessage = t.Union([
     gmToken: t.Optional(t.String({ maxLength: 200 })),
   }),
   t.Object({ type: t.Literal("defuser"), turnId: t.Integer(), action: defuserAction }),
-  t.Object({ type: t.Literal("gm"), command: t.UnionEnum(["next", "extra_round", "pause", "resume", "end"]) }),
+  t.Object({ type: t.Literal("gm"), command: t.UnionEnum(["next", "extra_round", "final_top2", "pause", "resume", "end"]) }),
   t.Object({ type: t.Literal("gm_twist"), twist: twistType }),
   t.Object({ type: t.Literal("gm_sabotage"), sabotageId: t.Integer(), approve: t.Boolean() }),
   t.Object({
@@ -31,6 +31,25 @@ const clientMessage = t.Union([
     strikes: t.Optional(t.Union([t.Literal(0), t.Literal(1), t.Literal(2)])),
   }),
   t.Object({ type: t.Literal("sabotage"), twist: twistType }),
+  t.Object({ type: t.Literal("gm_penalty"), penalty: t.UnionEnum(["english", "peeking", "hint"]), teamId: t.Optional(t.Integer()) }),
+  t.Object({ type: t.Literal("gm_talk_bonus") }),
+  t.Object({
+    type: t.Literal("gm_correction"),
+    teamId: t.Integer(),
+    points: t.Integer({ minimum: -CORRECTION_MAX, maximum: CORRECTION_MAX }),
+    // Longer notes are cut to NOTE_MAX by the server.
+    note: t.String({ maxLength: NOTE_MAX * 2 }),
+  }),
+  t.Object({ type: t.Literal("gm_replay") }),
+  t.Object({ type: t.Literal("gm_review"), turnId: t.Union([t.Integer(), t.Null()]) }),
+  t.Object({
+    type: t.Literal("gm_player"),
+    playerId: t.Integer(),
+    action: t.UnionEnum(["up", "down", "delete", "move"]),
+    teamId: t.Optional(t.Integer()),
+  }),
+  t.Object({ type: t.Literal("gm_awards"), bestDefuser: t.String({ maxLength: AWARD_MAX * 2 }), bestExpert: t.String({ maxLength: AWARD_MAX * 2 }) }),
+  t.Object({ type: t.Literal("gm_sound"), on: t.Boolean() }),
 ]);
 
 export function createApp({ db, gm, live, joinUrl, webDist }: Deps) {

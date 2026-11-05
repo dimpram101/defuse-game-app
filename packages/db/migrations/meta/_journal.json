@@ -43,6 +43,13 @@
       "when": 1793689214473,
       "tag": "0005_spectators",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1793763954206,
+      "tag": "0006_final_and_gm_tools",
+      "breakpoints": true
     }
   ]
 }

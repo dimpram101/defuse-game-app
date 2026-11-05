@@ -36,6 +36,8 @@
   "34": "PlayPage.tsx",
   "35": "LiveGame",
   "36": "PracticeBomb.tsx",
-  "37": "PracticeBomb",
-  "38": "Defuse! · Planning"
+  "37": "Spectator.tsx",
+  "38": "Defuse! · Planning",
+  "39": "shared/src/index.ts",
+  "40": "react"
 }

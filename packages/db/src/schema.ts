@@ -21,6 +21,13 @@ export const games = pgTable("games", {
   round: smallint("round").notNull().default(1),
   // No FK: turns references games, and the cycle isn't worth the migration ordering.
   currentTurnId: integer("current_turn_id"),
+  // Fixed when the Final starts: lowest score first, maybe only the top 2 teams. Null before the Final.
+  finalTeamIds: jsonb("final_team_ids").$type<number[]>(),
+  // A finished turn whose bomb /screen shows again, read-only, to settle a dispute.
+  reviewTurnId: integer("review_turn_id"),
+  bestDefuser: text("best_defuser"),
+  bestExpert: text("best_expert"),
+  soundOn: boolean("sound_on").notNull().default(true),
   createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
 });
 
