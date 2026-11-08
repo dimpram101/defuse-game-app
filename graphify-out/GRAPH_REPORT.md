@@ -1,16 +1,16 @@
 # Graph Report - defuse-app  (2026-11-08)
 
 ## Corpus Check
-- 102 files · ~67,327 words
+- 103 files · ~67,855 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 735 nodes · 1465 edges · 37 communities (34 shown, 2 thin omitted)
+- 739 nodes · 1468 edges · 41 communities (37 shown, 3 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 8 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `69704055`
+- Built from commit: `ac510e84`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -26,6 +26,7 @@
 - package.json
 - server/package.json
 - schema.ts
+- ScreenPage.tsx
 - compilerOptions
 - web/tsconfig.json
 - PlayPage.tsx
@@ -47,8 +48,11 @@
 - Fase 6 · Final dan perapian
 - hot.md · Log perubahan per sesi
 - Modul bom dan isi manual
+- Spectator.tsx
 - src/live.ts
-- ScreenPage.tsx
+- BombBoard.tsx
+- src/api.ts
+- deploy.sh
 - shared/src/index.ts
 - event-db.sh
 
@@ -56,8 +60,8 @@
 1. `LiveGame` - 44 edges
 2. `Defuse! – Turn-Based Edition` - 20 edges
 3. `generateBomb()` - 18 edges
-4. `react` - 17 edges
-5. `hot.md · Log perubahan per sesi` - 17 edges
+4. `hot.md · Log perubahan per sesi` - 18 edges
+5. `react` - 17 edges
 6. `roundLabel()` - 16 edges
 7. `CommandError` - 15 edges
 8. `Phase` - 15 edges
@@ -73,13 +77,13 @@
   apps/server/src/live.test.ts → packages/shared/src/bomb.ts
 - `ScreenTools()` --calls--> `roundLabel()`  [EXTRACTED]
   apps/web/src/gm/GmTools.tsx → packages/shared/src/api.ts
-- `PracticeBomb()` --calls--> `expire()`  [EXTRACTED]
-  apps/web/src/screen/PracticeBomb.tsx → packages/shared/src/play.ts
+- `StatusBar()` --calls--> `roundLabel()`  [EXTRACTED]
+  apps/web/src/play/PlayPage.tsx → packages/shared/src/api.ts
 
 ## Import Cycles
 - None detected.
 
-## Communities (37 total, 2 thin omitted)
+## Communities (41 total, 3 thin omitted)
 
 ### Community 0 - "Defuse! · Planning"
 Cohesion: 0.50
@@ -111,7 +115,7 @@ Nodes (9): Colors, Components, Defuse! – Design System, Do's and Don'ts, Eleva
 
 ### Community 7 - "live.test.ts"
 Cohesion: 0.07
-Nodes (43): clientMessage, createApp(), defuserAction, Deps, app, call(), db, dist (+35 more)
+Nodes (45): clientMessage, createApp(), defuserAction, Deps, app, call(), db, dist (+37 more)
 
 ### Community 8 - "package.json"
 Cohesion: 0.11
@@ -125,6 +129,10 @@ Nodes (14): dependencies, @defuse/db, @defuse/shared, elysia, @defuse/shared, na
 Cohesion: 0.07
 Nodes (25): dependencies, drizzle-orm, devDependencies, drizzle-kit, exports, name, private, scripts (+17 more)
 
+### Community 11 - "ScreenPage.tsx"
+Cohesion: 0.11
+Nodes (16): Control(), nextLabel(), useLive(), PlayerPage(), ResultBanner(), Leaderboard(), Live(), Review() (+8 more)
+
 ### Community 12 - "compilerOptions"
 Cohesion: 0.15
 Nodes (12): compilerOptions, isolatedModules, module, moduleResolution, noEmit, noUncheckedIndexedAccess, resolveJsonModule, skipLibCheck (+4 more)
@@ -135,7 +143,7 @@ Nodes (7): compilerOptions, jsx, lib, types, extends, include, ../../tsconfig.ba
 
 ### Community 14 - "PlayPage.tsx"
 Cohesion: 0.05
-Nodes (37): GmPage(), NewSessionForm(), submit(), api(), ApiError, glyphs, symbolName(), DEVICE_TOKEN (+29 more)
+Nodes (38): GmPage(), NewSessionForm(), submit(), api(), ApiError, glyphs, symbolName(), DEVICE_TOKEN (+30 more)
 
 ### Community 15 - "shared/package.json"
 Cohesion: 0.15
@@ -162,8 +170,8 @@ Cohesion: 0.50
 Nodes (3): extends, include, ../../tsconfig.base.json
 
 ### Community 21 - "bomb.ts"
-Cohesion: 0.08
-Nodes (44): PHASES, plan, report, samples, Phase, Bomb, Color, COLORS (+36 more)
+Cohesion: 0.12
+Nodes (35): PHASES, plan, report, samples, Phase, COLORS, Cond, condText() (+27 more)
 
 ### Community 23 - "shared/tsconfig.json"
 Cohesion: 0.50
@@ -182,12 +190,12 @@ Cohesion: 0.50
 Nodes (3): extends, include, ../../tsconfig.base.json
 
 ### Community 27 - "GmPage.tsx"
-Cohesion: 0.07
-Nodes (40): COLOR_NAMES, MODULE_NAMES, PinForm(), Awards(), Confirm(), Group(), Penalties(), Players() (+32 more)
+Cohesion: 0.12
+Nodes (23): COLOR_NAMES, MODULE_NAMES, PinForm(), Awards(), Confirm(), Group(), Penalties(), Players() (+15 more)
 
 ### Community 28 - "Fase 7 · Uji dan hari-H"
-Cohesion: 0.22
-Nodes (9): Cadangan hari-H, Cakupan, Dependensi, Deploy VPS, Fase 7 · Uji dan hari-H, Pengujian, Pertanyaan terbuka (dari SRS), Setelah acara (+1 more)
+Cohesion: 0.20
+Nodes (10): Cadangan hari-H, Cakupan, Cara deploy, Dependensi, Deploy VPS, Fase 7 · Uji dan hari-H, Pengujian, Pertanyaan terbuka (dari SRS) (+2 more)
 
 ### Community 29 - "Fase 3 · Manual di HP"
 Cohesion: 0.25
@@ -198,41 +206,49 @@ Cohesion: 0.22
 Nodes (8): Cakupan, Dependensi, Fase 6 · Final dan perapian, Keputusan saat implementasi, Risiko, Selesai bila, Tugas, Tujuan
 
 ### Community 31 - "hot.md · Log perubahan per sesi"
-Cohesion: 0.12
-Nodes (17): 2026-11-03 · Bank soal masuk ke planning, 2026-11-03 · Fase 1 dikerjakan (branch `fase-1-fondasi`), 2026-11-03 · Fase 2 dikerjakan (branch `fase-2-bom-offline`), 2026-11-03 · Fase 3 dikerjakan (branch `fase-3-manual-hp`), 2026-11-03 · Fase 4 dikerjakan (branch `fase-4-giliran-realtime`), 2026-11-03 · Fase 5: Bet, Sabotage, twist, 2026-11-03 · Instruksi graphify di CLAUDE.md, 2026-11-03 · Jeda 5 detik pergantian Defuser (+9 more)
+Cohesion: 0.11
+Nodes (18): 2026-11-03 · Bank soal masuk ke planning, 2026-11-03 · Fase 1 dikerjakan (branch `fase-1-fondasi`), 2026-11-03 · Fase 2 dikerjakan (branch `fase-2-bom-offline`), 2026-11-03 · Fase 3 dikerjakan (branch `fase-3-manual-hp`), 2026-11-03 · Fase 4 dikerjakan (branch `fase-4-giliran-realtime`), 2026-11-03 · Fase 5: Bet, Sabotage, twist, 2026-11-03 · Instruksi graphify di CLAUDE.md, 2026-11-03 · Jeda 5 detik pergantian Defuser (+10 more)
 
 ### Community 33 - "Modul bom dan isi manual"
 Cohesion: 0.40
 Nodes (5): Manual di HP Expert, Modul bom dan isi manual, Pergantian Defuser antar modul, Perilaku saat Defuser salah, Ringkasan per babak
 
+### Community 34 - "Spectator.tsx"
+Cohesion: 0.14
+Nodes (15): clock(), DELAYS, useCountdown(), StatusBar(), MutedOverlay(), SpectatorScreen(), STRIKES, LiveBomb() (+7 more)
+
 ### Community 35 - "src/live.ts"
 Cohesion: 0.08
-Nodes (41): clockOf(), CommandError, Conn, ENDED, LIVE, LiveGame, ms(), State (+33 more)
+Nodes (40): clockOf(), CommandError, Conn, ENDED, LIVE, LiveGame, ms(), State (+32 more)
 
-### Community 36 - "ScreenPage.tsx"
-Cohesion: 0.06
-Nodes (49): state(), BombBoard(), leds(), MODULE_NAMES, TimerMode, Chassis(), Led, LED_FILL (+41 more)
+### Community 36 - "BombBoard.tsx"
+Cohesion: 0.07
+Nodes (30): state(), BombBoard(), leds(), MODULE_NAMES, TimerMode, Chassis(), Led, LED_FILL (+22 more)
+
+### Community 37 - "src/api.ts"
+Cohesion: 0.15
+Nodes (12): ENGLISH_PENALTY_MS, HANDOVER_MS, KEPT_ON_REPLAY, NewTeam, NICKNAME_MAX, PHASE_LABELS, PublicTeam, SPEED_UP_CUT_MS (+4 more)
 
 ### Community 40 - "shared/src/index.ts"
 Cohesion: 0.13
 Nodes (14): finalOrder(), FlowState, nextStep(), queueFor(), teams, GmNext, ServerMessage, all (+6 more)
 
 ## Knowledge Gaps
-- **335 isolated node(s):** `name`, `private`, `type`, `dev`, `start` (+330 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 386 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **2 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **337 isolated node(s):** `name`, `private`, `type`, `dev`, `start` (+332 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 389 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **3 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `react` connect `PlayPage.tsx` to `web/package.json`, `GmPage.tsx`, `ScreenPage.tsx`?**
-  _High betweenness centrality (0.054) - this node is a cross-community bridge._
+- **Why does `react` connect `ScreenPage.tsx` to `web/package.json`, `Spectator.tsx`, `BombBoard.tsx`, `PlayPage.tsx`, `GmPage.tsx`?**
+  _High betweenness centrality (0.053) - this node is a cross-community bridge._
 - **Why does `LiveGame` connect `src/live.ts` to `live.test.ts`?**
   _High betweenness centrality (0.028) - this node is a cross-community bridge._
 - **Why does `elysia` connect `server/package.json` to `live.test.ts`?**
   _High betweenness centrality (0.024) - this node is a cross-community bridge._
 - **What connects `name`, `private`, `type` to the rest of the system?**
-  _335 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _337 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Defuse! – Bank Soal per Ronde` be split into smaller, more focused modules?**
   _Cohesion score 0.09523809523809523 - nodes in this community are weakly interconnected._
 - **Should `web/package.json` be split into smaller, more focused modules?**

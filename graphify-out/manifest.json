@@ -72,15 +72,15 @@
     "semantic_hash": ""
   },
   "docs/phases/07-uji-dan-hari-h.md": {
-    "mtime": 1794120233.0409234,
-    "seen": 1794120234.587223,
-    "ast_hash": "f2fe3bbe74d5177ceee46f0543929c80",
+    "mtime": 1794120447.781603,
+    "seen": 1794120449.572024,
+    "ast_hash": "49db2c9b51c5d1549e4a00c489a3f37e",
     "semantic_hash": ""
   },
   "hot.md": {
-    "mtime": 1794120233.0448458,
-    "seen": 1794120234.5872254,
-    "ast_hash": "28e211dc450c69a1683b2ea764b85078",
+    "mtime": 1794120447.781603,
+    "seen": 1794120449.5720255,
+    "ast_hash": "545c0f70785c3d2f0b451baae993719a",
     "semantic_hash": ""
   },
   "Defuse! \u2013 Bank Soal per Ronde.md": {
@@ -288,9 +288,9 @@
     "semantic_hash": ""
   },
   "docker-compose.yml": {
-    "mtime": 1793859608.9411097,
-    "seen": 1794119943.220959,
-    "ast_hash": "d5431b144574527f488e12fcda433aba",
+    "mtime": 1794120372.1999903,
+    "seen": 1794120449.5717947,
+    "ast_hash": "6b314685eee09e7dd6949da24ace7d5d",
     "semantic_hash": ""
   },
   "apps/web/public/icon.svg": {
@@ -693,6 +693,12 @@
     "mtime": 1794120192.359335,
     "seen": 1794120234.5853813,
     "ast_hash": "e1a62622ab246629ab292cf1cb53ab7f",
+    "semantic_hash": ""
+  },
+  "scripts/deploy.sh": {
+    "mtime": 1794120380.483569,
+    "seen": 1794120449.5715356,
+    "ast_hash": "9eca5c7c41e0c24faf36fe0235d4ebca",
     "semantic_hash": ""
   }
 }

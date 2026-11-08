@@ -10,6 +10,7 @@
   "8": "package.json",
   "9": "server/package.json",
   "10": "schema.ts",
+  "11": "ScreenPage.tsx",
   "12": "compilerOptions",
   "13": "web/tsconfig.json",
   "14": "PlayPage.tsx",
@@ -32,8 +33,11 @@
   "31": "hot.md · Log perubahan per sesi",
   "32": "README.md",
   "33": "Modul bom dan isi manual",
+  "34": "Spectator.tsx",
   "35": "src/live.ts",
-  "36": "ScreenPage.tsx",
+  "36": "BombBoard.tsx",
+  "37": "src/api.ts",
+  "38": "deploy.sh",
   "40": "shared/src/index.ts",
   "42": "event-db.sh"
 }

@@ -2,6 +2,15 @@
 
 Entri terbaru di atas. Format ada di `CLAUDE.md` bagian "Aturan proyek".
 
+## 2026-11-08 · Skrip deploy: build di laptop, kirim image
+
+**Perubahan:** `docker-compose.yml` (`image: defuse-app` di service `app`), `scripts/deploy.sh` (baru), `docs/phases/07-uji-dan-hari-h.md` (bagian "Cara deploy").
+**Keputusan:**
+- User memilih build di laptop lalu kirim image, bukan build di VPS 2 GB. VPS hanya menerima compose, Caddyfile, `event-db.sh`, dan image; `.env` dibuat manual di VPS supaya rahasia tidak lewat skrip.
+- Image lama ditandai `defuse-app:previous` sebelum diganti, untuk rollback cepat di hari-H.
+- Bukti: simulasi folder VPS lokal, `docker compose up -d --no-build` dengan image hasil build: `/health` OK lewat Caddy HTTPS, `/print` 200, `event-db.sh backup`/`archive` jalan. SSH ke VPS sungguhan belum diuji.
+**Berikutnya:** Siapkan VPS (Docker, `/opt/defuse/.env`, DNS, firewall 22/80/443), jalankan `scripts/deploy.sh user@vps`, cek `/health` dari HP.
+
 ## 2026-11-08 · Fase 7: uji deploy, beban, dan skrip data acara
 
 **Perubahan:**

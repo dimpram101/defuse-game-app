@@ -1,6 +1,8 @@
 # Production: app + Postgres + Caddy. Needs DOMAIN, GM_PIN and POSTGRES_PASSWORD in .env.
+# The VPS never builds: scripts/deploy.sh builds defuse-app on the laptop and loads it there (--no-build).
 services:
   app:
+    image: defuse-app
     build: .
     restart: unless-stopped
     environment:

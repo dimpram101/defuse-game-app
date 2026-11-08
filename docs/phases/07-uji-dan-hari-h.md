@@ -18,12 +18,22 @@ Fase 1–6, atau minimal Fase 1–4 kalau waktu sempit (game sudah bisa dimainka
 ## Deploy VPS
 
 - [ ] Subdomain mengarah ke IP VPS, HTTPS aktif lewat Caddy
-- [ ] Image dibuild di laptop/CI, bukan di VPS (atau tambah swap 2 GB). Build lokal lulus setelah `Dockerfile` ikut menyalin `packages/content/package.json`; image tes menjawab `/health` dan `/play`
+- [x] Image dibuild di laptop/CI, bukan di VPS: `scripts/deploy.sh`. Build lokal lulus setelah `Dockerfile` ikut menyalin `packages/content/package.json`; image tes menjawab `/health` dan `/play`
 - [x] `shared_buffers` Postgres 128 MB jika VPS menjalankan layanan lain (sudah di `docker-compose.yml`)
 - [ ] Hanya port 80 dan 443 terbuka (compose hanya membuka 80/443; firewall VPS tetap dicek)
 - [x] `restart: unless-stopped` di semua container
 - [ ] `/health` dicek dari HP sehari sebelum acara
 - [ ] Uji ping dari lokasi acara ke VPS
+
+### Cara deploy
+
+Image dibuild di laptop dan dikirim ke VPS lewat SSH; VPS tidak pernah build.
+
+1. Sekali di VPS: pasang Docker + compose plugin, buat folder `/opt/defuse`, isi `/opt/defuse/.env` (`DOMAIN`, `GM_PIN` minimal 6 karakter, `POSTGRES_PASSWORD` kuat). Pastikan DNS subdomain sudah mengarah ke VPS dan port 80/443 tidak dipakai layanan lain.
+2. Dari laptop, di commit yang mau dideploy: `scripts/deploy.sh user@vps` (folder lain: argumen kedua). Skrip menolak jalan kalau ada perubahan belum di-commit atau `.env` belum ada, lalu build image, kirim (`docker save | ssh docker load`), salin `docker-compose.yml`, `Caddyfile`, `scripts/event-db.sh`, menjalankan `docker compose up -d --no-build`, dan menunggu `https://<domain>/health`.
+3. Rollback ke image sebelum deploy terakhir: `ssh user@vps 'cd /opt/defuse && docker tag defuse-app:previous defuse-app && docker compose up -d --no-build'`.
+
+Diuji lokal dengan folder berisi hanya file yang dikirim skrip: stack naik lewat Caddy HTTPS (`/health` OK, `/print` 200), `event-db.sh backup` dan `archive` jalan. Bagian SSH belum diuji ke VPS sungguhan.
 
 ## Pengujian
 

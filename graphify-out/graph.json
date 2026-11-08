@@ -4,6 +4,32 @@
   "graph": {},
   "nodes": [
     {
+      "id": "packages_shared_src_protocol_bombreview",
+      "label": "BombReview",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "ScreenPage.tsx",
+      "file_type": "code",
+      "norm_label": "bombreview",
+      "source_file": "packages/shared/src/protocol.ts",
+      "source_location": "L84"
+    },
+    {
+      "id": "packages_shared_src_protocol_twistview",
+      "label": "TwistView",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "ScreenPage.tsx",
+      "file_type": "code",
+      "norm_label": "twistview",
+      "source_file": "packages/shared/src/protocol.ts",
+      "source_location": "L25"
+    },
+    {
       "id": "apps_web_src_lib_api_apierror",
       "label": "ApiError",
       "_callable": true,
@@ -67,32 +93,6 @@
       "norm_label": "phase",
       "source_file": "packages/shared/src/api.ts",
       "source_location": "L8"
-    },
-    {
-      "id": "packages_shared_src_bomb_bomb",
-      "label": "Bomb",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 21,
-      "community_name": "bomb.ts",
-      "file_type": "code",
-      "norm_label": "bomb",
-      "source_file": "packages/shared/src/bomb.ts",
-      "source_location": "L127"
-    },
-    {
-      "id": "packages_shared_src_bomb_color",
-      "label": "Color",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 21,
-      "community_name": "bomb.ts",
-      "file_type": "code",
-      "norm_label": "color",
-      "source_file": "packages/shared/src/bomb.ts",
-      "source_location": "L4"
     },
     {
       "id": "packages_shared_src_bomb_cond",
@@ -199,32 +199,6 @@
       "source_location": "L16"
     },
     {
-      "id": "packages_shared_src_play_defuseraction",
-      "label": "DefuserAction",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 21,
-      "community_name": "bomb.ts",
-      "file_type": "code",
-      "norm_label": "defuseraction",
-      "source_file": "packages/shared/src/play.ts",
-      "source_location": "L31"
-    },
-    {
-      "id": "packages_shared_src_play_outcome",
-      "label": "Outcome",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 21,
-      "community_name": "bomb.ts",
-      "file_type": "code",
-      "norm_label": "outcome",
-      "source_file": "packages/shared/src/play.ts",
-      "source_location": "L40"
-    },
-    {
       "id": "apps_web_src_gm_gmtools_send",
       "label": "Send",
       "_callable": true,
@@ -236,45 +210,6 @@
       "norm_label": "send",
       "source_file": "apps/web/src/gm/GmTools.tsx",
       "source_location": "L6"
-    },
-    {
-      "id": "packages_shared_src_api_newteam",
-      "label": "NewTeam",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "GmPage.tsx",
-      "file_type": "code",
-      "norm_label": "newteam",
-      "source_file": "packages/shared/src/api.ts",
-      "source_location": "L60"
-    },
-    {
-      "id": "packages_shared_src_api_publicteam",
-      "label": "PublicTeam",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "GmPage.tsx",
-      "file_type": "code",
-      "norm_label": "publicteam",
-      "source_file": "packages/shared/src/api.ts",
-      "source_location": "L38"
-    },
-    {
-      "id": "packages_shared_src_api_strikesguess",
-      "label": "StrikesGuess",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "GmPage.tsx",
-      "file_type": "code",
-      "norm_label": "strikesguess",
-      "source_file": "packages/shared/src/api.ts",
-      "source_location": "L35"
     },
     {
       "id": "packages_shared_src_api_teamcolor",
@@ -290,13 +225,52 @@
       "source_location": "L2"
     },
     {
+      "id": "packages_shared_src_api_strikesguess",
+      "label": "StrikesGuess",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 34,
+      "community_name": "Spectator.tsx",
+      "file_type": "code",
+      "norm_label": "strikesguess",
+      "source_file": "packages/shared/src/api.ts",
+      "source_location": "L35"
+    },
+    {
+      "id": "packages_shared_src_protocol_clientmessage",
+      "label": "ClientMessage",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 34,
+      "community_name": "Spectator.tsx",
+      "file_type": "code",
+      "norm_label": "clientmessage",
+      "source_file": "packages/shared/src/protocol.ts",
+      "source_location": "L157"
+    },
+    {
+      "id": "packages_shared_src_protocol_snapshot",
+      "label": "Snapshot",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 34,
+      "community_name": "Spectator.tsx",
+      "file_type": "code",
+      "norm_label": "snapshot",
+      "source_file": "packages/shared/src/protocol.ts",
+      "source_location": "L148"
+    },
+    {
       "id": "packages_shared_src_protocol_spectatorpanel",
       "label": "SpectatorPanel",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 27,
-      "community_name": "GmPage.tsx",
+      "community": 34,
+      "community_name": "Spectator.tsx",
       "file_type": "code",
       "norm_label": "spectatorpanel",
       "source_file": "packages/shared/src/protocol.ts",
@@ -308,8 +282,8 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 27,
-      "community_name": "GmPage.tsx",
+      "community": 34,
+      "community_name": "Spectator.tsx",
       "file_type": "code",
       "norm_label": "teamview",
       "source_file": "packages/shared/src/protocol.ts",
@@ -511,19 +485,6 @@
       "source_location": "L151"
     },
     {
-      "id": "packages_shared_src_protocol_gmsnapshot",
-      "label": "GmSnapshot",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 35,
-      "community_name": "src/live.ts",
-      "file_type": "code",
-      "norm_label": "gmsnapshot",
-      "source_file": "packages/shared/src/protocol.ts",
-      "source_location": "L104"
-    },
-    {
       "id": "packages_shared_src_protocol_penalty",
       "label": "Penalty",
       "_callable": true,
@@ -686,7 +647,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 36,
-      "community_name": "ScreenPage.tsx",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "timermode",
       "source_file": "apps/web/src/bomb/BombBoard.tsx",
@@ -699,11 +660,37 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 36,
-      "community_name": "ScreenPage.tsx",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "led",
       "source_file": "apps/web/src/bomb/Chassis.tsx",
       "source_location": "L3"
+    },
+    {
+      "id": "packages_shared_src_bomb_bomb",
+      "label": "Bomb",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 36,
+      "community_name": "BombBoard.tsx",
+      "file_type": "code",
+      "norm_label": "bomb",
+      "source_file": "packages/shared/src/bomb.ts",
+      "source_location": "L127"
+    },
+    {
+      "id": "packages_shared_src_bomb_color",
+      "label": "Color",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 36,
+      "community_name": "BombBoard.tsx",
+      "file_type": "code",
+      "norm_label": "color",
+      "source_file": "packages/shared/src/bomb.ts",
+      "source_location": "L4"
     },
     {
       "id": "packages_shared_src_play_bombview",
@@ -712,76 +699,63 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 36,
-      "community_name": "ScreenPage.tsx",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "bombview",
       "source_file": "packages/shared/src/play.ts",
       "source_location": "L7"
     },
     {
-      "id": "packages_shared_src_protocol_bombreview",
-      "label": "BombReview",
+      "id": "packages_shared_src_play_defuseraction",
+      "label": "DefuserAction",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "community": 36,
-      "community_name": "ScreenPage.tsx",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
-      "norm_label": "bombreview",
-      "source_file": "packages/shared/src/protocol.ts",
-      "source_location": "L84"
+      "norm_label": "defuseraction",
+      "source_file": "packages/shared/src/play.ts",
+      "source_location": "L31"
     },
     {
-      "id": "packages_shared_src_protocol_clientmessage",
-      "label": "ClientMessage",
+      "id": "packages_shared_src_play_outcome",
+      "label": "Outcome",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "community": 36,
-      "community_name": "ScreenPage.tsx",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
-      "norm_label": "clientmessage",
-      "source_file": "packages/shared/src/protocol.ts",
-      "source_location": "L157"
+      "norm_label": "outcome",
+      "source_file": "packages/shared/src/play.ts",
+      "source_location": "L40"
     },
     {
-      "id": "packages_shared_src_protocol_screensnapshot",
-      "label": "ScreenSnapshot",
+      "id": "packages_shared_src_api_newteam",
+      "label": "NewTeam",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 36,
-      "community_name": "ScreenPage.tsx",
+      "community": 37,
+      "community_name": "src/api.ts",
       "file_type": "code",
-      "norm_label": "screensnapshot",
-      "source_file": "packages/shared/src/protocol.ts",
-      "source_location": "L89"
+      "norm_label": "newteam",
+      "source_file": "packages/shared/src/api.ts",
+      "source_location": "L60"
     },
     {
-      "id": "packages_shared_src_protocol_snapshot",
-      "label": "Snapshot",
+      "id": "packages_shared_src_api_publicteam",
+      "label": "PublicTeam",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 36,
-      "community_name": "ScreenPage.tsx",
+      "community": 37,
+      "community_name": "src/api.ts",
       "file_type": "code",
-      "norm_label": "snapshot",
-      "source_file": "packages/shared/src/protocol.ts",
-      "source_location": "L148"
-    },
-    {
-      "id": "packages_shared_src_protocol_twistview",
-      "label": "TwistView",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 36,
-      "community_name": "ScreenPage.tsx",
-      "file_type": "code",
-      "norm_label": "twistview",
-      "source_file": "packages/shared/src/protocol.ts",
-      "source_location": "L25"
+      "norm_label": "publicteam",
+      "source_file": "packages/shared/src/api.ts",
+      "source_location": "L38"
     },
     {
       "id": "apps_server_src_flow_flowstate",
@@ -912,6 +886,248 @@
       "norm_label": "publicgame",
       "source_file": "packages/shared/src/api.ts",
       "source_location": "L46"
+    },
+    {
+      "id": "packages_shared_src_protocol_gmsnapshot",
+      "label": "GmSnapshot",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "live.test.ts",
+      "file_type": "code",
+      "norm_label": "gmsnapshot",
+      "source_file": "packages/shared/src/protocol.ts",
+      "source_location": "L104"
+    },
+    {
+      "id": "packages_shared_src_protocol_screensnapshot",
+      "label": "ScreenSnapshot",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "live.test.ts",
+      "file_type": "code",
+      "norm_label": "screensnapshot",
+      "source_file": "packages/shared/src/protocol.ts",
+      "source_location": "L89"
+    },
+    {
+      "id": "apps_web_src_gm_gmpage_control",
+      "label": "Control()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "ScreenPage.tsx",
+      "file_type": "code",
+      "norm_label": "control()",
+      "source_file": "apps/web/src/gm/GmPage.tsx",
+      "source_location": "L176"
+    },
+    {
+      "id": "apps_web_src_gm_gmpage_nextlabel",
+      "label": "nextLabel()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "ScreenPage.tsx",
+      "file_type": "code",
+      "norm_label": "nextlabel()",
+      "source_file": "apps/web/src/gm/GmPage.tsx",
+      "source_location": "L164"
+    },
+    {
+      "id": "apps_web_src_lib_live_uselive",
+      "label": "useLive()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "ScreenPage.tsx",
+      "file_type": "code",
+      "norm_label": "uselive()",
+      "source_file": "apps/web/src/lib/live.ts",
+      "source_location": "L10"
+    },
+    {
+      "id": "apps_web_src_play_playpage_playerpage",
+      "label": "PlayerPage()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "ScreenPage.tsx",
+      "file_type": "code",
+      "norm_label": "playerpage()",
+      "source_file": "apps/web/src/play/PlayPage.tsx",
+      "source_location": "L213"
+    },
+    {
+      "id": "apps_web_src_screen_resultbanner_resultbanner",
+      "label": "ResultBanner()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "ScreenPage.tsx",
+      "file_type": "code",
+      "norm_label": "resultbanner()",
+      "source_file": "apps/web/src/screen/ResultBanner.tsx",
+      "source_location": "L6"
+    },
+    {
+      "id": "apps_web_src_screen_screenpage_leaderboard",
+      "label": "Leaderboard()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "ScreenPage.tsx",
+      "file_type": "code",
+      "norm_label": "leaderboard()",
+      "source_file": "apps/web/src/screen/ScreenPage.tsx",
+      "source_location": "L148"
+    },
+    {
+      "id": "apps_web_src_screen_screenpage_live",
+      "label": "Live()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "ScreenPage.tsx",
+      "file_type": "code",
+      "norm_label": "live()",
+      "source_file": "apps/web/src/screen/ScreenPage.tsx",
+      "source_location": "L290"
+    },
+    {
+      "id": "apps_web_src_screen_screenpage_lobby",
+      "label": "Lobby()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "ScreenPage.tsx",
+      "file_type": "code",
+      "norm_label": "lobby()",
+      "source_file": "apps/web/src/screen/ScreenPage.tsx",
+      "source_location": "L33"
+    },
+    {
+      "id": "apps_web_src_screen_screenpage_notice",
+      "label": "Notice()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "ScreenPage.tsx",
+      "file_type": "code",
+      "norm_label": "notice()",
+      "source_file": "apps/web/src/screen/ScreenPage.tsx",
+      "source_location": "L23"
+    },
+    {
+      "id": "apps_web_src_screen_screenpage_review",
+      "label": "Review()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "ScreenPage.tsx",
+      "file_type": "code",
+      "norm_label": "review()",
+      "source_file": "apps/web/src/screen/ScreenPage.tsx",
+      "source_location": "L265"
+    },
+    {
+      "id": "apps_web_src_screen_screenpage_standings",
+      "label": "Standings()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "ScreenPage.tsx",
+      "file_type": "code",
+      "norm_label": "standings()",
+      "source_file": "apps/web/src/screen/ScreenPage.tsx",
+      "source_location": "L84"
+    },
+    {
+      "id": "apps_web_src_screen_screenpage_upnext",
+      "label": "UpNext()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "ScreenPage.tsx",
+      "file_type": "code",
+      "norm_label": "upnext()",
+      "source_file": "apps/web/src/screen/ScreenPage.tsx",
+      "source_location": "L104"
+    },
+    {
+      "id": "apps_web_src_screen_screenpage_wordmark",
+      "label": "Wordmark()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "ScreenPage.tsx",
+      "file_type": "code",
+      "norm_label": "wordmark()",
+      "source_file": "apps/web/src/screen/ScreenPage.tsx",
+      "source_location": "L14"
+    },
+    {
+      "id": "apps_web_src_screen_sound_tone",
+      "label": "tone()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "ScreenPage.tsx",
+      "file_type": "code",
+      "norm_label": "tone()",
+      "source_file": "apps/web/src/screen/sound.ts",
+      "source_location": "L10"
+    },
+    {
+      "id": "apps_web_src_screen_sound_usesound",
+      "label": "useSound()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "ScreenPage.tsx",
+      "file_type": "code",
+      "norm_label": "usesound()",
+      "source_file": "apps/web/src/screen/sound.ts",
+      "source_location": "L52"
+    },
+    {
+      "id": "apps_web_src_screen_sound_usesound_enable",
+      "label": "enable()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "ScreenPage.tsx",
+      "file_type": "code",
+      "norm_label": "enable()",
+      "source_file": "apps/web/src/screen/sound.ts",
+      "source_location": "L79"
+    },
+    {
+      "id": "apps_web_src_screen_stage_stage",
+      "label": "Stage()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "ScreenPage.tsx",
+      "file_type": "code",
+      "norm_label": "stage()",
+      "source_file": "apps/web/src/screen/Stage.tsx",
+      "source_location": "L7"
+    },
+    {
+      "id": "packages_shared_src_api_roundlabel",
+      "label": "roundLabel()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "ScreenPage.tsx",
+      "file_type": "code",
+      "norm_label": "roundlabel()",
+      "source_file": "packages/shared/src/api.ts",
+      "source_location": "L13"
     },
     {
       "id": "apps_web_src_gm_gmpage_gmpage",
@@ -1298,18 +1514,6 @@
       "source_location": "L330"
     },
     {
-      "id": "apps_web_src_screen_stage_stage",
-      "label": "Stage()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "PlayPage.tsx",
-      "file_type": "code",
-      "norm_label": "stage()",
-      "source_file": "apps/web/src/screen/Stage.tsx",
-      "source_location": "L7"
-    },
-    {
       "id": "packages_shared_src_bomb_condtext",
       "label": "condText()",
       "_callable": true,
@@ -1502,90 +1706,6 @@
       "source_location": "L30"
     },
     {
-      "id": "packages_shared_src_play_checkanswer",
-      "label": "checkAnswer()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 21,
-      "community_name": "bomb.ts",
-      "file_type": "code",
-      "norm_label": "checkanswer()",
-      "source_file": "packages/shared/src/play.ts",
-      "source_location": "L50"
-    },
-    {
-      "id": "packages_shared_src_play_strike",
-      "label": "strike()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 21,
-      "community_name": "bomb.ts",
-      "file_type": "code",
-      "norm_label": "strike()",
-      "source_file": "packages/shared/src/play.ts",
-      "source_location": "L45"
-    },
-    {
-      "id": "packages_shared_src_play_test_run",
-      "label": "run()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 21,
-      "community_name": "bomb.ts",
-      "file_type": "code",
-      "norm_label": "run()",
-      "source_file": "packages/shared/src/play.test.ts",
-      "source_location": "L10"
-    },
-    {
-      "id": "packages_shared_src_play_test_solvesymbols",
-      "label": "solveSymbols()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 21,
-      "community_name": "bomb.ts",
-      "file_type": "code",
-      "norm_label": "solvesymbols()",
-      "source_file": "packages/shared/src/play.test.ts",
-      "source_location": "L21"
-    },
-    {
-      "id": "packages_shared_src_play_test_solvewires",
-      "label": "solveWires()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 21,
-      "community_name": "bomb.ts",
-      "file_type": "code",
-      "norm_label": "solvewires()",
-      "source_file": "packages/shared/src/play.test.ts",
-      "source_location": "L20"
-    },
-    {
-      "id": "packages_shared_src_play_test_solveword",
-      "label": "solveWord()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 21,
-      "community_name": "bomb.ts",
-      "file_type": "code",
-      "norm_label": "solveword()",
-      "source_file": "packages/shared/src/play.test.ts",
-      "source_location": "L22"
-    },
-    {
-      "id": "packages_shared_src_play_test_wrongsymbol",
-      "label": "wrongSymbol()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 21,
-      "community_name": "bomb.ts",
-      "file_type": "code",
-      "norm_label": "wrongsymbol()",
-      "source_file": "packages/shared/src/play.test.ts",
-      "source_location": "L8"
-    },
-    {
       "id": "apps_web_src_gm_gmpage_pinform",
       "label": "PinForm()",
       "_callable": true,
@@ -1766,54 +1886,6 @@
       "source_location": "L110"
     },
     {
-      "id": "apps_web_src_play_spectator_betpanel",
-      "label": "BetPanel()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "GmPage.tsx",
-      "file_type": "code",
-      "norm_label": "betpanel()",
-      "source_file": "apps/web/src/play/Spectator.tsx",
-      "source_location": "L29"
-    },
-    {
-      "id": "apps_web_src_play_spectator_option",
-      "label": "Option()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "GmPage.tsx",
-      "file_type": "code",
-      "norm_label": "option()",
-      "source_file": "apps/web/src/play/Spectator.tsx",
-      "source_location": "L7"
-    },
-    {
-      "id": "apps_web_src_play_spectator_sabotagepanel",
-      "label": "SabotagePanel()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "GmPage.tsx",
-      "file_type": "code",
-      "norm_label": "sabotagepanel()",
-      "source_file": "apps/web/src/play/Spectator.tsx",
-      "source_location": "L61"
-    },
-    {
-      "id": "apps_web_src_play_spectator_spectatorscreen",
-      "label": "SpectatorScreen()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "GmPage.tsx",
-      "file_type": "code",
-      "norm_label": "spectatorscreen()",
-      "source_file": "apps/web/src/play/Spectator.tsx",
-      "source_location": "L125"
-    },
-    {
       "id": "apps_web_src_ui_button",
       "label": "Button()",
       "_callable": true,
@@ -1836,6 +1908,126 @@
       "norm_label": "teamdot()",
       "source_file": "apps/web/src/ui.tsx",
       "source_location": "L12"
+    },
+    {
+      "id": "apps_web_src_lib_live_clock",
+      "label": "clock()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 34,
+      "community_name": "Spectator.tsx",
+      "file_type": "code",
+      "norm_label": "clock()",
+      "source_file": "apps/web/src/lib/live.ts",
+      "source_location": "L77"
+    },
+    {
+      "id": "apps_web_src_lib_live_usecountdown",
+      "label": "useCountdown()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 34,
+      "community_name": "Spectator.tsx",
+      "file_type": "code",
+      "norm_label": "usecountdown()",
+      "source_file": "apps/web/src/lib/live.ts",
+      "source_location": "L66"
+    },
+    {
+      "id": "apps_web_src_play_playpage_statusbar",
+      "label": "StatusBar()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 34,
+      "community_name": "Spectator.tsx",
+      "file_type": "code",
+      "norm_label": "statusbar()",
+      "source_file": "apps/web/src/play/PlayPage.tsx",
+      "source_location": "L120"
+    },
+    {
+      "id": "apps_web_src_play_spectator_betpanel",
+      "label": "BetPanel()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 34,
+      "community_name": "Spectator.tsx",
+      "file_type": "code",
+      "norm_label": "betpanel()",
+      "source_file": "apps/web/src/play/Spectator.tsx",
+      "source_location": "L29"
+    },
+    {
+      "id": "apps_web_src_play_spectator_mutedoverlay",
+      "label": "MutedOverlay()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 34,
+      "community_name": "Spectator.tsx",
+      "file_type": "code",
+      "norm_label": "mutedoverlay()",
+      "source_file": "apps/web/src/play/Spectator.tsx",
+      "source_location": "L143"
+    },
+    {
+      "id": "apps_web_src_play_spectator_option",
+      "label": "Option()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 34,
+      "community_name": "Spectator.tsx",
+      "file_type": "code",
+      "norm_label": "option()",
+      "source_file": "apps/web/src/play/Spectator.tsx",
+      "source_location": "L7"
+    },
+    {
+      "id": "apps_web_src_play_spectator_sabotagepanel",
+      "label": "SabotagePanel()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 34,
+      "community_name": "Spectator.tsx",
+      "file_type": "code",
+      "norm_label": "sabotagepanel()",
+      "source_file": "apps/web/src/play/Spectator.tsx",
+      "source_location": "L61"
+    },
+    {
+      "id": "apps_web_src_play_spectator_spectatorscreen",
+      "label": "SpectatorScreen()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 34,
+      "community_name": "Spectator.tsx",
+      "file_type": "code",
+      "norm_label": "spectatorscreen()",
+      "source_file": "apps/web/src/play/Spectator.tsx",
+      "source_location": "L125"
+    },
+    {
+      "id": "apps_web_src_screen_screenpage_livebomb",
+      "label": "LiveBomb()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 34,
+      "community_name": "Spectator.tsx",
+      "file_type": "code",
+      "norm_label": "livebomb()",
+      "source_file": "apps/web/src/screen/ScreenPage.tsx",
+      "source_location": "L198"
+    },
+    {
+      "id": "apps_web_src_screen_screenpage_twistcard",
+      "label": "TwistCard()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 34,
+      "community_name": "Spectator.tsx",
+      "file_type": "code",
+      "norm_label": "twistcard()",
+      "source_file": "apps/web/src/screen/ScreenPage.tsx",
+      "source_location": "L172"
     },
     {
       "id": "apps_server_src_live_clockof",
@@ -2431,7 +2623,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 36,
-      "community_name": "ScreenPage.tsx",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "state()",
       "source_file": "apps/server/src/flow.test.ts",
@@ -2443,7 +2635,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 36,
-      "community_name": "ScreenPage.tsx",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "bombboard()",
       "source_file": "apps/web/src/bomb/BombBoard.tsx",
@@ -2455,7 +2647,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 36,
-      "community_name": "ScreenPage.tsx",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "leds()",
       "source_file": "apps/web/src/bomb/BombBoard.tsx",
@@ -2467,7 +2659,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 36,
-      "community_name": "ScreenPage.tsx",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "chassis()",
       "source_file": "apps/web/src/bomb/Chassis.tsx",
@@ -2479,7 +2671,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 36,
-      "community_name": "ScreenPage.tsx",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "symbolsmodule()",
       "source_file": "apps/web/src/bomb/Modules.tsx",
@@ -2491,7 +2683,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 36,
-      "community_name": "ScreenPage.tsx",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "wiregraphic()",
       "source_file": "apps/web/src/bomb/Modules.tsx",
@@ -2503,7 +2695,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 36,
-      "community_name": "ScreenPage.tsx",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "wiresmodule()",
       "source_file": "apps/web/src/bomb/Modules.tsx",
@@ -2515,107 +2707,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 36,
-      "community_name": "ScreenPage.tsx",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "wordmodule()",
       "source_file": "apps/web/src/bomb/Modules.tsx",
       "source_location": "L103"
-    },
-    {
-      "id": "apps_web_src_gm_gmpage_control",
-      "label": "Control()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 36,
-      "community_name": "ScreenPage.tsx",
-      "file_type": "code",
-      "norm_label": "control()",
-      "source_file": "apps/web/src/gm/GmPage.tsx",
-      "source_location": "L176"
-    },
-    {
-      "id": "apps_web_src_gm_gmpage_nextlabel",
-      "label": "nextLabel()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 36,
-      "community_name": "ScreenPage.tsx",
-      "file_type": "code",
-      "norm_label": "nextlabel()",
-      "source_file": "apps/web/src/gm/GmPage.tsx",
-      "source_location": "L164"
-    },
-    {
-      "id": "apps_web_src_lib_live_clock",
-      "label": "clock()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 36,
-      "community_name": "ScreenPage.tsx",
-      "file_type": "code",
-      "norm_label": "clock()",
-      "source_file": "apps/web/src/lib/live.ts",
-      "source_location": "L77"
-    },
-    {
-      "id": "apps_web_src_lib_live_usecountdown",
-      "label": "useCountdown()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 36,
-      "community_name": "ScreenPage.tsx",
-      "file_type": "code",
-      "norm_label": "usecountdown()",
-      "source_file": "apps/web/src/lib/live.ts",
-      "source_location": "L66"
-    },
-    {
-      "id": "apps_web_src_lib_live_uselive",
-      "label": "useLive()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 36,
-      "community_name": "ScreenPage.tsx",
-      "file_type": "code",
-      "norm_label": "uselive()",
-      "source_file": "apps/web/src/lib/live.ts",
-      "source_location": "L10"
-    },
-    {
-      "id": "apps_web_src_play_playpage_playerpage",
-      "label": "PlayerPage()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 36,
-      "community_name": "ScreenPage.tsx",
-      "file_type": "code",
-      "norm_label": "playerpage()",
-      "source_file": "apps/web/src/play/PlayPage.tsx",
-      "source_location": "L213"
-    },
-    {
-      "id": "apps_web_src_play_playpage_statusbar",
-      "label": "StatusBar()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 36,
-      "community_name": "ScreenPage.tsx",
-      "file_type": "code",
-      "norm_label": "statusbar()",
-      "source_file": "apps/web/src/play/PlayPage.tsx",
-      "source_location": "L120"
-    },
-    {
-      "id": "apps_web_src_play_spectator_mutedoverlay",
-      "label": "MutedOverlay()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 36,
-      "community_name": "ScreenPage.tsx",
-      "file_type": "code",
-      "norm_label": "mutedoverlay()",
-      "source_file": "apps/web/src/play/Spectator.tsx",
-      "source_location": "L143"
     },
     {
       "id": "apps_web_src_screen_handovertoast_handovertoast",
@@ -2623,7 +2719,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 36,
-      "community_name": "ScreenPage.tsx",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "handovertoast()",
       "source_file": "apps/web/src/screen/HandoverToast.tsx",
@@ -2635,7 +2731,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 36,
-      "community_name": "ScreenPage.tsx",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "practicebomb()",
       "source_file": "apps/web/src/screen/PracticeBomb.tsx",
@@ -2647,7 +2743,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 36,
-      "community_name": "ScreenPage.tsx",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "act()",
       "source_file": "apps/web/src/screen/PracticeBomb.tsx",
@@ -2659,7 +2755,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 36,
-      "community_name": "ScreenPage.tsx",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "finish()",
       "source_file": "apps/web/src/screen/PracticeBomb.tsx",
@@ -2671,7 +2767,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 36,
-      "community_name": "ScreenPage.tsx",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "reset()",
       "source_file": "apps/web/src/screen/PracticeBomb.tsx",
@@ -2683,191 +2779,23 @@
       "_callable": true,
       "_origin": "ast",
       "community": 36,
-      "community_name": "ScreenPage.tsx",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "readparams()",
       "source_file": "apps/web/src/screen/PracticeBomb.tsx",
       "source_location": "L14"
     },
     {
-      "id": "apps_web_src_screen_resultbanner_resultbanner",
-      "label": "ResultBanner()",
+      "id": "packages_shared_src_play_checkanswer",
+      "label": "checkAnswer()",
       "_callable": true,
       "_origin": "ast",
       "community": 36,
-      "community_name": "ScreenPage.tsx",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
-      "norm_label": "resultbanner()",
-      "source_file": "apps/web/src/screen/ResultBanner.tsx",
-      "source_location": "L6"
-    },
-    {
-      "id": "apps_web_src_screen_screenpage_leaderboard",
-      "label": "Leaderboard()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 36,
-      "community_name": "ScreenPage.tsx",
-      "file_type": "code",
-      "norm_label": "leaderboard()",
-      "source_file": "apps/web/src/screen/ScreenPage.tsx",
-      "source_location": "L148"
-    },
-    {
-      "id": "apps_web_src_screen_screenpage_live",
-      "label": "Live()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 36,
-      "community_name": "ScreenPage.tsx",
-      "file_type": "code",
-      "norm_label": "live()",
-      "source_file": "apps/web/src/screen/ScreenPage.tsx",
-      "source_location": "L290"
-    },
-    {
-      "id": "apps_web_src_screen_screenpage_livebomb",
-      "label": "LiveBomb()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 36,
-      "community_name": "ScreenPage.tsx",
-      "file_type": "code",
-      "norm_label": "livebomb()",
-      "source_file": "apps/web/src/screen/ScreenPage.tsx",
-      "source_location": "L198"
-    },
-    {
-      "id": "apps_web_src_screen_screenpage_lobby",
-      "label": "Lobby()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 36,
-      "community_name": "ScreenPage.tsx",
-      "file_type": "code",
-      "norm_label": "lobby()",
-      "source_file": "apps/web/src/screen/ScreenPage.tsx",
-      "source_location": "L33"
-    },
-    {
-      "id": "apps_web_src_screen_screenpage_notice",
-      "label": "Notice()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 36,
-      "community_name": "ScreenPage.tsx",
-      "file_type": "code",
-      "norm_label": "notice()",
-      "source_file": "apps/web/src/screen/ScreenPage.tsx",
-      "source_location": "L23"
-    },
-    {
-      "id": "apps_web_src_screen_screenpage_review",
-      "label": "Review()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 36,
-      "community_name": "ScreenPage.tsx",
-      "file_type": "code",
-      "norm_label": "review()",
-      "source_file": "apps/web/src/screen/ScreenPage.tsx",
-      "source_location": "L265"
-    },
-    {
-      "id": "apps_web_src_screen_screenpage_standings",
-      "label": "Standings()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 36,
-      "community_name": "ScreenPage.tsx",
-      "file_type": "code",
-      "norm_label": "standings()",
-      "source_file": "apps/web/src/screen/ScreenPage.tsx",
-      "source_location": "L84"
-    },
-    {
-      "id": "apps_web_src_screen_screenpage_twistcard",
-      "label": "TwistCard()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 36,
-      "community_name": "ScreenPage.tsx",
-      "file_type": "code",
-      "norm_label": "twistcard()",
-      "source_file": "apps/web/src/screen/ScreenPage.tsx",
-      "source_location": "L172"
-    },
-    {
-      "id": "apps_web_src_screen_screenpage_upnext",
-      "label": "UpNext()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 36,
-      "community_name": "ScreenPage.tsx",
-      "file_type": "code",
-      "norm_label": "upnext()",
-      "source_file": "apps/web/src/screen/ScreenPage.tsx",
-      "source_location": "L104"
-    },
-    {
-      "id": "apps_web_src_screen_screenpage_wordmark",
-      "label": "Wordmark()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 36,
-      "community_name": "ScreenPage.tsx",
-      "file_type": "code",
-      "norm_label": "wordmark()",
-      "source_file": "apps/web/src/screen/ScreenPage.tsx",
-      "source_location": "L14"
-    },
-    {
-      "id": "apps_web_src_screen_sound_tone",
-      "label": "tone()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 36,
-      "community_name": "ScreenPage.tsx",
-      "file_type": "code",
-      "norm_label": "tone()",
-      "source_file": "apps/web/src/screen/sound.ts",
-      "source_location": "L10"
-    },
-    {
-      "id": "apps_web_src_screen_sound_usesound",
-      "label": "useSound()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 36,
-      "community_name": "ScreenPage.tsx",
-      "file_type": "code",
-      "norm_label": "usesound()",
-      "source_file": "apps/web/src/screen/sound.ts",
-      "source_location": "L52"
-    },
-    {
-      "id": "apps_web_src_screen_sound_usesound_enable",
-      "label": "enable()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 36,
-      "community_name": "ScreenPage.tsx",
-      "file_type": "code",
-      "norm_label": "enable()",
-      "source_file": "apps/web/src/screen/sound.ts",
-      "source_location": "L79"
-    },
-    {
-      "id": "packages_shared_src_api_roundlabel",
-      "label": "roundLabel()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 36,
-      "community_name": "ScreenPage.tsx",
-      "file_type": "code",
-      "norm_label": "roundlabel()",
-      "source_file": "packages/shared/src/api.ts",
-      "source_location": "L13"
+      "norm_label": "checkanswer()",
+      "source_file": "packages/shared/src/play.ts",
+      "source_location": "L50"
     },
     {
       "id": "packages_shared_src_play_newbombstate",
@@ -2875,11 +2803,83 @@
       "_callable": true,
       "_origin": "ast",
       "community": 36,
-      "community_name": "ScreenPage.tsx",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "newbombstate()",
       "source_file": "packages/shared/src/play.ts",
       "source_location": "L42"
+    },
+    {
+      "id": "packages_shared_src_play_strike",
+      "label": "strike()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 36,
+      "community_name": "BombBoard.tsx",
+      "file_type": "code",
+      "norm_label": "strike()",
+      "source_file": "packages/shared/src/play.ts",
+      "source_location": "L45"
+    },
+    {
+      "id": "packages_shared_src_play_test_run",
+      "label": "run()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 36,
+      "community_name": "BombBoard.tsx",
+      "file_type": "code",
+      "norm_label": "run()",
+      "source_file": "packages/shared/src/play.test.ts",
+      "source_location": "L10"
+    },
+    {
+      "id": "packages_shared_src_play_test_solvesymbols",
+      "label": "solveSymbols()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 36,
+      "community_name": "BombBoard.tsx",
+      "file_type": "code",
+      "norm_label": "solvesymbols()",
+      "source_file": "packages/shared/src/play.test.ts",
+      "source_location": "L21"
+    },
+    {
+      "id": "packages_shared_src_play_test_solvewires",
+      "label": "solveWires()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 36,
+      "community_name": "BombBoard.tsx",
+      "file_type": "code",
+      "norm_label": "solvewires()",
+      "source_file": "packages/shared/src/play.test.ts",
+      "source_location": "L20"
+    },
+    {
+      "id": "packages_shared_src_play_test_solveword",
+      "label": "solveWord()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 36,
+      "community_name": "BombBoard.tsx",
+      "file_type": "code",
+      "norm_label": "solveword()",
+      "source_file": "packages/shared/src/play.test.ts",
+      "source_location": "L22"
+    },
+    {
+      "id": "packages_shared_src_play_test_wrongsymbol",
+      "label": "wrongSymbol()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 36,
+      "community_name": "BombBoard.tsx",
+      "file_type": "code",
+      "norm_label": "wrongsymbol()",
+      "source_file": "packages/shared/src/play.test.ts",
+      "source_location": "L8"
     },
     {
       "id": "apps_server_src_flow_finalorder",
@@ -3874,6 +3874,72 @@
       "source_location": "L13"
     },
     {
+      "id": "apps_web_src_screen_resultbanner",
+      "label": "ResultBanner.tsx",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "ScreenPage.tsx",
+      "file_type": "code",
+      "norm_label": "resultbanner.tsx",
+      "source_file": "apps/web/src/screen/ResultBanner.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "apps_web_src_screen_screenpage",
+      "label": "ScreenPage.tsx",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "ScreenPage.tsx",
+      "file_type": "code",
+      "norm_label": "screenpage.tsx",
+      "source_file": "apps/web/src/screen/ScreenPage.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "apps_web_src_screen_sound",
+      "label": "sound.ts",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "ScreenPage.tsx",
+      "file_type": "code",
+      "norm_label": "sound.ts",
+      "source_file": "apps/web/src/screen/sound.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "apps_web_src_screen_sound_sounds",
+      "label": "sounds",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "ScreenPage.tsx",
+      "file_type": "code",
+      "norm_label": "sounds",
+      "source_file": "apps/web/src/screen/sound.ts",
+      "source_location": "L23"
+    },
+    {
+      "id": "apps_web_src_screen_stage",
+      "label": "Stage.tsx",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "ScreenPage.tsx",
+      "file_type": "code",
+      "norm_label": "stage.tsx",
+      "source_file": "apps/web/src/screen/Stage.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "ref_react",
+      "label": "react",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "ScreenPage.tsx",
+      "file_type": "concept",
+      "norm_label": "react",
+      "source_file": "apps/web/package.json",
+      "source_location": "L16"
+    },
+    {
       "id": "tsconfig_base",
       "label": "tsconfig.base.json",
       "_origin": "ast",
@@ -4369,15 +4435,26 @@
       "source_location": "L68"
     },
     {
-      "id": "apps_web_src_screen_stage",
-      "label": "Stage.tsx",
+      "id": "apps_web_src_screen_practicebomb",
+      "label": "PracticeBomb.tsx",
       "_origin": "ast",
       "community": 14,
       "community_name": "PlayPage.tsx",
       "file_type": "code",
-      "norm_label": "stage.tsx",
-      "source_file": "apps/web/src/screen/Stage.tsx",
+      "norm_label": "practicebomb.tsx",
+      "source_file": "apps/web/src/screen/PracticeBomb.tsx",
       "source_location": "L1"
+    },
+    {
+      "id": "apps_web_src_screen_practicebomb_phases",
+      "label": "PHASES",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "PlayPage.tsx",
+      "file_type": "code",
+      "norm_label": "phases",
+      "source_file": "apps/web/src/screen/PracticeBomb.tsx",
+      "source_location": "L12"
     },
     {
       "id": "packages_shared_src_api_bet_points",
@@ -4391,26 +4468,37 @@
       "source_location": "L36"
     },
     {
-      "id": "packages_shared_src_api_nickname_max",
-      "label": "NICKNAME_MAX",
+      "id": "packages_shared_src_api_hint_penalty",
+      "label": "HINT_PENALTY",
       "_origin": "ast",
       "community": 14,
       "community_name": "PlayPage.tsx",
       "file_type": "code",
-      "norm_label": "nickname_max",
+      "norm_label": "hint_penalty",
       "source_file": "packages/shared/src/api.ts",
-      "source_location": "L4"
+      "source_location": "L64"
     },
     {
-      "id": "ref_react",
-      "label": "react",
+      "id": "packages_shared_src_api_talk_bonus",
+      "label": "TALK_BONUS",
       "_origin": "ast",
       "community": 14,
       "community_name": "PlayPage.tsx",
-      "file_type": "concept",
-      "norm_label": "react",
-      "source_file": "apps/web/package.json",
-      "source_location": "L16"
+      "file_type": "code",
+      "norm_label": "talk_bonus",
+      "source_file": "packages/shared/src/api.ts",
+      "source_location": "L65"
+    },
+    {
+      "id": "packages_shared_src_api_turn_seconds",
+      "label": "TURN_SECONDS",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "PlayPage.tsx",
+      "file_type": "code",
+      "norm_label": "turn_seconds",
+      "source_file": "packages/shared/src/api.ts",
+      "source_location": "L15"
     },
     {
       "id": "packages_shared_package",
@@ -5530,50 +5618,6 @@
       "source_location": "L6"
     },
     {
-      "id": "packages_shared_src_play",
-      "label": "play.ts",
-      "_origin": "ast",
-      "community": 21,
-      "community_name": "bomb.ts",
-      "file_type": "code",
-      "norm_label": "play.ts",
-      "source_file": "packages/shared/src/play.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "packages_shared_src_play_max_strikes",
-      "label": "MAX_STRIKES",
-      "_origin": "ast",
-      "community": 21,
-      "community_name": "bomb.ts",
-      "file_type": "code",
-      "norm_label": "max_strikes",
-      "source_file": "packages/shared/src/play.ts",
-      "source_location": "L3"
-    },
-    {
-      "id": "packages_shared_src_play_test",
-      "label": "play.test.ts",
-      "_origin": "ast",
-      "community": 21,
-      "community_name": "bomb.ts",
-      "file_type": "code",
-      "norm_label": "play.test.ts",
-      "source_file": "packages/shared/src/play.test.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "packages_shared_src_play_test_bomb",
-      "label": "bomb",
-      "_origin": "ast",
-      "community": 21,
-      "community_name": "bomb.ts",
-      "file_type": "code",
-      "norm_label": "bomb",
-      "source_file": "packages/shared/src/play.test.ts",
-      "source_location": "L6"
-    },
-    {
       "id": "packages_shared_src_spectators_test",
       "label": "spectators.test.ts",
       "_origin": "ast",
@@ -5984,28 +6028,6 @@
       "source_location": "L1"
     },
     {
-      "id": "apps_web_src_play_spectator",
-      "label": "Spectator.tsx",
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "GmPage.tsx",
-      "file_type": "code",
-      "norm_label": "spectator.tsx",
-      "source_file": "apps/web/src/play/Spectator.tsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "apps_web_src_play_spectator_strikes",
-      "label": "STRIKES",
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "GmPage.tsx",
-      "file_type": "code",
-      "norm_label": "strikes",
-      "source_file": "apps/web/src/play/Spectator.tsx",
-      "source_location": "L23"
-    },
-    {
       "id": "apps_web_src_ui",
       "label": "ui.tsx",
       "_origin": "ast",
@@ -6050,17 +6072,6 @@
       "source_location": "L16"
     },
     {
-      "id": "packages_shared_src_api",
-      "label": "src/api.ts",
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "GmPage.tsx",
-      "file_type": "code",
-      "norm_label": "src/api.ts",
-      "source_file": "packages/shared/src/api.ts",
-      "source_location": "L1"
-    },
-    {
       "id": "packages_shared_src_api_award_max",
       "label": "AWARD_MAX",
       "_origin": "ast",
@@ -6083,39 +6094,6 @@
       "source_location": "L66"
     },
     {
-      "id": "packages_shared_src_api_english_penalty_ms",
-      "label": "ENGLISH_PENALTY_MS",
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "GmPage.tsx",
-      "file_type": "code",
-      "norm_label": "english_penalty_ms",
-      "source_file": "packages/shared/src/api.ts",
-      "source_location": "L63"
-    },
-    {
-      "id": "packages_shared_src_api_hint_penalty",
-      "label": "HINT_PENALTY",
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "GmPage.tsx",
-      "file_type": "code",
-      "norm_label": "hint_penalty",
-      "source_file": "packages/shared/src/api.ts",
-      "source_location": "L64"
-    },
-    {
-      "id": "packages_shared_src_api_kept_on_replay",
-      "label": "KEPT_ON_REPLAY",
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "GmPage.tsx",
-      "file_type": "code",
-      "norm_label": "kept_on_replay",
-      "source_file": "packages/shared/src/api.ts",
-      "source_location": "L73"
-    },
-    {
       "id": "packages_shared_src_api_note_max",
       "label": "NOTE_MAX",
       "_origin": "ast",
@@ -6127,83 +6105,6 @@
       "source_location": "L67"
     },
     {
-      "id": "packages_shared_src_api_speed_up_cut_ms",
-      "label": "SPEED_UP_CUT_MS",
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "GmPage.tsx",
-      "file_type": "code",
-      "norm_label": "speed_up_cut_ms",
-      "source_file": "packages/shared/src/api.ts",
-      "source_location": "L30"
-    },
-    {
-      "id": "packages_shared_src_api_speed_up_floor_ms",
-      "label": "SPEED_UP_FLOOR_MS",
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "GmPage.tsx",
-      "file_type": "code",
-      "norm_label": "speed_up_floor_ms",
-      "source_file": "packages/shared/src/api.ts",
-      "source_location": "L32"
-    },
-    {
-      "id": "packages_shared_src_api_talk_bonus",
-      "label": "TALK_BONUS",
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "GmPage.tsx",
-      "file_type": "code",
-      "norm_label": "talk_bonus",
-      "source_file": "packages/shared/src/api.ts",
-      "source_location": "L65"
-    },
-    {
-      "id": "packages_shared_src_api_team_colors",
-      "label": "TEAM_COLORS",
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "GmPage.tsx",
-      "file_type": "code",
-      "norm_label": "team_colors",
-      "source_file": "packages/shared/src/api.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "packages_shared_src_api_team_name_max",
-      "label": "TEAM_NAME_MAX",
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "GmPage.tsx",
-      "file_type": "code",
-      "norm_label": "team_name_max",
-      "source_file": "packages/shared/src/api.ts",
-      "source_location": "L5"
-    },
-    {
-      "id": "packages_shared_src_api_twist_types",
-      "label": "TWIST_TYPES",
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "GmPage.tsx",
-      "file_type": "code",
-      "norm_label": "twist_types",
-      "source_file": "packages/shared/src/api.ts",
-      "source_location": "L20"
-    },
-    {
-      "id": "packages_shared_src_api_twists",
-      "label": "TWISTS",
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "GmPage.tsx",
-      "file_type": "code",
-      "norm_label": "twists",
-      "source_file": "packages/shared/src/api.ts",
-      "source_location": "L25"
-    },
-    {
       "id": "docs_phases_07_uji_dan_hari_h_cadangan_hari_h",
       "label": "Cadangan hari-H",
       "_origin": "ast",
@@ -6213,7 +6114,7 @@
       "node_kind": "heading",
       "norm_label": "cadangan hari-h",
       "source_file": "docs/phases/07-uji-dan-hari-h.md",
-      "source_location": "L38"
+      "source_location": "L48"
     },
     {
       "id": "docs_phases_07_uji_dan_hari_h_cakupan",
@@ -6226,6 +6127,18 @@
       "norm_label": "cakupan",
       "source_file": "docs/phases/07-uji-dan-hari-h.md",
       "source_location": "L7"
+    },
+    {
+      "id": "docs_phases_07_uji_dan_hari_h_cara_deploy",
+      "label": "Cara deploy",
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "Fase 7 \u00b7 Uji dan hari-H",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "cara deploy",
+      "source_file": "docs/phases/07-uji-dan-hari-h.md",
+      "source_location": "L28"
     },
     {
       "id": "docs_phases_07_uji_dan_hari_h_dependensi",
@@ -6273,7 +6186,7 @@
       "node_kind": "heading",
       "norm_label": "pengujian",
       "source_file": "docs/phases/07-uji-dan-hari-h.md",
-      "source_location": "L28"
+      "source_location": "L38"
     },
     {
       "id": "docs_phases_07_uji_dan_hari_h_pertanyaan_terbuka_dari_srs",
@@ -6285,7 +6198,7 @@
       "node_kind": "heading",
       "norm_label": "pertanyaan terbuka (dari srs)",
       "source_file": "docs/phases/07-uji-dan-hari-h.md",
-      "source_location": "L50"
+      "source_location": "L60"
     },
     {
       "id": "docs_phases_07_uji_dan_hari_h_setelah_acara",
@@ -6297,7 +6210,7 @@
       "node_kind": "heading",
       "norm_label": "setelah acara",
       "source_file": "docs/phases/07-uji-dan-hari-h.md",
-      "source_location": "L45"
+      "source_location": "L55"
     },
     {
       "id": "docs_phases_07_uji_dan_hari_h_tujuan",
@@ -6777,7 +6690,7 @@
       "node_kind": "heading",
       "norm_label": "2026-11-03 \u00b7 bank soal masuk ke planning",
       "source_file": "hot.md",
-      "source_location": "L244"
+      "source_location": "L253"
     },
     {
       "id": "hot_2026_11_03_fase_1_dikerjakan_branch_fase_1_fondasi",
@@ -6789,7 +6702,7 @@
       "node_kind": "heading",
       "norm_label": "2026-11-03 \u00b7 fase 1 dikerjakan (branch `fase-1-fondasi`)",
       "source_file": "hot.md",
-      "source_location": "L204"
+      "source_location": "L213"
     },
     {
       "id": "hot_2026_11_03_fase_2_dikerjakan_branch_fase_2_bom_offline",
@@ -6801,7 +6714,7 @@
       "node_kind": "heading",
       "norm_label": "2026-11-03 \u00b7 fase 2 dikerjakan (branch `fase-2-bom-offline`)",
       "source_file": "hot.md",
-      "source_location": "L183"
+      "source_location": "L192"
     },
     {
       "id": "hot_2026_11_03_fase_3_dikerjakan_branch_fase_3_manual_hp",
@@ -6813,7 +6726,7 @@
       "node_kind": "heading",
       "norm_label": "2026-11-03 \u00b7 fase 3 dikerjakan (branch `fase-3-manual-hp`)",
       "source_file": "hot.md",
-      "source_location": "L162"
+      "source_location": "L171"
     },
     {
       "id": "hot_2026_11_03_fase_4_dikerjakan_branch_fase_4_giliran_realtime",
@@ -6825,7 +6738,7 @@
       "node_kind": "heading",
       "norm_label": "2026-11-03 \u00b7 fase 4 dikerjakan (branch `fase-4-giliran-realtime`)",
       "source_file": "hot.md",
-      "source_location": "L140"
+      "source_location": "L149"
     },
     {
       "id": "hot_2026_11_03_fase_5_bet_sabotage_twist",
@@ -6837,7 +6750,7 @@
       "node_kind": "heading",
       "norm_label": "2026-11-03 \u00b7 fase 5: bet, sabotage, twist",
       "source_file": "hot.md",
-      "source_location": "L58"
+      "source_location": "L67"
     },
     {
       "id": "hot_2026_11_03_instruksi_graphify_di_claude_md",
@@ -6849,7 +6762,7 @@
       "node_kind": "heading",
       "norm_label": "2026-11-03 \u00b7 instruksi graphify di claude.md",
       "source_file": "hot.md",
-      "source_location": "L52"
+      "source_location": "L61"
     },
     {
       "id": "hot_2026_11_03_jeda_5_detik_pergantian_defuser",
@@ -6861,7 +6774,7 @@
       "node_kind": "heading",
       "norm_label": "2026-11-03 \u00b7 jeda 5 detik pergantian defuser",
       "source_file": "hot.md",
-      "source_location": "L123"
+      "source_location": "L132"
     },
     {
       "id": "hot_2026_11_03_jeda_pergantian_defuser_timer_tetap_berjalan",
@@ -6873,7 +6786,7 @@
       "node_kind": "heading",
       "norm_label": "2026-11-03 \u00b7 jeda pergantian defuser: timer tetap berjalan",
       "source_file": "hot.md",
-      "source_location": "L111"
+      "source_location": "L120"
     },
     {
       "id": "hot_2026_11_03_manual_sama_untuk_semua_expert",
@@ -6885,7 +6798,7 @@
       "node_kind": "heading",
       "norm_label": "2026-11-03 \u00b7 manual sama untuk semua expert",
       "source_file": "hot.md",
-      "source_location": "L227"
+      "source_location": "L236"
     },
     {
       "id": "hot_2026_11_03_pergantian_defuser_jadi_toast_tanpa_mengunci_bom",
@@ -6897,7 +6810,7 @@
       "node_kind": "heading",
       "norm_label": "2026-11-03 \u00b7 pergantian defuser jadi toast, tanpa mengunci bom",
       "source_file": "hot.md",
-      "source_location": "L96"
+      "source_location": "L105"
     },
     {
       "id": "hot_2026_11_03_planning_per_fase",
@@ -6909,7 +6822,7 @@
       "node_kind": "heading",
       "norm_label": "2026-11-03 \u00b7 planning per fase",
       "source_file": "hot.md",
-      "source_location": "L263"
+      "source_location": "L272"
     },
     {
       "id": "hot_2026_11_03_ronde_tambahan_sebelum_final",
@@ -6921,7 +6834,7 @@
       "node_kind": "heading",
       "norm_label": "2026-11-03 \u00b7 ronde tambahan sebelum final",
       "source_file": "hot.md",
-      "source_location": "L77"
+      "source_location": "L86"
     },
     {
       "id": "hot_2026_11_04_fase_6_final_dan_alat_gm",
@@ -6933,7 +6846,7 @@
       "node_kind": "heading",
       "norm_label": "2026-11-04 \u00b7 fase 6: final dan alat gm",
       "source_file": "hot.md",
-      "source_location": "L33"
+      "source_location": "L42"
     },
     {
       "id": "hot_2026_11_05_dev_server_pindah_ke_port_3001",
@@ -6945,7 +6858,7 @@
       "node_kind": "heading",
       "norm_label": "2026-11-05 \u00b7 dev server pindah ke port 3001",
       "source_file": "hot.md",
-      "source_location": "L27"
+      "source_location": "L36"
     },
     {
       "id": "hot_2026_11_08_fase_7_uji_deploy_beban_dan_skrip_data_acara",
@@ -6956,6 +6869,18 @@
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "2026-11-08 \u00b7 fase 7: uji deploy, beban, dan skrip data acara",
+      "source_file": "hot.md",
+      "source_location": "L14"
+    },
+    {
+      "id": "hot_2026_11_08_skrip_deploy_build_di_laptop_kirim_image",
+      "label": "2026-11-08 \u00b7 Skrip deploy: build di laptop, kirim image",
+      "_origin": "ast",
+      "community": 31,
+      "community_name": "hot.md \u00b7 Log perubahan per sesi",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "2026-11-08 \u00b7 skrip deploy: build di laptop, kirim image",
       "source_file": "hot.md",
       "source_location": "L5"
     },
@@ -7128,6 +7053,61 @@
       "source_location": "L11"
     },
     {
+      "id": "apps_web_src_lib_live",
+      "label": "lib/live.ts",
+      "_origin": "ast",
+      "community": 34,
+      "community_name": "Spectator.tsx",
+      "file_type": "code",
+      "norm_label": "lib/live.ts",
+      "source_file": "apps/web/src/lib/live.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "apps_web_src_lib_live_delays",
+      "label": "DELAYS",
+      "_origin": "ast",
+      "community": 34,
+      "community_name": "Spectator.tsx",
+      "file_type": "code",
+      "norm_label": "delays",
+      "source_file": "apps/web/src/lib/live.ts",
+      "source_location": "L4"
+    },
+    {
+      "id": "apps_web_src_play_spectator",
+      "label": "Spectator.tsx",
+      "_origin": "ast",
+      "community": 34,
+      "community_name": "Spectator.tsx",
+      "file_type": "code",
+      "norm_label": "spectator.tsx",
+      "source_file": "apps/web/src/play/Spectator.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "apps_web_src_play_spectator_strikes",
+      "label": "STRIKES",
+      "_origin": "ast",
+      "community": 34,
+      "community_name": "Spectator.tsx",
+      "file_type": "code",
+      "norm_label": "strikes",
+      "source_file": "apps/web/src/play/Spectator.tsx",
+      "source_location": "L23"
+    },
+    {
+      "id": "packages_shared_src_api_twists",
+      "label": "TWISTS",
+      "_origin": "ast",
+      "community": 34,
+      "community_name": "Spectator.tsx",
+      "file_type": "code",
+      "norm_label": "twists",
+      "source_file": "packages/shared/src/api.ts",
+      "source_location": "L25"
+    },
+    {
       "id": "apps_server_src_live",
       "label": "src/live.ts",
       "_origin": "ast",
@@ -7187,7 +7167,7 @@
       "label": "BombBoard.tsx",
       "_origin": "ast",
       "community": 36,
-      "community_name": "ScreenPage.tsx",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "bombboard.tsx",
       "source_file": "apps/web/src/bomb/BombBoard.tsx",
@@ -7198,7 +7178,7 @@
       "label": "MODULE_NAMES",
       "_origin": "ast",
       "community": 36,
-      "community_name": "ScreenPage.tsx",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "module_names",
       "source_file": "apps/web/src/bomb/BombBoard.tsx",
@@ -7209,7 +7189,7 @@
       "label": "Chassis.tsx",
       "_origin": "ast",
       "community": 36,
-      "community_name": "ScreenPage.tsx",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "chassis.tsx",
       "source_file": "apps/web/src/bomb/Chassis.tsx",
@@ -7220,7 +7200,7 @@
       "label": "LED_FILL",
       "_origin": "ast",
       "community": 36,
-      "community_name": "ScreenPage.tsx",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "led_fill",
       "source_file": "apps/web/src/bomb/Chassis.tsx",
@@ -7231,7 +7211,7 @@
       "label": "LED_X",
       "_origin": "ast",
       "community": 36,
-      "community_name": "ScreenPage.tsx",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "led_x",
       "source_file": "apps/web/src/bomb/Chassis.tsx",
@@ -7242,7 +7222,7 @@
       "label": "Modules.tsx",
       "_origin": "ast",
       "community": 36,
-      "community_name": "ScreenPage.tsx",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "modules.tsx",
       "source_file": "apps/web/src/bomb/Modules.tsx",
@@ -7253,32 +7233,10 @@
       "label": "WIRE_HEX",
       "_origin": "ast",
       "community": 36,
-      "community_name": "ScreenPage.tsx",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "wire_hex",
       "source_file": "apps/web/src/bomb/Modules.tsx",
-      "source_location": "L4"
-    },
-    {
-      "id": "apps_web_src_lib_live",
-      "label": "lib/live.ts",
-      "_origin": "ast",
-      "community": 36,
-      "community_name": "ScreenPage.tsx",
-      "file_type": "code",
-      "norm_label": "lib/live.ts",
-      "source_file": "apps/web/src/lib/live.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "apps_web_src_lib_live_delays",
-      "label": "DELAYS",
-      "_origin": "ast",
-      "community": 36,
-      "community_name": "ScreenPage.tsx",
-      "file_type": "code",
-      "norm_label": "delays",
-      "source_file": "apps/web/src/lib/live.ts",
       "source_location": "L4"
     },
     {
@@ -7286,110 +7244,206 @@
       "label": "HandoverToast.tsx",
       "_origin": "ast",
       "community": 36,
-      "community_name": "ScreenPage.tsx",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
       "norm_label": "handovertoast.tsx",
       "source_file": "apps/web/src/screen/HandoverToast.tsx",
       "source_location": "L1"
     },
     {
-      "id": "apps_web_src_screen_practicebomb",
-      "label": "PracticeBomb.tsx",
+      "id": "packages_shared_src_play",
+      "label": "play.ts",
       "_origin": "ast",
       "community": 36,
-      "community_name": "ScreenPage.tsx",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
-      "norm_label": "practicebomb.tsx",
-      "source_file": "apps/web/src/screen/PracticeBomb.tsx",
+      "norm_label": "play.ts",
+      "source_file": "packages/shared/src/play.ts",
       "source_location": "L1"
     },
     {
-      "id": "apps_web_src_screen_practicebomb_phases",
-      "label": "PHASES",
+      "id": "packages_shared_src_play_max_strikes",
+      "label": "MAX_STRIKES",
       "_origin": "ast",
       "community": 36,
-      "community_name": "ScreenPage.tsx",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
-      "norm_label": "phases",
-      "source_file": "apps/web/src/screen/PracticeBomb.tsx",
-      "source_location": "L12"
+      "norm_label": "max_strikes",
+      "source_file": "packages/shared/src/play.ts",
+      "source_location": "L3"
     },
     {
-      "id": "apps_web_src_screen_resultbanner",
-      "label": "ResultBanner.tsx",
+      "id": "packages_shared_src_play_test",
+      "label": "play.test.ts",
       "_origin": "ast",
       "community": 36,
-      "community_name": "ScreenPage.tsx",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
-      "norm_label": "resultbanner.tsx",
-      "source_file": "apps/web/src/screen/ResultBanner.tsx",
+      "norm_label": "play.test.ts",
+      "source_file": "packages/shared/src/play.test.ts",
       "source_location": "L1"
     },
     {
-      "id": "apps_web_src_screen_screenpage",
-      "label": "ScreenPage.tsx",
+      "id": "packages_shared_src_play_test_bomb",
+      "label": "bomb",
       "_origin": "ast",
       "community": 36,
-      "community_name": "ScreenPage.tsx",
+      "community_name": "BombBoard.tsx",
       "file_type": "code",
-      "norm_label": "screenpage.tsx",
-      "source_file": "apps/web/src/screen/ScreenPage.tsx",
+      "norm_label": "bomb",
+      "source_file": "packages/shared/src/play.test.ts",
+      "source_location": "L6"
+    },
+    {
+      "id": "packages_shared_src_api",
+      "label": "src/api.ts",
+      "_origin": "ast",
+      "community": 37,
+      "community_name": "src/api.ts",
+      "file_type": "code",
+      "norm_label": "src/api.ts",
+      "source_file": "packages/shared/src/api.ts",
       "source_location": "L1"
     },
     {
-      "id": "apps_web_src_screen_sound",
-      "label": "sound.ts",
+      "id": "packages_shared_src_api_english_penalty_ms",
+      "label": "ENGLISH_PENALTY_MS",
       "_origin": "ast",
-      "community": 36,
-      "community_name": "ScreenPage.tsx",
+      "community": 37,
+      "community_name": "src/api.ts",
       "file_type": "code",
-      "norm_label": "sound.ts",
-      "source_file": "apps/web/src/screen/sound.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "apps_web_src_screen_sound_sounds",
-      "label": "sounds",
-      "_origin": "ast",
-      "community": 36,
-      "community_name": "ScreenPage.tsx",
-      "file_type": "code",
-      "norm_label": "sounds",
-      "source_file": "apps/web/src/screen/sound.ts",
-      "source_location": "L23"
+      "norm_label": "english_penalty_ms",
+      "source_file": "packages/shared/src/api.ts",
+      "source_location": "L63"
     },
     {
       "id": "packages_shared_src_api_handover_ms",
       "label": "HANDOVER_MS",
       "_origin": "ast",
-      "community": 36,
-      "community_name": "ScreenPage.tsx",
+      "community": 37,
+      "community_name": "src/api.ts",
       "file_type": "code",
       "norm_label": "handover_ms",
       "source_file": "packages/shared/src/api.ts",
       "source_location": "L17"
     },
     {
+      "id": "packages_shared_src_api_kept_on_replay",
+      "label": "KEPT_ON_REPLAY",
+      "_origin": "ast",
+      "community": 37,
+      "community_name": "src/api.ts",
+      "file_type": "code",
+      "norm_label": "kept_on_replay",
+      "source_file": "packages/shared/src/api.ts",
+      "source_location": "L73"
+    },
+    {
+      "id": "packages_shared_src_api_nickname_max",
+      "label": "NICKNAME_MAX",
+      "_origin": "ast",
+      "community": 37,
+      "community_name": "src/api.ts",
+      "file_type": "code",
+      "norm_label": "nickname_max",
+      "source_file": "packages/shared/src/api.ts",
+      "source_location": "L4"
+    },
+    {
       "id": "packages_shared_src_api_phase_labels",
       "label": "PHASE_LABELS",
       "_origin": "ast",
-      "community": 36,
-      "community_name": "ScreenPage.tsx",
+      "community": 37,
+      "community_name": "src/api.ts",
       "file_type": "code",
       "norm_label": "phase_labels",
       "source_file": "packages/shared/src/api.ts",
       "source_location": "L11"
     },
     {
-      "id": "packages_shared_src_api_turn_seconds",
-      "label": "TURN_SECONDS",
+      "id": "packages_shared_src_api_speed_up_cut_ms",
+      "label": "SPEED_UP_CUT_MS",
       "_origin": "ast",
-      "community": 36,
-      "community_name": "ScreenPage.tsx",
+      "community": 37,
+      "community_name": "src/api.ts",
       "file_type": "code",
-      "norm_label": "turn_seconds",
+      "norm_label": "speed_up_cut_ms",
       "source_file": "packages/shared/src/api.ts",
-      "source_location": "L15"
+      "source_location": "L30"
+    },
+    {
+      "id": "packages_shared_src_api_speed_up_floor_ms",
+      "label": "SPEED_UP_FLOOR_MS",
+      "_origin": "ast",
+      "community": 37,
+      "community_name": "src/api.ts",
+      "file_type": "code",
+      "norm_label": "speed_up_floor_ms",
+      "source_file": "packages/shared/src/api.ts",
+      "source_location": "L32"
+    },
+    {
+      "id": "packages_shared_src_api_team_colors",
+      "label": "TEAM_COLORS",
+      "_origin": "ast",
+      "community": 37,
+      "community_name": "src/api.ts",
+      "file_type": "code",
+      "norm_label": "team_colors",
+      "source_file": "packages/shared/src/api.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "packages_shared_src_api_team_name_max",
+      "label": "TEAM_NAME_MAX",
+      "_origin": "ast",
+      "community": 37,
+      "community_name": "src/api.ts",
+      "file_type": "code",
+      "norm_label": "team_name_max",
+      "source_file": "packages/shared/src/api.ts",
+      "source_location": "L5"
+    },
+    {
+      "id": "packages_shared_src_api_twist_types",
+      "label": "TWIST_TYPES",
+      "_origin": "ast",
+      "community": 37,
+      "community_name": "src/api.ts",
+      "file_type": "code",
+      "norm_label": "twist_types",
+      "source_file": "packages/shared/src/api.ts",
+      "source_location": "L20"
+    },
+    {
+      "id": "scripts_deploy",
+      "label": "deploy.sh",
+      "_origin": "ast",
+      "community": 38,
+      "community_name": "deploy.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "deploy.sh",
+      "source_file": "scripts/deploy.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "scripts_deploy_sh__entry",
+      "label": "deploy.sh script",
+      "_origin": "ast",
+      "community": 38,
+      "community_name": "deploy.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "deploy.sh script",
+      "source_file": "scripts/deploy.sh",
+      "source_location": "L1"
     },
     {
       "id": "defuse_contoh_modul",
@@ -22360,6 +22414,17 @@
       "weight": 1.0
     },
     {
+      "source": "docs_phases_07_uji_dan_hari_h_deploy_vps",
+      "target": "docs_phases_07_uji_dan_hari_h_cara_deploy",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/phases/07-uji-dan-hari-h.md",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
       "source": "docs_phases_07_uji_dan_hari_h_fase_7_uji_dan_hari_h",
       "target": "docs_phases_07_uji_dan_hari_h_dependensi",
       "relation": "contains",
@@ -22383,17 +22448,6 @@
     },
     {
       "source": "docs_phases_07_uji_dan_hari_h_fase_7_uji_dan_hari_h",
-      "target": "docs_phases_07_uji_dan_hari_h_pengujian",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/phases/07-uji-dan-hari-h.md",
-      "source_location": "L28",
-      "weight": 1.0
-    },
-    {
-      "source": "docs_phases_07_uji_dan_hari_h_fase_7_uji_dan_hari_h",
       "target": "docs_phases_07_uji_dan_hari_h_tujuan",
       "relation": "contains",
       "_origin": "ast",
@@ -22405,7 +22459,7 @@
     },
     {
       "source": "docs_phases_07_uji_dan_hari_h_fase_7_uji_dan_hari_h",
-      "target": "docs_phases_07_uji_dan_hari_h_cadangan_hari_h",
+      "target": "docs_phases_07_uji_dan_hari_h_pengujian",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -22416,13 +22470,24 @@
     },
     {
       "source": "docs_phases_07_uji_dan_hari_h_fase_7_uji_dan_hari_h",
+      "target": "docs_phases_07_uji_dan_hari_h_cadangan_hari_h",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/phases/07-uji-dan-hari-h.md",
+      "source_location": "L48",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_phases_07_uji_dan_hari_h_fase_7_uji_dan_hari_h",
       "target": "docs_phases_07_uji_dan_hari_h_setelah_acara",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/phases/07-uji-dan-hari-h.md",
-      "source_location": "L45",
+      "source_location": "L55",
       "weight": 1.0
     },
     {
@@ -22433,7 +22498,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/phases/07-uji-dan-hari-h.md",
-      "source_location": "L50",
+      "source_location": "L60",
       "weight": 1.0
     },
     {
@@ -22504,13 +22569,24 @@
     },
     {
       "source": "hot_hot_md_log_perubahan_per_sesi",
+      "target": "hot_2026_11_03_pergantian_defuser_jadi_toast_tanpa_mengunci_bom",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "hot.md",
+      "source_location": "L105",
+      "weight": 1.0
+    },
+    {
+      "source": "hot_hot_md_log_perubahan_per_sesi",
       "target": "hot_2026_11_03_jeda_pergantian_defuser_timer_tetap_berjalan",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "hot.md",
-      "source_location": "L111",
+      "source_location": "L120",
       "weight": 1.0
     },
     {
@@ -22521,7 +22597,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "hot.md",
-      "source_location": "L123",
+      "source_location": "L132",
+      "weight": 1.0
+    },
+    {
+      "source": "hot_hot_md_log_perubahan_per_sesi",
+      "target": "hot_2026_11_08_fase_7_uji_deploy_beban_dan_skrip_data_acara",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "hot.md",
+      "source_location": "L14",
       "weight": 1.0
     },
     {
@@ -22532,7 +22619,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "hot.md",
-      "source_location": "L140",
+      "source_location": "L149",
       "weight": 1.0
     },
     {
@@ -22543,7 +22630,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "hot.md",
-      "source_location": "L162",
+      "source_location": "L171",
       "weight": 1.0
     },
     {
@@ -22554,7 +22641,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "hot.md",
-      "source_location": "L183",
+      "source_location": "L192",
       "weight": 1.0
     },
     {
@@ -22565,7 +22652,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "hot.md",
-      "source_location": "L204",
+      "source_location": "L213",
       "weight": 1.0
     },
     {
@@ -22576,7 +22663,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "hot.md",
-      "source_location": "L227",
+      "source_location": "L236",
       "weight": 1.0
     },
     {
@@ -22587,7 +22674,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "hot.md",
-      "source_location": "L244",
+      "source_location": "L253",
       "weight": 1.0
     },
     {
@@ -22598,7 +22685,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "hot.md",
-      "source_location": "L263",
+      "source_location": "L272",
       "weight": 1.0
     },
     {
@@ -22609,7 +22696,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "hot.md",
-      "source_location": "L27",
+      "source_location": "L36",
       "weight": 1.0
     },
     {
@@ -22620,12 +22707,12 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "hot.md",
-      "source_location": "L33",
+      "source_location": "L42",
       "weight": 1.0
     },
     {
       "source": "hot_hot_md_log_perubahan_per_sesi",
-      "target": "hot_2026_11_08_fase_7_uji_deploy_beban_dan_skrip_data_acara",
+      "target": "hot_2026_11_08_skrip_deploy_build_di_laptop_kirim_image",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -22642,7 +22729,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "hot.md",
-      "source_location": "L52",
+      "source_location": "L61",
       "weight": 1.0
     },
     {
@@ -22653,7 +22740,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "hot.md",
-      "source_location": "L58",
+      "source_location": "L67",
       "weight": 1.0
     },
     {
@@ -22664,18 +22751,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "hot.md",
-      "source_location": "L77",
-      "weight": 1.0
-    },
-    {
-      "source": "hot_hot_md_log_perubahan_per_sesi",
-      "target": "hot_2026_11_03_pergantian_defuser_jadi_toast_tanpa_mengunci_bom",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "hot.md",
-      "source_location": "L96",
+      "source_location": "L86",
       "weight": 1.0
     },
     {
@@ -24637,6 +24713,17 @@
       "weight": 1.0
     },
     {
+      "source": "scripts_deploy",
+      "target": "scripts_deploy_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/deploy.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
       "source": "scripts_event_db",
       "target": "scripts_event_db_sh__entry",
       "relation": "contains",
@@ -25603,5 +25690,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "697040558f24e0f228e54e82e3595aa80e8c057e"
+  "built_at_commit": "ac510e843dee9dbdc333464647b460fc75584926"
 }
