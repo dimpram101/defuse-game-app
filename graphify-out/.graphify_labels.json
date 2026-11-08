@@ -33,7 +33,13 @@
   "31": "hot.md · Log perubahan per sesi",
   "32": "README.md",
   "33": "Modul bom dan isi manual",
+  "34": "PracticeBomb.tsx",
   "35": "LiveGame",
-  "36": "ScreenPage.tsx",
-  "38": "Defuse! · Planning"
+  "36": "BombBoard.tsx",
+  "37": "PlayPage.tsx",
+  "38": "ScreenPage.tsx",
+  "39": "protocol.ts",
+  "40": "load-test.ts",
+  "41": "react",
+  "42": "event-db.sh"
 }

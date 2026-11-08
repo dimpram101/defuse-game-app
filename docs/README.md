@@ -23,7 +23,7 @@ Kalau planning di sini bertentangan dengan dokumen sumber, dokumen sumber yang m
 | 4 | [Giliran realtime](phases/04-giliran-realtime.md) | FR-14, 15, 24, 30, 40, 41 · NFR-01, 02, 04, 05 | 2, 3 | jalan (tinggal uji dengan HP sungguhan) |
 | 5 | [Penonton](phases/05-penonton.md) | FR-22, 23, 33, 34 | 4 | jalan (tinggal uji dengan HP sungguhan) |
 | 6 | [Final dan perapian](phases/06-final-perapian.md) | FR-04, 05, 16, 31, 32, 35, 36, 37, 42 | 4, 5 | jalan (tinggal cek suara di dry run) |
-| 7 | [Uji dan hari-H](phases/07-uji-dan-hari-h.md) | NFR-03, 09 (cek akhir) · pengujian SRS · deploy | 1–6 | belum |
+| 7 | [Uji dan hari-H](phases/07-uji-dan-hari-h.md) | NFR-03, 09 (cek akhir) · pengujian SRS · deploy | 1–6 | jalan (tinggal deploy VPS, dry run, uji lokasi, cetak) |
 
 Status: `belum` / `jalan` / `selesai`. Setelah Fase 4 selesai, permainan sudah bisa dimainkan dari awal sampai leaderboard. Fase 5 dan 6 menambah fitur sesuai prioritas Must, Should, Could.
 

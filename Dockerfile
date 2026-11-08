@@ -6,6 +6,7 @@ COPY apps/web/package.json apps/web/
 COPY apps/server/package.json apps/server/
 COPY packages/db/package.json packages/db/
 COPY packages/shared/package.json packages/shared/
+COPY packages/content/package.json packages/content/
 RUN bun install --frozen-lockfile
 COPY . .
 RUN bun run build
@@ -18,6 +19,7 @@ COPY apps/web/package.json apps/web/
 COPY apps/server/package.json apps/server/
 COPY packages/db/package.json packages/db/
 COPY packages/shared/package.json packages/shared/
+COPY packages/content/package.json packages/content/
 RUN bun install --frozen-lockfile --production
 COPY apps/server apps/server
 COPY packages packages

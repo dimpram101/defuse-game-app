@@ -2,6 +2,24 @@
 
 Entri terbaru di atas. Format ada di `CLAUDE.md` bagian "Aturan proyek".
 
+## 2026-11-08 · Fase 7: uji deploy, beban, dan skrip data acara
+
+**Perubahan:**
+- `Dockerfile`: kedua stage menyalin `packages/content/package.json` sebelum `bun install`. Tanpa ini build produksi gagal ("workspace @defuse/content ... not on disk").
+- `scripts/load-test.ts`: membuat sesi baru, 24 pemain + `/screen` + `/gm` lewat WebSocket, mengukur jeda snapshot per perintah GM. Menolak jalan kalau sudah ada sesi, kecuali `--replace`.
+- `scripts/event-db.sh`: `backup` (pg_dump penuh sebelum acara) dan `archive` (hapus `players`, lalu pg_dump) untuk NFR-07. `.gitignore` menambah `backups/`.
+- `docs/phases/07-uji-dan-hari-h.md` (checklist dan catatan), `docs/README.md` (Fase 7 jalan).
+
+**Keputusan:**
+- `archive` menghapus pemain sebelum dump supaya arsip tidak berisi device token. `players` tidak dirujuk FK lain; `turns.defuser_ids` tinggal angka tanpa nama.
+- Bukti: image produksi lulus build dan menjawab `/health` `{"ok":true}` dan `/play` 200; uji beban ke image itu 150 pengiriman, p95 20 ms, maks 20 ms; `event-db.sh backup` menghasilkan dump di DB dev; `bun test` 93 lulus. Mode `archive` belum dijalankan (akan menghapus data).
+- NFR-09: sisa teks Indonesia hanya 3 teks bantuan kecil, sesuai aturan.
+
+**Berikutnya:**
+- Halaman cetak manual (semua babak termasuk Final) + QR `/play` + lembar skor kertas: menunggu pilihan mode antislop.
+- Deploy ke VPS (DNS, firewall 80/443), `load-test.ts` dari jaringan venue, restart `app` di tengah giliran, dry run 4–5 orang, uji proyektor.
+- Pertanyaan terbuka: tanggal acara, Wi-Fi venue, GM/operator, subdomain/VPS.
+
 ## 2026-11-05 · Dev server pindah ke port 3001
 
 **Perubahan:** `apps/web/vite.config.ts` (proxy `/api`, `/health`, `/ws` ke 3001), `.env` dan `.env.example` (`PORT=3001`), `docs/phases/01-fondasi.md` (catatan port).

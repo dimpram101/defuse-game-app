@@ -18,34 +18,33 @@ Fase 1–6, atau minimal Fase 1–4 kalau waktu sempit (game sudah bisa dimainka
 ## Deploy VPS
 
 - [ ] Subdomain mengarah ke IP VPS, HTTPS aktif lewat Caddy
-- [ ] Image dibuild di laptop/CI, bukan di VPS (atau tambah swap 2 GB)
-- [ ] `shared_buffers` Postgres 128 MB jika VPS menjalankan layanan lain
-- [ ] Hanya port 80 dan 443 terbuka
-- [ ] `restart: unless-stopped` di semua container
+- [ ] Image dibuild di laptop/CI, bukan di VPS (atau tambah swap 2 GB). Build lokal lulus setelah `Dockerfile` ikut menyalin `packages/content/package.json`; image tes menjawab `/health` dan `/play`
+- [x] `shared_buffers` Postgres 128 MB jika VPS menjalankan layanan lain (sudah di `docker-compose.yml`)
+- [ ] Hanya port 80 dan 443 terbuka (compose hanya membuka 80/443; firewall VPS tetap dicek)
+- [x] `restart: unless-stopped` di semua container
 - [ ] `/health` dicek dari HP sehari sebelum acara
 - [ ] Uji ping dari lokasi acara ke VPS
 
 ## Pengujian
 
-- [ ] Generator: 50 seed per babak, tepat satu jawaban benar per modul (sudah ada di `bun test` sejak Fase 2, jalankan ulang setelah aturan direvisi)
-- [ ] Beban kecil: buka `/play` di ±20 tab/HP sekaligus, realtime tetap ±1 dtk. Skrip sederhana dengan `bun` yang membuka 25 WebSocket bisa menggantikan tab
+- [x] Generator: 50 seed per babak, tepat satu jawaban benar per modul (sudah ada di `bun test` sejak Fase 2, jalankan ulang setelah aturan direvisi)
+- [x] Beban kecil: buka `/play` di ±20 tab/HP sekaligus, realtime tetap ±1 dtk. `bun scripts/load-test.ts` (24 pemain + screen + GM, membuat sesi baru, jangan dijalankan saat acara). Lokal: p95 20 ms, maks 20 ms. Ulangi ke VPS dari jaringan venue
 - [ ] Putus koneksi: matikan Wi-Fi HP di tengah giliran, nyalakan lagi, status pulih
-- [ ] Restart server di tengah giliran, giliran lanjut dengan sisa waktu benar
+- [ ] Restart server di tengah giliran, giliran lanjut dengan sisa waktu benar (lulus di `live.test.ts`; ulangi dengan `docker compose restart app` di VPS)
 - [ ] Dry run 4–5 orang: waktu 3 menit cukup, tingkat kesulitan, angka skor, Bet, Sabotage. Catat hasilnya di `hot.md`, revisi isi soal di bank, lalu jalankan `bun test` dan buat ulang `samples.json`
 - [ ] Uji lokasi: proyektor, ukuran huruf dan warna kabel dari belakang ruangan, sinyal Wi-Fi, hotspot cadangan
-- [ ] Semua teks permainan berbahasa Inggris, teks bantuan kecil boleh Indonesia
+- [x] Semua teks permainan berbahasa Inggris, teks bantuan kecil boleh Indonesia (sisa Indonesia: 3 teks bantuan di `PlayPage` dan `RoleScreens`)
 
 ## Cadangan hari-H
 
 - [ ] Manual cetak 1 set per tim, dicetak dari `manual.json` versi terakhir (termasuk halaman Final)
 - [ ] QR tercetak ke `/play`
 - [ ] Lembar skor kertas kalau sistem tidak bisa dipakai sama sekali
-- [ ] Backup `pg_dump` sebelum acara
+- [ ] Backup `pg_dump` sebelum acara: `scripts/event-db.sh backup` di VPS
 
 ## Setelah acara
 
-- [ ] `pg_dump` untuk arsip skor (tanpa data pribadi selain nama panggilan)
-- [ ] Hapus tabel `players` (atau seluruh sesi) sesuai NFR-07
+- [ ] `pg_dump` untuk arsip skor dan hapus semua pemain (NFR-07): `scripts/event-db.sh archive` menghapus `players` lalu membuat dump, jadi arsip tidak berisi device token. Nama panggilan tersisa hanya di kolom juara
 - [ ] Catat pelajaran di `hot.md`
 
 ## Pertanyaan terbuka (dari SRS)
