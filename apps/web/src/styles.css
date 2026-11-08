@@ -62,6 +62,40 @@
   }
 }
 
+/* /print: the same components on white paper. Dark backgrounds waste ink and many printers drop them,
+   so the tokens flip to light here. Teal darkens to stay readable (5.6:1 on the header strip). */
+.paper {
+  --color-surface: #ffffff;
+  --color-surface-raised: #eef1f4;
+  --color-outline: #c4cad3;
+  --color-outline-strong: #8a94a3;
+  --color-on-surface: #0e1116;
+  --color-on-surface-muted: #4a5361;
+  --color-secondary: #0b6b62;
+  /* Symbol keys need a visible fill on white paper. */
+  --color-wire-white: #e6e9ee;
+  --manual-groups: repeat(3, minmax(0, 1fr));
+  background: var(--color-surface);
+  color: var(--color-on-surface);
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+.paper section {
+  break-inside: avoid;
+}
+@media print {
+  @page {
+    size: A4;
+    margin: 14mm;
+  }
+  html {
+    color-scheme: light;
+  }
+  body {
+    background: #ffffff;
+  }
+}
+
 /* Only two things glow (DESIGN.md › Elevation): the active module and the timer in its last 30 seconds. */
 .module-active {
   box-shadow: 0 0 0 3px var(--color-primary), 0 0 36px rgb(255 176 32 / 0.35);

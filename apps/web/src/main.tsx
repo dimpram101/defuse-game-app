@@ -10,12 +10,14 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { GmPage } from "./gm/GmPage";
 import { PlayPage } from "./play/PlayPage";
+import { PrintPage } from "./print/PrintPage";
 import { ScreenPage } from "./screen/ScreenPage";
 
 const pages: Record<string, () => React.JSX.Element> = {
   "/screen": ScreenPage,
   "/play": PlayPage,
   "/gm": GmPage,
+  "/print": PrintPage,
 };
 
 // Anyone who types the bare domain is almost always a participant.

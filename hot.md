@@ -8,15 +8,19 @@ Entri terbaru di atas. Format ada di `CLAUDE.md` bagian "Aturan proyek".
 - `Dockerfile`: kedua stage menyalin `packages/content/package.json` sebelum `bun install`. Tanpa ini build produksi gagal ("workspace @defuse/content ... not on disk").
 - `scripts/load-test.ts`: membuat sesi baru, 24 pemain + `/screen` + `/gm` lewat WebSocket, mengukur jeda snapshot per perintah GM. Menolak jalan kalau sudah ada sesi, kecuali `--replace`.
 - `scripts/event-db.sh`: `backup` (pg_dump penuh sebelum acara) dan `archive` (hapus `players`, lalu pg_dump) untuk NFR-07. `.gitignore` menambah `backups/`.
+- `apps/web/src/print/PrintPage.tsx` + rute `/print` di `main.tsx`: manual Round 1, Round 2, Final (9 lembar A4), lembar Join QR, lembar skor kertas; pilihan bagian yang dicetak. Hanya untuk GM (token dari `/gm`).
+- `apps/web/src/styles.css`: kelas `.paper` (token terang untuk kertas, `print-color-adjust: exact`, `@page` A4). `ManualView`: grup Say the Word dibungkus grid `--manual-groups` (HP tetap 1 kolom, kertas 3 kolom).
 - `docs/phases/07-uji-dan-hari-h.md` (checklist dan catatan), `docs/README.md` (Fase 7 jalan).
 
 **Keputusan:**
 - `archive` menghapus pemain sebelum dump supaya arsip tidak berisi device token. `players` tidak dirujuk FK lain; `turns.defuser_ids` tinggal angka tanpa nama.
 - Bukti: image produksi lulus build dan menjawab `/health` `{"ok":true}` dan `/play` 200; uji beban ke image itu 150 pengiriman, p95 20 ms, maks 20 ms; `event-db.sh backup` menghasilkan dump di DB dev; `bun test` 93 lulus. Mode `archive` belum dijalankan (akan menghapus data).
 - NFR-09: sisa teks Indonesia hanya 3 teks bantuan kecil, sesuai aturan.
+- Halaman cetak memakai komponen `ManualView` yang sama dengan HP, bukan `manual.json` terpisah, supaya cetakan tidak basi saat bank soal berubah. Warna teal digelapkan ke #0b6b62 di kertas (5,6:1 di strip header). Antislop mode during (pilihan sesi).
+- Bukti `/print`: Playwright ke build produksi, PDF A4 11 halaman (tiap modul satu lembar dengan label babak, QR, lembar skor), tanpa error console, tanpa overflow di 375 px; manual Say the Word di `/play` tetap satu kolom.
 
 **Berikutnya:**
-- Halaman cetak manual (semua babak termasuk Final) + QR `/play` + lembar skor kertas: menunggu pilihan mode antislop.
+- Cetak dari `/print` di server produksi setelah dry run (bank soal final), satu set manual per tim. Cek hasil cetak printer sungguhan: warna kunci simbol dan teal.
 - Deploy ke VPS (DNS, firewall 80/443), `load-test.ts` dari jaringan venue, restart `app` di tengah giliran, dry run 4–5 orang, uji proyektor.
 - Pertanyaan terbuka: tanggal acara, Wi-Fi venue, GM/operator, subdomain/VPS.
 

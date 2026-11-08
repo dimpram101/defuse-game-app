@@ -87,26 +87,29 @@ function Words({ manual }: { manual: WordManual & { scrambled?: boolean } }) {
         Find the word on the screen. Press the button next to it. Ask the Defuser to spell it.
         {manual.tableIsNew && <NewTag />}
       </p>
-      {manual.groups.map((group, i) => (
-        <Page key={group.id} title={manual.scrambled ? "GROUP ?" : `GROUP ${i + 1}`}>
-          <table className="w-full text-left">
-            <thead>
-              <tr className="text-xs tracking-[0.08em] text-on-surface-muted">
-                <th className="pb-2 font-semibold">ON SCREEN</th>
-                <th className="pb-2 font-semibold">PRESS</th>
-              </tr>
-            </thead>
-            <tbody className="font-display text-xl">
-              {group.rows.map((row) => (
-                <tr key={row.display} className="border-t border-outline">
-                  <td className="py-2 pr-2">{row.display}</td>
-                  <td className="py-2 font-bold text-secondary">{row.press}</td>
+      {/* One column on phones; /print sets --manual-groups so a whole word manual fits one sheet. */}
+      <div className="grid gap-4 grid-cols-(--manual-groups,minmax(0,1fr))">
+        {manual.groups.map((group, i) => (
+          <Page key={group.id} title={manual.scrambled ? "GROUP ?" : `GROUP ${i + 1}`}>
+            <table className="w-full text-left">
+              <thead>
+                <tr className="text-xs tracking-[0.08em] text-on-surface-muted">
+                  <th className="pb-2 font-semibold">ON SCREEN</th>
+                  <th className="pb-2 font-semibold">PRESS</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </Page>
-      ))}
+              </thead>
+              <tbody className="font-display text-xl">
+                {group.rows.map((row) => (
+                  <tr key={row.display} className="border-t border-outline">
+                    <td className="py-2 pr-2">{row.display}</td>
+                    <td className="py-2 font-bold text-secondary">{row.press}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </Page>
+        ))}
+      </div>
     </>
   );
 }

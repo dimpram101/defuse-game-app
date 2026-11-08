@@ -37,9 +37,9 @@ Fase 1–6, atau minimal Fase 1–4 kalau waktu sempit (game sudah bisa dimainka
 
 ## Cadangan hari-H
 
-- [ ] Manual cetak 1 set per tim, dicetak dari `manual.json` versi terakhir (termasuk halaman Final)
-- [ ] QR tercetak ke `/play`
-- [ ] Lembar skor kertas kalau sistem tidak bisa dipakai sama sekali
+- [ ] Manual cetak 1 set per tim (termasuk halaman Final). Cetak dari `/print` (perlu PIN GM di browser itu): manualnya diambil dari API yang sama dengan HP, jadi selalu cocok dengan bank soal terbaru. 9 lembar A4, satu modul per lembar
+- [ ] QR tercetak ke `/play`: lembar "Join QR" di `/print`. Cetak dari server produksi supaya URL-nya domain asli
+- [ ] Lembar skor kertas kalau sistem tidak bisa dipakai sama sekali: lembar "Score sheet" di `/print` (nama tim terisi kalau sesi sudah dibuat)
 - [ ] Backup `pg_dump` sebelum acara: `scripts/event-db.sh backup` di VPS
 
 ## Setelah acara
